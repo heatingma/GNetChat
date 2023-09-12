@@ -1,0 +1,31 @@
+main[role="main-not-develop"] p {
+	display: flex;
+	float: center;
+	font-size:xx-large;
+	background-color: rgba(247,247,247,0.5);
+	color: #e9bcbc;
+	font-weight: normal;
+	justify-content: center;
+}
+main[role="main-not-develop"] p > a {
+	display: flex;
+	float: center;
+	background-color: rgba(247,247,247,0.5);
+	color: #dba2d4;
+	font-weight: normal;
+	justify-content: center;
+	text-decoration: none;
+}
+main[role="main-not-develop"] p > a:hover {
+	color: #db65c3;
+	font-weight: bolder;
+	font-size: larger;
+}
+main[role="main-not-develop"] span {
+	display: block;
+	font-size: 60px;
+	color: #fb5353;
+	font-weight: bolder;
+	padding-bottom: 25px;
+	text-align: center;
+}

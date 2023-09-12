@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <!-- register -->
+            <div class="register-box hidden">
+                <h1>register</h1>
+                <div class="input-box">
+                    <input name="username" type="text" placeholder="设置用户名">
+                    <span class="msg"></span>
+                </div>
+                <div class="input-box">
+                    <input name="email" type="text" placeholder="输入合法的邮箱">
+                    <span class="msg"></span>
+                </div>
+                <div class="input-box-code">
+                    <input name="email-code" type="text" placeholder="邮箱验证码">
+                    <a class="code" href="javascript:;">发送验证码</a>
+                    <span name="email-code-msg" class="msg"></span>
+                </div>
+                <div class="input-box">
+                    <input name="password" type="password" placeholder="输入密码">
+                    <span class="msg"></span>
+                </div>  
+                <div class="input-box">
+                    <input name="check-psd" type="password" placeholder="确认密码">
+                    <span class="msg"></span>
+                </div>
+                <button name="submit-register">REGISTER</button>
+            </div>
+            <!-- login -->
+            <div class="login-box">
+                <h1>login</h1>
+                <div class="input-box">
+                    <input name="login-username" type="text" placeholder="输入用户名">
+                    <span class="msg"></span>
+                </div>
+                <div class="input-box">
+                    <input name="login-password" type="password" placeholder="输入密码">
+                    <span class="msg"></span>
+                </div>  
+                <button name="submit-login" style="margin-top: 40px;">LOGIN</button>
+                <button name="return">RETURN</button>
+            </div>
+        </div>
+        <div class="con-box left">
+            <h2><span>Welcome</span></h2>
+            <p style="font-weight: bold;">to my website</p>
+            <img src="images/login-images/cat.jpg" alt="cat">
+            <p>Have Account</p>
+            <button id="login">Login</button>
+        </div>
+        <div class="con-box right">
+            <h2><span>Welcome</span></h2>
+            <p style="font-weight: bold;">to my website</p>
+            <img src="images/login-images/deer.jpg" alt="deer">
+            <p>No Account?</p>
+            <button id="register">REGISTER</button>
+        </div>
+    </div>
+</body>
+
+
+<script>
+// register & login box  
+    let login=document.getElementById('login');
+    let register=document.getElementById('register');
+    let form_box=document.getElementsByClassName('form-box')[0];
+    let register_box=document.getElementsByClassName('register-box')[0];
+    let login_box=document.getElementsByClassName('login-box')[0];
+    register.addEventListener('click',()=>{
+        form_box.style.transform='translateX(80%)';
+        login_box.classList.add('hidden');
+        register_box.classList.remove('hidden');
+    })
+    login.addEventListener('click',()=>{
+        form_box.style.transform='translateX(0%)';
+        register_box.classList.add('hidden');
+        login_box.classList.remove('hidden');
+    })
+</script>
+
+<script>
+ // send code
+    const send_code = document.querySelector('.code')
+    let send_flag = false
+    send_code.addEventListener('click', function() {
+        email_code_msg.innerHTML = '功能未完全开发, 请随机输入6位数字'
+        if (send_flag == false){
+            send_flag = true
+            let left_seconds = 60
+            send_code.innerHTML = `${left_seconds}秒后重新发送`
+            let timerId = setInterval(function() {
+                left_seconds --
+                send_code.innerHTML = `${left_seconds}秒后重新发送`
+                if (left_seconds === 0){
+                    send_flag = false
+                    clearInterval(timerId)
+                    send_code.innerHTML = "重新获取"
+                }
+            }, 1000)
+        }
+    })
+</script>
+
+<script>
+    // LOGIN-Name
+    const login_username = document.querySelector('[name=login-username]')
+    login_username.addEventListener('change', CheckLoginName)
+    function CheckLoginName(){
+        const msg = login_username.nextElementSibling
+        if (login_username.value != "guest"){
+            msg.innerHTML = '由于功能暂未开发,请输入guest进行访问'
+            return false
+        }
+        msg.innerHTML = ''
+        return true
+    }
+</script>
+
+<script>
+    // LOGIN-PSD
+    const login_psd = document.querySelector('[name=login-password]')
+    login_psd.addEventListener('change', CheckLoginPsd)
+    function CheckLoginPsd(){
+        const msg = login_psd.nextElementSibling
+        if (login_psd.value != "guest"){
+            msg.innerHTML = '由于功能暂未开发,请输入guest进行访问'
+            return false
+        }
+        msg.innerHTML = ''
+        return true
+    }
+</script>
+
+<script>
+ // verifyName
+    const username = document.querySelector('[name=username]')
+    username.addEventListener('change', verifyName)
+    function verifyName(){
+        const reg = /^[a-zA-Z0-9-_]{6,10}$/
+        const msg = username.nextElementSibling
+        if (!reg.test(username.value)){
+            msg.innerHTML = '输入不合法, 请输入6~10位'
+            return false
+        }
+        msg.innerHTML = ''
+        return true
+    }
+</script>
+
+<script>
+// verifyMail
+    const email = document.querySelector('[name=email]')
+    email.addEventListener('change', verifyMail)
+    function verifyMail(){
+        const reg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+        const msg = email.nextElementSibling
+        if (!reg.test(email.value)){
+            msg.innerHTML = '邮箱不合法, 请输入正确的邮箱'
+            return false
+        }
+        msg.innerHTML = ''
+        return true
+    }
+</script>
+
+<script>
+// verifyCode
+    const code = document.querySelector('[name=email-code]')
+    const email_code_msg = document.querySelector('[name=email-code-msg]')
+    code.addEventListener('change', verifyCode)
+    function verifyCode(){
+        const reg = /^\d{6}$/
+        if (!reg.test(code.value)){
+            email_code_msg.innerHTML = '功能未完全开发, 请随机输入6位数字'
+            return false
+        }
+        email_code_msg.innerHTML = ''
+        return true
+    }
+</script>
+
+<script>
+// verifyPassword
+    const psd = document.querySelector('[name=password]')
+    psd.addEventListener('change', verifyPassword)
+    function verifyPassword(){
+        const reg = /^[a-zA-Z0-9-_]{6,20}$/
+        const msg = psd.nextElementSibling
+        if (!reg.test(psd.value)){
+            msg.innerHTML = '输入不合法, 请输入6~20位'
+            return false
+        }
+        msg.innerHTML = ''
+        return true
+    }
+</script>
+
+<script>
+// CheckPassword
+    const check_psd = document.querySelector('[name=check-psd]')
+    check_psd.addEventListener('change', CheckPassword)
+    function CheckPassword(){
+        const msg = check_psd.nextElementSibling
+        if (psd.value === check_psd.value){
+            msg.innerHTML = ''
+            return true
+        }
+        msg.innerHTML = '两次密码输入不一致'
+        return false
+    }
+</script>
+
+<script>
+    // Submit Register
+    const submit_register = document.querySelector('[name=submit-register]')
+    let register_flag = true
+    submit_register.addEventListener('click', function(e){
+        register_flag = true
+        if (!verifyName()) register_flag = false
+        if (!verifyMail()) register_flag = false
+        if (!verifyCode()) register_flag = false
+        if (!verifyPassword()) register_flag = false
+        if (!CheckPassword()) register_flag = false
+        if (register_flag == false)
+            e.preventDefault()
+        else
+            window.location.href = 'chat.html';
+    })
+</script>
+
+<script>
+    // Submit Register
+    const submit_login = document.querySelector('[name=submit-login]')
+    let login_flag = true
+    submit_login.addEventListener('click', function(e){
+        login_flag = true
+        if (!CheckLoginName()) login_flag = false
+        if (!CheckLoginPsd()) login_flag = false
+        if (login_flag == false)
+            e.preventDefault()
+        else 
+            window.location.href = 'chat.html';
+    })
+</script>
+
+<script>
+    // Return Home 
+    const return_home = document.querySelector('[name=return]')
+    return_home.addEventListener('click', function(){
+         window.location.href = 'index.html';
+    })
+</script>
+
+</html>

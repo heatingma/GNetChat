@@ -1,0 +1,52 @@
+main[role="main-inner-wrapper"] figure[role="guide-content"] h1 > a{
+	display: block;
+	float: left
+}
+main[role="main-inner-wrapper"] article[role="guide-content"] header {
+	padding-top: 0px;
+	padding-bottom: 10px
+}
+main[role="main-inner-wrapper"] article[role="guide-content"] header h2 {
+	font-size: 30px;
+	line-height: 53px;
+	color: #404040;
+	font-weight: 800;
+	text-align: center
+}
+main[role="main-inner-wrapper"] article[role="guide-content"] header h2 span {
+	display: block;
+	font-size: 60px;
+	color: #fb5353;
+	padding-bottom: 25px;
+	text-align: center
+}
+main[role="main-inner-wrapper"] figure{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(247,247,247,0.5);
+}
+main[role="main-inner-wrapper"] figure[role="guide-content"] h1 > a{
+	background-color: rgba(247,247,247,0.5);
+	display: block;
+	float: left;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+main[role="main-inner-wrapper"] figure[role="guide-content"] h1 > p{
+	background-color: rgba(247,247,247,0.5);
+	font-size: small;
+	color: #404040;
+	text-align: center;
+}
+main[role="main-inner-wrapper"] figure[role="guide-content"] h1 > a .guide-img{
+	width: 70px; 
+	height: 70px; 
+	margin-left: 10px; 
+	margin-right: 10px;
+	padding: 5px;
+	border: 2px solid rgb(221, 233, 237);
+	background-color: rgb(240, 245, 248);
+	border-radius: 30%;
+}
