@@ -1,0 +1,58 @@
+.slideshow-container {
+	position: relative;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+  
+.slides {
+	display: flex;
+	transition: transform 1.5s ease-in-out;
+}
+
+.slides img {
+	max-width: 80%;
+	max-height: auto;
+	margin-right: 10%;
+	margin-left: 10%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	border-radius: 25px
+}
+
+.dots-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: rgb(168, 168, 168);
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.dot.active {
+	background-color: black;
+}
+
+.about_article span{
+	display: block;
+	font-size: 60px;
+	color: #5385fb;
+	padding-bottom: 15px
+}
+
+.about_article p{
+	font-family: "xinwei", sans-serif;
+	font-size: 25px;
+	font-weight: bolder
+}
+.about_article h1{
+	font-family: "xinwei", sans-serif;
+	font-size: 30px;
+	font-weight: bolder
+}

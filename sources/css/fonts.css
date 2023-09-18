@@ -1,0 +1,33 @@
+@font-face {
+    font-family: "simkai";
+    src: url('../fonts/simkai.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "xingkai";
+    src: url('../fonts/huawenxingkai.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "xinwei";
+    src: url('../fonts/huawenxinwei.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "CascadiaCode";
+    src: url('../fonts/CascadiaCode.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "segoeprb";
+    src: url('../fonts/segoeprb.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "comicbd";
+    src: url('../fonts/comicbd.ttf') format('truetype');
+}
+
+
+
+
