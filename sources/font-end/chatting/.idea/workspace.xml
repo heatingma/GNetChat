@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cdce8d64-8f98-41f0-8d36-c7214cec93d7" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/../about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/about.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/basic.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/chat.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/effects/component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/effects/normalize.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/effects/set2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/fonts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/footer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/guide.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fonts/CascadiaCode.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fonts/comicbd.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fonts/huawenxingkai.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fonts/huawenxinwei.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fonts/segoeprb.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fonts/simkai.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../github.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../guide.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/HM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/JJ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/JY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/Jason.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/Jay.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/chunt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/git.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/heatingma.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/high.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/honor-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/honor-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/honor-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/maomao.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/me.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/middle.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/middle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/primary.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/puke.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/running.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/song.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/university.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/about-images/zhuoqiu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/blog-images/blog-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/blog-images/blog-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/blog-images/blog-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/blog-images/blog-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/blog-images/blog-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/blog-images/blog-details-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/blog-images/image-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/blog-images/image-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/blog-images/image-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/github-images/MathorCup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/github-images/PERSON.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/github-images/cumcm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/github-images/mnist.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/github-images/okftools.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/github-images/process_schedule.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/github-images/pygmtools.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/github-images/sms.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/github-images/wordle_game.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/SPSS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/ali-cloud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/baidu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/baota.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/bilibili.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/blank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/cnmooc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/csdn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/edge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/gmail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/google-drive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/google.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/j-mail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/jbox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/pypi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/sage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/sjtu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/t-cloud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/tecent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/translate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/guide-images/youtube.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/heatingma-font.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/ChuntSung-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/ChuntSung.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/chat-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/chat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/chuntsung.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/github-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/github.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/github.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/guide-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/guide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/guide.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/heatingma-font.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/heatingma.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/home-images/pygmtools.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/login-images/cat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/login-images/deer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/custom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/effects/AnimOnScroll.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/effects/classie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/effects/imagesloaded.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/effects/masonry.pkgd.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/effects/modernizr.custom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/html5shiv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/jquery.contact.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/maps.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/nav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/slide_img.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2VhESD3diOlIkQgxFNpHnX1IlTx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="cdce8d64-8f98-41f0-8d36-c7214cec93d7" name="更改" comment="" />
+      <created>1695279913775</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695279913775</updated>
+      <workItem from="1695279915993" duration="19000" />
+    </task>
+    <servers />
+  </component>
+</project>
