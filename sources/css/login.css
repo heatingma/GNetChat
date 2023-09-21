@@ -10,6 +10,7 @@ body{
     background: linear-gradient(200deg,#f3e7e9,#e3eeff);
     font-family: "Microsoft YaHei", sans-serif;
     font-weight: bold;
+    font-family: "comicbd";
 }
 .container{
     background-color: #fff;
@@ -50,7 +51,7 @@ body{
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 5px;
-    font-family: "STKaiti", sans-serif;
+    font-family: "xinwei", sans-serif;
     font-size: medium;
     font-weight: bold;
 }
@@ -65,7 +66,7 @@ body{
     display: flex;
     float: left;
     border-bottom: none;
-    font-family: "STKaiti", sans-serif;
+    font-family: "xinwei", sans-serif;
     font-size: medium;
     font-weight: bold;
 }
