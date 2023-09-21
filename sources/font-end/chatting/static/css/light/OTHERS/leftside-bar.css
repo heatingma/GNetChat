@@ -1,0 +1,73 @@
+.chat-leftsidebar {
+    height: 100vh;
+    background-color: #f5f7fb;
+}
+
+
+@media (min-width: 992px) {
+    .chat-leftsidebar {
+        min-width: 380px;
+        max-width: 380px;
+    }
+}
+
+
+.chat-leftsidebar .user-status-box {
+    background-color: #e6ebf5;
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 16px;
+    display: block;
+}
+
+
+.chat-leftsidebar .user-status-box .chat-user-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+
+.user-profile-sidebar{
+    height:100vh;
+    background-color:#fff;
+    display:none;
+    min-width:380px;
+    max-width:380px}
+    
+
+@media (min-width:992px){
+    .user-profile-sidebar{
+        border-left:4px solid #f0eff5
+    }
+}
+
+
+@media (max-width:1199.98px){
+    .user-profile-sidebar{
+        position:fixed;
+        right:0;
+        top:0;
+        z-index:99;
+    }
+}
+        
+        
+@media (max-width:575.98px){
+    .user-profile-sidebar{
+        min-width:100%
+    }
+}
+
+
+.chat-search-box .form-control{
+    border:0
+}
+
+.chat-search-box .search-icon-btn{
+    font-size:16px;
+    position:absolute;
+    right:13px;top:0
+}

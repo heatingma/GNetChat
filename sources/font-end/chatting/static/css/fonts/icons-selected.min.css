@@ -1,0 +1,388 @@
+@font-face {
+    font-family: "Material Design Icons";
+    src: url(fonts/materialdesignicons-webfont-5.0..eot);
+    src: url(fonts/materialdesignicons-webfont-5.0..eot#iefix&v=5.0.45) 
+         format("embedded-opentype"),
+         url(fonts/materialdesignicons-webfont-5.0..woff2) format("woff2"),
+         url(fonts/materialdesignicons-webfont-5.0..woff) format("woff"),
+         url(fonts/materialdesignicons-webfont-5.0..ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:remixicon;
+    src:url(fonts/remixicon-1580819880586.eot);
+    src:url(fonts/remixicon-1580819880586.eot#iefix) 
+        format("embedded-opentype"),
+        url(fonts/remixicon-1580819880586.woff2) format("woff2"),
+        url(fonts/remixicon-1580819880586.woff) format("woff"),
+        url(fonts/remixicon-1580819880586.ttf) format("truetype"),
+        url(https://themesbrand.com/chatvia/layouts/assets/fonts/remixicon.svg?t=1580819880586#remixicon) format("svg");
+        font-display:swap
+}
+
+[class*=" ri-"],[class^=ri-]{
+    font-family:remixicon!important;font-style:normal;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale
+}
+
+.ri-lg{
+    font-size:1.3333em;
+    line-height:.75em;
+    vertical-align:-.0667em}
+    .ri-xl{font-size:1.5em;
+    line-height:.6666em;
+    vertical-align:-.075em
+}
+
+.ri-xxs{font-size:.5em}
+.ri-xs{font-size:.75em}
+.ri-sm{font-size:.875em}
+.ri-1x{font-size:1em}
+.ri-2x{font-size:2em}
+.ri-3x{font-size:3em}
+.ri-4x{font-size:4em}
+.ri-5x{font-size:5em}
+.ri-6x{font-size:6em}
+.ri-7x{font-size:7em}
+.ri-8x{font-size:8em}
+.ri-9x{font-size:9em}
+.ri-10x{font-size:10em}
+.ri-fw{text-align:center;width:1.25em}
+
+
+
+
+/* user */
+.ri-user-2-fill:before{content:"\f18b"}
+.ri-user-2-line:before{content:"\f18c"}
+.ri-user-3-fill:before{content:"\f18d"}
+.ri-user-3-line:before{content:"\f18e"}
+.ri-user-4-fill:before{content:"\f18f"}
+.ri-user-4-line:before{content:"\f190"}
+.ri-user-5-fill:before{content:"\f191"}
+.ri-user-5-line:before{content:"\f192"}
+.ri-user-6-fill:before{content:"\f193"}
+.ri-user-6-line:before{content:"\f194"}
+.ri-user-add-fill:before{content:"\f195"}
+.ri-user-add-line:before{content:"\f196"}
+.ri-user-fill:before{content:"\f197"}
+.ri-user-follow-fill:before{content:"\f198"}
+.ri-user-follow-line:before{content:"\f199"}
+.ri-user-heart-fill:before{content:"\f19a"}
+.ri-user-heart-line:before{content:"\f19b"}
+.ri-user-line:before{content:"\f19c"}
+.ri-user-location-fill:before{content:"\f19d"}
+.ri-user-location-line:before{content:"\f19e"}
+.ri-user-received-2-fill:before{content:"\f19f"}
+.ri-user-received-2-line:before{content:"\f1a0"}
+.ri-user-received-fill:before{content:"\f1a1"}
+.ri-user-received-line:before{content:"\f1a2"}
+.ri-user-search-fill:before{content:"\f1a3"}
+.ri-user-search-line:before{content:"\f1a4"}
+.ri-user-settings-fill:before{content:"\f1a5"}
+.ri-user-settings-line:before{content:"\f1a6"}
+.ri-user-shared-2-fill:before{content:"\f1a7"}
+.ri-user-shared-2-line:before{content:"\f1a8"}
+.ri-user-shared-fill:before{content:"\f1a9"}
+.ri-user-shared-line:before{content:"\f1aa"}
+.ri-user-smile-fill:before{content:"\f1ab"}
+.ri-user-smile-line:before{content:"\f1ac"}
+.ri-user-star-fill:before{content:"\f1ad"}
+.ri-user-star-line:before{content:"\f1ae"}
+.ri-user-unfollow-fill:before{content:"\f1af"}
+.ri-user-unfollow-line:before{content:"\f1b0"}
+.ri-user-voice-fill:before{content:"\f1b1"}
+.ri-user-voice-line:before{content:"\f1b2"}
+
+
+/* group */
+.ri-group-2-fill:before{content:"\ed9b"}
+.ri-group-2-line:before{content:"\ed9c"}
+.ri-group-fill:before{content:"\ed9d"}
+.ri-group-line:before{content:"\ed9e"}
+
+
+/* contacts */
+.ri-contacts-book-2-fill:before{content:"\ebaf"}
+.ri-contacts-book-2-line:before{content:"\ebb0"}
+.ri-contacts-book-fill:before{content:"\ebb1"}
+.ri-contacts-book-line:before{content:"\ebb2"}
+.ri-contacts-book-upload-fill:before{content:"\ebb3"}
+.ri-contacts-book-upload-line:before{content:"\ebb4"}
+.ri-contacts-fill:before{content:"\ebb5"}
+.ri-contacts-line:before{content:"\ebb6"}
+
+
+/* message */
+.ri-message-2-fill:before{content:"\eece"}
+.ri-message-2-line:before{content:"\eecf"}
+.ri-message-3-fill:before{content:"\eed0"}
+.ri-message-3-line:before{content:"\eed1"}
+.ri-message-fill:before{content:"\eed2"}
+.ri-message-line:before{content:"\eed3"}
+
+
+/* settings */
+.ri-settings-2-fill:before{content:"\f045"}
+.ri-settings-2-line:before{content:"\f046"}
+.ri-settings-3-fill:before{content:"\f047"}
+.ri-settings-3-line:before{content:"\f048"}
+.ri-settings-4-fill:before{content:"\f049"}
+.ri-settings-4-line:before{content:"\f04a"}
+.ri-settings-5-fill:before{content:"\f04b"}
+.ri-settings-5-line:before{content:"\f04c"}
+.ri-settings-6-fill:before{content:"\f04d"}
+.ri-settings-6-line:before{content:"\f04e"}
+.ri-settings-fill:before{content:"\f04f"}
+.ri-settings-line:before{content:"\f050"}
+
+
+/* sun */
+.ri-sun-line:before{content:"\f105"}
+
+
+/* record-circle */
+.ri-record-circle-fill:before{content:"\efcc"}
+.ri-record-circle-line:before{content:"\efcd"}
+
+
+/* search */
+.ri-search-2-fill:before{content:"\f032"}
+.ri-search-2-line:before{content:"\f033"}
+.ri-search-eye-fill:before{content:"\f034"}
+.ri-search-eye-line:before{content:"\f035"}
+.ri-search-fill:before{content:"\f036"}
+.ri-search-line:before{content:"\f037"}
+
+
+/* more */
+.ri-more-2-fill:before{content:"\eefc"}
+.ri-more-2-line:before{content:"\eefd"}
+.ri-more-fill:before{content:"\eefe"}
+.ri-more-line:before{content:"\eeff"}
+
+/* arrow */
+.ri-arrow-down-circle-fill:before{content:"\ea47"}
+.ri-arrow-down-circle-line:before{content:"\ea48"}
+.ri-arrow-down-fill:before{content:"\ea49"}
+.ri-arrow-down-line:before{content:"\ea4a"}
+.ri-arrow-down-s-fill:before{content:"\ea4b"}
+.ri-arrow-down-s-line:before{content:"\ea4c"}
+.ri-arrow-drop-down-fill:before{content:"\ea4d"}
+.ri-arrow-drop-down-line:before{content:"\ea4e"}
+.ri-arrow-drop-left-fill:before{content:"\ea4f"}
+.ri-arrow-drop-left-line:before{content:"\ea50"}
+.ri-arrow-drop-right-fill:before{content:"\ea51"}
+.ri-arrow-drop-right-line:before{content:"\ea52"}
+.ri-arrow-drop-up-fill:before{content:"\ea53"}
+.ri-arrow-drop-up-line:before{content:"\ea54"}
+.ri-arrow-go-back-fill:before{content:"\ea55"}
+.ri-arrow-go-back-line:before{content:"\ea56"}
+.ri-arrow-go-forward-fill:before{content:"\ea57"}
+.ri-arrow-go-forward-line:before{content:"\ea58"}
+.ri-arrow-left-circle-fill:before{content:"\ea59"}
+.ri-arrow-left-circle-line:before{content:"\ea5a"}
+.ri-arrow-left-down-fill:before{content:"\ea5b"}
+.ri-arrow-left-down-line:before{content:"\ea5c"}
+.ri-arrow-left-fill:before{content:"\ea5d"}
+.ri-arrow-left-line:before{content:"\ea5e"}
+.ri-arrow-left-right-fill:before{content:"\ea5f"}
+.ri-arrow-left-right-line:before{content:"\ea60"}
+.ri-arrow-left-s-fill:before{content:"\ea61"}
+.ri-arrow-left-s-line:before{content:"\ea62"}
+.ri-arrow-left-up-fill:before{content:"\ea63"}
+.ri-arrow-left-up-line:before{content:"\ea64"}
+.ri-arrow-right-circle-fill:before{content:"\ea65"}
+.ri-arrow-right-circle-line:before{content:"\ea66"}
+.ri-arrow-right-down-fill:before{content:"\ea67"}
+.ri-arrow-right-down-line:before{content:"\ea68"}
+.ri-arrow-right-fill:before{content:"\ea69"}
+.ri-arrow-right-line:before{content:"\ea6a"}
+.ri-arrow-right-s-fill:before{content:"\ea6b"}
+.ri-arrow-right-s-line:before{content:"\ea6c"}
+.ri-arrow-right-up-fill:before{content:"\ea6d"}
+.ri-arrow-right-up-line:before{content:"\ea6e"}
+.ri-arrow-up-circle-fill:before{content:"\ea6f"}
+.ri-arrow-up-circle-line:before{content:"\ea70"}
+.ri-arrow-up-down-fill:before{content:"\ea71"}
+.ri-arrow-up-down-line:before{content:"\ea72"}
+.ri-arrow-up-fill:before{content:"\ea73"}
+.ri-arrow-up-line:before{content:"\ea74"}
+.ri-arrow-up-s-fill:before{content:"\ea75"}
+.ri-arrow-up-s-line:before{content:"\ea76"}
+
+
+/* emotion */
+.ri-emotion-2-fill:before{content:"\ec55"}
+.ri-emotion-2-line:before{content:"\ec56"}
+.ri-emotion-fill:before{content:"\ec57"}
+.ri-emotion-happy-fill:before{content:"\ec58"}
+.ri-emotion-happy-line:before{content:"\ec59"}
+.ri-emotion-laugh-fill:before{content:"\ec5a"}
+.ri-emotion-laugh-line:before{content:"\ec5b"}
+.ri-emotion-line:before{content:"\ec5c"}
+.ri-emotion-normal-fill:before{content:"\ec5d"}
+.ri-emotion-normal-line:before{content:"\ec5e"}
+.ri-emotion-sad-fill:before{content:"\ec5f"}
+.ri-emotion-sad-line:before{content:"\ec60"}
+.ri-emotion-unhappy-fill:before{content:"\ec61"}
+.ri-emotion-unhappy-line:before{content:"\ec62"}
+
+
+/* attachment */
+.ri-attachment-2:before{content:"\ea82"}
+.ri-attachment-fill:before{content:"\ea83"}
+.ri-attachment-line:before{content:"\ea84"}
+
+
+/* send */
+.ri-send-plane-2-fill:before{content:"\f03a"}
+.ri-send-plane-2-line:before{content:"\f03b"}
+.ri-send-plane-fill:before{content:"\f03c"}
+.ri-send-plane-line:before{content:"\f03d"}
+
+
+/* close */
+.ri-close-circle-fill:before{content:"\eb7e"}
+.ri-close-circle-line:before{content:"\eb7f"}
+.ri-close-fill:before{content:"\eb80"}
+.ri-close-line:before{content:"\eb81"}
+
+
+/* file */
+.ri-file-2-fill:before{content:"\ec8c"}
+.ri-file-2-line:before{content:"\ec8d"}
+.ri-file-3-fill:before{content:"\ec8e"}
+.ri-file-3-line:before{content:"\ec8f"}
+.ri-file-4-fill:before{content:"\ec90"}
+.ri-file-4-line:before{content:"\ec91"}
+.ri-file-add-fill:before{content:"\ec92"}
+.ri-file-add-line:before{content:"\ec93"}
+.ri-file-chart-2-fill:before{content:"\ec94"}
+.ri-file-chart-2-line:before{content:"\ec95"}
+.ri-file-chart-fill:before{content:"\ec96"}
+.ri-file-chart-line:before{content:"\ec97"}
+.ri-file-cloud-fill:before{content:"\ec98"}
+.ri-file-cloud-line:before{content:"\ec99"}
+.ri-file-code-fill:before{content:"\ec9a"}
+.ri-file-code-line:before{content:"\ec9b"}
+.ri-file-copy-2-fill:before{content:"\ec9c"}
+.ri-file-copy-2-line:before{content:"\ec9d"}
+.ri-file-copy-fill:before{content:"\ec9e"}
+.ri-file-copy-line:before{content:"\ec9f"}
+.ri-file-damage-fill:before{content:"\eca0"}
+.ri-file-damage-line:before{content:"\eca1"}
+.ri-file-download-fill:before{content:"\eca2"}
+.ri-file-download-line:before{content:"\eca3"}
+.ri-file-edit-fill:before{content:"\eca4"}
+.ri-file-edit-line:before{content:"\eca5"}
+.ri-file-excel-2-fill:before{content:"\eca6"}
+.ri-file-excel-2-line:before{content:"\eca7"}
+.ri-file-excel-fill:before{content:"\eca8"}
+.ri-file-excel-line:before{content:"\eca9"}
+.ri-file-fill:before{content:"\ecaa"}
+.ri-file-forbid-fill:before{content:"\ecab"}
+.ri-file-forbid-line:before{content:"\ecac"}
+.ri-file-hwp-fill:before{content:"\ecad"}
+.ri-file-hwp-line:before{content:"\ecae"}
+.ri-file-info-fill:before{content:"\ecaf"}
+.ri-file-info-line:before{content:"\ecb0"}
+.ri-file-line:before{content:"\ecb1"}
+.ri-file-list-2-fill:before{content:"\ecb2"}
+.ri-file-list-2-line:before{content:"\ecb3"}
+.ri-file-list-3-fill:before{content:"\ecb4"}
+.ri-file-list-3-line:before{content:"\ecb5"}
+.ri-file-list-fill:before{content:"\ecb6"}
+.ri-file-list-line:before{content:"\ecb7"}
+.ri-file-lock-fill:before{content:"\ecb8"}
+.ri-file-lock-line:before{content:"\ecb9"}
+.ri-file-mark-fill:before{content:"\ecba"}
+.ri-file-mark-line:before{content:"\ecbb"}
+.ri-file-music-fill:before{content:"\ecbc"}
+.ri-file-music-line:before{content:"\ecbd"}
+.ri-file-paper-2-fill:before{content:"\ecbe"}
+.ri-file-paper-2-line:before{content:"\ecbf"}
+.ri-file-paper-fill:before{content:"\ecc0"}
+.ri-file-paper-line:before{content:"\ecc1"}
+.ri-file-pdf-fill:before{content:"\ecc2"}
+.ri-file-pdf-line:before{content:"\ecc3"}
+.ri-file-ppt-2-fill:before{content:"\ecc4"}
+.ri-file-ppt-2-line:before{content:"\ecc5"}
+.ri-file-ppt-fill:before{content:"\ecc6"}
+.ri-file-ppt-line:before{content:"\ecc7"}
+.ri-file-reduce-fill:before{content:"\ecc8"}
+.ri-file-reduce-line:before{content:"\ecc9"}
+.ri-file-search-fill:before{content:"\ecca"}
+.ri-file-search-line:before{content:"\eccb"}
+.ri-file-settings-fill:before{content:"\eccc"}
+.ri-file-settings-line:before{content:"\eccd"}
+.ri-file-shield-2-fill:before{content:"\ecce"}
+.ri-file-shield-2-line:before{content:"\eccf"}
+.ri-file-shield-fill:before{content:"\ecd0"}
+.ri-file-shield-line:before{content:"\ecd1"}
+.ri-file-shred-fill:before{content:"\ecd2"}
+.ri-file-shred-line:before{content:"\ecd3"}
+.ri-file-text-fill:before{content:"\ecd4"}
+.ri-file-text-line:before{content:"\ecd5"}
+.ri-file-transfer-fill:before{content:"\ecd6"}
+.ri-file-transfer-line:before{content:"\ecd7"}
+.ri-file-unknow-fill:before{content:"\ecd8"}
+.ri-file-unknow-line:before{content:"\ecd9"}
+.ri-file-upload-fill:before{content:"\ecda"}
+.ri-file-upload-line:before{content:"\ecdb"}
+.ri-file-user-fill:before{content:"\ecdc"}
+.ri-file-user-line:before{content:"\ecdd"}
+.ri-file-warning-fill:before{content:"\ecde"}
+.ri-file-warning-line:before{content:"\ecdf"}
+.ri-file-word-2-fill:before{content:"\ece0"}
+.ri-file-word-2-line:before{content:"\ece1"}
+.ri-file-word-fill:before{content:"\ece2"}
+.ri-file-word-line:before{content:"\ece3"}
+.ri-file-zip-fill:before{content:"\ece4"}
+.ri-file-zip-line:before{content:"\ece5"}
+
+
+/* image */
+.ri-image-2-fill:before{content:"\eded"}
+.ri-image-2-line:before{content:"\edee"}
+.ri-image-add-fill:before{content:"\edef"}
+.ri-image-add-line:before{content:"\edf0"}
+.ri-image-fill:before{content:"\edf1"}
+.ri-image-line:before{content:"\edf2"}
+
+
+/* delete */
+.ri-delete-back-2-line:before{content:"\ebf8"}
+.ri-delete-back-fill:before{content:"\ebf9"}
+.ri-delete-back-line:before{content:"\ebfa"}
+.ri-delete-bin-2-fill:before{content:"\ebfb"}
+.ri-delete-bin-2-line:before{content:"\ebfc"}
+.ri-delete-bin-3-fill:before{content:"\ebfd"}
+.ri-delete-bin-3-line:before{content:"\ebfe"}
+.ri-delete-bin-4-fill:before{content:"\ebff"}
+.ri-delete-bin-4-line:before{content:"\ec00"}
+.ri-delete-bin-5-fill:before{content:"\ec01"}
+.ri-delete-bin-5-line:before{content:"\ec02"}
+.ri-delete-bin-6-fill:before{content:"\ec03"}
+.ri-delete-bin-6-line:before{content:"\ec04"}
+.ri-delete-bin-7-fill:before{content:"\ec05"}
+.ri-delete-bin-7-line:before{content:"\ec06"}
+.ri-delete-bin-fill:before{content:"\ec07"}
+.ri-delete-bin-line:before{content:"\ec08"}
+
+
+/* save */
+.ri-save-2-fill:before{content:"\f01a"}
+.ri-save-2-line:before{content:"\f01b"}
+.ri-save-3-fill:before{content:"\f01c"}
+.ri-save-3-line:before{content:"\f01d"}
+.ri-save-fill:before{content:"\f01e"}
+.ri-save-line:before{content:"\f01f"}
+
+
+/* forward */
+.ri-chat-forward-fill:before{content:"\eb4c"}
+.ri-chat-forward-line:before{content:"\eb4d"}

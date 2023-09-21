@@ -24,25 +24,25 @@
     }
 }
 
-.side-menu .navbar-brand-box {
+.side-menu .sidebar_logo {
     text-align: center;
 }
 
 @media (max-width: 991.98px) {
-    .side-menu .navbar-brand-box {
+    .side-menu .sidebar_logo {
         display: none;
     }
 }
 
-.side-menu .navbar-brand-box .logo {
+.side-menu .sidebar_logo .logo {
     line-height: 70px;
 }
 
-.side-menu .navbar-brand-box .logo-dark {
+.side-menu .sidebar_logo .logo-dark {
     display: none;
 }
 
-.side-menu .navbar-brand-box .logo-light {
+.side-menu .sidebar_logo .logo-light {
     display: block;
 }
 
