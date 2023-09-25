@@ -7,7 +7,7 @@ image = Image.new('RGBA', (image_width, image_height), background_color)
 
 font_size = 60
 font_color = (160, 140, 222) 
-font_path = 'gen_a-z/ARLRDBD.TTF'  
+font_path = 'media/chat/static_default/gen_a-z/ARLRDBD.TTF'  
 font = ImageFont.truetype(font_path, font_size)
 
 draw = ImageDraw.Draw(image)
