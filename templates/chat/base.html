@@ -1,0 +1,107 @@
+{% load static %}
+
+
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Chatting Room</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Chatting Room" name="description">
+        <meta content="Themesbrand" name="author">
+        
+        <!-- dark -->
+        
+        <link href="{% static "css/chat/dark/app-dark.min.css" %}" rel="stylesheet" type="text/css">
+        <link href="{% static "css/chat/dark/bootstrap-dark.min.css" %}" id="bootstrap-style" rel="stylesheet" type="text/css">
+        <!-- light -->
+        <link href="{% static "css/chat/light/app.min.css" %}" rel="stylesheet" type="text/css">
+        <link href="{% static "css/chat/light/bootstrap.min.css" %}" id="bootstrap-style" rel="stylesheet" type="text/css">
+        <!-- fonts -->
+        <link href="{% static "css/fonts/icons-selected.min.css" %}" rel="stylesheet" type="text/css">
+        <link href="{% static "css/fonts/icons.min.css" %}" rel="stylesheet" type="text/css">
+        <!-- others -->
+        <link href="{% static "css/chat/utils/magnific-popup.css" %}" rel="stylesheet" type="text/css">
+        <link href="{% static "css/chat/utils/owl.carousel.min.css" %}" rel="stylesheet">
+        <link href="{% static "css/chat/utils/owl.theme.default.min.css" %}" rel="stylesheet" >
+    </head>
+
+    <body>
+        <div class="everything-container d-lg-flex">
+
+            <!-- SIDE MENU -->
+            {% block side_menu %}
+                {% comment %} side menu section {% endcomment %}
+            {% endblock %}
+            <!-- SIDE MENU -->
+
+            <!-- CHAT LEFTSIDE BAR -->
+            <div class="chat-leftsidebar mr-lg-1">
+                <div class="tab-content">
+
+                    <!-- USER -->
+                    {% block leftsidebar_user %}
+                        {% comment %} leftsidebar user section {% endcomment %}
+                    {% endblock %}
+                    <!-- USER -->
+
+                    <!-- CHAT -->
+                    {% block leftsidebar_chat %}
+                        {% comment %} leftsidebar chat section {% endcomment %}
+                    {% endblock %}
+                    <!-- CHAT -->
+                    
+                    <!-- GROUPS-->
+                    {% block leftsidebar_groups %}
+                        {% comment %} leftsidebar groups section {% endcomment %}
+                    {% endblock %}
+                    <!-- GROUPS-->
+
+                    <!-- CONTACTS -->
+                    {% block leftsidebar_contacts %}
+                        {% comment %} leftsidebar groups contacts {% endcomment %}
+                    {% endblock %}
+                    <!-- CONTACTS -->
+                    
+                    <!-- SETTINGS -->
+                    {% block leftsidebar_settings %}
+                        {% comment %} leftsidebar settings section {% endcomment %}
+                    {% endblock %}
+                    <!-- SETTINGS -->
+
+                </div>
+            </div>
+            <!-- CHAT LEFTSIDE BAR -->
+
+            <!-- CHAT -->
+            <div class="user-chat w-100 d-lg-flex">
+
+                <!-- CONVERSATION SECTION -->
+                {% block chat_conversation %}
+                    {% comment %} chat conversation section {% endcomment %}
+                {% endblock %}
+                <!-- CONVERSATION SECTION -->
+
+                <!-- FRIEND INFO -->
+                {% block chat_friend_info %}
+                    {% comment %} chat friend_info section {% endcomment %}
+                {% endblock %}
+                <!-- FRIEND INFO -->
+
+            </div>
+            <!-- CHAT -->
+
+        </div>
+    </body>
+    
+    <script src={% static "js/chat/jquery.min.js" %}></script>
+    <script src={% static "js/chat/bootstrap.bundle.min.js" %}></script>
+    <script src={% static "js/chat/simplebar.min.js" %}></script>
+    <script src={% static "js/chat/waves.min.js" %}></script>
+    <script src={% static "js/chat/jquery.magnific-popup.min.js" %}></script>
+    <script src={% static "js/chat/owl.carousel.min.js" %}></script>
+    <script src={% static "js/chat/index.init.js" %}></script>
+    <script src={% static "js/chat/light-dark.js" %}></script>
+
+</html>

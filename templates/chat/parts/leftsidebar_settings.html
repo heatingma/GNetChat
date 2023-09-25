@@ -1,0 +1,327 @@
+<div class="tab-pane" id="pills-setting" role="tabpanel" aria-labelledby="pills-setting-tab">
+
+    <!-- SETTINGS TITLE -->
+    <div class="px-4 pt-4">
+        <h4 class="mb-0">Settings</h4>
+    </div>
+    <!-- SETTINGS TITLE -->
+
+    <!-- SETTINGS AVATAR -->
+    <div class="text-center border-bottom p-4">
+        
+        <!-- AVATAR -->
+        <div class="mb-4 profile-user">
+            <img src="static/picture/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" alt="">
+            <button type="button" class="btn bg-light avatar-xs p-0 rounded-circle profile-photo-edit">
+                <i class="ri-pencil-fill"></i>
+            </button>
+        </div>
+        <!-- AVATAR -->
+
+        <!-- NAME -->
+        <h5 class="font-size-16 mb-1 text-truncate">Patricia Smith</h5>
+        <!-- NAME -->
+
+        <!-- STATUS -->
+        <div class="dropdown d-inline-block mb-1">
+            <a class="text-muted dropdown-toggle pb-1 d-block" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Available <i class="mdi mdi-chevron-down"></i>
+            </a>
+
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Available</a>
+                <a class="dropdown-item" href="#">Busy</a>
+            </div>
+        </div>
+        <!-- STATUS -->
+
+    </div>
+    <!-- SETTINGS AVATAR -->
+
+    <!-- SETTINGS BODY -->
+    <div class="p-4 user-profile-desc" data-simplebar="">
+        <div id="profile-setting-accordion" class="custom-accordion">
+
+            <!-- PERSONAL INFO -->
+            <div class="card shadow-none border mb-2">
+
+                <!-- CARD TITLE -->
+                <a href="#profile-setting-personalinfocollapse" class="text-dark" data-toggle="collapse" aria-expanded="true" aria-controls="profile-setting-personalinfocollapse">
+                    <div class="card-header" id="profile-setting-personalinfoheading">
+                        <h5 class="font-size-14 m-0">
+                            Personal Info
+                            <i class="mdi mdi-chevron-up float-right accor-plus-icon"></i>
+                        </h5>
+                    </div>
+                </a>
+                <!-- CARD TITLE -->
+
+                <!-- CARD BODY -->
+                <div id="profile-setting-personalinfocollapse" class="collapse show" aria-labelledby="profile-setting-personalinfoheading" data-parent="#profile-setting-accordion">
+                    <div class="card-body">
+                        <div class="float-right">
+                            <button type="button" class="btn btn-light btn-sm"><i class="ri-edit-fill mr-1 align-middle"></i> Edit</button>
+                        </div>
+                        <div><p class="text-muted mb-1">Name</p><h5 class="font-size-14">Patricia Smith</h5></div>
+                        <div class="mt-4"><p class="text-muted mb-1">Email</p><h5 class="font-size-14">adc@123.com</h5></div>
+                        <div class="mt-4"><p class="text-muted mb-1">Time</p><h5 class="font-size-14">11:40 AM</h5></div>
+                        <div class="mt-4"><p class="text-muted mb-1">Location</p><h5 class="font-size-14 mb-0">California, USA</h5></div>
+                    </div>
+                </div>
+                <!-- CARD BODY -->
+
+            </div>
+            <!-- PERSONAL INFO -->
+
+            <!-- PERIVACY -->
+            <div class="card shadow-none border mb-2">
+                
+                <!-- CARD TITLE -->
+                <a href="#profile-setting-privacycollapse" class="text-dark collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="profile-setting-privacycollapse">
+                    <div class="card-header" id="profile-setting-privacyheading">
+                        <h5 class="font-size-14 m-0">
+                            Privacy
+                            <i class="mdi mdi-chevron-up float-right accor-plus-icon"></i>
+                        </h5>
+                    </div>
+                </a>
+                <!-- CARD TITLE -->
+
+                <!-- CARD BODY -->
+                <div id="profile-setting-privacycollapse" class="collapse" aria-labelledby="profile-setting-privacyheading" data-parent="#profile-setting-accordion">
+                    <div class="card-body">
+
+                        <!-- PROFILE PHOTO -->
+                        <div class="py-3">
+                            <div class="media align-items-center">
+                                <div class="media-body overflow-hidden">
+                                    <h5 class="font-size-13 mb-0 text-truncate">Profile photo</h5>
+                                </div>
+                                <div class="dropdown ml-2">
+                                    <button class="btn btn-light btn-sm dropdown-toggle w-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Everyone <i class="mdi mdi-chevron-down"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#">Everyone</a>
+                                        <a class="dropdown-item" href="#">selected</a>
+                                        <a class="dropdown-item" href="#">Nobody</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- PROFILE PHOTO -->
+
+                        <!-- LAST SEEN -->
+                        <div class="py-3 border-top">
+                            <div class="media align-items-center">
+                                <div class="media-body overflow-hidden">
+                                    <h5 class="font-size-13 mb-0 text-truncate">Last seen</h5>
+                                </div>
+                                <div class="ml-2">
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="privacy-lastseenSwitch" checked="">
+                                        <label class="custom-control-label" for="privacy-lastseenSwitch"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- LAST SEEN -->
+
+                        <!-- STATUS -->
+                        <div class="py-3 border-top">
+                            <div class="media align-items-center">
+                                <div class="media-body overflow-hidden">
+                                    <h5 class="font-size-13 mb-0 text-truncate">Status</h5>
+                                </div>
+                                <div class="dropdown ml-2">
+                                    <button class="btn btn-light btn-sm dropdown-toggle w-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Everyone <i class="mdi mdi-chevron-down"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#">Everyone</a>
+                                        <a class="dropdown-item" href="#">selected</a>
+                                        <a class="dropdown-item" href="#">Nobody</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- STATUS -->
+
+                        <!-- READ RECEIPTS -->
+                        <div class="py-3 border-top">
+                            <div class="media align-items-center">
+                                <div class="media-body overflow-hidden">
+                                    <h5 class="font-size-13 mb-0 text-truncate">Read receipts</h5>
+                                </div>
+                                <div class="ml-2">
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="privacy-readreceiptSwitch" checked="">
+                                        <label class="custom-control-label" for="privacy-readreceiptSwitch"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- READ RECEIPTS -->
+
+                        <!-- GROUPS -->
+                        <div class="py-3 border-top">
+                            <div class="media align-items-center">
+                                <div class="media-body overflow-hidden">
+                                    <h5 class="font-size-13 mb-0 text-truncate">Groups</h5>
+                                </div>
+                                <div class="dropdown ml-2">
+                                    <button class="btn btn-light btn-sm dropdown-toggle w-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Everyone <i class="mdi mdi-chevron-down"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#">Everyone</a>
+                                        <a class="dropdown-item" href="#">selected</a>
+                                        <a class="dropdown-item" href="#">Nobody</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- GROUPS -->
+
+                    </div>
+
+                </div>
+                <!-- CARD BODY -->
+
+            </div>
+            <!-- PERIVACY -->
+
+            <!-- SECURITY -->
+            <div class="card shadow-none border mb-2">
+
+                <!-- CARD TITLE -->
+                <a href="#profile-setting-securitynoticollapse" class="text-dark collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="profile-setting-securitynoticollapse">
+                    <div class="card-header" id="profile-setting-securitynotiheading">
+                        <h5 class="font-size-14 m-0">
+                            Security
+                            <i class="mdi mdi-chevron-up float-right accor-plus-icon"></i>
+                        </h5>
+                    </div>
+                </a>
+                <!-- CARD TITLE -->
+
+                <!-- CARD BODY -->
+                <div id="profile-setting-securitynoticollapse" class="collapse" aria-labelledby="profile-setting-securitynotiheading" data-parent="#profile-setting-accordion">
+                    <div class="card-body">
+                        <div class="media align-items-center">
+
+                            <!-- TITLE -->
+                            <div class="media-body overflow-hidden">
+                                <h5 class="font-size-13 mb-0 text-truncate">Change password</h5>
+                            </div>
+                            <!-- TITLE -->
+
+                            <!-- CHANGE BUTTON -->
+                            <div class="user-chat-nav float-right">
+                                <div data-toggle="tooltip" data-placement="bottom" title="Change password">
+                                    <button type="button" class="btn btn-link text-decoration-none text-muted font-size-18 py-0" data-toggle="modal" data-target="#changepsw-exampleModal">
+                                        <i class="ri-key-2-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- CHANGE BUTTON -->
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD BODY -->
+
+            </div>
+            <!-- SECURITY -->
+
+            <!-- HELP -->
+            <div class="card shadow-none border mb-2">
+
+                <!-- CARD TITLE -->
+                <a href="#profile-setting-helpcollapse" class="text-dark collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="profile-setting-helpcollapse">
+                    <div class="card-header" id="profile-setting-helpheading">
+                        <h5 class="font-size-14 m-0">
+                            Help
+                            <i class="mdi mdi-chevron-up float-right accor-plus-icon"></i>
+                        </h5>
+                    </div>
+                </a>
+                <!-- CARD TITLE -->
+
+                <!-- CARD BODY -->
+                <div id="profile-setting-helpcollapse" class="collapse" aria-labelledby="profile-setting-helpheading" data-parent="#profile-setting-accordion">
+                    <div class="card-body">
+
+                        <div>
+                            <div class="py-3">
+                                <h5 class="font-size-13 mb-0"><a href="#" class="text-body d-block">FAQs</a></h5>
+                            </div>
+                            <div class="py-3 border-top">
+                                <h5 class="font-size-13 mb-0"><a href="#" class="text-body d-block">Contact</a></h5>
+                            </div>
+                            <div class="py-3 border-top">
+                                <h5 class="font-size-13 mb-0"><a href="#" class="text-body d-block">Terms & Privacy policy</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD BODY -->
+
+            </div>
+            <!-- HELP -->
+
+        </div>
+        <!-- end profile-setting-accordion -->
+    </div>
+    <!-- SETTINGS BODY -->
+
+    <!-- CHANGE FORM FOR STTINGS BODY'S SECURITY-->
+    <div class="modal fade" id="changepsw-exampleModal" tabindex="-1" role="dialog" aria-labelledby="changepsw-exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+
+                <!-- FORM HEAD -->
+                <div class="modal-header">
+                    <h5 class="modal-title font-size-16" id="changepsw-exampleModalLabel">Change password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- FORM HEAD -->
+
+                <!-- FORM BODY -->
+                <div class="modal-body p-4">
+                    <form>
+
+                        <!-- ORI-PSW -->
+                        <div class="form-group mb-4">
+                            <label for="origin-password-input">Origin Password</label>
+                            <input type="password" class="form-control" id="origin-password-input" placeholder="Enter Origin password">
+                        </div>
+                        <!-- ORI-PSW -->
+
+                        <!-- NEW-PSW -->
+                        <div class="form-group">
+                            <label for="new-password-invitemessage-input">Invatation Message</label>
+                            <input type="password" class="form-control" id="new-password-invitemessage-input" placeholder="Enter New password">
+                        </div>
+                        <!-- NEW-PSW -->
+                    
+                    </form>
+                </div>
+                <!-- FORM BODY -->
+
+                <!-- FORM BUTTON -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Submit</button>
+                </div>
+                <!-- FORM BUTTON -->
+
+            </div>
+        </div>
+    </div>
+    <!-- CHANGE FORM FOR STTINGS BODY'S SECURITY-->
+
+</div>

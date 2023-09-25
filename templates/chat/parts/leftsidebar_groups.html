@@ -1,0 +1,178 @@
+<div class="tab-pane" id="pills-groups" role="tabpanel" aria-labelledby="pills-groups-tab">
+                        
+    <!-- GROUPS HEAD -->
+    <div class="p-4">
+
+        <!-- USER CHAT NAV -->
+        <div class="user-chat-nav float-right">
+            <div data-toggle="tooltip" data-placement="bottom" title="Create group">
+                <button type="button" class="btn btn-link text-decoration-none text-muted font-size-18 py-0" data-toggle="modal" data-target="#addgroup-exampleModal">
+                    <i class="ri-group-line mr-1"></i>
+                </button>
+            </div>
+        </div>
+        <!-- USER CHAT NAV -->
+
+        <!-- GROUPS TITLE -->
+        <h4 class="mb-4">Groups</h4>
+        <!-- GROUPS TITLE -->
+
+
+        <!-- CREATE GROUPS -->
+        <div class="modal fade" id="addgroup-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addgroup-exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+
+                    <!-- CREATE HEAD -->
+                    <div class="modal-header">
+                        <h5 class="modal-title font-size-16" id="addgroup-exampleModalLabel">Create New Group</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- CREATE HEAD -->
+
+                    <!-- CREATE BODY -->
+                    <div class="modal-body p-4">
+                        <form>
+
+                            <!-- GROUP NAME -->
+                            <div class="form-group mb-4">
+                                <label for="addgroupname-input">Group Name</label>
+                                <input type="text" class="form-control" id="addgroupname-input" placeholder="Enter Group Name">
+                            </div>
+                            <!-- GROUP NAME -->
+                            
+                            <!-- GROUP MEMBERS-->
+                            <div class="form-group mb-4">
+
+                                <!-- MEMBERS TITLE -->
+                                <label>Group Members</label>
+                                <!-- MEMBERS TITLE -->
+
+                                <!-- SELECT BUTTON -->
+                                <div class="mb-3">
+                                    <button class="btn btn-light btn-sm" type="button" data-toggle="collapse" data-target="#groupmembercollapse" aria-expanded="false" aria-controls="groupmembercollapse">
+                                        Select Members
+                                    </button>
+                                </div>
+                                <!-- SELECT BUTTON -->
+
+                                <!-- SELECT PERSONS -->
+                                <div class="collapse" id="groupmembercollapse">
+                                    <div class="card border">
+
+                                        <!-- CARD HEADER -->
+                                        <div class="card-header">
+                                            <h5 class="font-size-15 mb-0">Contacts</h5>
+                                        </div>
+                                        <!-- CARD HEADER -->
+
+                                        <!-- PERSONS -->
+                                        <div class="card-body p-2">
+                                            <div data-simplebar="" style="max-height: 150px;">
+                                            
+                                            <!-- ONE EXAMPLE -->
+                                            <div>
+                                                <div class="p-3 font-weight-bold text-primary">
+                                                    A
+                                                </div>
+
+                                                <ul class="list-unstyled contact-list">
+                                                    <li>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="memberCheck1" checked="">
+                                                            <label class="custom-control-label" for="memberCheck1">Albert Rodarte</label>
+                                                        </div>
+                                                    </li>
+
+                                                    <li>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="memberCheck2">
+                                                            <label class="custom-control-label" for="memberCheck2">Allison Etter</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!-- ONE EXAMPLE -->
+                                            
+                                            </div>
+                                        </div>
+                                        <!-- PERSONS -->
+                
+                                    </div>
+                                </div>
+                                <!-- SELECT PERSONS -->
+
+                            </div>
+                            <!-- GROUP MEMBERS-->
+
+                            <!-- GROUP DESCRIPTION-->
+                            <div class="form-group">
+                                <label for="addgroupdescription-input">Description</label>
+                                <textarea class="form-control" id="addgroupdescription-input" rows="3" placeholder="Enter Description"></textarea>
+                            </div>
+                            <!-- GROUP DESCRIPTION-->
+
+                        </form>
+                    </div>
+                    <!-- CREATE BODY -->
+
+                    <!-- CREATE BUTTON -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Create Groups</button>
+                    </div>
+                    <!-- CREATE BUTTON -->
+
+                </div>
+            </div>
+        </div>
+        <!-- CREATE GROUPS -->
+
+        <!-- SEARCH BOX -->
+        <div class="search-box chat-search-box">
+            <div class="input-group bg-light  input-group-lg rounded-lg">
+                <div class="input-group-prepend">
+                    <button class="btn btn-link text-decoration-none text-muted pr-1" type="button">
+                        <i class="ri-search-line search-icon font-size-18"></i>
+                    </button>
+                </div>
+                <input type="text" class="form-control bg-light" placeholder="Search groups...">
+            </div>
+        </div>
+        <!-- SEARCH BOX -->
+
+    </div>
+    <!-- GROUPS HEAD -->
+        
+    <!-- GROUPS INFO -->
+    <div class="p-4 chat-message-list chat-group-list" data-simplebar="">
+    <ul class="list-unstyled chat-list">
+
+        <!-- ONE EXAMPLE -->
+        <li><a href="#"><div class="media align-items-center">
+
+            <!-- SYMBOL IMG -->
+            <div class="chat-user-img mr-3 avatar-xs">
+                <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                    G
+                </span>
+            </div>
+            <!-- SYMBOL IMG -->
+            
+            <!-- BODY -->
+            <div class="media-body overflow-hidden">
+                <h5 class="text-truncate font-size-14 mb-0">#General</h5>
+            </div>
+            <!-- BODY -->
+
+        </div></a></li>
+        <!-- ONE EXAMPLE -->
+            
+    </ul></div>
+    <!-- GROUPS INFO -->
+
+   
+</div>
+

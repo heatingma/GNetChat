@@ -17,3 +17,4 @@ class RegisterForm(UserCreationForm):
 class LoginForm(forms.Form):
     login_email = forms.CharField()
     login_password = forms.CharField()  
+

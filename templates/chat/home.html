@@ -1,0 +1,44 @@
+{% extends 'chat/base.html' %}
+
+<!-- side_menu -->
+{% block side_menu %}
+    {% include "chat/parts/side_menu.html" %}
+{% endblock %}
+<!-- side_menu -->
+
+
+<!-- leftsidebar -->
+{% block leftsidebar_user %}
+    {% include "chat/parts/leftsidebar_user.html" %}
+{% endblock %}
+
+{% block leftsidebar_chat %}
+    {% include "chat/parts/leftsidebar_chat.html" %}
+{% endblock %}
+
+{% block leftsidebar_contacts %}
+    {% include "chat/parts/leftsidebar_contacts.html" %}
+{% endblock %}
+
+{% block leftsidebar_groups %}
+    {% include "chat/parts/leftsidebar_groups.html" %}
+{% endblock %}
+
+{% block leftsidebar_settings %}
+    {% include "chat/parts/leftsidebar_settings.html" %}
+{% endblock %}
+<!-- leftsidebar -->
+
+
+<!-- chat -->
+{% block chat_conversation %}
+    {% include "chat/parts/chat_conversation.html" %}
+{% endblock %}
+{% block chat_friend_info %}
+    {% include "chat/parts/chat_friend_info.html" %}
+{% endblock %}
+<!-- chat -->
+
+
+
+    

@@ -6,5 +6,3 @@ class User(AbstractUser):
     email = models.EmailField('email address', primary_key=True, unique=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ["username"]
-    
-
