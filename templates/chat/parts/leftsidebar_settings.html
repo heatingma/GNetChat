@@ -11,7 +11,7 @@
         
         <!-- AVATAR -->
         <div class="mb-4 profile-user">
-            <img src="static/picture/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" alt="">
+            <img src="{{ profile.image_url }}" class="rounded-circle avatar-lg img-thumbnail" alt="">
             <button type="button" class="btn bg-light avatar-xs p-0 rounded-circle profile-photo-edit">
                 <i class="ri-pencil-fill"></i>
             </button>
@@ -19,7 +19,7 @@
         <!-- AVATAR -->
 
         <!-- NAME -->
-        <h5 class="font-size-16 mb-1 text-truncate">Patricia Smith</h5>
+        <h5 class="font-size-16 mb-1 text-truncate">{{ profile.user.username }}</h5>
         <!-- NAME -->
 
         <!-- STATUS -->
@@ -62,10 +62,9 @@
                         <div class="float-right">
                             <button type="button" class="btn btn-light btn-sm"><i class="ri-edit-fill mr-1 align-middle"></i> Edit</button>
                         </div>
-                        <div><p class="text-muted mb-1">Name</p><h5 class="font-size-14">Patricia Smith</h5></div>
-                        <div class="mt-4"><p class="text-muted mb-1">Email</p><h5 class="font-size-14">adc@123.com</h5></div>
-                        <div class="mt-4"><p class="text-muted mb-1">Time</p><h5 class="font-size-14">11:40 AM</h5></div>
-                        <div class="mt-4"><p class="text-muted mb-1">Location</p><h5 class="font-size-14 mb-0">California, USA</h5></div>
+                        <div><p class="text-muted mb-1">Name</p><h5 class="font-size-14">{{ profile.user.username }}</h5></div>
+                        <div class="mt-4"><p class="text-muted mb-1">Email</p><h5 class="font-size-14">{{ profile.user.email }}</h5></div>
+                        <div class="mt-4"><p class="text-muted mb-1">Location</p><h5 class="font-size-14 mb-0">{{ profile.location }}</h5></div>
                     </div>
                 </div>
                 <!-- CARD BODY -->

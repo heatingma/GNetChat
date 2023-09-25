@@ -6,6 +6,7 @@ class Profile(models.Model):
     about_me = models.TextField(default='There is no Personal Signature here yet. You can add it through settings')
     image = models.ImageField(upload_to='profile_image', null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    location = models.CharField(max_length=50, default="Unkown")
     
     @property
     def image_url(self):

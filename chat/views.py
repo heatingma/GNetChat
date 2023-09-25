@@ -11,7 +11,7 @@ def visit(request: HttpRequest):
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=user)
     # form = EditProfileForm(request.user.username, request.POST, request.FILES)
-    print("profile:", profile.image_url)
+    print("profile:", profile.location)
     
     return render(
         request=request,
