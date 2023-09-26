@@ -35,7 +35,7 @@ def log(request: HttpRequest):
                     "login_form": login_form,
                     "login_error": "Error email or Error password!"
                 }
-        # check whether login success
+        # check whether regist success
         elif register_form.is_valid():
             user = register_form.save()
             login(request, user)

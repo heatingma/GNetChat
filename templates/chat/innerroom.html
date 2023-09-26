@@ -2,21 +2,21 @@
 
 <!-- side_menu -->
 {% block side_menu %}
-    {% include "chat/side_menus/side_menu_groups.html" %}
+    {% include "chat/side_menus/side_menu_chatroom.html" %}
 {% endblock %}
 <!-- side_menu -->
 
 
 <!-- leftsidebar -->
 {% block leftsidebar %}
-    {% include "chat/leftsidebar/leftsidebar_groups.html" %}
+    {% include "chat/leftsidebar/leftsidebar_chatroom.html" %}
 {% endblock %}
 <!-- leftsidebar -->
 
 
 <!-- chat -->
 {% block chat_conversation %}
-    {% include "chat/body/chat_conversation.html" %}
+    {% include "chat/body/body_innerroom.html" %}
 {% endblock %}
 {% block chat_friend_info %}
     {% include "chat/body/chat_friend_info.html" %}

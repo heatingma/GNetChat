@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest
 from django.contrib.auth.decorators import login_required
-from .forms import EditProfileForm
+from .forms import EditProfileForm, RoomForm
 from .models import Profile, Room, RoomMessage
 from users.models import User
 
@@ -51,12 +51,44 @@ def chatroom(request: HttpRequest):
     username = request.user.username
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=user)
+    wrong_message = ""
+    if request.method == "POST":
+        roomform = RoomForm(request.POST)
+        if roomform.is_valid():
+            name = roomform.cleaned_data["name"]
+            about_room = roomform.cleaned_data["about_room"]
+            room = Room(name=name, owner_name=user.username, about_room=about_room)
+            try:
+                room.save()
+            except:
+                wrong_message = "The name of this chatroom already exists"
     return render(
         request=request, 
         template_name='chat/chatroom.html', 
         context={
             'profile': profile,
             'rooms': Room.objects.all(),
+            'wrong_message': wrong_message
+        }
+    )
+    
+    
+@login_required
+def innerroom(request: HttpRequest, room_name):
+    username = request.user.username
+    user = get_object_or_404(User, username=username)
+    profile = get_object_or_404(Profile, user=user)
+    wrong_message = ""
+    chat_room, created = Room.objects.get_or_create(name=room_name)
+    room_messages = RoomMessage.objects.filter(room=chat_room).order_by('timestamp')
+    return render(
+        request=request, 
+        template_name='chat/innerroom.html', 
+        context={
+            'profile': profile,
+            'rooms': Room.objects.all(),
+            'wrong_message': wrong_message,
+            'room_messages': room_messages,
         }
     )
     
@@ -71,7 +103,6 @@ def groups(request: HttpRequest):
         template_name='chat/groups.html', 
         context={
             'profile': profile,
-            'rooms': Room.objects.all(),
         }
     )
 
@@ -86,7 +117,6 @@ def settings(request: HttpRequest):
         template_name='chat/settings.html', 
         context={
             'profile': profile,
-            'rooms': Room.objects.all(),
         }
     )
     
@@ -100,7 +130,6 @@ def my(request: HttpRequest):
         template_name='chat/my.html', 
         context={
             'profile': profile,
-            'rooms': Room.objects.all(),
         }
     )
     

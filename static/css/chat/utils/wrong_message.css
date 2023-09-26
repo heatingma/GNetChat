@@ -1,0 +1,52 @@
+.error-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999 !important;
+    border: 2px solid rgb(246, 196, 245);
+    background-color: #ede3ee;
+    border-radius: 15px;
+    font-family: 'comicbd';
+}
+
+.error-body {
+    justify-content: center;
+    flex-direction: column; /* Updated */
+    margin: 5px;
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+}
+
+.error-body p {
+    width: 95%;
+    flex-direction: row;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.error-close {
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.error-close {
+    display: flex;
+    justify-content: flex-end; /* Updated */
+    margin: 10px;
+}
+
+.close-button{
+    width: 60px;
+    height: 30px;
+    border: 2px solid rgb(246, 196, 245);
+    background-color: #ede3ee;
+    border-radius: 10%;
+}
+

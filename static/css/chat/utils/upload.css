@@ -1,28 +1,18 @@
 .upload-button {
-    /* 设置按钮的背景颜色 */
-    background-color: #f1f1f1;
-    /* 设置按钮的边框样式 */
-    border: 1px solid #ccc;
-    /* 设置按钮的边框圆角 */
-    border-radius: 4px;
-    /* 设置按钮的内边距 */
-    padding: 8px 12px;
-    /* 设置按钮的文本样式 */
-    font-size: 14px;
-    /* 设置按钮的光标样式 */
-    cursor: pointer;
-    /* 设置按钮的阴影效果 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* 设置按钮的过渡效果 */
-    transition: background-color 0.3s ease;
-  }
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
   
-  /* 当按钮被悬停时改变背景颜色 */
-  .upload-button:hover {
-    background-color: #e0e0e0;
-  }
+.upload-button:hover {
+  background-color: #e0e0e0;
+}
   
-  /* 当按钮被点击时改变背景颜色 */
-  .upload-button:active {
-    background-color: #d4d4d4;
-  }
+.upload-button:active {
+  background-color: #d4d4d4;
+}

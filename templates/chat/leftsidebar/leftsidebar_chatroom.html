@@ -21,8 +21,8 @@
         <!-- CREATE GROUPS -->
         <div class="modal fade" id="addchatroom-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addchatroom-exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-
+                <form class="modal-content" method="post" action="{% url 'chat:chatroom' %}">
+                    {% csrf_token %}
                     <!-- CREATE HEAD -->
                     <div class="modal-header">
                         <h5 class="modal-title font-size-16" id="addchatroom-exampleModalLabel">Create New Chatroom</h5>
@@ -34,34 +34,34 @@
 
                     <!-- CREATE BODY -->
                     <div class="modal-body p-4">
-                        <form>
+                        <div>
 
                             <!-- CHATROOM NAME -->
                             <div class="form-chatroom mb-4">
                                 <label for="addchatroomname-input">Chatroom Name</label>
-                                <input type="text" class="form-control" id="addchatroomname-input" placeholder="Enter Chatroom Name">
+                                <input type="text" class="form-control" id="addchatroomname-input" name="name" placeholder="Enter Chatroom Name">
                             </div>
                             <!-- CHATROOM NAME -->
 
                             <!-- CHATROOM DESCRIPTION-->
                             <div class="form-group">
                                 <label for="add-chatroom-description-input">Description</label>
-                                <textarea class="form-control" id="add-chatroom-description-input" rows="3" placeholder="Enter Description"></textarea>
+                                <textarea class="form-control" id="add-chatroom-description-input" rows="3" name="about_room" placeholder="Enter Description"></textarea>
                             </div>
                             <!-- CHATROOM DESCRIPTION-->
 
-                        </form>
+                        </div>
                     </div>
                     <!-- CREATE BODY -->
 
                     <!-- CREATE BUTTON -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Create Chatroom</button>
+                        <button type="submit" class="btn btn-primary">Create Chatroom</button>
                     </div>
                     <!-- CREATE BUTTON -->
 
-                </div>
+                </form>
             </div>
         </div>
         <!-- CREATE GROUPS -->
@@ -87,28 +87,41 @@
     <ul class="list-unstyled chat-list">
 
         <!-- ONE EXAMPLE -->
-        <li><a href="#"><div class="media align-items-center">
+        
+        {% for room in rooms %}
+        <li><a href="{% url 'chat:innerroom' room_name=room.name %}"><div class="media align-items-center">
 
             <!-- SYMBOL IMG -->
             <div class="chat-user-img mr-3 avatar-xs">
                 <span class="avatar-title rounded-circle bg-soft-primary text-primary">
-                    G
+                    {{ room.initial }}
                 </span>
             </div>
             <!-- SYMBOL IMG -->
-            
+                
             <!-- BODY -->
             <div class="media-body overflow-hidden">
-                <h5 class="text-truncate font-size-14 mb-0">#General</h5>
+                <h5 class="text-truncate font-size-14 mb-0">#{{ room }}</h5>
             </div>
             <!-- BODY -->
 
         </div></a></li>
         <!-- ONE EXAMPLE -->
-            
+        {% endfor %}
     </ul></div>
     <!-- CHATROOM INFO -->
-
    
 </div>
 
+{% if wrong_message != "" %}
+<div class="error-box" style="width:250px; height:160px">
+    <div class="error-body">
+        <p>{{ wrong_message }}</p>
+    </div>
+    <div class="error-close">
+        <button class="close-button" id="close">
+            close
+        </button>
+    </div>
+</div>
+{% endif %}

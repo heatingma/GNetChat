@@ -30,7 +30,9 @@ class Room(models.Model):
     """
     A flexible and freely accessible space
     """
-    name = models.CharField(max_length=128)
+    name = models.CharField(max_length=128, unique=True)
+    owner_name = models.CharField(max_length=128)
+    about_room = models.CharField(max_length=128, default="welcome to my chatroom")
     online = models.ManyToManyField(to=get_user_model(), blank=True)
 
     def get_online_count(self):
@@ -44,6 +46,10 @@ class Room(models.Model):
         self.online.remove(user)
         self.save()
 
+    @property
+    def initial(self):
+        return self.name[0].upper()
+    
     def __str__(self):
         return f'{self.name} ({self.get_online_count()})'
 
@@ -59,3 +65,8 @@ class RoomMessage(models.Model):
 
     def __str__(self):
         return f'{self.user.username}: {self.content} [{self.timestamp}]'
+
+    @property
+    def image_url(self):
+        profile = Profile.objects.get(user=self.user)
+        return profile.image_url

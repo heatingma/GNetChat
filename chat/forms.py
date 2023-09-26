@@ -26,3 +26,10 @@ class EditProfileForm(forms.Form):
                 raise forms.ValidationError(
                     'A user with that username already exists.')
         return username
+    
+    
+class RoomForm(forms.Form):
+    name = forms.CharField(required=True)
+    about_room = forms.CharField(widget=forms.Textarea(), required=False)
+
+    
