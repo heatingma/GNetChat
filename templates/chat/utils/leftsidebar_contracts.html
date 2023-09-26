@@ -1,0 +1,544 @@
+<div>
+
+    <!-- CONTACTS HEAD -->
+    <div class="p-4">
+
+        <!-- ADD BUTTON -->
+        <div class="user-chat-nav float-right">
+            <div data-toggle="tooltip" data-placement="bottom" title="Add Contact">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-link text-decoration-none text-muted font-size-18 py-0" data-toggle="modal" data-target="#addContact-exampleModal">
+                    <i class="ri-user-add-line"></i>
+                </button>
+            </div>
+        </div>
+        <!-- ADD BUTTON -->
+
+        <!-- CONTACTS TITLE -->
+        <h4 class="mb-4">Contacts</h4>
+        <!-- CONTACTS TITLE -->
+
+        <!-- ADD FORM -->
+        <div class="modal fade" id="addContact-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addContact-exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+
+                    <!-- FORM HEAD -->
+                    <div class="modal-header">
+                        <h5 class="modal-title font-size-16" id="addContact-exampleModalLabel">Add Contact</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- FORM HEAD -->
+
+                    <!-- FORM BODY -->
+                    <div class="modal-body p-4">
+                        <form>
+
+                            <!-- EMAIL -->
+                            <div class="form-group mb-4">
+                                <label for="addcontactemail-input">Email</label>
+                                <input type="email" class="form-control" id="addcontactemail-input" placeholder="Enter Email">
+                            </div>
+                            <!-- EMAIL -->
+
+                            <!-- INVITATE MESSAGE -->
+                            <div class="form-group">
+                                <label for="addcontact-invitemessage-input">Invatation Message</label>
+                                <textarea class="form-control" id="addcontact-invitemessage-input" rows="3" placeholder="Enter Message"></textarea>
+                            </div>
+                            <!-- INVITATE MESSAGE -->
+                        
+                        </form>
+                    </div>
+                    <!-- FORM BODY -->
+
+                    <!-- FORM BUTTON -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Invite Contact</button>
+                    </div>
+                    <!-- FORM BUTTON -->
+
+                </div>
+            </div>
+        </div>
+        <!-- ADD FORM -->
+
+        <!-- SEARCH -->
+        <div class="search-box chat-search-box">
+            <div class="input-group bg-light  input-group-lg rounded-lg">
+                <div class="input-group-prepend">
+                    <button class="btn btn-link text-decoration-none text-muted pr-1" type="button">
+                        <i class="ri-search-line search-icon font-size-18"></i>
+                    </button>
+                </div>
+                <input type="text" class="form-control bg-light " placeholder="Search users..">
+            </div>
+        </div>
+        <!-- SEARCH -->
+
+    </div>
+    <!-- CONTACTS HEAD -->
+
+    <!-- CONTACTS BODY -->
+    <div class="p-4 chat-message-list chat-group-list" data-simplebar="">
+
+        <div>
+            <div class="p-3 font-weight-bold text-primary">
+                A
+            </div>
+
+            <ul class="list-unstyled contact-list">
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Albert Rodarte</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Allison Etter</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- end contact list A -->
+
+        <div class="mt-3">
+            <div class="p-3 font-weight-bold text-primary">
+                C
+            </div>
+
+            <ul class="list-unstyled contact-list">
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Craig Smiley</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- end contact list C -->
+
+        <div class="mt-3">
+            <div class="p-3 font-weight-bold text-primary">
+                D
+            </div>
+
+            <ul class="list-unstyled contact-list">
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Daniel Clay</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Doris Brown</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!-- end contact list D -->
+
+        <div class="mt-3">
+            <div class="p-3 font-weight-bold text-primary">
+                I
+            </div>
+
+            <ul class="list-unstyled contact-list">
+
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Iris Wells</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- end contact list I -->
+
+        <div class="mt-3">
+            <div class="p-3 font-weight-bold text-primary">
+                J
+            </div>
+
+            <ul class="list-unstyled contact-list">
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Juan Flakes</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">John Hall</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Joy Southern</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- end contact list J -->
+
+        <div class="mt-3">
+            <div class="p-3 font-weight-bold text-primary">
+                M
+            </div>
+
+            <ul class="list-unstyled contact-list">
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Mary Farmer</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Mark Messer</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Michael Hinton</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!-- end contact list M -->
+
+        <div class="mt-3">
+            <div class="p-3 font-weight-bold text-primary">
+                O
+            </div>
+
+            <ul class="list-unstyled contact-list">
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Ossie Wilson</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!-- end contact list O -->
+
+        <div class="mt-3">
+            <div class="p-3 font-weight-bold text-primary">
+                P
+            </div>
+
+            <ul class="list-unstyled contact-list">
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Phillis Griffin</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Paul Haynes</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!-- end contact list P -->
+
+        <div class="mt-3">
+            <div class="p-3 font-weight-bold text-primary">
+                R
+            </div>
+
+            <ul class="list-unstyled contact-list">
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Rocky Jackson</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!-- end contact list R -->
+
+        <div class="mt-3">
+            <div class="p-3 font-weight-bold text-primary">
+                S
+            </div>
+
+            <ul class="list-unstyled contact-list">
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Sara Muller</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Simon Velez</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="media align-items-center">
+                        <div class="media-body">
+                            <h5 class="font-size-14 m-0">Steve Walker</h5>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-2-fill"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
+                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!-- end contact list S -->
+    </div>
+    <!-- CONTACTS BODY -->
+
+</div>

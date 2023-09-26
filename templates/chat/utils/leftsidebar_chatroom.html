@@ -1,0 +1,114 @@
+<div>
+                        
+    <!-- CHATROOM HEAD -->
+    <div class="p-4">
+
+        <!-- CHATROOM NAV -->
+        <div class="user-chat-nav float-right">
+            <div data-toggle="tooltip" data-placement="bottom" title="Create chatroom">
+                <button type="button" class="btn btn-link text-decoration-none text-muted font-size-18 py-0" data-toggle="modal" data-target="#addchatroom-exampleModal">
+                    <i class="ri-add-circle-line mr-1"></i>
+                </button>
+            </div>
+        </div>
+        <!-- CHATROOM NAV -->
+
+        <!-- CHATROOM TITLE -->
+        <h4 class="mb-4">Chatrooms</h4>
+        <!-- CHATROOM TITLE -->
+
+
+        <!-- CREATE GROUPS -->
+        <div class="modal fade" id="addchatroom-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addchatroom-exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+
+                    <!-- CREATE HEAD -->
+                    <div class="modal-header">
+                        <h5 class="modal-title font-size-16" id="addchatroom-exampleModalLabel">Create New Chatroom</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- CREATE HEAD -->
+
+                    <!-- CREATE BODY -->
+                    <div class="modal-body p-4">
+                        <form>
+
+                            <!-- CHATROOM NAME -->
+                            <div class="form-chatroom mb-4">
+                                <label for="addchatroomname-input">Chatroom Name</label>
+                                <input type="text" class="form-control" id="addchatroomname-input" placeholder="Enter Chatroom Name">
+                            </div>
+                            <!-- CHATROOM NAME -->
+
+                            <!-- CHATROOM DESCRIPTION-->
+                            <div class="form-group">
+                                <label for="add-chatroom-description-input">Description</label>
+                                <textarea class="form-control" id="add-chatroom-description-input" rows="3" placeholder="Enter Description"></textarea>
+                            </div>
+                            <!-- CHATROOM DESCRIPTION-->
+
+                        </form>
+                    </div>
+                    <!-- CREATE BODY -->
+
+                    <!-- CREATE BUTTON -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Create Chatroom</button>
+                    </div>
+                    <!-- CREATE BUTTON -->
+
+                </div>
+            </div>
+        </div>
+        <!-- CREATE GROUPS -->
+
+        <!-- SEARCH BOX -->
+        <div class="search-box chat-search-box">
+            <div class="input-group bg-light  input-group-lg rounded-lg">
+                <div class="input-group-prepend">
+                    <button class="btn btn-link text-decoration-none text-muted pr-1" type="button">
+                        <i class="ri-search-line search-icon font-size-18"></i>
+                    </button>
+                </div>
+                <input type="text" class="form-control bg-light" placeholder="Search chatrooms...">
+            </div>
+        </div>
+        <!-- SEARCH BOX -->
+
+    </div>
+    <!-- CHATROOM HEAD -->
+        
+    <!-- CHATROOM INFO -->
+    <div class="p-4 chat-message-list chat-chatroom-list" data-simplebar="">
+    <ul class="list-unstyled chat-list">
+
+        <!-- ONE EXAMPLE -->
+        <li><a href="#"><div class="media align-items-center">
+
+            <!-- SYMBOL IMG -->
+            <div class="chat-user-img mr-3 avatar-xs">
+                <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                    G
+                </span>
+            </div>
+            <!-- SYMBOL IMG -->
+            
+            <!-- BODY -->
+            <div class="media-body overflow-hidden">
+                <h5 class="text-truncate font-size-14 mb-0">#General</h5>
+            </div>
+            <!-- BODY -->
+
+        </div></a></li>
+        <!-- ONE EXAMPLE -->
+            
+    </ul></div>
+    <!-- CHATROOM INFO -->
+
+   
+</div>
+

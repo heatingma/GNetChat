@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest
 from django.contrib.auth.decorators import login_required
 from .forms import EditProfileForm
-from .models import Profile
+from .models import Profile, Room, RoomMessage
 from users.models import User
 
 @login_required
@@ -44,3 +44,77 @@ def visit(request: HttpRequest):
             'profile_form': profile_form
         }
     )
+    
+    
+@login_required
+def chatroom(request: HttpRequest):
+    username = request.user.username
+    user = get_object_or_404(User, username=username)
+    profile = get_object_or_404(Profile, user=user)
+    return render(
+        request=request, 
+        template_name='chat/chatroom.html', 
+        context={
+            'profile': profile,
+            'rooms': Room.objects.all(),
+        }
+    )
+    
+    
+@login_required
+def groups(request: HttpRequest):
+    username = request.user.username
+    user = get_object_or_404(User, username=username)
+    profile = get_object_or_404(Profile, user=user)
+    return render(
+        request=request, 
+        template_name='chat/groups.html', 
+        context={
+            'profile': profile,
+            'rooms': Room.objects.all(),
+        }
+    )
+
+    
+@login_required
+def settings(request: HttpRequest):
+    username = request.user.username
+    user = get_object_or_404(User, username=username)
+    profile = get_object_or_404(Profile, user=user)
+    return render(
+        request=request, 
+        template_name='chat/settings.html', 
+        context={
+            'profile': profile,
+            'rooms': Room.objects.all(),
+        }
+    )
+    
+@login_required
+def my(request: HttpRequest):
+    username = request.user.username
+    user = get_object_or_404(User, username=username)
+    profile = get_object_or_404(Profile, user=user)
+    return render(
+        request=request, 
+        template_name='chat/my.html', 
+        context={
+            'profile': profile,
+            'rooms': Room.objects.all(),
+        }
+    )
+    
+@login_required
+def contracts(request: HttpRequest):
+    username = request.user.username
+    user = get_object_or_404(User, username=username)
+    profile = get_object_or_404(Profile, user=user)
+    return render(
+        request=request, 
+        template_name='chat/contracts.html', 
+        context={
+        'rooms': Room.objects.all(),
+        }
+    )
+    
+    
