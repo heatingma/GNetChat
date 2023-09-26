@@ -1,23 +1,23 @@
 @font-face {
     font-family: "Material Design Icons";
-    src: url(sources/materialdesignicons-webfont-5.0..eot);
-    src: url(sources/materialdesignicons-webfont-5.0..eot#iefix&v=5.0.45) 
+    src: url(fonts/materialdesignicons-webfont-5.0..eot);
+    src: url(fonts/materialdesignicons-webfont-5.0..eot#iefix&v=5.0.45) 
          format("embedded-opentype"),
-         url(sources/materialdesignicons-webfont-5.0..woff2) format("woff2"),
-         url(sources/materialdesignicons-webfont-5.0..woff) format("woff"),
-         url(sources/materialdesignicons-webfont-5.0..ttf) format("truetype");
+         url(fonts/materialdesignicons-webfont-5.0..woff2) format("woff2"),
+         url(fonts/materialdesignicons-webfont-5.0..woff) format("woff"),
+         url(fonts/materialdesignicons-webfont-5.0..ttf) format("truetype");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face{
     font-family:remixicon;
-    src:url(sources/remixicon-1580819880586.eot);
-    src:url(sources/remixicon-1580819880586.eot#iefix) 
+    src:url(fonts/remixicon-1580819880586.eot);
+    src:url(fonts/remixicon-1580819880586.eot#iefix) 
         format("embedded-opentype"),
-        url(sources/remixicon-1580819880586.woff2) format("woff2"),
-        url(sources/remixicon-1580819880586.woff) format("woff"),
-        url(sources/remixicon-1580819880586.ttf) format("truetype"),
+        url(fonts/remixicon-1580819880586.woff2) format("woff2"),
+        url(fonts/remixicon-1580819880586.woff) format("woff"),
+        url(fonts/remixicon-1580819880586.ttf) format("truetype"),
         url(https://themesbrand.com/chatvia/layouts/assets/fonts/remixicon.svg?t=1580819880586#remixicon) format("svg");
         font-display:swap
 }

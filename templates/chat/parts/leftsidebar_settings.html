@@ -1,5 +1,63 @@
 <div class="tab-pane" id="pills-setting" role="tabpanel" aria-labelledby="pills-setting-tab">
 
+    <div class="float-right" style="margin:10px; margin-top:20px; margin-right:20px;" data-toggle="modal" data-target="#edit-exampleModal">
+        <button type="button" class="btn btn-light btn-sm"><i class="ri-edit-fill mr-1 align-middle"></i> Edit</button>
+    </div>
+
+    <div class="modal fade" id="edit-exampleModal" tabindex="-1" role="dialog" aria-labelledby="edit-exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <form class="modal-content" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- FORM HEAD -->
+                <div class="modal-header">
+                    <h5 class="modal-title font-size-16" id="edit-exampleModalLabel">Edit Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- FORM HEAD -->
+
+                <!-- FORM BODY -->
+                <div class="modal-body p-4">
+                    <div>
+
+                        <!-- PERSONAL SIGNATURE -->
+                        <div class="form-group mb-4">
+                            <label for="edit-personal-signature">Personal Signature</label>
+                            <textarea class="form-control" id="edit-personal-signature" name="about_me" 
+                                rows="3" placeholder="Enter Personal Signature"></textarea>
+                        </div>
+                        <!-- PERSONAL SIGNATURE -->
+
+                        <!-- CHANGE AVATAR -->
+                        <div class="form-group">
+                            <label for="change-avatar">Upload Avatar Image</label>
+                            <input type="file" class="form-control upload-button" id="change-avatar" name="image" accept="image/*">
+                        </div>
+                        <!-- CHANGE AVATAR -->
+
+                        <!-- CHANGE LOCATION -->
+                        <div class="form-group">
+                            <label for="change-location">Location</label>
+                            <input type="text" class="form-control" id="change-location" name="location" placeholder="Enter Location">
+                        </div>
+                        <!-- CHANGE LOCATION -->
+                    
+                    </div>
+                </div>
+                <!-- FORM BODY -->
+
+                <!-- FORM BUTTON -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <!-- FORM BUTTON -->
+
+            </form>
+        </div>
+    </div>
+
     <!-- SETTINGS TITLE -->
     <div class="px-4 pt-4">
         <h4 class="mb-0">Settings</h4>
@@ -27,7 +85,6 @@
             <a class="text-muted dropdown-toggle pb-1 d-block" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Available <i class="mdi mdi-chevron-down"></i>
             </a>
-
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Available</a>
                 <a class="dropdown-item" href="#">Busy</a>
@@ -40,6 +97,13 @@
 
     <!-- SETTINGS BODY -->
     <div class="p-4 user-profile-desc" data-simplebar="">
+
+        <!-- SIGNATURE -->
+        <div class="text-muted">
+            <p class="mb-4">{{ profile.about_me }}</p>
+        </div>
+        <!-- SIGNATURE -->
+
         <div id="profile-setting-accordion" class="custom-accordion">
 
             <!-- PERSONAL INFO -->
@@ -59,9 +123,6 @@
                 <!-- CARD BODY -->
                 <div id="profile-setting-personalinfocollapse" class="collapse show" aria-labelledby="profile-setting-personalinfoheading" data-parent="#profile-setting-accordion">
                     <div class="card-body">
-                        <div class="float-right">
-                            <button type="button" class="btn btn-light btn-sm"><i class="ri-edit-fill mr-1 align-middle"></i> Edit</button>
-                        </div>
                         <div><p class="text-muted mb-1">Name</p><h5 class="font-size-14">{{ profile.user.username }}</h5></div>
                         <div class="mt-4"><p class="text-muted mb-1">Email</p><h5 class="font-size-14">{{ profile.user.email }}</h5></div>
                         <div class="mt-4"><p class="text-muted mb-1">Location</p><h5 class="font-size-14 mb-0">{{ profile.location }}</h5></div>
