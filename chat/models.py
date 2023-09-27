@@ -1,6 +1,7 @@
 from django.db import models
 from users.models import User
 from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404
 
 class Profile(models.Model):
     """
@@ -34,7 +35,8 @@ class Room(models.Model):
     owner_name = models.CharField(max_length=128)
     about_room = models.CharField(max_length=128, default="welcome to my chatroom")
     online = models.ManyToManyField(to=get_user_model(), blank=True)
-
+    image = models.ImageField(upload_to='room_image', null=True, blank=True)
+    
     def get_online_count(self):
         return self.online.count()
 
@@ -49,6 +51,13 @@ class Room(models.Model):
     @property
     def initial(self):
         return self.name[0].upper()
+    
+    @property
+    def image_url(self):
+        if self.image == "":
+            return "/media/chat/static_default/{}.png".format(self.initial)
+        else:
+            return self.image.url
     
     def __str__(self):
         return f'{self.name} ({self.get_online_count()})'

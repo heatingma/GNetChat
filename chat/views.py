@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest
 from django.contrib.auth.decorators import login_required
 from .forms import EditProfileForm, RoomForm
 from .models import Profile, Room, RoomMessage
 from users.models import User
-
+import json
 
 @login_required
 def chatroom(request: HttpRequest):
@@ -22,13 +22,14 @@ def chatroom(request: HttpRequest):
                 room.save()
             except:
                 wrong_message = "The name of this chatroom already exists"
+    
     return render(
         request=request, 
         template_name='chat/chatroom.html', 
         context={
             'profile': profile,
             'rooms': Room.objects.all(),
-            'wrong_message': wrong_message
+            'wrong_message': wrong_message,
         }
     )
     
@@ -42,6 +43,13 @@ def innerroom(request: HttpRequest, room_name):
     chat_room, created = Room.objects.get_or_create(name=room_name)
     room_messages = RoomMessage.objects.filter(room=chat_room).order_by('timestamp')
     cur_room = room_messages[0].room
+    
+    users_img_urls = dict()
+    for rm in room_messages:
+        user = rm.user
+        user_profile = get_object_or_404(Profile, user=user)
+        users_img_urls[user_profile.user.username] = user_profile.image_url
+        
     return render(
         request=request, 
         template_name='chat/innerroom.html', 
@@ -51,6 +59,7 @@ def innerroom(request: HttpRequest, room_name):
             'rooms': Room.objects.all(),
             'wrong_message': wrong_message,
             'room_messages': room_messages,
+            'users_img_urls_json': json.dumps(users_img_urls)
         }
     )
     
