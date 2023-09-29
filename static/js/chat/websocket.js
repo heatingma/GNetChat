@@ -4,6 +4,7 @@ let chatMessageSend = document.querySelector("#chatMessageSend");
 let onlineUsersSelector = document.querySelector("#onlineUsersSelector");
 let a_cur_room = document.querySelector("#cur_room_name");
 let chatLog = document.querySelector("#chatLog");
+let chatLog_container = document.getElementById('chatLog-container');
 let hidden_container = document.querySelector("#hidden-container");
 let hidden_container2 = document.querySelector("#hidden-container2");
 let chatSocket = null;
@@ -130,12 +131,11 @@ function connect() {
         const data = JSON.parse(e.data);
         switch (data.type) {
             case "chat_message":
-                add_message(data.user, data.message)
+                add_message(data.user, data.message);
                 break;
             case "user_list":
-                for (let i = 0; i < data.users.length; i++) {
+                for (let i = 0; i < data.users.length; i++) 
                     onlineUsersSelectorAdd(data.users[i]);
-                }
                 break;
             case "user_join":
                 onlineUsersSelectorAdd(data.user);
@@ -153,11 +153,13 @@ function connect() {
                 console.error("Unknown message type!");
                 break;
         }
+        chatLog_container.scrollTop = chatLog.scrollHeight;
     }
-
+    
 }
-connect();
 
+connect();
+chatLog_container.scrollTop = chatLog.scrollHeight;
 
 chatMessageInput.focus();
 // submit if the user presses the enter key
@@ -174,7 +176,6 @@ chatMessageSend.addEventListener('click', function(event){
     chatMessageInput.value = "";
     chatSocket.send(JSON.stringify({"message": content,}));  
 })
-
 
 
 

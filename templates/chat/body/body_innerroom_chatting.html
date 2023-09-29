@@ -1,0 +1,205 @@
+<div id="hidden-container" style="display: none;">
+    {{users_img_urls_json}}
+</div>
+<div id="hidden-container2" style="display: none;">
+    {{profile.user.username}}
+</div>
+
+<div class="w-100">
+
+    <!-- HEAD -->
+    <div class="p-3 p-lg-4 border-bottom row align-items-center">
+
+        <!-- ROOM -->
+        <div class="col-sm-4 col-8">
+            <div class="media align-items-center">
+                <div class="d-block d-lg-none mr-2">
+                    <a href="javascript: void(0);" class="user-chat-remove text-muted font-size-16 p-2">
+                        <i class="ri-arrow-left-s-line"></i>
+                    </a>
+                </div>
+                <div class="mr-3">
+                    <div class="chat-user-img mr-3 avatar-xs">
+                        <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                            {{ cur_room.initial }}
+                        </span>
+                    </div>
+                </div>
+                <div class="media-body overflow-hidden">
+                    <h5 class="font-size-16 mb-0 text-truncate">
+                        <a href="#" class="text-reset user-profile-show" id="cur_room_name">
+                            {{cur_room.name}}
+                        </a> 
+                        <i class="ri-record-circle-fill font-size-10 text-success d-inline-block ml-1"></i>
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <!-- ROOM -->
+
+        <!-- GUIDE -->
+        <div class="col-sm-8 col-4">
+            <ul class="list-inline user-chat-nav text-right mb-0"> 
+                <!-- SEARCH -->
+                <li class="list-inline-item">
+                    <div class="dropdown">
+                        <button class="btn nav-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ri-search-line"></i>
+                        </button>
+                        <div class="dropdown-menu p-0 dropdown-menu-right dropdown-menu-md">
+                            <div class="search-box p-2">
+                                <input type="text" class="form-control bg-light border-0" placeholder="Search..">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!-- SEARCH -->
+                <!-- PERSON -->
+                <li class="list-inline-item d-none d-lg-inline-block">
+                    <button type="button" class="btn nav-btn user-profile-show">
+                        <i class="ri-user-3-line"></i>
+                    </button>
+                </li>
+                <!-- PERSON -->
+                <!-- MORE -->
+                <li class="list-inline-item">
+                    <div class="dropdown">
+                        <button class="btn nav-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ri-more-fill"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item d-block d-lg-none user-profile-show" href="#">View profile <i class="ri-user-2-line float-right text-muted"></i></a>
+                            <a class="dropdown-item" href="#">Delete <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <!-- MORE -->
+            </ul>
+        </div>
+        <!-- GUIDE -->
+
+    </div>
+    <!-- HEAD -->
+
+    <!-- CONTENT -->
+    <div class="chat-conversation p-3 p-lg-4" id="chatLog-container" style="overflow: auto;">
+        <ul class="list-unstyled mb-0"i id="chatLog">
+            {% for rm in room_messages %}
+                {% if rm.user.username != profile.user.username %}
+                
+                <!-- ONE CONTENT TEMPLATE -->
+                <li><div class="conversation-list">
+                    <!-- HIS OR HER AVATAR -->
+                    <div class="chat-avatar"><img src={{rm.image_url}} alt=""></div>
+                    <!-- HIS OR HER AVATAR -->
+                    <!-- CONTENT MAIN -->
+                    <div class="user-chat-content">
+                        <div class="ctext-wrap">
+                            <!-- CONTENT & TIME -->
+                            <div class="ctext-wrap-content">
+                                <p class="mb-0">{{rm.content}}</p>
+                                <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">{{rm.timestamp}}</span></p>
+                            </div>
+                            <!-- CONTENT & TIME -->
+                            <!-- MESSAGE TOOLS -->
+                            <div class="dropdown align-self-start">
+                                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ri-more-2-fill"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Copy <i class="ri-file-copy-line float-right text-muted"></i></a>
+                                    <a class="dropdown-item" href="#">Save <i class="ri-save-line float-right text-muted"></i></a>
+                                    <a class="dropdown-item" href="#">Forward <i class="ri-chat-forward-line float-right text-muted"></i></a>
+                                    <a class="dropdown-item" href="#">Delete <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                                </div>
+                            </div>
+                            <!-- MESSAGE TOOLS -->
+                        </div>
+                        <!-- HIS OR HER NAME -->
+                        <div class="conversation-name">{{rm.user.username}}</div>
+                    </div>
+                    <!-- CONTENT -->
+                </div></li>
+                <!-- ONE CONTENT TEMPLATE --> 
+
+                {% else %}
+
+                <!-- MY CONTENT TEMPLATE -->
+                <li class="right"><div class="conversation-list">
+                    <!-- MY AVATAR -->
+                    <div class="chat-avatar"><img src="{{ profile.image_url }}" alt=""></div>
+                    <!-- MY AVATAR -->
+                    <!-- CONTENT MAIN -->
+                    <div class="user-chat-content">
+                        <div class="ctext-wrap">
+                            <!-- CONTENT & TIME -->
+                            <div class="ctext-wrap-content">
+                                <p class="mb-0">{{rm.content}}</p>
+                                <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">{{rm.timestamp}}</span></p>
+                            </div>
+                            <!-- CONTENT & TIME -->
+                            <!-- MESSAGE TOOLS -->
+                            <div class="dropdown align-self-start">
+                                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ri-more-2-fill"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Copy <i class="ri-file-copy-line float-right text-muted"></i></a>
+                                    <a class="dropdown-item" href="#">Save <i class="ri-save-line float-right text-muted"></i></a>
+                                    <a class="dropdown-item" href="#">Forward <i class="ri-chat-forward-line float-right text-muted"></i></a>
+                                    <a class="dropdown-item" href="#">Delete <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                                </div>
+                            </div>
+                            <!-- MESSAGE TOOLS -->
+                        </div>
+                        <!-- HIS OR HER NAME -->
+                        <div class="conversation-name"> {{ profile.user.username }} </div>
+                    </div>
+                    <!-- CONTENT -->
+                </div></li>
+                <!-- MY CONTENT TEMPLATE -->   
+
+                {% endif %}
+
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- CONTENT -->
+
+    <!-- INPUT & SEND -->
+    <div class="p-3 p-lg-4 border-top mb-0 row no-gutters">
+        
+        <!-- INPUT -->
+        <div class="col">
+            <input type="text" id="chatMessageInput" class="form-control form-control-lg bg-light border-light" placeholder="Enter Message...">
+        </div>
+        <!-- INPUT -->
+
+        <!-- BUTTON -->
+        <div class="col-auto chat-input-links ml-md-2">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <button type="button" class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect" data-toggle="tooltip" data-placement="top" title="Emoji">
+                            <i class="ri-emotion-happy-line"></i>
+                    </button></li>
+                    <li class="list-inline-item">  
+                        <button type="button" class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect" data-toggle="tooltip" data-placement="top" title="Attached File">
+                            <i class="ri-attachment-line"></i>
+                    </button></li>
+                    <li class="list-inline-item">
+                        <button type="submit" class="btn btn-primary font-size-16 btn-lg chat-send waves-effect waves-light" id="chatMessageSend">
+                            <i class="ri-send-plane-2-fill"></i>
+                    </button></li>
+                </ul>
+        </div>
+        <!-- BUTTON -->
+
+    </div>
+    <!-- INPUT & SEND -->
+
+</div>
+
+
+
+
+

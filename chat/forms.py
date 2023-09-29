@@ -31,5 +31,10 @@ class EditProfileForm(forms.Form):
 class RoomForm(forms.Form):
     name = forms.CharField(required=True)
     about_room = forms.CharField(widget=forms.Textarea(), required=False)
+    
 
+class PostForm(forms.Form):
+    title = forms.CharField(required=True)
+    about_post = forms.CharField(widget=forms.Textarea(), required=False)
+    image = forms.ImageField(required=False)
     

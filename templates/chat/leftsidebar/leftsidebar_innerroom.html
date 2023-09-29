@@ -1,0 +1,142 @@
+<div>
+                        
+    <!-- POST HEAD -->
+    <div class="p-4">
+
+        <!-- POST NAV -->
+        <div class="user-chat-nav float-right">
+            <div data-toggle="tooltip" data-placement="bottom" title="Create post">
+                <button type="button" class="btn btn-link text-decoration-none text-muted font-size-18 py-0" data-toggle="modal" data-target="#addpost-exampleModal">
+                    <i class="ri-add-circle-line mr-1"></i>
+                </button>
+            </div>
+        </div>
+        <!-- POST NAV -->
+
+        <!-- POST TITLE -->
+        <h4 class="mb-4">Posts</h4>
+        <!-- POST TITLE -->
+
+
+        <!-- CREATE POST -->
+        <div class="modal fade" id="addpost-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addpost-exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <form class="modal-content" method="post" 
+                action="{% url 'chat:innerroom' room_name=cur_room.name post_name=cur_post.title %}">
+                    {% csrf_token %}
+                    <!-- CREATE HEAD -->
+                    <div class="modal-header">
+                        <h5 class="modal-title font-size-16" id="addpost-exampleModalLabel">Create New Post</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- CREATE HEAD -->
+
+                    <!-- CREATE BODY -->
+                    <div class="modal-body p-4">
+                        <div>
+
+                            <!-- POST NAME -->
+                            <div class="form-post mb-4">
+                                <label for="addpostname-input">Post Name</label>
+                                <input type="text" class="form-control" id="addpostname-input" name="title" placeholder="Enter Post Name">
+                            </div>
+                            <!-- POST NAME -->
+
+                            <!-- POST DESCRIPTION-->
+                            <div class="form-group">
+                                <label for="add-post-description-input">Description</label>
+                                <textarea class="form-control" id="add-post-description-input" rows="3" name="about_post" placeholder="Enter Description"></textarea>
+                            </div>
+                            <!-- POST DESCRIPTION-->
+
+                            <!-- AVATAR -->
+                            <div class="form-group">
+                                <label for="change-avatar">Add Avatar Image</label>
+                                <input type="file" class="form-control upload-button" id="change-avatar" name="image" accept="image/*">
+                            </div>
+                            <!-- AVATAR -->
+
+                            <!-- TAGS -->
+                            <div class="form-group">
+                                <label for="add-tags">Add Tags</label>
+                                <input type="text" class="form-control" id="add-tags" name="tags" placeholder="Enter Tag Name">
+                            </div>
+                            <!-- TAGS -->
+                            
+                        </div>
+                    </div>
+                    <!-- CREATE BODY -->
+
+                    <!-- CREATE BUTTON -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Create Post</button>
+                    </div>
+                    <!-- CREATE BUTTON -->
+
+                </form>
+            </div>
+        </div>
+        <!-- CREATE GROUPS -->
+
+        <!-- SEARCH BOX -->
+        <div class="search-box chat-search-box">
+            <div class="input-group bg-light  input-group-lg rounded-lg">
+                <div class="input-group-prepend">
+                    <button class="btn btn-link text-decoration-none text-muted pr-1" type="button">
+                        <i class="ri-search-line search-icon font-size-18"></i>
+                    </button>
+                </div>
+                <input type="text" class="form-control bg-light" placeholder="Search posts...">
+            </div>
+        </div>
+        <!-- SEARCH BOX -->
+
+    </div>
+    <!-- POST HEAD -->
+        
+    <!-- POST INFO -->
+    <div class="p-4 chat-message-list chat-chatroom-list" data-simplebar="">
+    <ul class="list-unstyled chat-list">
+
+        <!-- ONE EXAMPLE -->
+        
+        {% for post in posts %}
+        <li><a href="{% url 'chat:innerroom' room_name=post.belong_room.name post_name=post.title %}"><div class="media align-items-center">
+
+            <!-- SYMBOL IMG -->
+            <div class="chat-user-img mr-3 avatar-xs">
+                <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                    {{ post.initial }}
+                </span>
+            </div>
+            <!-- SYMBOL IMG -->
+                
+            <!-- BODY -->
+            <div class="media-body overflow-hidden">
+                <h5 class="text-truncate font-size-14 mb-0">#{{ post.title }}</h5>
+            </div>
+            <!-- BODY -->
+
+        </div></a></li>
+        <!-- ONE EXAMPLE -->
+        {% endfor %}
+    </ul></div>
+    <!-- POST INFO -->
+   
+</div>
+
+{% if wrong_message != "" %}
+<div class="error-box" style="width:250px; height:160px">
+    <div class="error-body">
+        <p>{{ wrong_message }}</p>
+    </div>
+    <div class="error-close">
+        <button class="close-button" id="close">
+            close
+        </button>
+    </div>
+</div>
+{% endif %}

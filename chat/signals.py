@@ -1,7 +1,7 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from users.models import User
-from .models import Profile, RoomMessage, Room
+from .models import Profile, RoomMessage, Room, Post, Tag
 from django.shortcuts import get_object_or_404
 
 
@@ -12,7 +12,7 @@ def create_profile(sender, instance, created, **kwargs):
         
         
 @receiver(post_save, sender=Room)
-def create_roommessage(sender, instance, created, **kwargs):
+def create_rm_cp(sender, instance, created, **kwargs):
     if created:
         content = "Congratulations to {} for creating a new chatroom \
             named {}".format(instance.owner_name, instance.name)
@@ -21,3 +21,16 @@ def create_roommessage(sender, instance, created, **kwargs):
             room=instance, 
             content=content
         )
+
+        post = Post.objects.create(
+            title =  "chatting_" + instance.name,
+            author = get_object_or_404(User, username=instance.owner_name), 
+            about_post = "The special and default post for chatting",
+            belong_room=instance, 
+        )
+        try:
+            post.tags.add(get_object_or_404(Tag, name="default"))
+        except:
+            Tag.objects.create(name="default")
+            post.tags.add(get_object_or_404(Tag, name="default"))
+            

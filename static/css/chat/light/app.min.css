@@ -1,3 +1,11 @@
+body{
+    width: 99%;
+    height: 99%;
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+}
+
 .waves-effect {
     position: relative;
     cursor: pointer;
@@ -668,21 +676,11 @@
     z-index: 9;
     -webkit-box-shadow: 0 2px 4px rgba(15, 34, 58, .12);
     box-shadow: 0 2px 4px rgba(15, 34, 58, .12);
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
 }
 
-.side-menu {
-    min-width: 75px;
-    max-width: 75px;
-    height: 100vh;
-    min-height: 570px;
-    background-color: #fff;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    z-index: 9;
-    -webkit-box-shadow: 0 2px 4px rgba(15, 34, 58, .12);
-    box-shadow: 0 2px 4px rgba(15, 34, 58, .12);
-}
 
 @media (max-width: 991.98px) {
     .side-menu {
@@ -960,6 +958,12 @@
     padding: 0;
     font-size: 20px;
     color: #7a7f9a;
+}
+
+.chat-conversation {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
 }
 
 .chat-conversation li {

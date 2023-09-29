@@ -18,7 +18,7 @@
         <!-- CHATROOM TITLE -->
 
 
-        <!-- CREATE GROUPS -->
+        <!-- CREATE CHATROOM -->
         <div class="modal fade" id="addchatroom-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addchatroom-exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <form class="modal-content" method="post" action="{% url 'chat:chatroom' %}">
@@ -64,7 +64,7 @@
                 </form>
             </div>
         </div>
-        <!-- CREATE GROUPS -->
+        <!-- CREATE CHATROOM -->
 
         <!-- SEARCH BOX -->
         <div class="search-box chat-search-box">
@@ -89,7 +89,7 @@
         <!-- ONE EXAMPLE -->
         
         {% for room in rooms %}
-        <li><a href="{% url 'chat:innerroom' room_name=room.name %}"><div class="media align-items-center">
+        <li><a href="{% url 'chat:innerroom' room_name=room.name post_name='chatting_'|add:room.name %}"><div class="media align-items-center">
 
             <!-- SYMBOL IMG -->
             <div class="chat-user-img mr-3 avatar-xs">
@@ -101,7 +101,7 @@
                 
             <!-- BODY -->
             <div class="media-body overflow-hidden">
-                <h5 class="text-truncate font-size-14 mb-0">#{{ room.name }}</h5>
+                <h5 class="text-truncate font-size-14 mb-0">{{ room.name }}</h5>
             </div>
             <!-- BODY -->
 
