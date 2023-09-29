@@ -7,10 +7,12 @@ let chatLog = document.querySelector("#chatLog");
 let chatLog_container = document.getElementById('chatLog-container');
 let hidden_container = document.querySelector("#hidden-container");
 let hidden_container2 = document.querySelector("#hidden-container2");
+let hidden_container3 = document.querySelector("#hidden-container3");
 let chatSocket = null;
 var room_name = a_cur_room.textContent.trim().toString();
 var user_img_urls = JSON.parse(hidden_container.innerHTML);
-var cur_user = hidden_container2.innerHTML.trim().toString()
+var cur_user = hidden_container2.innerHTML.trim().toString();
+var cur_post = hidden_container3.innerHTML.trim().toString();
 
 
 // add message
@@ -89,6 +91,7 @@ function add_message(user, message){
 }
 
 
+
 // onlineUsersSelectorAdd
 function onlineUsersSelectorAdd(user){
     if (document.querySelector("option[value='" + user + "']")) return;
@@ -107,7 +110,7 @@ function onlineUsersSelectorRemove(user) {
 
 // connect
 function connect() {
-    chatSocket = new WebSocket("ws://" + window.location.host + "/ws/chat/" + room_name + "/");
+    chatSocket = new WebSocket("ws://" + window.location.host + "/ws/chat/chatroom/" + room_name);
     // connect the WebSocket
     chatSocket.onopen = function(e) {
         console.log("Successfully connected to the WebSocket.");
@@ -158,9 +161,19 @@ function connect() {
     
 }
 
+
+// send if the button click
+chatMessageSend.addEventListener('click', function(event){
+    event.preventDefault();
+    var content = chatMessageInput.value;
+    chatMessageInput.value = "";
+    chatSocket.send(JSON.stringify({"message": content, "post_name": cur_post}));  
+})
+
+
+// connect and actions
 connect();
 chatLog_container.scrollTop = chatLog.scrollHeight;
-
 chatMessageInput.focus();
 // submit if the user presses the enter key
 chatMessageInput.onkeyup = function(e) {
@@ -168,15 +181,5 @@ chatMessageInput.onkeyup = function(e) {
         chatMessageSend.click();
     }
 };
-
-// send if the button click
-chatMessageSend.addEventListener('click', function(event){
-    event.preventDefault();
-    var content = chatMessageInput.value;
-    chatMessageInput.value = "";
-    chatSocket.send(JSON.stringify({"message": content,}));  
-})
-
-
 
 

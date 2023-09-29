@@ -14,23 +14,32 @@ def create_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=Room)
 def create_rm_cp(sender, instance, created, **kwargs):
     if created:
-        content = "Congratulations to {} for creating a new chatroom \
-            named {}".format(instance.owner_name, instance.name)
-        RoomMessage.objects.create(
-            user=get_object_or_404(User, username=instance.owner_name), 
-            room=instance, 
-            content=content
-        )
-
+        # create the default chatting_post
+        author = User.objects.get(username=instance.owner_name)
+        profile = get_object_or_404(Profile, user=author)
         post = Post.objects.create(
             title =  "chatting_" + instance.name,
-            author = get_object_or_404(User, username=instance.owner_name), 
+            author = author, 
+            author_profile = profile,
             about_post = "The special and default post for chatting",
             belong_room=instance, 
         )
         try:
             post.tags.add(get_object_or_404(Tag, name="default"))
+            post.tags.add(get_object_or_404(Tag, name="chatting"))
         except:
             Tag.objects.create(name="default")
+            Tag.objects.create(name="chatting")
             post.tags.add(get_object_or_404(Tag, name="default"))
+            post.tags.add(get_object_or_404(Tag, name="chatting"))
+        
+        # create the defult success message for the chatting_post
+        content = "Congratulations to {} for creating a new chatroom \
+            named {}".format(instance.owner_name, instance.name)   
+        RoomMessage.objects.create(
+            user=author, 
+            belong_post = post,
+            room=instance, 
+            content=content
+        )
             

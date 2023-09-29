@@ -21,7 +21,7 @@
         <!-- CREATE POST -->
         <div class="modal fade" id="addpost-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addpost-exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <form class="modal-content" method="post" 
+                <form class="modal-content" method="post" enctype="multipart/form-data"
                 action="{% url 'chat:innerroom' room_name=cur_room.name post_name=cur_post.title %}">
                     {% csrf_token %}
                     <!-- CREATE HEAD -->
@@ -53,8 +53,8 @@
 
                             <!-- AVATAR -->
                             <div class="form-group">
-                                <label for="change-avatar">Add Avatar Image</label>
-                                <input type="file" class="form-control upload-button" id="change-avatar" name="image" accept="image/*">
+                                <label for="add-image">Add Post Image</label>
+                                <input type="file" class="form-control upload-button" id="add-image" name="image" accept="image/*">
                             </div>
                             <!-- AVATAR -->
 

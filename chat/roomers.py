@@ -1,7 +1,7 @@
 import json
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
-from .models import Room, RoomMessage
+from .models import Room, RoomMessage, Post
 
 
 class Roommers(WebsocketConsumer):
@@ -23,7 +23,6 @@ class Roommers(WebsocketConsumer):
         self.room = Room.objects.get(name=self.room_name)
         self.user = self.scope['user']
         self.user_inbox = f'inbox_{self.user.username}'
-        # build websocket connection
         self.accept()
         async_to_sync(self.channel_layer.group_add)(
             self.room_group_name,
@@ -80,6 +79,7 @@ class Roommers(WebsocketConsumer):
     def receive(self, text_data=None, bytes_data=None):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
+        post_name = text_data_json['post_name']
         
         # check if the user is valid
         if not self.user.is_authenticated:
@@ -94,7 +94,12 @@ class Roommers(WebsocketConsumer):
             }
         )
         
-        RoomMessage.objects.create(user=self.user, room=self.room, content=message)
+        RoomMessage.objects.create(
+            user=self.user, 
+            room=self.room, 
+            belong_post = Post.objects.get(title=post_name, belong_room=self.room),
+            content=message
+        )
 
 
     def chat_message(self, event):

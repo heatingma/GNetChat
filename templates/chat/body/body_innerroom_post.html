@@ -4,6 +4,9 @@
 <div id="hidden-container2" style="display: none;">
     {{profile.user.username}}
 </div>
+<div id="hidden-container3" style="display: none;">
+    {{cur_post.title}}
+</div>
 
 <div class="w-100">
 
@@ -81,11 +84,106 @@
     </div>
     <!-- HEAD -->
 
-    <!-- CONTENT -->
-    <div class="chat-conversation p-3 p-lg-4" data-simplebar="init">
+    <!-- POST -->
+    <div class="chat-conversation p-3 p-lg-4" id="chatLog-container" style="overflow: auto;">
+        {% if cur_post.image != "" %}
+        <div class="post-image-container">
+            <img src={{cur_post.image.url}} alt="" class="post-image">
+        </div>
+        {% endif %}
+        <div class="post-head">
+            <div class="post-title">
+                {{cur_post.title}}
+            </div> 
+            <h3> {{cur_post.author.username}} created on {{cur_post.created_on}}<h3>
+        </div>
+        <div class="post-content">
+            <p>{{cur_post.about_post}}<p>
+        </div>
 
+        <ul class="list-unstyled mb-0"i id="chatLog">
+            {% for rm in room_messages %}
+                {% if rm.user.username != profile.user.username %}
+                
+                <!-- ONE CONTENT TEMPLATE -->
+                <li><div class="conversation-list">
+                    <!-- HIS OR HER AVATAR -->
+                    <div class="chat-avatar"><img src={{rm.image_url}} alt=""></div>
+                    <!-- HIS OR HER AVATAR -->
+                    <!-- CONTENT MAIN -->
+                    <div class="user-chat-content">
+                        <div class="ctext-wrap">
+                            <!-- CONTENT & TIME -->
+                            <div class="ctext-wrap-content">
+                                <p class="mb-0">{{rm.content}}</p>
+                                <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">{{rm.timestamp}}</span></p>
+                            </div>
+                            <!-- CONTENT & TIME -->
+                            <!-- MESSAGE TOOLS -->
+                            <div class="dropdown align-self-start">
+                                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ri-more-2-fill"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Copy <i class="ri-file-copy-line float-right text-muted"></i></a>
+                                    <a class="dropdown-item" href="#">Save <i class="ri-save-line float-right text-muted"></i></a>
+                                    <a class="dropdown-item" href="#">Forward <i class="ri-chat-forward-line float-right text-muted"></i></a>
+                                    <a class="dropdown-item" href="#">Delete <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                                </div>
+                            </div>
+                            <!-- MESSAGE TOOLS -->
+                        </div>
+                        <!-- HIS OR HER NAME -->
+                        <div class="conversation-name">{{rm.user.username}}</div>
+                    </div>
+                    <!-- CONTENT -->
+                </div></li>
+                <!-- ONE CONTENT TEMPLATE --> 
+
+                {% else %}
+
+                <!-- MY CONTENT TEMPLATE -->
+                <li class="right"><div class="conversation-list">
+                    <!-- MY AVATAR -->
+                    <div class="chat-avatar"><img src="{{ profile.image_url }}" alt=""></div>
+                    <!-- MY AVATAR -->
+                    <!-- CONTENT MAIN -->
+                    <div class="user-chat-content">
+                        <div class="ctext-wrap">
+                            <!-- CONTENT & TIME -->
+                            <div class="ctext-wrap-content">
+                                <p class="mb-0">{{rm.content}}</p>
+                                <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">{{rm.timestamp}}</span></p>
+                            </div>
+                            <!-- CONTENT & TIME -->
+                            <!-- MESSAGE TOOLS -->
+                            <div class="dropdown align-self-start">
+                                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="ri-more-2-fill"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Copy <i class="ri-file-copy-line float-right text-muted"></i></a>
+                                    <a class="dropdown-item" href="#">Save <i class="ri-save-line float-right text-muted"></i></a>
+                                    <a class="dropdown-item" href="#">Forward <i class="ri-chat-forward-line float-right text-muted"></i></a>
+                                    <a class="dropdown-item" href="#">Delete <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                                </div>
+                            </div>
+                            <!-- MESSAGE TOOLS -->
+                        </div>
+                        <!-- HIS OR HER NAME -->
+                        <div class="conversation-name"> {{ profile.user.username }} </div>
+                    </div>
+                    <!-- CONTENT -->
+                </div></li>
+                <!-- MY CONTENT TEMPLATE -->   
+
+                {% endif %}
+
+            {% endfor %}
+        </ul>
+        
     </div>
-    <!-- CONTENT -->
+    <!-- POST -->
 
     <!-- INPUT & SEND -->
     <div class="p-3 p-lg-4 border-top mb-0 row no-gutters">

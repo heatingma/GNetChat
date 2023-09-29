@@ -70,31 +70,14 @@ class Tag(models.Model):
         return self.name
   
 
-class RoomMessage(models.Model):
-    """
-    Message for Room
-    """
-    user = models.ForeignKey(to=get_user_model(), on_delete=models.CASCADE)
-    room = models.ForeignKey(to=Room, on_delete=models.CASCADE)
-    content = models.CharField(max_length=512)
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f'{self.user.username}: {self.content} [{self.timestamp}]'
-    
-    @property
-    def image_url(self):
-        profile = Profile.objects.get(user=self.user)
-        return profile.image_url
-    
-
 class Post(models.Model):
     """
     A flexible and freely accessible space
     """
     title = models.CharField(max_length=128)
-    author = models.ForeignKey(to=get_user_model(), on_delete=models.CASCADE)
-    about_post = models.CharField(max_length=128, default="The author did not set an introduction to the topic")
+    author = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    author_profile = models.ForeignKey(to=Profile, on_delete=models.CASCADE)
+    about_post = models.CharField(max_length=1000, default="The author did not set an introduction to the topic")
     image = models.ImageField(upload_to='post_image', null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now= True)
@@ -119,6 +102,24 @@ class Post(models.Model):
         return self.title
     
     def save(self, *args, **kwargs):
-        if Post.objects.filter(title=self.title, belong_room=self.belong_room).exists():
-            raise ValidationError("A post with the same title already exists in this room.")
         super().save(*args, **kwargs)
+        
+
+class RoomMessage(models.Model):
+    """
+    Message for Room
+    """
+    user = models.ForeignKey(to=get_user_model(), on_delete=models.CASCADE)
+    room = models.ForeignKey(to=Room, on_delete=models.CASCADE)
+    belong_post = models.ForeignKey(to=Post, on_delete=models.CASCADE)
+    content = models.CharField(max_length=512)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.user.username}: {self.content} [{self.timestamp}]'
+    
+    @property
+    def image_url(self):
+        profile = Profile.objects.get(user=self.user)
+        return profile.image_url
+    

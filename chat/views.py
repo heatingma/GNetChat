@@ -41,32 +41,37 @@ def innerroom(request: HttpRequest, room_name, post_name):
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=user)
     
-    # get objects 
+    # get objects (current room and current post)
     chat_room = get_object_or_404(Room, name=room_name)
-    room_messages = RoomMessage.objects.filter(room=chat_room).order_by('timestamp')
-    wrong_message = ""
-    
-    # deal with post action
-    if request.method == "POST":
-        postform = PostForm(request.POST)
-        if postform.is_valid():
-            title = postform.cleaned_data["title"]
-            about_post = postform.cleaned_data["about_post"]
-            image = postform.cleaned_data["image"]
-            post = Post(title=title, author=user, about_post=about_post, image=image, belong_room=chat_room)
-            try:
-                post.save()
-            except:
-                wrong_message = "A post with the same title already exists in this room."
-
-    # get current room and current post
-    cur_room = room_messages[0].room
     if post_name == "chatting_" + room_name:
         chatting_post = True
     else:
         chatting_post = False
-    cur_post = get_object_or_404(Post, title=post_name, belong_room=cur_room)
+    cur_post = get_object_or_404(Post, title=post_name, belong_room=chat_room)
+    room_messages = RoomMessage.objects.filter(room=chat_room, belong_post=cur_post).order_by('timestamp')
+    posts = Post.objects.filter(belong_room=chat_room).order_by('created_on')
+    wrong_message = ""
     
+    # deal with post action
+    if request.method == "POST":
+        postform = PostForm(request.POST, request.FILES)
+        if postform.is_valid():
+            title = postform.cleaned_data["title"]
+            about_post = postform.cleaned_data["about_post"]
+            image = postform.cleaned_data["image"]
+            post = Post(
+                title=title, 
+                author=user, 
+                author_profile =profile,
+                about_post=about_post, 
+                belong_room=chat_room)
+            if image:
+                post.image = image
+            if Post.objects.filter(title=post.title, belong_room=post.belong_room).exists():
+                wrong_message = "A post with the same title already exists in this room."
+            else:
+                post.save()
+
     # get users' img_urls
     users_img_urls = dict()
     for rm in room_messages:
@@ -81,9 +86,10 @@ def innerroom(request: HttpRequest, room_name, post_name):
         context={
             'profile': profile,
             'rooms': Room.objects.all(),
-            'cur_room': cur_room,
+            'cur_room': chat_room,
             'wrong_message': wrong_message,
             'room_messages': room_messages,
+            'posts': posts,
             'cur_post': cur_post,
             'chatting_post': chatting_post,
             'users_img_urls_json': json.dumps(users_img_urls)
