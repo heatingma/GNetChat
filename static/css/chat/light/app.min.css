@@ -1156,6 +1156,11 @@ body{
     }
 }
 
+.chat-conversation .post-head{
+    width: 60%;
+    margin-right: 20%;
+}
+
 .chat-conversation .post-head .post-title{
     width: 90%;
     display: flex;
@@ -1177,20 +1182,25 @@ body{
 	padding-bottom: 15px;
     font-family: "comicbd";
     font-weight: bolder;
+    margin-left: 25%;
 }
 
 .chat-conversation .post-image-container{
-    position: relative;
-}
-.chat-conversation .post-image-container .post-image{
-    width: 8%;
+    width: 10%;
+    margin-left: 10%;
+    display: flex;
+    float: left;
     height: auto;
-    position: absolute;
+}
+
+.chat-conversation .post-image-container .post-image{
+    max-width: 80px;
+    max-height: 80px;
+    margin: 10%;
+    width: auto;
+    height: auto;
     border-radius: 50%;
     border: 2px solid #d190f6;
-    top: 5%; 
-    left: 10%;
-    z-index: 9999; 
 }
 
 .chat-conversation .post-content {

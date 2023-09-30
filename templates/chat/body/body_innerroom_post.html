@@ -85,22 +85,25 @@
     <!-- HEAD -->
 
     <!-- POST -->
-    <div class="chat-conversation p-3 p-lg-4" id="chatLog-container" style="overflow: auto;">
-        {% if cur_post.image != "" %}
-        <div class="post-image-container">
-            <img src={{cur_post.image.url}} alt="" class="post-image">
-        </div>
-        {% endif %}
-        <div class="post-head">
-            <div class="post-title">
-                {{cur_post.title}}
-            </div> 
-            <h3> {{cur_post.author.username}} created on {{cur_post.created_on}}<h3>
+    <div class="chat-conversation p-3 p-lg-4" id="chatLog-container" 
+    style="overflow: auto;">
+        
+        <div class="row">
+            {% if cur_post.image != "" %}
+                <div class="post-image-container">
+                    <img src={{cur_post.image.url}} alt="" class="post-image">
+                </div>
+            {% endif %}
+            <div class="post-head">
+                <div class="post-title">
+                    {{cur_post.title}}
+                </div> 
+                <h3> {{cur_post.author.username}} created on {{cur_post.created_on}}<h3>
+            </div>
         </div>
         <div class="post-content">
             <p>{{cur_post.about_post}}<p>
         </div>
-
         <ul class="list-unstyled mb-0"i id="chatLog">
             {% for rm in room_messages %}
                 {% if rm.user.username != profile.user.username %}
