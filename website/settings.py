@@ -24,9 +24,9 @@ MEDIA_URL = '/media/'
 SECRET_KEY = "django-insecure-dwa!f+=t#-%qnu%n%epoxz5gdk1h-xprp0gz$kvzfesm*$8mxp"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 AUTH_USER_MODEL = 'users.User'
@@ -128,6 +128,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/css'),
     os.path.join(BASE_DIR, 'static/js'),
 ]
+STATIC_ROOT = 'full_static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -138,7 +139,9 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [('localhost', 6379)],
         },
     },
 }
+
+
