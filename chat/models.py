@@ -152,9 +152,10 @@ class RoomMessage(models.Model):
     def __str__(self):
         return f'{self.user.username}: {self.content} [{self.timestamp}]'
     
-    def save(self):
-        validate_file_size(self.attachment)
-        super().save()
+    def save(self, *args, **kwargs):
+        if self.attachment.name:
+            validate_file_size(self.attachment)
+        super().save(*args, **kwargs)
         
     @property
     def image_url(self):
