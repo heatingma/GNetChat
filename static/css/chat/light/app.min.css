@@ -1208,6 +1208,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     display: flex;
+    margin-bottom: 10px;
 }
 
 .chat-conversation .post-content p{

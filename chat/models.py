@@ -185,6 +185,10 @@ class RoomMessage(models.Model):
         
     @property
     def attachment_size(self):
-        size = os.path.getsize(self.attachment.path)
-        return convert_size(size)
+        try:
+            size = os.path.getsize(self.attachment.path)
+            return convert_size(size)
+        except:
+            return 'Unknown Size'
+        
     
