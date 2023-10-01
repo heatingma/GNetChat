@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 清空log
+> uwsgi.log
+
 # 停止 Apache2 服务
 /etc/init.d/apache2 stop
 
