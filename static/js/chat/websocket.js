@@ -36,19 +36,6 @@ function add_message(user, message){
                     <p class="mb-0">${message}</p>
                 </div>
                 <!-- CONTENT & TIME -->
-                <!-- MESSAGE TOOLS -->
-                <div class="dropdown align-self-start">
-                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="ri-more-2-fill"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Copy <i class="ri-file-copy-line float-right text-muted"></i></a>
-                        <a class="dropdown-item" href="#">Save <i class="ri-save-line float-right text-muted"></i></a>
-                        <a class="dropdown-item" href="#">Forward <i class="ri-chat-forward-line float-right text-muted"></i></a>
-                        <a class="dropdown-item" href="#">Delete <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                    </div>
-                </div>
-                <!-- MESSAGE TOOLS -->
             </div>
             <!-- HIS OR HER NAME -->
             <div class="conversation-name">${user}</div>
@@ -68,19 +55,6 @@ function add_message(user, message){
                     <p class="mb-0">${message}</p>
                 </div>
                 <!-- CONTENT & TIME -->
-                <!-- MESSAGE TOOLS -->
-                <div class="dropdown align-self-start">
-                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="ri-more-2-fill"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Copy <i class="ri-file-copy-line float-right text-muted"></i></a>
-                        <a class="dropdown-item" href="#">Save <i class="ri-save-line float-right text-muted"></i></a>
-                        <a class="dropdown-item" href="#">Forward <i class="ri-chat-forward-line float-right text-muted"></i></a>
-                        <a class="dropdown-item" href="#">Delete <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                    </div>
-                </div>
-                <!-- MESSAGE TOOLS -->
             </div>
             <!-- HIS OR HER NAME -->
             <div class="conversation-name">${user}</div>
@@ -181,5 +155,8 @@ chatMessageInput.onkeyup = function(e) {
         chatMessageSend.click();
     }
 };
+
+
+
 
 

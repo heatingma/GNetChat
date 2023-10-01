@@ -1,4 +1,5 @@
 import os
+import uuid
 from django.db import models
 from users.models import User
 from django.contrib.auth import get_user_model
@@ -142,6 +143,7 @@ class RoomMessage(models.Model):
     """
     Message for Room
     """
+    uid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     user = models.ForeignKey(to=get_user_model(), on_delete=models.CASCADE)
     room = models.ForeignKey(to=Room, on_delete=models.CASCADE)
     belong_post = models.ForeignKey(to=Post, on_delete=models.CASCADE)
@@ -163,6 +165,12 @@ class RoomMessage(models.Model):
         return profile.image_url
 
     @property
+    def attachment_url(self):
+        if self.attachment.name == "" or self.attachment.name is None:
+            return ""
+        return self.attachment.url
+    
+    @property
     def attachment_type(self):
         file_type, _ = mimetypes.guess_type(self.attachment.name)
         if file_type.startswith("image"):
@@ -171,8 +179,10 @@ class RoomMessage(models.Model):
     
     @property
     def attachment_name(self):
+        if self.attachment.name == "" or self.attachment.name is None:
+            return None
         return os.path.basename(self.attachment.name)
-
+        
     @property
     def attachment_size(self):
         size = os.path.getsize(self.attachment.path)

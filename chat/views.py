@@ -47,7 +47,6 @@ def innerroom(request: HttpRequest, room_name, post_name, dark=False):
     if request.GET:
         dark = request.GET['dark']
         dark = False if dark == 'False' else True
-        
     # user info
     username = request.user.username
     user = get_object_or_404(User, username=username)

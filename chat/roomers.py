@@ -77,29 +77,35 @@ class Roommers(WebsocketConsumer):
 
 
     def receive(self, text_data=None, bytes_data=None):
+        
         text_data_json = json.loads(text_data)
-        message = text_data_json['message']
-        post_name = text_data_json['post_name']
-        
-        # check if the user is valid
-        if not self.user.is_authenticated:
-            return
+        if "uid" in text_data_json:
+            uid = text_data_json['uid']
+            rm = RoomMessage.objects.get(uid = uid)
+            rm.delete()
+        else:
+            message = text_data_json['message']
+            post_name = text_data_json['post_name']
+            
+            # check if the user is valid
+            if not self.user.is_authenticated:
+                return
 
-        async_to_sync(self.channel_layer.group_send)(
-            self.room_group_name,
-            {
-                'type': 'chat_message',
-                'message': message,
-                'user': self.user.username,
-            }
-        )
-        
-        RoomMessage.objects.create(
-            user=self.user, 
-            room=self.room, 
-            belong_post = Post.objects.get(title=post_name, belong_room=self.room),
-            content=message
-        )
+            async_to_sync(self.channel_layer.group_send)(
+                self.room_group_name,
+                {
+                    'type': 'chat_message',
+                    'message': message,
+                    'user': self.user.username,
+                }
+            )
+            
+            RoomMessage.objects.create(
+                user=self.user, 
+                room=self.room, 
+                belong_post = Post.objects.get(title=post_name, belong_room=self.room),
+                content=message
+            )
 
 
     def chat_message(self, event):
