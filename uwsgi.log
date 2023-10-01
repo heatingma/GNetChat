@@ -1,4 +1,4 @@
-*** Starting uWSGI 2.0.22 (64bit) on [Sun Oct  1 12:27:45 2023] ***
+*** Starting uWSGI 2.0.22 (64bit) on [Sun Oct  1 17:23:22 2023] ***
 compiled with version: 9.4.0 on 30 September 2023 13:37:30
 os: Linux-5.4.0-153-generic #170-Ubuntu SMP Fri Jun 16 13:43:31 UTC 2023
 nodename: ecs-a633
@@ -21,46 +21,48 @@ uWSGI http bound on 0.0.0.0:8001 fd 3
 uwsgi socket 0 bound to UNIX address /home/heatingma/github/NIS3368-website/uwsgi.sock fd 6
 *** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
 Python version: 3.8.10 (default, May 26 2023, 14:05:08)  [GCC 9.4.0]
-Python main interpreter initialized at 0x55fffdfa7140
+Python main interpreter initialized at 0x5557949e4140
 *** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
 python threads support enabled
 your server socket listen backlog is limited to 100 connections
 your mercy for graceful operations on workers is 60 seconds
 mapped 486576 bytes (475 KB) for 5 cores
 *** Operational MODE: preforking ***
-WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55fffdfa7140 pid: 3439 (default app)
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x5557949e4140 pid: 3629 (default app)
 *** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
 *** uWSGI is running in multiple interpreter mode ***
-spawned uWSGI master process (pid: 3439)
-spawned uWSGI worker 1 (pid: 3478, cores: 1)
-spawned uWSGI worker 2 (pid: 3479, cores: 1)
-spawned uWSGI worker 3 (pid: 3480, cores: 1)
-spawned uWSGI worker 4 (pid: 3481, cores: 1)
-spawned uWSGI worker 5 (pid: 3482, cores: 1)
-spawned uWSGI http 1 (pid: 3483)
-[pid: 3478|app: 0|req: 1/1] 127.0.0.1 () {48 vars in 912 bytes} [Sun Oct  1 04:28:12 2023] GET / => generated 9590 bytes in 29 msecs (HTTP/1.0 200) 8 headers in 358 bytes (1 switches on core 0)
-[pid: 3479|app: 0|req: 1/2] 127.0.0.1 () {44 vars in 804 bytes} [Sun Oct  1 04:28:13 2023] GET /favicon.ico => generated 179 bytes in 16 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
-[pid: 3480|app: 0|req: 1/3] 127.0.0.1 () {54 vars in 1024 bytes} [Sun Oct  1 04:28:16 2023] POST / => generated 0 bytes in 220 msecs (HTTP/1.0 302) 10 headers in 521 bytes (1 switches on core 0)
-[pid: 3481|app: 0|req: 1/4] 127.0.0.1 () {48 vars in 929 bytes} [Sun Oct  1 04:28:16 2023] GET /chat/ => generated 34776 bytes in 34 msecs (HTTP/1.0 200) 7 headers in 223 bytes (1 switches on core 0)
-[pid: 3478|app: 0|req: 2/5] 127.0.0.1 () {44 vars in 852 bytes} [Sun Oct  1 04:28:16 2023] GET /chat/static/picture/avatar-1.jpg => generated 179 bytes in 2 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
-[pid: 3479|app: 0|req: 2/6] 127.0.0.1 () {44 vars in 841 bytes} [Sun Oct  1 04:28:16 2023] GET /chat/static/picture/add.png => generated 179 bytes in 1 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
-[pid: 3481|app: 0|req: 2/7] 127.0.0.1 () {44 vars in 852 bytes} [Sun Oct  1 04:28:16 2023] GET /chat/static/picture/avatar-2.jpg => generated 179 bytes in 2 msecs (HTTP/1.0 404) 6 headers in 214 bytes (2 switches on core 0)
-[pid: 3482|app: 0|req: 1/8] 127.0.0.1 () {44 vars in 843 bytes} [Sun Oct  1 04:28:16 2023] GET /chat/static/picture/chat.png => generated 179 bytes in 19 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
-[pid: 3480|app: 0|req: 2/9] 127.0.0.1 () {44 vars in 851 bytes} [Sun Oct  1 04:28:16 2023] GET /chat/static/picture/avatar-3.jpg => generated 179 bytes in 7 msecs (HTTP/1.0 404) 6 headers in 214 bytes (2 switches on core 0)
-[pid: 3478|app: 0|req: 3/10] 127.0.0.1 () {44 vars in 851 bytes} [Sun Oct  1 04:28:16 2023] GET /chat/static/picture/avatar-4.jpg => generated 179 bytes in 0 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
-[pid: 3479|app: 0|req: 3/11] 127.0.0.1 () {46 vars in 918 bytes} [Sun Oct  1 04:28:18 2023] GET /chat/groups/ => generated 32445 bytes in 19 msecs (HTTP/1.0 200) 7 headers in 223 bytes (1 switches on core 0)
-[pid: 3481|app: 0|req: 3/12] 127.0.0.1 () {44 vars in 873 bytes} [Sun Oct  1 04:28:18 2023] GET /chat/groups/static/picture/avatar-4.jpg => generated 179 bytes in 1 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
-[pid: 3482|app: 0|req: 2/13] 127.0.0.1 () {44 vars in 872 bytes} [Sun Oct  1 04:28:18 2023] GET /chat/groups/static/picture/avatar-1.jpg => generated 179 bytes in 1 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
-[pid: 3480|app: 0|req: 3/14] 127.0.0.1 () {44 vars in 865 bytes} [Sun Oct  1 04:28:18 2023] GET /chat/groups/static/picture/chat.png => generated 179 bytes in 1 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
-[pid: 3478|app: 0|req: 4/15] 127.0.0.1 () {46 vars in 929 bytes} [Sun Oct  1 04:28:18 2023] GET /chat/chatroom/ => generated 21266 bytes in 19 msecs (HTTP/1.0 200) 8 headers in 359 bytes (1 switches on core 0)
-[pid: 3479|app: 0|req: 4/16] 127.0.0.1 () {44 vars in 869 bytes} [Sun Oct  1 04:28:18 2023] GET /chat/chatroom/class=%22rounded-circle => generated 179 bytes in 1 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
-[pid: 3481|app: 0|req: 4/17] 127.0.0.1 () {44 vars in 879 bytes} [Sun Oct  1 04:28:18 2023] GET /chat/chatroom/static/picture/avatar-1.jpg => generated 179 bytes in 1 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
-[pid: 3482|app: 0|req: 3/18] 127.0.0.1 () {44 vars in 871 bytes} [Sun Oct  1 04:28:18 2023] GET /chat/chatroom/static/picture/chat.png => generated 179 bytes in 1 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
-[pid: 3480|app: 0|req: 4/19] 127.0.0.1 () {46 vars in 971 bytes} [Sun Oct  1 04:28:19 2023] GET /chat/chatroom/hello/chatting_hello => generated 119403 bytes in 86 msecs (HTTP/1.0 200) 8 headers in 360 bytes (1 switches on core 0)
-[pid: 3479|app: 0|req: 5/21] 127.0.0.1 () {44 vars in 903 bytes} [Sun Oct  1 04:28:19 2023] GET /chat/chatroom/hello/static/picture/chat.png => generated 179 bytes in 0 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
-[pid: 3478|app: 0|req: 5/21] 127.0.0.1 () {44 vars in 911 bytes} [Sun Oct  1 04:28:19 2023] GET /chat/chatroom/hello/static/picture/avatar-1.jpg => generated 179 bytes in 0 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+spawned uWSGI master process (pid: 3629)
+spawned uWSGI worker 1 (pid: 3657, cores: 1)
+spawned uWSGI worker 2 (pid: 3658, cores: 1)
+spawned uWSGI worker 3 (pid: 3659, cores: 1)
+spawned uWSGI worker 4 (pid: 3660, cores: 1)
+spawned uWSGI worker 5 (pid: 3661, cores: 1)
+spawned uWSGI http 1 (pid: 3662)
+[pid: 3657|app: 0|req: 1/1] 127.0.0.1 () {48 vars in 1018 bytes} [Sun Oct  1 09:23:23 2023] GET /chat/my/?dark=False => generated 23563 bytes in 35 msecs (HTTP/1.0 200) 7 headers in 223 bytes (1 switches on core 0)
+[pid: 3658|app: -1|req: -1/2] 127.0.0.1 () {46 vars in 927 bytes} [Sun Oct  1 09:23:23 2023] GET /static/css/chat/light/app.min.css => generated 0 bytes in 0 msecs (HTTP/1.0 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 3659|app: 0|req: 1/3] 127.0.0.1 () {44 vars in 904 bytes} [Sun Oct  1 09:23:23 2023] GET /chat/my/static/picture/chat.png => generated 179 bytes in 17 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+[pid: 3660|app: 0|req: 1/4] 127.0.0.1 () {44 vars in 912 bytes} [Sun Oct  1 09:23:23 2023] GET /chat/my/static/picture/avatar-1.jpg => generated 179 bytes in 22 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+[pid: 3661|app: 0|req: 1/5] 127.0.0.1 () {44 vars in 912 bytes} [Sun Oct  1 09:23:23 2023] GET /chat/my/static/picture/avatar-4.jpg => generated 179 bytes in 22 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+[pid: 3657|app: 0|req: 2/6] 127.0.0.1 () {46 vars in 989 bytes} [Sun Oct  1 09:23:24 2023] GET /chat/chat/?dark=False => generated 11533 bytes in 6 msecs (HTTP/1.0 200) 7 headers in 223 bytes (1 switches on core 0)
+[pid: 3658|app: 0|req: 1/7] 127.0.0.1 () {44 vars in 910 bytes} [Sun Oct  1 09:23:24 2023] GET /chat/chat/static/picture/chat.png => generated 179 bytes in 16 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+[pid: 3659|app: 0|req: 2/8] 127.0.0.1 () {44 vars in 918 bytes} [Sun Oct  1 09:23:24 2023] GET /chat/chat/static/picture/avatar-1.jpg => generated 179 bytes in 0 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+[pid: 3660|app: 0|req: 2/9] 127.0.0.1 () {46 vars in 989 bytes} [Sun Oct  1 09:23:25 2023] GET /chat/chat/?dark=True => generated 11536 bytes in 19 msecs (HTTP/1.0 200) 7 headers in 223 bytes (1 switches on core 0)
+[pid: 3661|app: -1|req: -1/10] 127.0.0.1 () {46 vars in 937 bytes} [Sun Oct  1 09:23:25 2023] GET /static/css/chat/dark/app-dark.min.css => generated 0 bytes in 0 msecs (HTTP/1.0 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 3657|app: 0|req: 3/11] 127.0.0.1 () {44 vars in 909 bytes} [Sun Oct  1 09:23:25 2023] GET /chat/chat/static/picture/chat.png => generated 179 bytes in 1 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+[pid: 3658|app: 0|req: 2/12] 127.0.0.1 () {44 vars in 917 bytes} [Sun Oct  1 09:23:25 2023] GET /chat/chat/static/picture/avatar-1.jpg => generated 179 bytes in 0 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+[pid: 3659|app: 0|req: 3/13] 127.0.0.1 () {46 vars in 996 bytes} [Sun Oct  1 09:23:26 2023] GET /chat/chatroom/?dark=True => generated 15958 bytes in 21 msecs (HTTP/1.0 200) 8 headers in 359 bytes (1 switches on core 0)
+[pid: 3660|app: 0|req: 3/14] 127.0.0.1 () {44 vars in 921 bytes} [Sun Oct  1 09:23:26 2023] GET /chat/chatroom/static/picture/chat.png => generated 179 bytes in 0 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+[pid: 3661|app: 0|req: 2/15] 127.0.0.1 () {44 vars in 929 bytes} [Sun Oct  1 09:23:26 2023] GET /chat/chatroom/static/picture/avatar-1.jpg => generated 179 bytes in 0 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+[pid: 3657|app: 0|req: 4/16] 127.0.0.1 () {44 vars in 919 bytes} [Sun Oct  1 09:23:26 2023] GET /chat/chatroom/class=%22rounded-circle => generated 179 bytes in 0 msecs (HTTP/1.0 404) 6 headers in 214 bytes (2 switches on core 0)
+[pid: 3658|app: 0|req: 3/17] 127.0.0.1 () {46 vars in 996 bytes} [Sun Oct  1 09:23:26 2023] GET /chat/groups/?dark=True => generated 15061 bytes in 19 msecs (HTTP/1.0 200) 7 headers in 223 bytes (1 switches on core 0)
+[pid: 3659|app: 0|req: 4/18] 127.0.0.1 () {44 vars in 915 bytes} [Sun Oct  1 09:23:27 2023] GET /chat/groups/static/picture/chat.png => generated 179 bytes in 0 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+[pid: 3660|app: 0|req: 4/19] 127.0.0.1 () {44 vars in 923 bytes} [Sun Oct  1 09:23:27 2023] GET /chat/groups/static/picture/avatar-1.jpg => generated 179 bytes in 0 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+[pid: 3661|app: 0|req: 3/20] 127.0.0.1 () {46 vars in 986 bytes} [Sun Oct  1 09:23:27 2023] GET /chat/my/?dark=True => generated 23566 bytes in 20 msecs (HTTP/1.0 200) 7 headers in 223 bytes (1 switches on core 0)
+[pid: 3657|app: 0|req: 5/21] 127.0.0.1 () {44 vars in 903 bytes} [Sun Oct  1 09:23:27 2023] GET /chat/my/static/picture/chat.png => generated 179 bytes in 0 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+[pid: 3658|app: 0|req: 4/22] 127.0.0.1 () {44 vars in 911 bytes} [Sun Oct  1 09:23:27 2023] GET /chat/my/static/picture/avatar-1.jpg => generated 179 bytes in 0 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
+[pid: 3659|app: 0|req: 5/23] 127.0.0.1 () {44 vars in 911 bytes} [Sun Oct  1 09:23:27 2023] GET /chat/my/static/picture/avatar-4.jpg => generated 179 bytes in 0 msecs (HTTP/1.0 404) 6 headers in 214 bytes (1 switches on core 0)
 SIGINT/SIGTERM received...killing workers...
-gateway "uWSGI http 1" has been buried (pid: 3483)
+gateway "uWSGI http 1" has been buried (pid: 3662)
 worker 1 buried after 1 seconds
 worker 2 buried after 1 seconds
 worker 3 buried after 1 seconds
