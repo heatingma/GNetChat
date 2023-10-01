@@ -29,4 +29,3 @@ function change_style() {
 }
 
 light_dark.addEventListener('click', change_style);
-    

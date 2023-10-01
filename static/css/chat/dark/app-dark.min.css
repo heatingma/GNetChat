@@ -1153,6 +1153,11 @@ background-color: rgba(6, 214, 160, .4);
 }
 
 
+.chat-conversation .post-head{
+    width: 60%;
+    margin-right: 20%;
+}
+
 .chat-conversation .post-head .post-title{
     width: 90%;
     display: flex;
@@ -1174,24 +1179,7 @@ background-color: rgba(6, 214, 160, .4);
 	padding-bottom: 15px;
     font-family: "comicbd";
     font-weight: bolder;
-}
-
-
-.chat-conversation .post-head{
-    width: 60%;
-    margin-right: 20%;
-}
-
-.post-content{
-    margin-bottom: 5%;
-}
-
-.chat-conversation .post-image-container{
-    width: 10%;
-    margin-left: 10%;
-    display: flex;
-    float: left;
-    height: auto;
+    margin-left: 25%;
 }
 
 .chat-conversation .post-image-container{
@@ -1203,12 +1191,20 @@ background-color: rgba(6, 214, 160, .4);
 }
 
 .chat-conversation .post-image-container .post-image{
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 80px;
+    max-height: 80px;
+    margin: 10%;
     width: auto;
     height: auto;
     border-radius: 50%;
-    border: 2px solid #d190f6;
+    border: 2px solid #422f4d;
+}
+
+.chat-conversation .post-content {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
 }
 
 .chat-conversation .post-content p{
@@ -1314,4 +1310,22 @@ background-color: rgba(6, 214, 160, .4);
 
 .auth-logo .logo-light {
     display: block;
+}
+
+.upload-button {
+    border: 1px solid #262e35;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+    
+.upload-button:hover {
+    background-color: #262e35;
+}
+
+.upload-button:active {
+    background-color: #262e35;
 }

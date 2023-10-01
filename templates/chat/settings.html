@@ -14,12 +14,18 @@
 <!-- leftsidebar -->
 
 
-<!-- chat -->
+<!-- body -->
 {% block chat_conversation %}
-    {% include "chat/body/chat_conversation.html" %}
+    {% include "chat/body/body_settings.html" %}
 {% endblock %}
+<!-- body -->
+
+
+<!-- rightsidebar -->
 {% block chat_friend_info %}
-    {% include "chat/rightsidebar/right_friend_info.html" %}
+    {% include "chat/rightsidebar/right_settings.html" %}
 {% endblock %}
-<!-- chat -->
+<!-- rightsidebar -->
+
+
     

@@ -119,6 +119,38 @@
                             <!-- CONTENT & TIME -->
                             <div class="ctext-wrap-content">
                                 <p class="mb-0">{{rm.content}}</p>
+                                
+                                {% if rm.attachment.name is not None %}
+                                    {% if rm.attachment_type == "image" %}
+                                        <ul class="list-inline message-img  mb-0">
+                                            <li class="list-inline-item message-img-list">
+                                                <div>
+                                                    <a class="popup-img d-inline-block m-1" href="{{rm.attachment.url}}">
+                                                        <img src="{{rm.attachment.url}}" alt="" class="rounded border">
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    {% else %}
+                                        <div class="card p-2 mb-2">
+                                            <a class="d-inline-block m-1" href="{{ rm.attachment.url }}" download>
+                                                <div class="media align-items-center">
+                                                    <div class="avatar-sm mr-3">
+                                                        <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">                               
+                                                            <i class="ri-file-text-fill"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-left">
+                                                            <h5 class="font-size-14 mb-1">{{rm.attachment_name}}</h5>
+                                                            <p class="text-muted font-size-13 mb-0">{{rm.attachment_size}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
                                 <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">{{rm.timestamp}}</span></p>
                             </div>
                             <!-- CONTENT & TIME -->
@@ -156,6 +188,38 @@
                             <!-- CONTENT & TIME -->
                             <div class="ctext-wrap-content">
                                 <p class="mb-0">{{rm.content}}</p>
+                                
+                                {% if rm.attachment.name is not None %}
+                                    {% if rm.attachment_type == "image" %}
+                                        <ul class="list-inline message-img  mb-0">
+                                            <li class="list-inline-item message-img-list">
+                                                <div>
+                                                    <a class="popup-img d-inline-block m-1" href="{{rm.attachment.url}}">
+                                                        <img src="{{rm.attachment.url}}" alt="" class="rounded border">
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    {% else %}
+                                        <div class="card p-2 mb-2">
+                                            <a class="d-inline-block m-1" href="{{ rm.attachment.url }}" download>
+                                                <div class="media align-items-center">
+                                                    <div class="avatar-sm mr-3">
+                                                        <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">                               
+                                                            <i class="ri-file-text-fill"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-left">
+                                                            <h5 class="font-size-14 mb-1">{{rm.attachment_name}}</h5>
+                                                            <p class="text-muted font-size-13 mb-0">{{rm.attachment_size}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
                                 <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">{{rm.timestamp}}</span></p>
                             </div>
                             <!-- CONTENT & TIME -->

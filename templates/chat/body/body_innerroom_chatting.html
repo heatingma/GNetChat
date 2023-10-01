@@ -101,6 +101,38 @@
                             <!-- CONTENT & TIME -->
                             <div class="ctext-wrap-content">
                                 <p class="mb-0">{{rm.content}}</p>
+                                
+                                {% if rm.attachment.name is not None %}
+                                    {% if rm.attachment_type == "image" %}
+                                        <ul class="list-inline message-img  mb-0">
+                                            <li class="list-inline-item message-img-list">
+                                                <div>
+                                                    <a class="popup-img d-inline-block m-1" href="{{rm.attachment.url}}">
+                                                        <img src="{{rm.attachment.url}}" alt="" class="rounded border">
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    {% else %}
+                                        <div class="card p-2 mb-2">
+                                            <a class="d-inline-block m-1" href="{{ rm.attachment.url }}" download>
+                                                <div class="media align-items-center">
+                                                    <div class="avatar-sm mr-3">
+                                                        <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">                               
+                                                            <i class="ri-file-text-fill"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-left">
+                                                            <h5 class="font-size-14 mb-1">{{rm.attachment_name}}</h5>
+                                                            <p class="text-muted font-size-13 mb-0">{{rm.attachment_size}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
                                 <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">{{rm.timestamp}}</span></p>
                             </div>
                             <!-- CONTENT & TIME -->
@@ -138,6 +170,38 @@
                             <!-- CONTENT & TIME -->
                             <div class="ctext-wrap-content">
                                 <p class="mb-0">{{rm.content}}</p>
+                                
+                                {% if rm.attachment.name is not None %}
+                                    {% if rm.attachment_type == "image" %}
+                                        <ul class="list-inline message-img  mb-0">
+                                            <li class="list-inline-item message-img-list">
+                                                <div>
+                                                    <a class="popup-img d-inline-block m-1" href="{{rm.attachment.url}}">
+                                                        <img src="{{rm.attachment.url}}" alt="" class="rounded border">
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    {% else %}
+                                        <div class="card p-2 mb-2">
+                                            <a class="d-inline-block m-1" href="{{ rm.attachment.url }}" download>
+                                                <div class="media align-items-center">
+                                                    <div class="avatar-sm mr-3">
+                                                        <div class="avatar-title bg-soft-primary text-primary rounded font-size-20">                               
+                                                            <i class="ri-file-text-fill"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-left">
+                                                            <h5 class="font-size-14 mb-1">{{rm.attachment_name}}</h5>
+                                                            <p class="text-muted font-size-13 mb-0">{{rm.attachment_size}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
                                 <p class="chat-time mb-0"><i class="ri-time-line align-middle"></i> <span class="align-middle">{{rm.timestamp}}</span></p>
                             </div>
                             <!-- CONTENT & TIME -->
@@ -182,11 +246,13 @@
         <div class="col-auto chat-input-links ml-md-2">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item">
-                        <button type="button" class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect" data-toggle="tooltip" data-placement="top" title="Emoji">
+                        <button type="button" class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect" 
+                            data-toggle="tooltip" data-placement="top" title="Emoji">
                             <i class="ri-emotion-happy-line"></i>
                     </button></li>
                     <li class="list-inline-item">  
-                        <button type="button" class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect" data-toggle="tooltip" data-placement="top" title="Attached File">
+                        <button type="button" class="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect" 
+                            data-toggle="modal" data-placement="top" title="Attach" id="attach-button" data-target="#attach-buttonModal">
                             <i class="ri-attachment-line"></i>
                     </button></li>
                     <li class="list-inline-item">
@@ -197,6 +263,55 @@
         </div>
         <!-- BUTTON -->
 
+        <!-- ATTACH -->
+        <div class="modal fade" id="attach-buttonModal" tabindex="-1" role="dialog" aria-labelledby="attach-buttonModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <form class="modal-content" method="post" enctype="multipart/form-data"
+                action="{% url 'chat:innerroom' room_name=cur_room.name post_name=cur_post.title %}">
+                    {% csrf_token %}
+                    <!-- CREATE HEAD -->
+                    <div class="modal-header">
+                        <h5 class="modal-title font-size-16" id="attach-buttonModalLabel">Attach</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- CREATE HEAD -->
+
+                    <!-- CREATE BODY -->
+                    <div class="modal-body p-4">
+                        <div>
+
+                            <!-- ATTACH -->
+                            <div class="form-group">
+                                <label for="add-attachment">Add Attachment</label>
+                                <input type="file" class="form-control upload-button" id="add-attachment" name="attachment" accept="*">
+                            </div>
+                            <!-- AVATAR -->
+
+                            <!-- POST DESCRIPTION-->
+                            <div class="form-group">
+                                <label for="add-post-description-input">Add Description</label>
+                                <textarea class="form-control" id="add-post-description-input" rows="3" name="content" placeholder="Enter Description"></textarea>
+                            </div>
+                            <!-- POST DESCRIPTION-->
+
+                        </div>
+                    </div>
+                    <!-- CREATE BODY -->
+
+                    <!-- CREATE BUTTON -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Send Attachment</button>
+                    </div>
+                    <!-- CREATE BUTTON -->
+
+                </form>
+            </div>
+        </div>
+         <!-- ATTACH -->
+         
     </div>
     <!-- INPUT & SEND -->
 

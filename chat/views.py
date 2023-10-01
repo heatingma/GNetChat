@@ -1,13 +1,18 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest
 from django.contrib.auth.decorators import login_required
-from .forms import EditProfileForm, RoomForm, PostForm
+from .forms import EditProfileForm, RoomForm, PostForm, AttachmentForm
 from .models import Profile, Room, RoomMessage, Post
 from users.models import User
 import json
 
 @login_required
-def chatroom(request: HttpRequest):
+def chatroom(request: HttpRequest, dark=False):
+    # judge the dark or light model
+    if request.GET:
+        dark = request.GET['dark']
+        dark = False if dark == 'False' else True
+        
     username = request.user.username
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=user)
@@ -30,12 +35,19 @@ def chatroom(request: HttpRequest):
             'profile': profile,
             'rooms': Room.objects.all(),
             'wrong_message': wrong_message,
+            'dark': dark,
+            'light': not dark,
         }
     )
     
     
 @login_required
-def innerroom(request: HttpRequest, room_name, post_name):
+def innerroom(request: HttpRequest, room_name, post_name, dark=False):
+    # judge the dark or light model
+    if request.GET:
+        dark = request.GET['dark']
+        dark = False if dark == 'False' else True
+        
     # user info
     username = request.user.username
     user = get_object_or_404(User, username=username)
@@ -52,9 +64,11 @@ def innerroom(request: HttpRequest, room_name, post_name):
     posts = Post.objects.filter(belong_room=chat_room).order_by('created_on')
     wrong_message = ""
     
-    # deal with post action
+    # deal with POST action
     if request.method == "POST":
         postform = PostForm(request.POST, request.FILES)
+        attachmentform = AttachmentForm(request.POST, request.FILES)
+        # deal with creating a new post
         if postform.is_valid():
             title = postform.cleaned_data["title"]
             about_post = postform.cleaned_data["about_post"]
@@ -64,14 +78,30 @@ def innerroom(request: HttpRequest, room_name, post_name):
                 author=user, 
                 author_profile =profile,
                 about_post=about_post, 
-                belong_room=chat_room)
+                belong_room=chat_room
+            )
             if image:
                 post.image = image
             if Post.objects.filter(title=post.title, belong_room=post.belong_room).exists():
                 wrong_message = "A post with the same title already exists in this room."
             else:
-                post.save()
-
+                post.save()     
+        # deal with attachment
+        if attachmentform.is_valid():
+            attachment = attachmentform.cleaned_data["attachment"]
+            content = attachmentform.cleaned_data["content"]
+            rm = RoomMessage(
+                user = user,
+                room = chat_room,
+                belong_post = cur_post,
+                content = content,
+                attachment = attachment
+            )
+            try:
+                rm.save()
+            except:
+                wrong_message = "File size cannot exceed 5MB."
+                        
     # get users' img_urls
     users_img_urls = dict()
     for rm in room_messages:
@@ -92,27 +122,41 @@ def innerroom(request: HttpRequest, room_name, post_name):
             'posts': posts,
             'cur_post': cur_post,
             'chatting_post': chatting_post,
-            'users_img_urls_json': json.dumps(users_img_urls)
+            'users_img_urls_json': json.dumps(users_img_urls),
+            'dark': dark,
+            'light': not dark,
         }
     )
     
 
 @login_required
-def home(request: HttpRequest):
+def chat(request: HttpRequest, dark=False):
+    # judge the dark or light model
+    if request.GET:
+        dark = request.GET['dark']
+        dark = False if dark == 'False' else True
+        
     username = request.user.username
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=user)
     return render(
         request=request, 
-        template_name='chat/home.html', 
+        template_name='chat/chat.html', 
         context={
             'profile': profile,
+            'dark': dark,
+            'light': not dark,
         }
     )
     
        
 @login_required
-def groups(request: HttpRequest):
+def groups(request: HttpRequest, dark=False):
+    # judge the dark or light model
+    if request.GET:
+        dark = request.GET['dark']
+        dark = False if dark == 'False' else True
+        
     username = request.user.username
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=user)
@@ -121,12 +165,19 @@ def groups(request: HttpRequest):
         template_name='chat/groups.html', 
         context={
             'profile': profile,
+            'dark': dark,
+            'light': not dark,
         }
     )
 
     
 @login_required
-def settings(request: HttpRequest):
+def settings(request: HttpRequest, dark=False):
+    # judge the dark or light model
+    if request.GET:
+        dark = request.GET['dark']
+        dark = False if dark == 'False' else True
+        
     # deal with get method
     if request.method == "GET":
         username = request.user.username
@@ -161,13 +212,20 @@ def settings(request: HttpRequest):
         template_name='chat/settings.html', 
         context={
             'profile': profile,
-            'profile_form': profile_form
+            'profile_form': profile_form,
+            'dark': dark,
+            'light': not dark,
         }
     )
     
     
 @login_required
-def my(request: HttpRequest):
+def my(request: HttpRequest, dark=False):
+    # judge the dark or light model
+    if request.GET:
+        dark = request.GET['dark']
+        dark = False if dark == 'False' else True
+
     username = request.user.username
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=user)
@@ -176,11 +234,18 @@ def my(request: HttpRequest):
         template_name='chat/my.html', 
         context={
             'profile': profile,
+            'dark': dark,
+            'light': not dark,
         }
     )
     
 @login_required
-def contracts(request: HttpRequest):
+def contracts(request: HttpRequest, dark=False):
+    # judge the dark or light model
+    if request.GET:
+        dark = request.GET['dark']
+        dark = False if dark == 'False' else True
+        
     username = request.user.username
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=user)
@@ -188,7 +253,9 @@ def contracts(request: HttpRequest):
         request=request, 
         template_name='chat/contracts.html', 
         context={
-        'rooms': Room.objects.all(),
+            'profile': profile,
+            'dark': dark,
+            'light': not dark,
         }
     )
     

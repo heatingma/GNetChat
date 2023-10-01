@@ -89,7 +89,7 @@
         <!-- ONE EXAMPLE -->
         
         {% for room in rooms %}
-        <li><a href="{% url 'chat:innerroom' room_name=room.name post_name='chatting_'|add:room.name %}"><div class="media align-items-center">
+        <li><a href="{% url 'chat:innerroom' room_name=room.name post_name='chatting_'|add:room.name%}?{{'dark'}}={{dark}}"><div class="media align-items-center">
 
             <!-- SYMBOL IMG -->
             <div class="chat-user-img mr-3 avatar-xs">

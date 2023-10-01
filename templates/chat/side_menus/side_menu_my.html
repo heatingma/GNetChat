@@ -21,27 +21,27 @@
 <div class="flex-lg-column my-auto">
     <ul class="nav nav-pills side-menu-nav justify-content-center" role="tablist">
         <li class="nav-item" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="Profile">
-            <a href="{% url 'chat:my' %}" class="nav-link active" id="pills-user-tab" role="tab">
+            <a href="{% url 'chat:my' %}?{{'dark'}}={{dark}}" class="nav-link active" id="pills-user-tab" role="tab">
             <i class="ri-user-3-line"></i>
         </a></li>
         <li class="nav-item" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="Chats">
-            <a href="{% url 'chat:home' %}" class="nav-link" id="pills-chat-tab" role="tab">
+            <a href="{% url 'chat:chat'%}?{{'dark'}}={{dark}}" class="nav-link" id="pills-chat-tab" role="tab">
             <i class="ri-message-3-line"></i>
         </a></li>
         <li class="nav-item" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="Groups">
-            <a href="{% url 'chat:groups' %}" class="nav-link" id="pills-groups-tab" role="tab">
+            <a href="{% url 'chat:groups'%}?{{'dark'}}={{dark}}" class="nav-link" id="pills-groups-tab" role="tab">
             <i class="ri-group-line"></i>
         </a></li>
         <li class="nav-item" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="Chatroom">
-            <a href="{% url 'chat:chatroom' %}" class="nav-link" id="pills-chatroom-tab" role="tab">
+            <a href="{% url 'chat:chatroom'%}?{{'dark'}}={{dark}}" class="nav-link" id="pills-chatroom-tab" role="tab">
             <i class="ri-group-2-line"></i>
         </a></li>
         <li class="nav-item" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="Contacts">
-            <a href="{% url 'chat:contracts' %}" class="nav-link" id="pills-contacts-tab" role="tab">
+            <a href="{% url 'chat:contracts'%}?{{'dark'}}={{dark}}" class="nav-link" id="pills-contacts-tab" role="tab">
             <i class="ri-contacts-line"></i>
         </a></li>
         <li class="nav-item" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="Settings">
-            <a href="{% url 'chat:settings' %}" class="nav-link" id="pills-setting-tab"  role="tab">
+            <a href="{% url 'chat:settings'%}?{{'dark'}}={{dark}}" class="nav-link" id="pills-setting-tab"  role="tab">
             <i class="ri-settings-2-line"></i>
         </a></li>
 
@@ -64,7 +64,7 @@
 <div class="flex-lg-column d-none d-lg-block">
     <ul class="nav side-menu-nav justify-content-center">
         <li class="nav-item">
-            <a class="nav-link" id="light-dark" href="#" data-toggle="tooltip" data-trigger="hover" data-placement="right" title="Dark / Light Mode">
+            <a class="nav-link" id="light-dark" href="{% url 'chat:my'%}?{{'dark'}}={{light}}" data-toggle="tooltip" data-trigger="hover" data-placement="right" title="Dark / Light Mode">
                 <i class="ri-sun-line theme-mode-icon"></i>
             </a>
         </li>

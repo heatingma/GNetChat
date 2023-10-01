@@ -28,7 +28,7 @@ def log(request: HttpRequest):
             user = authenticate(email=email, password=password)
             if user:  # If the returned object is not None
                 login(request, user)  # we connect the user
-                return redirect('chat:home')
+                return redirect('chat:my')
             else:  # otherwise an error will be displayed
                 context = {
                     "register_form": register_form,
@@ -40,7 +40,7 @@ def log(request: HttpRequest):
             user = register_form.save()
             login(request, user)
             messages.success(request, "Congratulations, you are now a registered user!")
-            return redirect('chat:home')
+            return redirect('chat:my')
         # collect errors
         else:
             # return errors for user

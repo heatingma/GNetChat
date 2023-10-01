@@ -79,7 +79,7 @@
                 </form>
             </div>
         </div>
-        <!-- CREATE GROUPS -->
+        <!-- CREATE POST -->
 
         <!-- SEARCH BOX -->
         <div class="search-box chat-search-box">
@@ -104,7 +104,7 @@
         <!-- ONE EXAMPLE -->
         
         {% for post in posts %}
-        <li><a href="{% url 'chat:innerroom' room_name=post.belong_room.name post_name=post.title %}"><div class="media align-items-center">
+        <li><a href="{% url 'chat:innerroom' room_name=post.belong_room.name post_name=post.title %}?{{'dark'}}={{dark}}"><div class="media align-items-center">
 
             <!-- SYMBOL IMG -->
             <div class="chat-user-img mr-3 avatar-xs">

@@ -11,12 +11,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Chatting Room" name="description">
         <meta content="Themesbrand" name="author">
-        <!-- dark -->
-        <link href="{% static "css/chat/dark/bootstrap-dark.min.css" %}" id="bootstrap-style" rel="stylesheet" type="text/css">
-        <link href="{% static "css/chat/dark/app-dark.min.css" %}" rel="stylesheet" type="text/css">
-        <!-- light -->
-        <link href="{% static "css/chat/light/bootstrap.min.css" %}" id="bootstrap-style" rel="stylesheet" type="text/css">
-        <link href="{% static "css/chat/light/app.min.css" %}" rel="stylesheet" type="text/css">
+        <!-- dark & light -->
+        {% if dark %}
+            <link href="{% static "css/chat/dark/bootstrap-dark.min.css" %}" id="bootstrap-style" rel="stylesheet" type="text/css">
+            <link href="{% static "css/chat/dark/app-dark.min.css" %}" rel="stylesheet" type="text/css">
+        {% else %}
+            <link href="{% static "css/chat/light/bootstrap.min.css" %}" id="bootstrap-style" rel="stylesheet" type="text/css">
+            <link href="{% static "css/chat/light/app.min.css" %}" rel="stylesheet" type="text/css">
+        {% endif %}
         <!-- fonts -->
         <link href="{% static "css/fonts/fonts.css" %}" rel="stylesheet" type="text/css">
         <link href="{% static "css/fonts/icons-selected.min.css" %}" rel="stylesheet" type="text/css">
@@ -25,7 +27,6 @@
         <link href="{% static "css/chat/utils/magnific-popup.css" %}" rel="stylesheet" type="text/css">
         <link href="{% static "css/chat/utils/owl.carousel.min.css" %}" rel="stylesheet">
         <link href="{% static "css/chat/utils/owl.theme.default.min.css" %}" rel="stylesheet" >
-        <link href="{% static "css/chat/utils/upload.css" %}" rel="stylesheet" >
         <link href="{% static "css/chat/utils/wrong_message.css" %}" rel="stylesheet" >
     </head>
 
@@ -78,7 +79,6 @@
     <script src={% static "js/chat/jquery.magnific-popup.min.js" %}></script>
     <script src={% static "js/chat/owl.carousel.min.js" %}></script>
     <script src={% static "js/chat/index.init.js" %}></script>
-    <script src={% static "js/chat/light-dark.js" %}></script>
     <script src={% static "js/chat/close.js" %}></script>
 
 </html>

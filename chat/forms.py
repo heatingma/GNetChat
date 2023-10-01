@@ -38,3 +38,8 @@ class PostForm(forms.Form):
     about_post = forms.CharField(widget=forms.Textarea(), required=False)
     image = forms.ImageField(required=False)
     
+
+class AttachmentForm(forms.Form):
+    attachment = forms.FileField(required=True)
+    content = forms.CharField(required=False)
+    

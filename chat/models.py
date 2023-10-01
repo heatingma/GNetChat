@@ -1,7 +1,10 @@
+import os
 from django.db import models
 from users.models import User
 from django.contrib.auth import get_user_model
+import mimetypes
 from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy
 
 
 class Profile(models.Model):
@@ -16,7 +19,7 @@ class Profile(models.Model):
     @property
     def image_url(self):
         if self.image == "":
-            return "/media/chat/static_default/{}.png".format(self.user_initial)
+            return "/media/static_default/{}.png".format(self.user_initial)
         else:
             return self.image.url
         
@@ -56,7 +59,7 @@ class Room(models.Model):
     @property
     def image_url(self):
         if self.image == "":
-            return "/media/chat/static_default/{}.png".format(self.initial)
+            return "/media/static_default/{}.png".format(self.initial)
         else:
             return self.image.url
     
@@ -94,7 +97,7 @@ class Post(models.Model):
     @property
     def image_url(self):
         if self.image == "":
-            return "/media/chat/static_default/{}.png".format(self.initial)
+            return "/media/static_default/{}.png".format(self.initial)
         else:
             return self.image.url
     
@@ -104,7 +107,37 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         
+ 
+def get_room_image_upload_path(instance, filename):
+    room_name = instance.room.name
+    upload_path = os.path.join('room_files', room_name)
+    file_path = os.path.join(upload_path, filename)
+    if not os.path.exists(upload_path):
+        os.makedirs(upload_path)
+    return file_path
 
+
+def convert_size(size):
+    KB = 1024
+    MB = KB ** 2
+    GB = KB ** 3
+
+    if size < KB:
+        return f"{size} B"
+    elif size < MB:
+        return f"{size / KB:.2f} KB"
+    elif size < GB:
+        return f"{size / MB:.2f} MB"
+    else:
+        return f"{size / GB:.2f} GB"
+    
+
+def validate_file_size(value):
+    max_size = 5 * 1024 * 1024
+    if value.size > max_size:
+        raise ValidationError("File size cannot exceed 5MB.")
+ 
+ 
 class RoomMessage(models.Model):
     """
     Message for Room
@@ -114,12 +147,33 @@ class RoomMessage(models.Model):
     belong_post = models.ForeignKey(to=Post, on_delete=models.CASCADE)
     content = models.CharField(max_length=512)
     timestamp = models.DateTimeField(auto_now_add=True)
+    attachment = models.FileField(upload_to=get_room_image_upload_path, null=True, blank=True)
 
     def __str__(self):
         return f'{self.user.username}: {self.content} [{self.timestamp}]'
     
+    def save(self):
+        validate_file_size(self.attachment)
+        super().save()
+        
     @property
     def image_url(self):
         profile = Profile.objects.get(user=self.user)
         return profile.image_url
+
+    @property
+    def attachment_type(self):
+        file_type, _ = mimetypes.guess_type(self.attachment.name)
+        if file_type.startswith("image"):
+            file_type = "image"
+        return file_type
+    
+    @property
+    def attachment_name(self):
+        return os.path.basename(self.attachment.name)
+
+    @property
+    def attachment_size(self):
+        size = os.path.getsize(self.attachment.path)
+        return convert_size(size)
     
