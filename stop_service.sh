@@ -13,4 +13,4 @@ redis-cli shutdown
 service nginx stop
 
 # 启动 Apache2 服务器
-/etc/init.d/apache2 start
+# /etc/init.d/apache2 start
