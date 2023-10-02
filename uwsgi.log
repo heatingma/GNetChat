@@ -1,4 +1,4 @@
-*** Starting uWSGI 2.0.22 (64bit) on [Mon Oct  2 01:39:10 2023] ***
+*** Starting uWSGI 2.0.22 (64bit) on [Tue Oct  3 00:58:13 2023] ***
 compiled with version: 9.4.0 on 30 September 2023 13:37:30
 os: Linux-5.4.0-153-generic #170-Ubuntu SMP Fri Jun 16 13:43:31 UTC 2023
 nodename: ecs-a633
@@ -21,41 +21,58 @@ uWSGI http bound on 0.0.0.0:8001 fd 3
 uwsgi socket 0 bound to UNIX address /home/heatingma/github/NIS3368-website/uwsgi.sock fd 6
 *** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
 Python version: 3.8.10 (default, May 26 2023, 14:05:08)  [GCC 9.4.0]
-Python main interpreter initialized at 0x55e93134e140
+Python main interpreter initialized at 0x55c778bcb340
 *** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
 python threads support enabled
 your server socket listen backlog is limited to 100 connections
 your mercy for graceful operations on workers is 60 seconds
 mapped 486576 bytes (475 KB) for 5 cores
 *** Operational MODE: preforking ***
-WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55e93134e140 pid: 7942 (default app)
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55c778bcb340 pid: 3986 (default app)
 *** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
 *** uWSGI is running in multiple interpreter mode ***
-spawned uWSGI master process (pid: 7942)
-spawned uWSGI worker 1 (pid: 7972, cores: 1)
-spawned uWSGI worker 2 (pid: 7973, cores: 1)
-spawned uWSGI worker 3 (pid: 7974, cores: 1)
-spawned uWSGI worker 4 (pid: 7975, cores: 1)
-spawned uWSGI worker 5 (pid: 7976, cores: 1)
-spawned uWSGI http 1 (pid: 7977)
-[pid: 7972|app: 0|req: 1/1] 127.0.0.1 () {48 vars in 1016 bytes} [Sun Oct  1 17:39:15 2023] GET /chat/chatroom/?dark=False => generated 17994 bytes in 38 msecs (HTTP/1.0 200) 8 headers in 359 bytes (1 switches on core 0)
-[pid: 7973|app: -1|req: -1/2] 127.0.0.1 () {46 vars in 934 bytes} [Sun Oct  1 17:39:15 2023] GET /static/css/chat/light/app.min.css => generated 0 bytes in 0 msecs (HTTP/1.0 304) 0 headers in 29 bytes (0 switches on core 0)
-[pid: 7972|app: -1|req: -1/3] 127.0.0.1 () {46 vars in 1035 bytes} [Sun Oct  1 17:39:15 2023] GET /media/profile_image/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023-05-24_233116.png => generated 0 bytes in 0 msecs (HTTP/1.0 304) 0 headers in 29 bytes (0 switches on core 0)
-Not Found: /chat/chatroom/static/picture/chat.png
-[pid: 7974|app: 0|req: 1/4] 127.0.0.1 () {44 vars in 922 bytes} [Sun Oct  1 17:39:15 2023] GET /chat/chatroom/static/picture/chat.png => generated 3742 bytes in 27 msecs (HTTP/1.0 404) 6 headers in 215 bytes (1 switches on core 0)
+spawned uWSGI master process (pid: 3986)
+spawned uWSGI worker 1 (pid: 4003, cores: 1)
+spawned uWSGI worker 2 (pid: 4004, cores: 1)
+spawned uWSGI worker 3 (pid: 4005, cores: 1)
+spawned uWSGI worker 4 (pid: 4006, cores: 1)
+spawned uWSGI worker 5 (pid: 4007, cores: 1)
+spawned uWSGI http 1 (pid: 4008)
+Internal Server Error: /chat/chatroom/
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/new_django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/miniconda3/envs/new_django/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/miniconda3/envs/new_django/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/heatingma/github/NIS3368-website/./chat/views.py", line 85, in chatroom
+    chat_room = Room.objects.get(name=confirm_chatroom_name)
+  File "/root/miniconda3/envs/new_django/lib/python3.8/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/miniconda3/envs/new_django/lib/python3.8/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+chat.models.Room.DoesNotExist: Room matching query does not exist.
+[pid: 4003|app: 0|req: 1/1] 127.0.0.1 () {54 vars in 1179 bytes} [Tue Oct  3 00:58:16 2023] POST /chat/chatroom/ => generated 73446 bytes in 50 msecs (HTTP/1.0 500) 7 headers in 242 bytes (1 switches on core 0)
+[pid: 4004|app: 0|req: 1/2] 127.0.0.1 () {44 vars in 892 bytes} [Tue Oct  3 00:58:22 2023] GET / => generated 9590 bytes in 29 msecs (HTTP/1.0 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 4005|app: 0|req: 1/3] 127.0.0.1 () {54 vars in 1066 bytes} [Tue Oct  3 00:58:24 2023] POST / => generated 0 bytes in 220 msecs (HTTP/1.0 302) 10 headers in 524 bytes (1 switches on core 0)
+[pid: 4006|app: 0|req: 1/4] 127.0.0.1 () {48 vars in 976 bytes} [Tue Oct  3 00:58:24 2023] GET /chat/my/ => generated 23565 bytes in 35 msecs (HTTP/1.0 200) 7 headers in 223 bytes (1 switches on core 0)
+Not Found: /chat/my/static/picture/avatar-1.jpg
+[pid: 4003|app: 0|req: 2/5] 127.0.0.1 () {44 vars in 901 bytes} [Tue Oct  3 00:58:24 2023] GET /chat/my/static/picture/avatar-1.jpg => generated 3736 bytes in 4 msecs (HTTP/1.0 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 4005|app: -1|req: -1/6] 127.0.0.1 () {46 vars in 938 bytes} [Tue Oct  3 00:58:24 2023] GET /media/profile_image/SH.png => generated 0 bytes in 0 msecs (HTTP/1.0 304) 0 headers in 29 bytes (0 switches on core 0)
+Not Found: /chat/my/static/picture/chat.png
+[pid: 4007|app: 0|req: 1/7] 127.0.0.1 () {44 vars in 893 bytes} [Tue Oct  3 00:58:24 2023] GET /chat/my/static/picture/chat.png => generated 3724 bytes in 21 msecs (HTTP/1.0 404) 6 headers in 215 bytes (1 switches on core 0)
+Not Found: /chat/my/static/picture/avatar-4.jpg
+[pid: 4004|app: 0|req: 2/8] 127.0.0.1 () {44 vars in 901 bytes} [Tue Oct  3 00:58:24 2023] GET /chat/my/static/picture/avatar-4.jpg => generated 3736 bytes in 8 msecs (HTTP/1.0 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 4006|app: 0|req: 2/9] 127.0.0.1 () {46 vars in 986 bytes} [Tue Oct  3 00:58:25 2023] GET /chat/chatroom/?dark=False => generated 18488 bytes in 9 msecs (HTTP/1.0 200) 8 headers in 359 bytes (1 switches on core 0)
 Not Found: /chat/chatroom/static/picture/avatar-1.jpg
-[pid: 7975|app: 0|req: 1/5] 127.0.0.1 () {44 vars in 930 bytes} [Sun Oct  1 17:39:15 2023] GET /chat/chatroom/static/picture/avatar-1.jpg => generated 3754 bytes in 26 msecs (HTTP/1.0 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 4003|app: 0|req: 3/10] 127.0.0.1 () {44 vars in 930 bytes} [Tue Oct  3 00:58:25 2023] GET /chat/chatroom/static/picture/avatar-1.jpg => generated 3754 bytes in 4 msecs (HTTP/1.0 404) 6 headers in 215 bytes (1 switches on core 0)
+Not Found: /chat/chatroom/static/picture/chat.png
+[pid: 4005|app: 0|req: 2/11] 127.0.0.1 () {44 vars in 920 bytes} [Tue Oct  3 00:58:25 2023] GET /chat/chatroom/static/picture/chat.png => generated 3742 bytes in 9 msecs (HTTP/1.0 404) 6 headers in 215 bytes (1 switches on core 0)
 Not Found: /chat/chatroom/class="rounded-circle
-[pid: 7976|app: 0|req: 1/6] 127.0.0.1 () {44 vars in 920 bytes} [Sun Oct  1 17:39:15 2023] GET /chat/chatroom/class=%22rounded-circle => generated 3750 bytes in 19 msecs (HTTP/1.0 404) 6 headers in 215 bytes (1 switches on core 0)
-[pid: 7973|app: 0|req: 1/7] 127.0.0.1 () {46 vars in 1045 bytes} [Sun Oct  1 17:39:16 2023] GET /chat/chatroom/Hello/chatting_Hello/?dark=False => generated 45155 bytes in 53 msecs (HTTP/1.0 200) 8 headers in 359 bytes (1 switches on core 0)
-[pid: 7975|app: -1|req: -1/8] 127.0.0.1 () {44 vars in 941 bytes} [Sun Oct  1 17:39:17 2023] GET /media/room_files/Hello/heatingma.jpg => generated 62109 bytes in 0 msecs via sendfile() (HTTP/1.0 200) 3 headers in 114 bytes (0 switches on core 0)
-[pid: 7976|app: -1|req: -1/9] 127.0.0.1 () {44 vars in 941 bytes} [Sun Oct  1 17:39:17 2023] GET /media/room_files/Hello/ChuntSung.png => generated 419281 bytes in 0 msecs via sendfile() (HTTP/1.0 200) 3 headers in 114 bytes (1 switches on core 0)
-Not Found: /chat/chatroom/Hello/chatting_Hello/static/picture/avatar-1.jpg
-[pid: 7974|app: 0|req: 2/10] 127.0.0.1 () {44 vars in 993 bytes} [Sun Oct  1 17:39:17 2023] GET /chat/chatroom/Hello/chatting_Hello/static/picture/avatar-1.jpg => generated 3817 bytes in 6 msecs (HTTP/1.0 404) 6 headers in 215 bytes (1 switches on core 0)
-Not Found: /chat/chatroom/Hello/chatting_Hello/static/picture/chat.png
-[pid: 7972|app: 0|req: 2/11] 127.0.0.1 () {44 vars in 985 bytes} [Sun Oct  1 17:39:17 2023] GET /chat/chatroom/Hello/chatting_Hello/static/picture/chat.png => generated 3805 bytes in 7 msecs (HTTP/1.0 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 4007|app: 0|req: 2/12] 127.0.0.1 () {44 vars in 918 bytes} [Tue Oct  3 00:58:25 2023] GET /chat/chatroom/class=%22rounded-circle => generated 3750 bytes in 6 msecs (HTTP/1.0 404) 6 headers in 215 bytes (1 switches on core 0)
 SIGINT/SIGTERM received...killing workers...
-gateway "uWSGI http 1" has been buried (pid: 7977)
+gateway "uWSGI http 1" has been buried (pid: 4008)
 worker 1 buried after 1 seconds
 worker 2 buried after 1 seconds
 worker 3 buried after 1 seconds

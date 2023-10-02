@@ -63,7 +63,8 @@ def chatroom(request: HttpRequest, dark=False):
                     # rename the media path 
                     ori_media_path = 'media/room_files/{}'.format(ori_name)
                     new_media_path = 'media/room_files/{}'.format(new_name)
-                    os.rename(ori_media_path, new_media_path)
+                    if os.path.exists(ori_media_path):
+                        os.rename(ori_media_path, new_media_path)
                     # update all the default chatting post name
                     target_post = Post.objects.get(title="chatting_"+ori_name, belong_room=chat_room)
                     target_post.title = "chatting_"+new_name
@@ -85,7 +86,8 @@ def chatroom(request: HttpRequest, dark=False):
                 if confirm_user_name == chat_room.owner_name:
                     chat_room.delete()
                     media_path = 'media/room_files/{}'.format(confirm_chatroom_name)
-                    shutil.rmtree(media_path)
+                    if os.path.exists(media_path):
+                        shutil.rmtree(media_path)
                 else:
                     wrong_message = "Incorrect confirmation information."
                     
