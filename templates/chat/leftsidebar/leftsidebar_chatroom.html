@@ -21,7 +21,7 @@
         <!-- CREATE CHATROOM -->
         <div class="modal fade" id="addchatroom-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addchatroom-exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <form class="modal-content" method="post" action="{% url 'chat:chatroom' %}">
+                <form class="modal-content" method="post" enctype="multipart/form-data" action="{% url 'chat:chatroom' %}">
                     {% csrf_token %}
                     <!-- CREATE HEAD -->
                     <div class="modal-header">
@@ -49,6 +49,13 @@
                                 <textarea class="form-control" id="add-chatroom-description-input" rows="3" name="about_room" placeholder="Enter Description"></textarea>
                             </div>
                             <!-- CHATROOM DESCRIPTION-->
+
+                            <!-- IMAGE -->
+                            <div class="form-group">
+                                <label for="change-avatar">Upload Chatroom Image(Do not exceed 5M)</label>
+                                <input type="file" class="form-control upload-button" id="image" name="image" accept="image/*">
+                            </div>
+                            <!-- IMAGE -->
 
                         </div>
                     </div>
@@ -85,10 +92,8 @@
     <!-- CHATROOM INFO -->
     <div class="p-4 chat-message-list chat-chatroom-list" data-simplebar="">
     <ul class="list-unstyled chat-list">
-
-        <!-- ONE EXAMPLE -->
-        
         {% for room in rooms %}
+        <!-- ONE EXAMPLE -->
         <li><a href="{% url 'chat:innerroom' room_name=room.name post_name='chatting_'|add:room.name%}?{{'dark'}}={{dark}}"><div class="media align-items-center">
 
             <!-- SYMBOL IMG -->

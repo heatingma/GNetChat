@@ -1,5 +1,12 @@
 <div class="user-profile-sidebar">
 
+    {% if cur_room.owner_name == profile.user.username %}
+    <div class="float-left" style="margin:10px; margin-top:20px; margin-left:25px;">
+        <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#delete-chatroomModal">
+            <i class="ri-delete-bin-line mr-1 align-middle"></i> Delete 
+        </button>
+    </div>
+    {% endif %}
     <!-- CLOSE VIEW -->
     <div class="px-3 px-lg-4 pt-3 pt-lg-4">
         <div class="user-chat-nav text-right">
@@ -12,13 +19,133 @@
 
     <!-- BASIC INFO -->
     <div class="text-center p-4 border-bottom">
-        <div class="mb-4">
+        <div class="mb-4 profile-user">
             <img src={{cur_room.image_url}} class="rounded-circle avatar-lg img-thumbnail" alt="">
+            {% if cur_room.owner_name == profile.user.username %}
+            <button type="button" class="btn bg-light avatar-xs p-0 rounded-circle profile-photo-edit" data-toggle="modal" data-target="#edit-chatroomModal">
+                <i class="ri-pencil-fill"></i>
+            </button>
+            {% endif %}
         </div>
         <h5 class="font-size-16 mb-1 text-truncate">{{cur_room.name}}</h5>
         <p class="text-muted text-truncate mb-1"><i class="ri-record-circle-fill font-size-10 text-success mr-1"></i> Active</p>
     </div>
     <!-- BASIC INFO -->
+
+    <!-- CONFIRM DELETE ROOM -->
+    {% if cur_room.owner_name == profile.user.username %}
+    <div class="modal fade" id="delete-chatroomModal" tabindex="-1" role="dialog" aria-labelledby="delete-chatroomModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <form class="modal-content" method="post" enctype="multipart/form-data" action="{% url 'chat:chatroom' %}">
+                {% csrf_token %}
+                <!-- FORM HEAD -->
+                <div class="modal-header">
+                    <h5 class="modal-title font-size-16" id="delete-chatroomModalLabel">Delete Chatroom</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- FORM HEAD -->
+
+                <!-- FORM BODY -->
+                <div class="modal-body p-4">
+                    <div>
+                        <p> Enter the chatroom name and your name to confirm the deletion operation </p>
+                        
+                        <input type="hidden" name="hidden_chatroom_name" value="{{cur_room.name}}">
+                        <input type="hidden" name="hidden_user_name" value="{{profile.user.username}}">
+
+                        <!-- CONFIRM CHATROOM NAME -->
+                        <div class="form-group">
+                            <label for="confirm-chatroom-name">Chatroom Name</label>
+                            <input type="text" class="form-control" id="confirm-chatroom-name" name="confirm_chatroom_name" placeholder="Confirm Chatroom Name">
+                        </div>
+                        <!-- CONFIRM CHATROOM NAME -->
+
+                        <!-- CONFIRM NAME -->
+                        <div class="form-group">
+                            <label for="confirm-user-name">Your Name</label>
+                            <input type="text" class="form-control" id="confirm-user-name" name="confirm_user_name" placeholder="Input Your Name">
+                        </div>
+                        <!-- CONFIRM NAME -->
+
+                    </div>
+                </div>
+                <!-- FORM BODY -->
+
+                <!-- FORM BUTTON -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <!-- FORM BUTTON -->
+
+            </form>
+        </div>
+    </div>
+    <!-- CONFIRM DELETE ROOM -->
+    {% endif %}
+
+    <!-- EDIT FORM -->
+    {% if cur_room.owner_name == profile.user.username %}
+        <div class="modal fade" id="edit-chatroomModal" tabindex="-1" role="dialog" aria-labelledby="edit-chatroomModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <form class="modal-content" method="post" enctype="multipart/form-data" action="{% url 'chat:chatroom' %}">
+                    {% csrf_token %}
+                    <!-- FORM HEAD -->
+                    <div class="modal-header">
+                        <h5 class="modal-title font-size-16" id="edit-chatroomModalLabel">Edit Chatroom</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- FORM HEAD -->
+
+                    <!-- FORM BODY -->
+                    <div class="modal-body p-4">
+                        <div>
+
+                            <input type="hidden" name="chatroom_ori_name" value="{{cur_room.name}}">
+                            <input type="hidden" name="chatroom_owner" value="{{cur_room.owner_name}}">
+
+                            <!-- CHANGE NAME -->
+                            <div class="form-group">
+                                <label for="change-chatroom-name">Change Name</label>
+                                <input type="text" class="form-control" id="change-chatroom-name" name="chatroom_name" placeholder="Enter a New Name">
+                            </div>
+                            <!-- CHANGE NAME -->
+                            
+                            <!-- CHANEG ABOUT -->
+                            <div class="form-group mb-4">
+                                <label for="edit-personal-signature">Change About</label>
+                                <textarea class="form-control" id="edit-personal-signature" name="chatroom_about" 
+                                    rows="3" placeholder="Enter a New About"></textarea>
+                            </div>
+                            <!-- CHANEG ABOUT -->
+
+                            <!-- IMAGE -->
+                            <div class="form-group">
+                                <label for="upload_image">Upload Chatroom Image(Do not exceed 5M)</label>
+                                <input type="file" class="form-control upload-button" id="upload_image" name="chatroom_image" accept="image/*">
+                            </div>
+                            <!-- IMAGE -->
+
+                        </div>
+                    </div>
+                    <!-- FORM BODY -->
+
+                    <!-- FORM BUTTON -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <!-- FORM BUTTON -->
+
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    <!-- EDIT FORM -->
     
     <!-- DETAIl INFO -->
     <div class="p-4 user-profile-desc" data-simplebar="">

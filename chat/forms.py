@@ -31,7 +31,8 @@ class EditProfileForm(forms.Form):
 class RoomForm(forms.Form):
     name = forms.CharField(required=True)
     about_room = forms.CharField(widget=forms.Textarea(), required=False)
-    
+    image = forms.ImageField(required=False)
+
 
 class PostForm(forms.Form):
     title = forms.CharField(required=True)
@@ -43,3 +44,23 @@ class AttachmentForm(forms.Form):
     attachment = forms.FileField(required=True)
     content = forms.CharField(required=False)
     
+
+class ChangeRoomForm(forms.Form):
+    chatroom_ori_name = forms.CharField(required=True)
+    chatroom_owner = forms.CharField(required=True)
+    chatroom_name = forms.CharField(required=False)
+    chatroom_about = forms.CharField(widget=forms.Textarea(), required=False)
+    chatroom_image = forms.ImageField(required=False)
+
+
+class ConfirmDeletePostForm(forms.Form):
+    hidden_post_name = forms.CharField(required=True)
+    hidden_user_name = forms.CharField(required=True) 
+    confirm_post_name = forms.CharField(required=True)
+    confirm_user_name = forms.CharField(required=True)
+    
+class ConfirmDeleteChatroomForm(forms.Form):
+    hidden_chatroom_name = forms.CharField(required=True)
+    hidden_user_name = forms.CharField(required=True) 
+    confirm_chatroom_name = forms.CharField(required=True)
+    confirm_user_name = forms.CharField(required=True)
