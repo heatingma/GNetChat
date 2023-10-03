@@ -1186,21 +1186,21 @@ body{
 }
 
 .chat-conversation .post-image-container{
-    width: 10%;
-    margin-left: 10%;
+    width: 15%;
+    margin-left: 5%;
     display: flex;
     float: left;
     height: auto;
 }
 
 .chat-conversation .post-image-container .post-image{
-    max-width: 80px;
-    max-height: 80px;
-    margin: 10%;
+    max-width: 120px;
+    max-height: 120px;
+    margin: 5%;
     width: auto;
     height: auto;
     border-radius: 50%;
-    border: 2px solid #d190f6;
+    border: 2px solid #ebc8fc;
 }
 
 .chat-conversation .post-content {
@@ -1325,12 +1325,22 @@ body{
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
-  }
+}
     
-  .upload-button:hover {
+.upload-button:hover {
     background-color: #e0e0e0;
-  }
+}
     
-  .upload-button:active {
+.upload-button:active {
     background-color: #d4d4d4;
-  }
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #f5dff1;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #6e0052;
+}

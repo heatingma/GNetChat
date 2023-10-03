@@ -68,7 +68,7 @@ class Room(models.Model):
         return f'{self.name} ({self.get_online_count()})'
 
 class Tag(models.Model):
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=40, unique=True)
 
     def __str__(self):
         return self.name
@@ -97,11 +97,18 @@ class Post(models.Model):
         
     @property
     def image_url(self):
-        if self.image == "":
+        if self.image == "" or self.image is None:
             return "/media/static_default/{}.png".format(self.initial)
         else:
             return self.image.url
-    
+
+    @property
+    def all_tags(self):
+        if self.tags.all() == "" or self.tags.all() is None:
+            return None
+        else:
+            return self.tags.all()
+          
     def __str__(self):
         return self.title
     

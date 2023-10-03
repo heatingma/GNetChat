@@ -1183,16 +1183,16 @@ background-color: rgba(6, 214, 160, .4);
 }
 
 .chat-conversation .post-image-container{
-    width: 10%;
-    margin-left: 10%;
+    width: 15%;
+    margin-left: 5%;
     display: flex;
     float: left;
     height: auto;
 }
 
 .chat-conversation .post-image-container .post-image{
-    max-width: 80px;
-    max-height: 80px;
+    max-width: 120px;
+    max-height: 120px;
     margin: 10%;
     width: auto;
     height: auto;
@@ -1329,4 +1329,14 @@ background-color: rgba(6, 214, 160, .4);
 
 .upload-button:active {
     background-color: #262e35;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #420008;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #959294;
 }

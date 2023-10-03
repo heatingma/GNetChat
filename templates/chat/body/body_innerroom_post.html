@@ -72,9 +72,11 @@
                             <i class="ri-more-fill"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit-postModal"> 
+                                Edit <i class="ri-pencil-fill float-right text-muted"></i>
+                            </a>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete-postModal"> 
-                                Delete 
-                                <i class="ri-delete-bin-line float-right text-muted"></i>
+                                Delete <i class="ri-delete-bin-line float-right text-muted"></i>
                             </a>
                         </div>
                     </div>
@@ -86,6 +88,73 @@
         <!-- GUIDE -->
 
         {% if cur_room.owner_name == profile.user.username or cur_post.author.username == profile.user.username %}
+        <!-- EDIT POST -->
+        <div class="modal fade" id="edit-postModal" tabindex="-1" role="dialog" aria-labelledby="edit-postModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <form class="modal-content" method="post" enctype="multipart/form-data" action="{% url 'chat:innerroom' room_name=cur_room.name post_name=cur_post.title %}">
+                    {% csrf_token %}
+                    <!-- FORM HEAD -->
+                    <div class="modal-header">
+                        <h5 class="modal-title font-size-16" id="edit-postModalLabel">Edit Post</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- FORM HEAD -->
+
+                    <!-- FORM BODY -->
+                    <!-- CREATE BODY -->
+                    <div class="modal-body p-4">
+                        <div>
+
+                            <!-- POST DESCRIPTION-->
+                            <div class="form-group">
+                                <label for="add-post-description-input">Change Description</label>
+                                <textarea class="form-control" id="add-post-description-input" rows="3" name="change_about_post" placeholder="Enter Description"></textarea>
+                            </div>
+                            <!-- POST DESCRIPTION-->
+
+                            <!-- AVATAR -->
+                            <div class="form-group">
+                                <label for="add-image">Upload Post Image</label>
+                                <input type="file" class="form-control upload-button" id="add-image" name="upload_image" accept="image/*">
+                            </div>
+                            <!-- AVATAR -->
+
+                            <!-- DELETE TAGS -->
+                            <div class="form-group">
+                                <label for="delete-tag">Delete One Tag</label>
+                                <input type="text" class="form-control" id="delete-tag" name="delete_tag" placeholder="Enter Tag Name">
+                            </div>
+                            <!-- DELETE TAGS -->
+
+                            <!-- TAGS -->
+                            <div class="form-group">
+                                <label for="add-tag">Add a New Tag</label>
+                                <input type="text" class="form-control" id="add-tag" name="add_tag" placeholder="Enter Tag Name">
+                            </div>
+                            <!-- TAGS -->
+                            
+                        </div>
+                    </div>
+                    <!-- CREATE BODY -->
+                    <!-- FORM BODY -->
+
+                    <!-- FORM BUTTON -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <!-- FORM BUTTON -->
+
+                </form>
+            </div>
+        </div>
+        <!-- EDIT POST -->
+        {% endif %}
+        
+        {% if cur_room.owner_name == profile.user.username or cur_post.author.username == profile.user.username %}
+        <!-- DELETE POST -->
         <div class="modal fade" id="delete-postModal" tabindex="-1" role="dialog" aria-labelledby="delete-postModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <form class="modal-content" method="post" enctype="multipart/form-data" action="{% url 'chat:innerroom' room_name=cur_room.name post_name=cur_post.title %}">
@@ -135,7 +204,9 @@
                 </form>
             </div>
         </div>
+        <!-- DELETE POST -->
         {% endif %}
+
     </div>
     <!-- HEAD -->
 
@@ -152,6 +223,11 @@
                     {{cur_post.title}}
                 </div> 
                 <h3> {{cur_post.author.username}} created on {{cur_post.created_on}} <h3>
+                <div class="tags">
+                    {% for tag in cur_post.all_tags %}
+                        <div class="tag">{{tag.name}}</div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <!-- POST HEAD -->

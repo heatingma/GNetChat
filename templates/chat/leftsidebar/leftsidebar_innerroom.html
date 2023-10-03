@@ -46,22 +46,33 @@
 
                             <!-- POST DESCRIPTION-->
                             <div class="form-group">
-                                <label for="add-post-description-input">Description</label>
+                                <label for="add-post-description-input">Description (Option)</label>
                                 <textarea class="form-control" id="add-post-description-input" rows="3" name="about_post" placeholder="Enter Description"></textarea>
                             </div>
                             <!-- POST DESCRIPTION-->
 
                             <!-- AVATAR -->
                             <div class="form-group">
-                                <label for="add-image">Add Post Image</label>
+                                <label for="add-image">Add Post Image (Option)</label>
                                 <input type="file" class="form-control upload-button" id="add-image" name="image" accept="image/*">
                             </div>
                             <!-- AVATAR -->
 
                             <!-- TAGS -->
                             <div class="form-group">
-                                <label for="add-tags">Add Tags</label>
-                                <input type="text" class="form-control" id="add-tags" name="tags" placeholder="Enter Tag Name">
+                                <label for="select-tags">Select Tags (Option)</label>
+                                <select class="custom-select w-100" name="select_tags" id="select-tags" multiple>
+                                    {% for tag in tags %}
+                                        <option value="{{ tag.name }}">{{ tag.name }}</option>
+                                    {% endfor %}
+                                  </select>
+                            </div>
+                            <!-- TAGS -->
+
+                            <!-- TAGS -->
+                            <div class="form-group">
+                                <label for="add-tags">Add a New Tag(Option)</label>
+                                <input type="text" class="form-control" id="add-tags" name="new_tag" placeholder="Enter Tag Name">
                             </div>
                             <!-- TAGS -->
                             

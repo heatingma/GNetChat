@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest
 from django.contrib.auth.decorators import login_required
 from .forms import EditProfileForm, RoomForm, PostForm, AttachmentForm, \
-    ChangeRoomForm, ConfirmDeletePostForm, ConfirmDeleteChatroomForm
-from .models import Profile, Room, RoomMessage, Post
+    ChangeRoomForm, ConfirmDeletePostForm, ConfirmDeleteChatroomForm, EditPostForm
+from .models import Profile, Room, RoomMessage, Post, Tag
 from users.models import User
 import json
 import os
@@ -132,11 +132,21 @@ def innerroom(request: HttpRequest, room_name, post_name, dark=False):
         postform = PostForm(request.POST, request.FILES)
         attachmentform = AttachmentForm(request.POST, request.FILES)
         confirm_delete_post_form = ConfirmDeletePostForm(request.POST)
+        editpostform = EditPostForm(request.POST, request.FILES)
+        
         # deal with creating a new post
         if postform.is_valid():
             title = postform.cleaned_data["title"]
             about_post = postform.cleaned_data["about_post"]
             image = postform.cleaned_data["image"]
+            new_tag = postform.cleaned_data["new_tag"]
+            selected_tag = request.POST.getlist('select_tags')
+            all_tags = list()
+            if selected_tag:
+                for tag in selected_tag:
+                    all_tags.append(tag)
+            if new_tag:
+                all_tags.append(new_tag) 
             post = Post(
                 title=title, 
                 author=user, 
@@ -145,11 +155,19 @@ def innerroom(request: HttpRequest, room_name, post_name, dark=False):
                 belong_room=chat_room
             )
             if image:
-                post.image = image
+                post.image = image             
             if Post.objects.filter(title=post.title, belong_room=post.belong_room).exists():
                 wrong_message = "A post with the same title already exists in this room."
             else:
-                post.save()     
+                post.save()
+            if all_tags:
+                for tag in all_tags:
+                    try:
+                        cur_tag = Tag.objects.get(name=tag)
+                    except:
+                        cur_tag = Tag.objects.create(name=tag)
+                    post.tags.add(cur_tag)
+                
         # deal with attachment
         if attachmentform.is_valid():
             attachment = attachmentform.cleaned_data["attachment"]
@@ -165,6 +183,7 @@ def innerroom(request: HttpRequest, room_name, post_name, dark=False):
                 rm.save()
             except:
                 wrong_message = "File size cannot exceed 5MB."
+                
         # deal with post-deleting
         if confirm_delete_post_form.is_valid():
             hidden_post_name = confirm_delete_post_form.cleaned_data["hidden_post_name"]
@@ -185,7 +204,31 @@ def innerroom(request: HttpRequest, room_name, post_name, dark=False):
                     cur_post = get_object_or_404(Post, title=post_name, belong_room=chat_room)
                 else:
                     wrong_message = "Incorrect confirmation information."
-            
+        
+        # deal with post-editing
+        if editpostform.is_valid():
+            change_about_post = editpostform.cleaned_data["change_about_post"]
+            upload_image = editpostform.cleaned_data["upload_image"]
+            delete_tag = editpostform.cleaned_data["delete_tag"]
+            add_tag = editpostform.cleaned_data["add_tag"]
+            if change_about_post != "":
+                cur_post.about_post = change_about_post
+            if upload_image:
+                cur_post.image = upload_image
+            if delete_tag != "":
+                try:
+                    del_tag = Tag.objects.get(name=delete_tag)
+                    cur_post.tags.delete(del_tag)
+                except:
+                    pass
+            if add_tag != "":
+                try:
+                    addtag = Tag.objects.get(name=add_tag)
+                except:
+                    addtag = Tag.objects.create(name=add_tag)
+                cur_post.tags.add(addtag)
+            cur_post.save()
+
     # get users' img_urls
     users_img_urls = dict()
     for rm in room_messages:
@@ -209,6 +252,7 @@ def innerroom(request: HttpRequest, room_name, post_name, dark=False):
             'users_img_urls_json': json.dumps(users_img_urls),
             'dark': dark,
             'light': not dark,
+            'tags': Tag.objects.all(),
         }
     )
     
