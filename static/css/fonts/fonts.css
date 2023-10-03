@@ -28,6 +28,11 @@
     src: url('fonts/comicbd.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: "arlrdbd";
+    src: url('fonts/arlrdbd.ttf') format('truetype');
+}
+
 
 
 

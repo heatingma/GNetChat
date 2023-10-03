@@ -5,6 +5,13 @@ from django.contrib.auth import login, authenticate
 from django.contrib import messages
 
 
+def index(request: HttpRequest):
+    return render(
+        request=request, 
+        template_name='users/index.html', 
+    )
+
+
 def log(request: HttpRequest):
     # action when request method is GET
     if request.method == 'GET':

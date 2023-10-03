@@ -8,7 +8,6 @@ os.system("python manage.py migrate")
 os.system("python manage.py runserver")
 
 
-
 ########################################
 #               startapp               #
 ########################################

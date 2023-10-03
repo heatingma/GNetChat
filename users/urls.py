@@ -3,5 +3,6 @@ from users import views
 
 
 urlpatterns = [
-    path('', views.log, name='log'),
+    path('', views.index, name='index'),
+    path('log/', views.log, name='log'),
 ]

@@ -1,0 +1,160 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>GNetChat</title>
+   <link rel="stylesheet" href={% static "css/fonts/fonts.css" %}>
+   <link rel="stylesheet" href={% static "css/users/ajax.all.min.css" %}>
+   <link rel="stylesheet" href={% static "css/users/bootstrap.min.css" %}>
+   <link rel="stylesheet" href={% static "css/users/index.css" %}>
+   <link rel="stylesheet" href={% static "css/users/slides.css" %}>
+   <link href="{% static "css/fonts/icons-selected.min.css" %}" rel="stylesheet" type="text/css">
+</head>
+
+<style>
+   .home{
+      background:linear-gradient(rgba(240, 240, 240, 0.7), rgba(255, 255, 255, 0.5), rgba(230, 230, 230, 0.6)), url({% static "images/users/logo-2.jpg" %}) no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+   }
+</style>
+
+<body>
+
+<!-- HEADER -->
+<header class="header fixed-top">
+   <div class="container">
+      <div class="row align-items-center">
+         <a href="#" class="logo mr-auto"> GNetChat </a>
+         <nav class="nav" >
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#previews">Preview</a>
+            <a href="#developer">Developer</a>  
+            <a href="{% url 'users:log' %}"> <i class="ri-user-3-line"></i> </a>  
+         </nav>
+      </div>
+   </div>
+</header>
+<!-- HEADER -->
+
+
+<!-- HOME -->
+<section class="home" id="home">
+   <div class="container">
+      <div class="row align-items-center text-center text-md-left min-vh-100">
+         <div class="product col-md-6">
+            <h3>General Networking Chat</h3>
+            <a href="{% url 'users:log' %}" class="link-btn">get started</a>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- HOME -->
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+   <div class="container">
+      <div class="row align-items-center">
+         <div class="col-md-6">
+            <div class="slideshow-container slides1" data-slide-time="8888">
+                  <div class="slides">
+                     <img src={% static "images/users/sjtu-2.jpg" %} alt="Image 1">
+                     <img src={% static "images/users/sjtu-1.jpg" %} alt="Image 2">
+                     <img src={% static "images/users/sjtu-3.jpg" %} alt="Image 3">
+                     <img src={% static "images/users/sjtu-4.jpg" %} alt="Image 3">
+                  </div>
+                  <div class="dots-container">
+                     <span class="dot"></span>
+                     <span class="dot"></span>
+                     <span class="dot"></span>
+                     <span class="dot"></span>
+                  </div>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <span>Who we are?</span>
+            <h3 class="title">Students Want to Create a Universal and General Online Communication Software in SJTU.</h3>
+            <p>The GNetChat software is designed to helping us better conduct online activities with built-in functions such as open chat rooms, 
+               forums, friends, group chat, cloud storage, and quick navigation.</p>     
+         </div>
+      </div>
+   </div> 
+</section>
+<!-- ABOUT -->
+
+
+<!-- PREVIEW -->
+<section class="previews" id="previews">
+   <div class="container">
+
+      <h1 class="heading"> GNetChat Previews</h1>
+
+      <!-- CHATROOM -->
+      <div class="box-container container">
+         <div class="box" border-radius="6px">         
+            <img src={% static "images/users/preview-1.png" %} alt="">
+            <div class="content">
+               <h3>Chatroom</h3>
+               <p>You can chat freely in the chat room, send pictures and files, and also create your own posts in the chat room</p>
+            </div>
+         </div>
+         <div class="box" border-radius="6px">         
+            <img src={% static "images/users/preview-2.png" %} alt="">
+            <div class="content">
+               <h3>Light / Dark Mode</h3>
+               <p>To protect our vision, we have carefully designed two modes: day and night</p>
+            </div>
+         </div>
+   </div> 
+</section>
+<!-- PREVIEW -->
+
+<!-- DEVELOPER -->
+<section class="developer" id="developer">
+   <h1 class="heading">  Developer </h1>
+   <div class="container">
+      <div class="img-container">
+         <a href="https://heatingma.cn">
+            <img src={% static "images/users/heatingma.jpg" %} alt="">
+            <p> heatingma </p>
+         </a>
+      </div>
+      <div class="img-container">
+         <a href="#">
+            <img src={% static "images/users/faii.jpg" %} alt="">
+            <p> faii </p>
+         </a>
+      </div>
+      <div class="img-container">
+         <a href="#">
+            <img src={% static "images/users/ccliu.jpg" %} alt="">
+            <p> ccliu </p>
+         </a>
+      </div>
+      <div class="img-container">
+         <a href="#">
+            <img src={% static "images/users/hth.jpg" %} alt="">
+            <p> phoenix </p>
+         </a>
+      </div>
+   </div> 
+</section>
+<!-- DEVELOPER -->
+
+
+<!-- FOOTER -->
+<section class="footer" id="footer">
+   <div class="container">
+      <p class="copy-right">&copy; 2023 SJTU GNetChat All rights Resved</p>
+   </div> 
+</section>
+<!-- FOOTER -->
+
+
+<script src={% static "js/users/slides.js" %}></script>
