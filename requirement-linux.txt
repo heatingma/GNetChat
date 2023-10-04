@@ -1,0 +1,56 @@
+name: new_django
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - _openmp_mutex=5.1=1_gnu
+  - ca-certificates=2023.08.22=h06a4308_0
+  - ld_impl_linux-64=2.38=h1181459_1
+  - libffi=3.4.4=h6a678d5_0
+  - libgcc-ng=11.2.0=h1234567_1
+  - libgomp=11.2.0=h1234567_1
+  - libstdcxx-ng=11.2.0=h1234567_1
+  - ncurses=6.4=h6a678d5_0
+  - openssl=3.0.11=h7f8727e_2
+  - pip=23.2.1=py38h06a4308_0
+  - python=3.8.18=h955ad1f_0
+  - readline=8.2=h5eee18b_0
+  - setuptools=68.0.0=py38h06a4308_0
+  - sqlite=3.41.2=h5eee18b_0
+  - tk=8.6.12=h1ccaba5_0
+  - wheel=0.41.2=py38h06a4308_0
+  - xz=5.4.2=h5eee18b_0
+  - zlib=1.2.13=h5eee18b_0
+  - pip:
+      - asgiref==3.7.2
+      - async-timeout==4.0.3
+      - attrs==23.1.0
+      - autobahn==23.1.2
+      - automat==22.10.0
+      - backports-zoneinfo==0.2.1
+      - cffi==1.16.0
+      - channels==3.0.5
+      - channels-redis==4.1.0
+      - constantly==15.1.0
+      - cryptography==41.0.4
+      - daphne==3.0.2
+      - django==4.2.5
+      - hyperlink==21.0.0
+      - idna==3.4
+      - incremental==22.10.0
+      - msgpack==1.0.7
+      - pillow==10.0.1
+      - pyasn1==0.5.0
+      - pyasn1-modules==0.3.0
+      - pycparser==2.21
+      - pyopenssl==23.2.0
+      - redis==5.0.1
+      - service-identity==23.1.0
+      - six==1.16.0
+      - sqlparse==0.4.4
+      - twisted==23.8.0
+      - txaio==23.1.1
+      - typing-extensions==4.8.0
+      - uwsgi==2.0.22
+      - zope-interface==6.0
+prefix: /root/miniconda3/envs/new_django
