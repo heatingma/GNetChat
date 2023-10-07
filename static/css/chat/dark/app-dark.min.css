@@ -1340,3 +1340,8 @@ background-color: rgba(6, 214, 160, .4);
     font-weight: bold;
     color: #959294;
 }
+
+.contact-row{
+    font-family: "comicbd";
+    font-size: 16px;
+}

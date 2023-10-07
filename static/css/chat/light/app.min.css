@@ -909,6 +909,10 @@ body{
     padding: 10px 20px;
 }
 
+.contact-list li .contact-user-row{
+    font-family: "cursive";
+}
+
 .profile-user {
     position: relative;
     display: inline-block;
@@ -1343,4 +1347,9 @@ body{
     font-size: 14px;
     font-weight: bold;
     color: #6e0052;
+}
+
+.contact-user-row{
+    font-family: "comicbd";
+    font-size: 16px;
 }

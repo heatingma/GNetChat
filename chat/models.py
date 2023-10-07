@@ -67,6 +67,7 @@ class Room(models.Model):
     def __str__(self):
         return f'{self.name} ({self.get_online_count()})'
 
+
 class Tag(models.Model):
     name = models.CharField(max_length=40, unique=True)
 
@@ -198,4 +199,17 @@ class RoomMessage(models.Model):
         except:
             return 'Unknown Size'
         
+
+class Friend_Request(models.Model):
+    uid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    from_user = models.ForeignKey(User, related_name='from_user', on_delete=models.CASCADE)
+    to_user = models.ForeignKey(User, related_name='to_user', on_delete=models.CASCADE)
+    invite_message = models.CharField(max_length=50)
     
+    @property
+    def from_user_profile(self):
+        return Profile.objects.get(user=self.from_user)
+    
+    @property
+    def to_user_profile(self):
+        return Profile.objects.get(user=self.to_user)

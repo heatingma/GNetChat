@@ -1,3 +1,5 @@
+{% load static %}
+
 <div>
                         
     <!-- CHAT HEAD -->
@@ -24,43 +26,60 @@
     <!-- CHAT HEAD -->
 
     <!-- CHAT TOP -->
-    {% comment %} <div class="px-4 pb-4" dir="ltr">
+    <div class="px-3 pb-3 mt-4" dir="ltr">
+        
+        <h5 class="mb-3 px-3 font-size-16">Top</h5>
+
         <div class="owl-carousel owl-theme" id="user-status-carousel">
             
             <!-- ONE EXAMPLE -->
-            <div class="item">
-                <a href="#" class="user-status-box">
-                    <div class="avatar-xs mx-auto d-block chat-user-img online">
-                        <img src="static/picture/avatar-2.jpg" alt="user-img" class="img-fluid rounded-circle">
-                        <span class="user-status"></span>
-                    </div>
+            {% for top_friend in top_friends %}
+                <div class="item">
+                    <a href="#" class="user-status-box">
+                        <div class="avatar-xs mx-auto d-block chat-user-img online">
+                            <img src="{{top_friend.image_url}}" alt="user-img" class="img-fluid rounded-circle">
+                            <span class="user-status"></span>
+                        </div>
 
-                    <h5 class="font-size-13 text-truncate mt-3 mb-1">Patrick</h5>
-                </a>
-            </div>
+                        <h5 class="font-size-13 text-truncate mt-3 mb-1">{{top_friend.username}}</h5>
+                    </a>
+                </div>
+            {% endfor %}
             <!-- ONE EXAMPLE -->
 
             <!-- ADD BUTTON -->
-            <div class="user-chat-nav float-right">
-                <div data-toggle="tooltip" data-placement="bottom" title="Add TOP">
-                    <button type="button" class="btn btn-link text-decoration-none text-muted font-size-18 py-0" data-toggle="modal" data-target="#addtop-exampleModal">
-                        <a href="#" class="user-status-box">
-                            <img src="static/picture/add.png" alt="user-img" class="img-fluid rounded-circle">
-                        </a>
-                    </button>
-                </div>
+            <div class="item">
+                <a href="#" class="user-status-box" data-toggle="modal" data-target="#addtop-exampleModal">
+                    <div class="avatar-xs mx-auto d-block chat-user-img online">
+                        <img src="{% static "images/chat/add.png" %}" alt="user-img" class="img-fluid rounded-circle">
+                    </div>
+
+                    <h5 class="font-size-13 text-truncate mt-3 mb-1">Add</h5>
+                </a>
             </div>      
             <!-- ADD BUTTON -->
 
+            <!-- DELETE BUTTON -->
+            <div class="item">
+                <a href="#" class="user-status-box" data-toggle="modal" data-target="#deletetop-exampleModal">
+                    <div class="avatar-xs mx-auto d-block chat-user-img online">
+                        <img src="{% static "images/chat/delete.png" %}" alt="user-img" class="img-fluid rounded-circle">
+                    </div>
+
+                    <h5 class="font-size-13 text-truncate mt-3 mb-1">Delete</h5>
+                </a>
+            </div>      
+            <!-- DELETE BUTTON -->
+
         </div>
-    </div> {% endcomment %}
+    </div>
     <!-- CHAT TOP -->
 
     <!-- ADD TOP FORM -->
     <div class="modal fade" id="addtop-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addtop-exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-
+            <form class="modal-content" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <!-- ADD TOP HEAD -->
                 <div class="modal-header">
                     <h5 class="modal-title font-size-16" id="addtop-exampleModalLabel">Add New Top Contact</h5>
@@ -71,164 +90,113 @@
                 <!-- ADD TOP HEAD -->
 
                 <!-- ADD TOP BODY -->
-                <div class="modal-body p-4">
-                    <div class="form-group mb-4">
-                        <div class="card border">
-
-                            <!-- CARD HEADER -->
-                            <div class="card-header">
-                                <h5 class="font-size-15 mb-0">Contacts</h5>
-                            </div>
-                            <!-- CARD HEADER -->
-
-                            <!-- PERSONS -->
-                            <div class="card-body p-2">
-                                <div data-simplebar="" style="max-height: 150px;">
-                                
-                                <!-- ONE EXAMPLE -->
-                                <div>
-                                    <div class="p-3 font-weight-bold text-primary">
-                                        A
-                                    </div>
-
-                                    <ul class="list-unstyled contact-list">
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="memberCheck1" checked="">
-                                                <label class="custom-control-label" for="memberCheck1">Albert Rodarte</label>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="memberCheck2">
-                                                <label class="custom-control-label" for="memberCheck2">Allison Etter</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- ONE EXAMPLE -->
-                                
-                                </div>
-                            </div>
-                            <!-- PERSONS -->
-    
-                        </div>
+                <div class="modal-body p-4"><div>
+                    <!-- TOPS -->
+                    <div class="form-group" style="font-family: comicbd">
+                        <label for="select-top-friends">Select Friends</label>
+                        <select class="custom-select w-100" name="select_top_friends" id="select-top-friends" multiple>
+                            {% for friend in friends %}
+                                {% if friend not in top_friends %}
+                                    <option value="{{ friend.username }}">{{ friend.username }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
                     </div>
-                </div>
+                    <!-- TOPS --> 
+                </div></div>
                 <!-- ADD TOP BODY -->
 
                 <!-- ADD TOP BUTTON -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </div>
                 <!-- ADD TOP BUTTON -->
 
-            </div>
+            </form>
         </div>
     </div>
     <!-- ADD TOP FORM -->
 
+    <!-- DELETE TOP FORM -->
+    <div class="modal fade" id="deletetop-exampleModal" tabindex="-1" role="dialog" aria-labelledby="deletetop-exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <form class="modal-content" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- DELETE TOP HEAD -->
+                <div class="modal-header">
+                    <h5 class="modal-title font-size-16" id="deletetop-exampleModalLabel">Delete Top Contact</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- DELETE TOP HEAD -->
+
+                <!-- DELETE TOP BODY -->
+                <div class="modal-body p-4"><div>
+                    <!-- TOPS -->
+                    <div class="form-group" style="font-family: comicbd">
+                        <label for="delete-top-friends">Select Top Friends</label>
+                        <select class="custom-select w-100" name="delete_top_friends" id="delete-top-friends" multiple>
+                            {% for friend in top_friends %}
+                                <option value="{{ friend.username }}">{{ friend.username }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <!-- TOPS --> 
+                </div></div>
+                <!-- DELETE TOP BODY -->
+
+                <!-- DELETE TOP BUTTON -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+                <!-- DELETE TOP BUTTON -->
+
+            </form>
+        </div>
+    </div>
+    <!-- DELETE TOP FORM -->
+
     <!-- CHAT RECENT -->
-    <div class="px-2">
+    <div class="px-3 pb-3 mt-4" >
 
         <!-- TITLE -->
         <h5 class="mb-3 px-3 font-size-16">Recent</h5>
         <!-- TITLE -->
 
         <!-- CHAT RECENT BODY -->
-        {% comment %} <div class="chat-message-list" data-simplebar="">                                
+        <div class="chat-message-list" data-simplebar="">                                
             <ul class="list-unstyled chat-list chat-user-list">
-                
-                <!-- CONNON EXAMPLE (TXT) (ONLINE)-->
-                <li><a href="#"><div class="media">
-                    
-                    <!-- AVATAR (ONLINE) -->
-                    <div class="chat-user-img online align-self-center mr-3">
-                        <img src="static/picture/avatar-2.jpg" class="rounded-circle avatar-xs" alt="">
-                        <span class="user-status"></span>
-                    </div>
-                    <!-- AVATAR (ONLINE) -->
-                    
-                    <!-- RECENT MASSAGE -->
-                    <div class="media-body overflow-hidden">
-                        <h5 class="text-truncate font-size-15 mb-1">Patrick Hendricks</h5>
-                        <p class="chat-user-message text-truncate mb-0">Hey! there I'm available</p>
-                    </div>
-                    <!-- RECENT MASSAGE -->
-
-                    <!-- RECENT TIME -->
-                    <div class="font-size-11">05 min</div>
-                    <!-- RECENT TIME -->
-
-                </div></a></li>
-                <!-- CONNON EXAMPLE (TXT) (ONLINE) -->
-
-                <!-- UNREAD EXAMPLE (IMAGE) (AWAY) -->
-                <li class="unread"><a href="#"><div class="media">
-
-                    <!-- AVATAR (AWAY) -->
-                    <div class="chat-user-img away align-self-center mr-3">
-                        <img src="static/picture/avatar-3.jpg" class="rounded-circle avatar-xs" alt="">
-                        <span class="user-status"></span>
-                    </div>
-                    <!-- AVATAR (AWAY) -->
-
-                    <!-- RECENT MASSAGE -->
-                    <div class="media-body overflow-hidden">
-                        <h5 class="text-truncate font-size-15 mb-1">Mark Messer</h5>
-                        <p class="chat-user-message text-truncate mb-0">
-                        <i class="ri-image-fill align-middle mr-1"></i> Images</p>
-                    </div>
-
-                    <!-- TIME -->
-                    <div class="font-size-11">12 min</div>
-                    <!-- TIME -->
-
-                    <!-- UNREAD -->
-                    <div class="unread-message">
-                        <span class="badge badge-soft-danger badge-pill">02</span>
-                    </div>
-                    <!-- UNREAD -->
-
-                </div></a></li>
-                <!-- UNREADY EXAMPLE (IMAGE) (AWAY) -->
-
-                <!-- TYPING EXAMPLE (ONLINE) (NO AVATAR IMG) -->
-                <li class="typing"><a href="#"><div class="media">
-
-                    <!-- AVATAR (ONLINE) (NO AVATAR IMG) -->
-                    <div class="chat-user-img align-self-center online mr-3">
-                        <div class="avatar-xs">
-                            <span class="avatar-title rounded-circle bg-soft-primary text-primary">
-                                A
-                            </span>
-                        </div>
-                        <span class="user-status"></span>
-                    </div>
-                    <!-- AVATAR (ONLINE) (NO AVATAR IMG) -->
-
-                    <!-- CONTENT -->
-                    <div class="media-body overflow-hidden">
-                        <h5 class="text-truncate font-size-15 mb-1">Albert Rodarte</h5>
-                        <p class="chat-user-message text-truncate mb-0">typing<span class="animate-typing">
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </span></p>
-                    </div>
-                    <!-- CONTENT -->
-
-                    <!-- TIME -->
-                    <div class="font-size-11">04:56 PM</div>
-                    <!-- TIME -->
-
-                </div></a></li>
-                <!-- TYPING EXAMPLE (ONLINE) (NO AVATAR IMG) -->
             
+                {% for friend in friends %}
+                    <!-- CONNON EXAMPLE (TXT) (ONLINE)-->
+                    <li><a href="#"><div class="media">
+                        
+                        <!-- AVATAR (ONLINE) -->
+                        <div class="chat-user-img online align-self-center mr-3">
+                            <img src="{{friend.image_url}}" class="rounded-circle avatar-xs" alt="">
+                            <span class="user-status"></span>
+                        </div>
+                        <!-- AVATAR (ONLINE) -->
+                        
+                        <!-- RECENT MASSAGE -->
+                        <div class="media-body overflow-hidden">
+                            <h5 class="text-truncate font-size-15 mb-1">{{friend.username}}</h5>
+                            {% comment %} <p class="chat-user-message text-truncate mb-0">Hey! there I'm available</p> {% endcomment %}
+                        </div>
+                        <!-- RECENT MASSAGE -->
+
+                        <!-- RECENT TIME -->
+                        {% comment %} <div class="font-size-11">05 min</div> {% endcomment %}
+                        <!-- RECENT TIME -->
+
+                    </div></a></li>
+                    <!-- CONNON EXAMPLE (TXT) (ONLINE) -->
+                {% endfor %}
             </ul>
-        </div> {% endcomment %}
+        </div>
         <!-- CHAT RECENT BODY -->
 
     </div>

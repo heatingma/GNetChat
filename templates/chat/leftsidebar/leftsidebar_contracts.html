@@ -21,7 +21,8 @@
         <!-- ADD FORM -->
         <div class="modal fade" id="addContact-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addContact-exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
+                <form class="modal-content" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
 
                     <!-- FORM HEAD -->
                     <div class="modal-header">
@@ -34,34 +35,34 @@
 
                     <!-- FORM BODY -->
                     <div class="modal-body p-4">
-                        <form>
+                        <div>
 
                             <!-- EMAIL -->
                             <div class="form-group mb-4">
                                 <label for="addcontactemail-input">Email</label>
-                                <input type="email" class="form-control" id="addcontactemail-input" placeholder="Enter Email">
+                                <input type="email" class="form-control" id="addcontactemail-input" name="invite_email", placeholder="Enter Email">
                             </div>
                             <!-- EMAIL -->
 
                             <!-- INVITATE MESSAGE -->
                             <div class="form-group">
                                 <label for="addcontact-invitemessage-input">Invatation Message</label>
-                                <textarea class="form-control" id="addcontact-invitemessage-input" rows="3" placeholder="Enter Message"></textarea>
+                                <textarea class="form-control" id="addcontact-invitemessage-input" rows="3" name="invite_message", placeholder="Enter Message"></textarea>
                             </div>
                             <!-- INVITATE MESSAGE -->
                         
-                        </form>
+                        </div>
                     </div>
                     <!-- FORM BODY -->
 
                     <!-- FORM BUTTON -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Invite Contact</button>
+                        <button type="submit" class="btn btn-primary">Invite Contact</button>
                     </div>
                     <!-- FORM BUTTON -->
 
-                </div>
+                </form>
             </div>
         </div>
         <!-- ADD FORM -->
@@ -83,462 +84,268 @@
     <!-- CONTACTS HEAD -->
 
     <!-- CONTACTS BODY -->
-    <div class="p-4 chat-message-list chat-group-list" data-simplebar="">
+    <div class="p-4 chat-message-list chat-group-list">
 
-        <div>
-            <div class="p-3 font-weight-bold text-primary">
-                A
+        <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item w-30"><a class="nav-link active ml-2 mr-2" id="pills-contacts-tab" data-toggle="pill" href="#pills-contacts" role="tab"> Contacts </a></li>
+            <li class="nav-item w-30"><a class="nav-link ml-2 mr-2" id="pills-new-friends-tab" data-toggle="pill" href="#pills-new-friends" role="tab"> New </a></li>
+            <li class="nav-item w-30"><a class="nav-link ml-2 mr-2" id="pills-sent-tab" data-toggle="pill" href="#pills-sent" role="tab"> Have Sent </a></li>
+        </ul>
+        <div class="tab-content">
+
+            <!-- FRIEND -->
+            <div class="tab-pane fade show active" id="pills-contacts" role="tabpanel" aria-labelledby="pills-contacts-tab">
+                <div class="mt-3">
+                    <ul class="list-unstyled contact-list">
+                        {% for friend in friends %}   
+                            <li><div class="d-flex align-items-center">
+                                <div class="mr-auto">
+                                    <h5 class="font-size-16 m-2" style="font-family: comicbd">
+                                        {{friend.username}} 
+                                    </h5>
+                                </div>
+                                <a style="margin-left:10px; " data-toggle="modal" data-target="#friend-{{friend.username}}Modal">
+                                    <i class="ri-eye-fill"></i>
+                                </a>
+                            </div></li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
+            <!-- FRIEND -->
 
-            <ul class="list-unstyled contact-list">
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Albert Rodarte</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+            <!-- VIEW -->
+            {% for friend in friends %}   
+                <div class="modal fade" id="friend-{{friend.username}}Modal" tabindex="-1" role="dialog" aria-labelledby="friend-{{friend.username}}ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <form class="modal-content" method="post">
+                            {% csrf_token %}
+        
+                            <!-- FORM HEAD -->
+                            <div class="modal-header">
+                                <h5 class="modal-title font-size-16" id="friend-{{friend.username}}ModalLabel">View Friend Info</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                        </div>
-                    </div>
-                </li>
+                            <!-- FORM HEAD -->
+        
+                            <!-- FORM BODY -->
+                            <div class="modal-body p-4">
+                                <div>
+                                    
+                                    <input type="hidden" name="hidden_acc_fr_uid" value="{{fr.uid}}">
 
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Allison Etter</h5>
-                        </div>
+                                    <!-- AVATAR -->
+                                    <div class="d-flex justify-content-center">
+                                        <img src="{{ friend.image_url }}" class="rounded-circle avatar-lg img-thumbnail" alt="">
+                                    </div>
+                                    <!-- AVATAR -->
 
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                                    <!-- NAME -->
+                                    <div class="d-flex justify-content-center">
+                                        <h1 class="font-size-16 m-2" style="font-family: comicbd"> {{ friend.username }} </h1>
+                                    </div>
+
+                                    <div>
+                                        <h1 class="font-size-18 m-2" style="font-family: comicbd">  About: </h1>
+                                        <p class="font-size-16" style="font-family: comicbd; margin-left:10%;"> {{ friend.about_me }} </p>
+                                    </div>
+                                    <!-- NAME -->
+                                
+                                </div>
                             </div>
-                        </div>
+                            <!-- FORM BODY -->
+        
+                            <!-- FORM BUTTON -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                            </div>
+                            <!-- FORM BUTTON -->
+        
+                        </form>
                     </div>
-                </li>
-            </ul>
-        </div>
-        <!-- end contact list A -->
+                </div>
+            {% endfor %}
+            <!-- VIEW -->
 
-        <div class="mt-3">
-            <div class="p-3 font-weight-bold text-primary">
-                C
+            <!-- RECEIVE -->
+            <div class="tab-pane fade" id="pills-new-friends" role="tabpanel" aria-labelledby="pills-new-friends-tab">
+                <div class="mt-3">
+                    <ul class="list-unstyled contact-list">
+                        {% for fr in new_friends %}   
+                            <li><div class="d-flex align-items-center">
+                                <div class="mr-auto">
+                                    <h5 class="font-size-16 m-2" style="font-family: comicbd">
+                                        {{fr.from_user}} 
+                                    </h5>
+                                </div>
+                                <a style="margin:2px;" href="#" fr-uid="{{fr.uid}}" onclick="confirmDelete2(event)">
+                                    <i class="ri-delete-bin-line"></i>
+                                </a>
+                                <a style="margin-left:10px; " data-toggle="modal" data-target="#accept-friend-{{fr.to_user.username}}Modal">
+                                    <i class="ri-eye-fill"></i>
+                                </a>
+                            </div></li>
+                        {% endfor %}
+                        <form id="deleteForm" style="display: none;" action="{% url 'chat:contracts' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="fr_uid" id="fr-uid-input">
+                            <button type="submit" id="submit-fr-uid" class="btn btn-primary">submit</button>
+                        </form>
+                    </ul>
+                </div>
             </div>
+            <!-- RECEIVE -->
 
-            <ul class="list-unstyled contact-list">
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Craig Smiley</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+            <!-- ACCEPT -->
+            {% for fr in new_friends %}   
+                <div class="modal fade" id="accept-friend-{{fr.to_user.username}}Modal" tabindex="-1" role="dialog" aria-labelledby="accept-friend-{{fr.to_user.username}}ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <form class="modal-content" method="post">
+                            {% csrf_token %}
+        
+                            <!-- FORM HEAD -->
+                            <div class="modal-header">
+                                <h5 class="modal-title font-size-16" id="accept-friend-{{fr.to_user.username}}ModalLabel">Accept New Friend</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!-- end contact list C -->
+                            <!-- FORM HEAD -->
+        
+                            <!-- FORM BODY -->
+                            <div class="modal-body p-4">
+                                <div>
+                                    
+                                    <input type="hidden" name="hidden_acc_fr_uid" value="{{fr.uid}}">
 
-        <div class="mt-3">
-            <div class="p-3 font-weight-bold text-primary">
-                D
+                                    <!-- AVATAR -->
+                                    <div class="d-flex justify-content-center">
+                                        <img src="{{ fr.from_user_profile.image_url }}" class="rounded-circle avatar-lg img-thumbnail" alt="">
+                                    </div>
+                                    <!-- AVATAR -->
+
+                                    <!-- NAME -->
+                                    <div class="d-flex justify-content-center">
+                                        <h1 class="font-size-16 m-2" style="font-family: comicbd"> {{ fr.from_user.username }} </h1>
+                                    </div>
+
+                                    <div>
+                                        <h1 class="font-size-18 m-2" style="font-family: comicbd">  Message: </h1>
+                                        <p class="font-size-16" style="font-family: comicbd; margin-left:10%;"> {{ fr.invite_message }} </p>
+                                    </div>
+                                    <!-- NAME -->
+                                
+                                </div>
+                            </div>
+                            <!-- FORM BODY -->
+        
+                            <!-- FORM BUTTON -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Accept</button>
+                            </div>
+                            <!-- FORM BUTTON -->
+        
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+            <!-- ACCEPT -->
+            
+            <!-- HAVE SENT -->
+            <div class="tab-pane fade" id="pills-sent" role="tabpanel" aria-labelledby="pills-sent-tab">
+                <div class="mt-3">
+                    <ul class="list-unstyled contact-list">
+                        {% for fr in have_sent %}   
+                            <li><div class="d-flex align-items-center">
+                                <div class="mr-auto">
+                                    <h5 class="font-size-16 m-2" style="font-family: comicbd">
+                                        {{fr.to_user}} 
+                                    </h5>
+                                </div>
+                                <a style="margin-left:10px; " data-toggle="modal" data-target="#have-sent-{{fr.to_user.username}}Modal">
+                                    <i class="ri-eye-fill"></i>
+                                </a>
+                            </div></li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
+            <!-- HAVE SENT -->
 
-            <ul class="list-unstyled contact-list">
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Daniel Clay</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+            <!-- SENT INFO -->
+            {% for fr in have_sent %}   
+                <div class="modal fade" id="have-sent-{{fr.to_user.username}}Modal" tabindex="-1" role="dialog" aria-labelledby="have-sent-{{fr.to_user.username}}ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <form class="modal-content">
+                            {% csrf_token %}
+        
+                            <!-- FORM HEAD -->
+                            <div class="modal-header">
+                                <h5 class="modal-title font-size-16" id="have-sent-{{fr.to_user.username}}ModalLabel">Invitation</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                        </div>
-                    </div>
-                </li>
+                            <!-- FORM HEAD -->
+        
+                            <!-- FORM BODY -->
+                            <div class="modal-body p-4">
+                                <div>
+        
+                                    <!-- AVATAR -->
+                                    <div class="d-flex justify-content-center">
+                                        <img src="{{ fr.from_user_profile.image_url }}" class="rounded-circle avatar-lg img-thumbnail" alt="">
+                                    </div>
+                                    <!-- AVATAR -->
 
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Doris Brown</h5>
-                        </div>
+                                    <!-- NAME -->
+                                    <div class="d-flex justify-content-center">
+                                        <h1 class="font-size-16 m-2" style="font-family: comicbd"> {{ fr.from_user.username }} </h1>
+                                    </div>
 
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                                    <div>
+                                        <h1 class="font-size-18 m-2" style="font-family: comicbd">  Message: </h1>
+                                        <p class="font-size-16" style="font-family: comicbd; margin-left:10%;"> {{ fr.invite_message }} </p>
+                                    </div>
+                                    <!-- NAME -->
+                                
+                                </div>
                             </div>
-                        </div>
+                            <!-- FORM BODY -->
+        
+                            <!-- FORM BUTTON -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                            </div>
+                            <!-- FORM BUTTON -->
+        
+                        </form>
                     </div>
-                </li>
+                </div>
+            {% endfor %}
+            <!-- SENT INFO -->
 
-            </ul>
         </div>
-        <!-- end contact list D -->
-
-        <div class="mt-3">
-            <div class="p-3 font-weight-bold text-primary">
-                I
-            </div>
-
-            <ul class="list-unstyled contact-list">
-
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Iris Wells</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!-- end contact list I -->
-
-        <div class="mt-3">
-            <div class="p-3 font-weight-bold text-primary">
-                J
-            </div>
-
-            <ul class="list-unstyled contact-list">
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Juan Flakes</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">John Hall</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Joy Southern</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!-- end contact list J -->
-
-        <div class="mt-3">
-            <div class="p-3 font-weight-bold text-primary">
-                M
-            </div>
-
-            <ul class="list-unstyled contact-list">
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Mary Farmer</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Mark Messer</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Michael Hinton</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-            </ul>
-        </div>
-        <!-- end contact list M -->
-
-        <div class="mt-3">
-            <div class="p-3 font-weight-bold text-primary">
-                O
-            </div>
-
-            <ul class="list-unstyled contact-list">
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Ossie Wilson</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-            </ul>
-        </div>
-        <!-- end contact list O -->
-
-        <div class="mt-3">
-            <div class="p-3 font-weight-bold text-primary">
-                P
-            </div>
-
-            <ul class="list-unstyled contact-list">
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Phillis Griffin</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Paul Haynes</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-            </ul>
-        </div>
-        <!-- end contact list P -->
-
-        <div class="mt-3">
-            <div class="p-3 font-weight-bold text-primary">
-                R
-            </div>
-
-            <ul class="list-unstyled contact-list">
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Rocky Jackson</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-            </ul>
-        </div>
-        <!-- end contact list R -->
-
-        <div class="mt-3">
-            <div class="p-3 font-weight-bold text-primary">
-                S
-            </div>
-
-            <ul class="list-unstyled contact-list">
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Sara Muller</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Simon Velez</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="font-size-14 m-0">Steve Walker</h5>
-                        </div>
-
-                        <div class="dropdown">
-                            <a href="#" class="text-muted dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-more-2-fill"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Share <i class="ri-share-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Block <i class="ri-forbid-line float-right text-muted"></i></a>
-                                <a class="dropdown-item" href="#">Remove <i class="ri-delete-bin-line float-right text-muted"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-            </ul>
-        </div>
-        <!-- end contact list S -->
     </div>
     <!-- CONTACTS BODY -->
 
+
+
+    
 </div>
+
+{% if wrong_message != "" %}
+<div class="error-box" style="width:250px; height:160px">
+    <div class="error-body">
+        <p>{{ wrong_message }}</p>
+    </div>
+    <div class="error-close">
+        <button class="close-button" id="close">
+            close
+        </button>
+    </div>
+</div>
+{% endif %}

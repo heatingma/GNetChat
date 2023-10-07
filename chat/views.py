@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest
 from django.contrib.auth.decorators import login_required
 from .forms import EditProfileForm, RoomForm, PostForm, AttachmentForm, \
-    ChangeRoomForm, ConfirmDeletePostForm, ConfirmDeleteChatroomForm, EditPostForm
-from .models import Profile, Room, RoomMessage, Post, Tag
+    ChangeRoomForm, ConfirmDeletePostForm, ConfirmDeleteChatroomForm, \
+    EditPostForm, SendInvitationForm
+from .models import Profile, Room, RoomMessage, Post, Tag, Friend_Request
 from users.models import User
 import json
 import os
@@ -259,14 +260,31 @@ def innerroom(request: HttpRequest, room_name, post_name, dark=False):
 
 @login_required
 def chat(request: HttpRequest, dark=False):
-    # judge the dark or light model
+    # judge the dark or light model    
     if request.GET:
         dark = request.GET['dark']
         dark = False if dark == 'False' else True
-        
+    
     username = request.user.username
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=user)
+    
+    if request.method == "POST":
+        # add top friends
+        if "select_top_friends" in request.POST:
+            select_top_friends = request.POST.getlist("select_top_friends")
+            for friend_name in select_top_friends:
+                friend = User.objects.get(username=friend_name)
+                if friend not in user.top_friends.all():
+                    user.top_friends.add(friend)
+        # delete top friends           
+        if "delete_top_friends" in request.POST:
+            delete_top_friends = request.POST.getlist("delete_top_friends")
+            for friend_name in delete_top_friends:
+                friend = User.objects.get(username=friend_name)
+                if friend in user.top_friends.all():
+                    user.top_friends.remove(friend)
+                    
     return render(
         request=request, 
         template_name='chat/chat.html', 
@@ -274,6 +292,8 @@ def chat(request: HttpRequest, dark=False):
             'profile': profile,
             'dark': dark,
             'light': not dark,
+            'friends': user.friends.all(),
+            "top_friends": user.top_friends.all()
         }
     )
     
@@ -366,7 +386,8 @@ def my(request: HttpRequest, dark=False):
             'light': not dark,
         }
     )
-    
+
+ 
 @login_required
 def contracts(request: HttpRequest, dark=False):
     # judge the dark or light model
@@ -377,6 +398,40 @@ def contracts(request: HttpRequest, dark=False):
     username = request.user.username
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=user)
+    wrong_message = ""
+    
+    if request.method == "POST":
+        send_invitation_form = SendInvitationForm(request.POST)
+        
+        # deal with friend_request deleting
+        if "fr_uid" in request.POST:
+            del_fr_uid = request.POST["fr_uid"]
+            del_fr = Friend_Request.objects.get(uid=del_fr_uid)
+            del_fr.delete()
+        
+        # deal with friend adding   
+        if "hidden_acc_fr_uid" in request.POST:
+            acc_fr_uid = request.POST["hidden_acc_fr_uid"]
+            fr = Friend_Request.objects.get(uid=acc_fr_uid)
+            user_1 = fr.from_user
+            user_2 = fr.to_user
+            user_1.friends.add(user_2)
+            user_2.friends.add(user_1)
+            fr.delete()
+            
+        # deal with send invitation
+        if send_invitation_form.is_valid():
+            invite_email = send_invitation_form.cleaned_data["invite_email"]
+            invite_message = send_invitation_form.cleaned_data["invite_message"]
+            try:
+                target = User.objects.get(email=invite_email)
+                Friend_Request.objects.create(from_user=user, to_user=target, invite_message=invite_message)
+            except:
+                wrong_message = "The user doesn't exist!"            
+    
+    new_friends = Friend_Request.objects.filter(to_user=user)
+    have_sent = Friend_Request.objects.filter(from_user=user)
+    
     return render(
         request=request, 
         template_name='chat/contracts.html', 
@@ -384,6 +439,10 @@ def contracts(request: HttpRequest, dark=False):
             'profile': profile,
             'dark': dark,
             'light': not dark,
+            'wrong_message': wrong_message,
+            "new_friends": new_friends,
+            "have_sent": have_sent,
+            "friends": user.friends.all()
         }
     )
     

@@ -73,3 +73,8 @@ class ConfirmDeleteChatroomForm(forms.Form):
     hidden_user_name = forms.CharField(required=True) 
     confirm_chatroom_name = forms.CharField(required=True)
     confirm_user_name = forms.CharField(required=True)
+    
+    
+class SendInvitationForm(forms.Form):
+    invite_email = forms.CharField(required=True)
+    invite_message = forms.CharField(widget=forms.Textarea(), required=False) 
