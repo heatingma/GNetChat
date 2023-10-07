@@ -126,6 +126,15 @@ def get_room_image_upload_path(instance, filename):
     return file_path
 
 
+def get_friend_files_path(instance, filename):
+    uid = instance.belong_fm.uid
+    upload_path = os.path.join('friends_files', str(uid))
+    file_path = os.path.join(upload_path, filename)
+    if not os.path.exists(upload_path):
+        os.makedirs(upload_path)
+    return file_path
+
+
 def convert_size(size):
     KB = 1024
     MB = KB ** 2
@@ -236,7 +245,7 @@ class FMMessage(models.Model):
     belong_fm = models.ForeignKey(to=FriendRoom, on_delete=models.CASCADE)
     content = models.CharField(max_length=512)
     timestamp = models.DateTimeField(auto_now_add=True)
-    attachment = models.FileField(upload_to=get_room_image_upload_path, null=True, blank=True)
+    attachment = models.FileField(upload_to=get_friend_files_path, null=True, blank=True)
 
     def __str__(self):
         return f'{self.user.username}: {self.content} [{self.timestamp}]'
