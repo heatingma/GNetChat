@@ -1,0 +1,72 @@
+<div class="user-profile-sidebar">
+
+    <!-- CLOSE VIEW -->
+    <div class="px-3 px-lg-4 pt-3 pt-lg-4">
+        <div class="user-chat-nav text-right">
+            <button type="button" class="btn nav-btn" id="user-profile-hide">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+    </div>
+    <!-- CLOSE VIEW -->
+
+    <!-- BASIC INFO -->
+    <div class="text-center p-4 border-bottom">
+        <div class="mb-4">
+            <img src={{friend.image_url}} class="rounded-circle avatar-lg img-thumbnail" alt="">
+        </div>
+        <h5 class="font-size-16 mb-1 text-truncate">{{friend.username}}</h5>
+        <p class="text-muted text-truncate mb-1"><i class="ri-record-circle-fill font-size-10 text-success mr-1"></i> Active</p>
+    </div>
+    <!-- BASIC INFO -->
+    
+    <!-- USER INFO -->
+    <div class="p-4 user-profile-desc" data-simplebar="">
+        
+        <!-- PERSONAL SIGNATURE -->
+        <div class="text-muted">
+            <p class="mb-4">{{ friend_profile.about_me }}</p>
+        </div>
+        <!-- PERSONAL SIGNATURE -->
+
+        <!-- PERSONAL INFO -->
+        <div id="profile-user-accordion-1" class="custom-accordion">
+            
+            <!-- ABOUT CARD -->
+            <div class="card shadow-none border mb-2">
+
+                <!-- ABOUT DROPDOWN -->
+                <a href="#profile-user-collapseOne" class="text-dark" data-toggle="collapse" aria-expanded="true" aria-controls="profile-user-collapseOne">
+                    <div class="card-header" id="profile-user-headingOne">
+                        <h5 class="font-size-14 m-0">
+                            <i class="ri-user-2-line mr-2 align-middle d-inline-block"></i> 
+                            About
+                            <i class="mdi mdi-chevron-up float-right accor-plus-icon"></i>
+                        </h5>
+                    </div>
+                </a>
+                <!-- ABOUT DROPDOWN -->
+
+                <!-- INFOMATION -->
+                <div id="profile-user-collapseOne" class="collapse show" aria-labelledby="profile-user-headingOne" data-parent="#profile-user-accordion-1">
+                    <div class="card-body">
+                        <div><p class="text-muted mb-1">Name</p><h5 class="font-size-14">{{ friend.username }}</h5></div>
+                        <div class="mt-4"><p class="text-muted mb-1">Email</p><h5 class="font-size-14">{{ friend.email }}</h5></div>
+                        <div class="mt-4"><p class="text-muted mb-1">Location</p><h5 class="font-size-14 mb-0">{{ friend_profile.location }}</h5></div>
+                    </div>
+                </div>
+                <!-- INFOMATION -->
+
+            </div>
+            <!-- ABOUT CARD -->
+
+        </div>
+        <!-- PERSONAL INFO -->
+
+    </div>
+    <!-- USER INFO -->
+    
+    {% load static %}
+    <script src={% static "js/chat/websocket-chatfriend.js" %}></script>
+</div>
+

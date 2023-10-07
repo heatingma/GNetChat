@@ -1,32 +1,29 @@
 // variable
 let chatMessageInput = document.querySelector("#chatMessageInput");
 let chatMessageSend = document.querySelector("#chatMessageSend");
-let onlineUsersSelector = document.querySelector("#onlineUsersSelector");
-let a_cur_room = document.querySelector("#cur_room_name");
 let chatLog = document.querySelector("#chatLog");
 let chatLog_container = document.getElementById('chatLog-container');
+
 let hidden_container = document.querySelector("#hidden-container");
+let hidden_container1 = document.querySelector("#hidden-container1");
 let hidden_container2 = document.querySelector("#hidden-container2");
 let hidden_container3 = document.querySelector("#hidden-container3");
-let chatSocket = null;
-var room_name = a_cur_room.textContent.trim().toString();
-var user_img_urls = JSON.parse(hidden_container.innerHTML);
-var cur_user = hidden_container2.innerHTML.trim().toString();
-var cur_post = hidden_container3.innerHTML.trim().toString();
+let hidden_container4 = document.querySelector("#hidden-container4");
+
+let chatSocket2 = null;
+var friend_img_url = hidden_container.innerHTML.trim().toString();
+var friend_name = hidden_container1.innerHTML.trim().toString();
+var cur_user_img_url = hidden_container2.innerHTML.trim().toString();
+var cur_user = hidden_container3.innerHTML.trim().toString();
+var fr_uid = hidden_container4.innerHTML.trim().toString();
 
 
 // add message
 function add_message(user, message){
-    img_url = user_img_urls[user];
-    var flag = 0;
-    if (img_url == undefined && flag == 0) {
-        location.reload();
-        flag = 1;
-    }
     if (user != cur_user){
         chatLog.innerHTML += `<li><div class="conversation-list">
         <!-- HIS OR HER AVATAR -->
-        <div class="chat-avatar"><img src=${img_url} alt=""></div>
+        <div class="chat-avatar"><img src=${friend_img_url} alt=""></div>
         <!-- HIS OR HER AVATAR -->
         <!-- CONTENT MAIN -->
         <div class="user-chat-content">
@@ -45,7 +42,7 @@ function add_message(user, message){
     else{        
         chatLog.innerHTML += `<li class="right"><div class="conversation-list">
         <!-- HIS OR HER AVATAR -->
-        <div class="chat-avatar"><img src=${img_url} alt=""></div>
+        <div class="chat-avatar"><img src=${cur_user_img_url} alt=""></div>
         <!-- HIS OR HER AVATAR -->
         <!-- CONTENT MAIN -->
         <div class="user-chat-content">
@@ -65,32 +62,15 @@ function add_message(user, message){
 }
 
 
-
-// onlineUsersSelectorAdd
-function onlineUsersSelectorAdd(user){
-    if (document.querySelector("option[value='" + user + "']")) return;
-    let newOption = document.createElement("option");
-    newOption.value = user;
-    newOption.innerHTML = user;
-    onlineUsersSelector.appendChild(newOption);
-}
-
-
-// removes an option from 'onlineUsersSelector'
-function onlineUsersSelectorRemove(user) {
-    let oldOption = document.querySelector("option[value='" + user + "']");
-    if (oldOption !== null) oldOption.remove();
-}
-
 // connect
 function connect() {
-    chatSocket = new WebSocket("ws://" + window.location.host + "/ws/chat/chatroom/" + room_name +"/" + cur_post);
+    chatSocket2 = new WebSocket("ws://" + window.location.host + "/ws/chat/chat/" + friend_name);
     // connect the WebSocket
-    chatSocket.onopen = function(e) {
+    chatSocket2.onopen = function(e) {
         console.log("Successfully connected to the WebSocket.");
     }
     // deal with connection error
-    chatSocket.onclose = function(e) {
+    chatSocket2.onclose = function(e) {
         console.log("WebSocket connection closed unexpectedly. Trying to reconnect in 2s...");
         setTimeout(function() {
             console.log("Reconnecting...");
@@ -98,33 +78,18 @@ function connect() {
         }, 2000);
     };
     // deal with message error 
-    chatSocket.onerror = function(err) {
+    chatSocket2.onerror = function(err) {
         console.log("WebSocket encountered an error: " + err.message);
         console.log("Closing the socket.");
-        chatSocket.close();
+        chatSocket2.close();
     }
+
     // send message
-    chatSocket.onmessage = function(e) {
+    chatSocket2.onmessage = function(e) {
         const data = JSON.parse(e.data);
         switch (data.type) {
             case "chat_message":
                 add_message(data.user, data.message);
-                break;
-            case "user_list":
-                for (let i = 0; i < data.users.length; i++) 
-                    onlineUsersSelectorAdd(data.users[i]);
-                break;
-            case "user_join":
-                onlineUsersSelectorAdd(data.user);
-                break;
-            case "user_leave":
-                onlineUsersSelectorRemove(data.user);
-                break;
-            case "private_message":
-                chatLog.value += "PM from " + data.user + ": " + data.message + "\n";
-                break;
-            case "private_message_delivered":
-                chatLog.value += "PM to " + data.target + ": " + data.message + "\n";
                 break;
             default:
                 console.error("Unknown message type!");
@@ -140,8 +105,9 @@ function connect() {
 chatMessageSend.addEventListener('click', function(event){
     event.preventDefault();
     var content = chatMessageInput.value;
+    console.log(content);
     chatMessageInput.value = "";
-    chatSocket.send(JSON.stringify({"message": content, "post_name": cur_post}));  
+    chatSocket2.send(JSON.stringify({"message": content}));  
 })
 
 

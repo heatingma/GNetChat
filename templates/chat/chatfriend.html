@@ -1,0 +1,29 @@
+{% extends 'chat/base.html' %}
+
+<!-- side_menu -->
+{% block side_menu %}
+    {% include "chat/side_menus/side_menu_chat.html" %}
+{% endblock %}
+<!-- side_menu -->
+
+
+<!-- leftsidebar -->
+{% block leftsidebar %}
+    {% include "chat/leftsidebar/leftsidebar_chat.html" %}
+{% endblock %}
+<!-- leftsidebar -->
+
+
+<!-- body -->
+{% block chat_conversation %}
+    {% include "chat/body/body_chatfriend.html" %}
+{% endblock %}
+<!-- body -->
+
+
+<!-- rightsidebar -->
+{% block chat_friend_info %}
+    {% include "chat/rightsidebar/right_chatfriend.html" %}
+{% endblock %}
+<!-- rightsidebar -->
+    

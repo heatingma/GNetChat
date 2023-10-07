@@ -2,11 +2,11 @@ from PIL import Image, ImageDraw, ImageFont
 
 image_width = 100
 image_height = 100
-background_color = (210, 190, 240)
+background_color = (186, 217, 255)
 image = Image.new('RGBA', (image_width, image_height), background_color)
 
 font_size = 60
-font_color = (160, 140, 222) 
+font_color = (94, 167, 255) 
 font_path = 'media/static_default/gen_a-z/ARLRDBD.TTF'  
 font = ImageFont.truetype(font_path, font_size)
 

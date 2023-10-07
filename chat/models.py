@@ -213,3 +213,67 @@ class Friend_Request(models.Model):
     @property
     def to_user_profile(self):
         return Profile.objects.get(user=self.to_user)
+    
+
+class FriendRoom(models.Model):
+    """
+    A flexible and freely accessible space
+    """
+    uid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    user_1 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='friendroom_user_1')
+    user_2 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='friendroom_user_2')
+    
+    def __str__(self):
+        return f'FR({self.user_1.username}, {self.user_2.username})'
+    
+
+class FMMessage(models.Model):
+    """
+    Message for FriendRoom
+    """
+    uid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    user = models.ForeignKey(to=get_user_model(), on_delete=models.CASCADE)
+    belong_fm = models.ForeignKey(to=FriendRoom, on_delete=models.CASCADE)
+    content = models.CharField(max_length=512)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    attachment = models.FileField(upload_to=get_room_image_upload_path, null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.user.username}: {self.content} [{self.timestamp}]'
+    
+    def save(self, *args, **kwargs):
+        if self.attachment.name:
+            validate_file_size(self.attachment)
+        super().save(*args, **kwargs)
+       
+    @property
+    def image_url(self):
+        profile = Profile.objects.get(user=self.user)
+        return profile.image_url
+
+    @property
+    def attachment_url(self):
+        if self.attachment.name == "" or self.attachment.name is None:
+            return ""
+        return self.attachment.url
+    
+    @property
+    def attachment_type(self):
+        file_type, _ = mimetypes.guess_type(self.attachment.name)
+        if file_type.startswith("image"):
+            file_type = "image"
+        return file_type
+    
+    @property
+    def attachment_name(self):
+        if self.attachment.name == "" or self.attachment.name is None:
+            return None
+        return os.path.basename(self.attachment.name)
+        
+    @property
+    def attachment_size(self):
+        try:
+            size = os.path.getsize(self.attachment.path)
+            return convert_size(size)
+        except:
+            return 'Unknown Size'

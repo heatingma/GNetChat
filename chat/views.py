@@ -1,10 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpRequest
 from django.contrib.auth.decorators import login_required
 from .forms import EditProfileForm, RoomForm, PostForm, AttachmentForm, \
     ChangeRoomForm, ConfirmDeletePostForm, ConfirmDeleteChatroomForm, \
     EditPostForm, SendInvitationForm
-from .models import Profile, Room, RoomMessage, Post, Tag, Friend_Request
+from .models import Profile, Room, RoomMessage, Post, Tag, Friend_Request, \
+    FMMessage, FriendRoom
 from users.models import User
 import json
 import os
@@ -297,7 +298,35 @@ def chat(request: HttpRequest, dark=False):
         }
     )
     
-       
+
+@login_required
+def chatfriend(request: HttpRequest, friend_name, dark=False):
+    username = request.user.username
+    friend = get_object_or_404(User, username=friend_name)
+    user = get_object_or_404(User, username=username)
+    try:
+        friend_room = FriendRoom.objects.get(user_1=user, user_2=friend)
+    except:
+        friend_room = get_object_or_404(FriendRoom, user_2=user, user_1=friend)
+    profile = get_object_or_404(Profile, user=user)
+    friend_messages = FMMessage.objects.filter(belong_fm=friend_room)
+    return render(
+        request=request, 
+        template_name='chat/chatfriend.html', 
+        context={
+            'profile': profile,
+            'dark': dark,
+            'light': not dark,
+            'friends': user.friends.all(),
+            "top_friends": user.top_friends.all(),
+            "friend_room": friend_room,
+            "friend":friend,
+            "friend_profile": Profile.objects.get(user=friend),
+            "friend_messages":friend_messages
+        }
+    )
+    
+     
 @login_required
 def groups(request: HttpRequest, dark=False):
     # judge the dark or light model
@@ -418,7 +447,37 @@ def contracts(request: HttpRequest, dark=False):
             user_1.friends.add(user_2)
             user_2.friends.add(user_1)
             fr.delete()
-            
+            fm = FriendRoom.objects.create(user_1=user_1, user_2=user_2)
+            FMMessage.objects.create(
+                user=user,
+                belong_fm = fm,
+                content = "Hi~ we are friends now!" 
+            )
+
+        # deal with friend deleting   
+        if "delete_friend_name" in request.POST:
+            del_friend_name = request.POST["delete_friend_name"]
+            friend = User.objects.get(username=del_friend_name)
+            if friend in user.friends.all():
+                user.friends.remove(friend)
+            if friend in user.top_friends.all():
+                user.top_friends.remove(friend)
+            if user in friend.friends.all():
+                friend.friends.remove(user)
+            if user in friend.top_friends.all():
+                friend.top_friends.remove(user)
+            try:
+                fm = FriendRoom.objects.get(user_1=user, user_2=friend)
+                flag = True
+            except:
+                try:
+                    fm = FriendRoom.objects.get(user_1=user, user_2=friend) 
+                    flag = True 
+                except:
+                    flag = False
+            if flag:
+                FriendRoom.delete(fm)
+                               
         # deal with send invitation
         if send_invitation_form.is_valid():
             invite_email = send_invitation_form.cleaned_data["invite_email"]

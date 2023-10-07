@@ -104,11 +104,19 @@
                                         {{friend.username}} 
                                     </h5>
                                 </div>
+                                <a style="margin:2px;" href="#" friend-name="{{friend.username}}" onclick="confirmDelete3(event)">
+                                    <i class="ri-delete-bin-line"></i>
+                                </a>
                                 <a style="margin-left:10px; " data-toggle="modal" data-target="#friend-{{friend.username}}Modal">
                                     <i class="ri-eye-fill"></i>
                                 </a>
                             </div></li>
                         {% endfor %}
+                        <form id="deleteFriend" style="display: none;" action="{% url 'chat:contracts' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="delete_friend_name" id="delete-friend-name">
+                            <button type="submit" id="submit-delete-friend" class="btn btn-primary">submit</button>
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -331,10 +339,7 @@
         </div>
     </div>
     <!-- CONTACTS BODY -->
-
-
-
-    
+ 
 </div>
 
 {% if wrong_message != "" %}

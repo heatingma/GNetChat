@@ -1,9 +1,9 @@
 {% load static %}
 
 <div>
-                        
+    
     <!-- CHAT HEAD -->
-    <div class="px-4 pt-4">
+    <div class="p-4">
 
         <!-- TITLE -->
         <h4 class="mb-4">Chats</h4>
@@ -26,7 +26,7 @@
     <!-- CHAT HEAD -->
 
     <!-- CHAT TOP -->
-    <div class="px-3 pb-3 mt-4" dir="ltr">
+    <div class="p-4" dir="ltr">
         
         <h5 class="mb-3 px-3 font-size-16">Top</h5>
 
@@ -36,11 +36,9 @@
             {% for top_friend in top_friends %}
                 <div class="item">
                     <a href="#" class="user-status-box">
-                        <div class="avatar-xs mx-auto d-block chat-user-img online">
-                            <img src="{{top_friend.image_url}}" alt="user-img" class="img-fluid rounded-circle">
-                            <span class="user-status"></span>
+                        <div class="avatar-xs mx-auto d-block chat-user-img online align-self-center mr-3">
+                            <img src="{{top_friend.image_url}}" alt="user-img" class="img-fluid rounded-circle avatar-xs">
                         </div>
-
                         <h5 class="font-size-13 text-truncate mt-3 mb-1">{{top_friend.username}}</h5>
                     </a>
                 </div>
@@ -50,10 +48,9 @@
             <!-- ADD BUTTON -->
             <div class="item">
                 <a href="#" class="user-status-box" data-toggle="modal" data-target="#addtop-exampleModal">
-                    <div class="avatar-xs mx-auto d-block chat-user-img online">
-                        <img src="{% static "images/chat/add.png" %}" alt="user-img" class="img-fluid rounded-circle">
+                    <div class="avatar-xs mx-auto d-block chat-user-img online align-self-center mr-3">
+                        <img src="{% static "images/chat/add.png" %}" alt="user-img" class="img-fluid rounded-circle avatar-xs">
                     </div>
-
                     <h5 class="font-size-13 text-truncate mt-3 mb-1">Add</h5>
                 </a>
             </div>      
@@ -62,10 +59,9 @@
             <!-- DELETE BUTTON -->
             <div class="item">
                 <a href="#" class="user-status-box" data-toggle="modal" data-target="#deletetop-exampleModal">
-                    <div class="avatar-xs mx-auto d-block chat-user-img online">
-                        <img src="{% static "images/chat/delete.png" %}" alt="user-img" class="img-fluid rounded-circle">
+                    <div class="avatar-xs mx-auto d-block chat-user-img online align-self-center mr-3">
+                        <img src="{% static "images/chat/delete.png" %}" alt="user-img" class="img-fluid rounded-circle avatar-xs">
                     </div>
-
                     <h5 class="font-size-13 text-truncate mt-3 mb-1">Delete</h5>
                 </a>
             </div>      
@@ -172,27 +168,29 @@
             
                 {% for friend in friends %}
                     <!-- CONNON EXAMPLE (TXT) (ONLINE)-->
-                    <li><a href="#"><div class="media">
+                    <li><a href="{% url 'chat:chatfriend' friend_name=friend.username %}?{{'dark'}}={{dark}}">
+                        <div class="media">
                         
-                        <!-- AVATAR (ONLINE) -->
-                        <div class="chat-user-img online align-self-center mr-3">
-                            <img src="{{friend.image_url}}" class="rounded-circle avatar-xs" alt="">
-                            <span class="user-status"></span>
-                        </div>
-                        <!-- AVATAR (ONLINE) -->
-                        
-                        <!-- RECENT MASSAGE -->
-                        <div class="media-body overflow-hidden">
-                            <h5 class="text-truncate font-size-15 mb-1">{{friend.username}}</h5>
-                            {% comment %} <p class="chat-user-message text-truncate mb-0">Hey! there I'm available</p> {% endcomment %}
-                        </div>
-                        <!-- RECENT MASSAGE -->
+                            <!-- AVATAR (ONLINE) -->
+                            <div class="chat-user-img online align-self-center mr-3">
+                                <img src="{{friend.image_url}}" class="rounded-circle avatar-xs" alt="">
+                                <span class="user-status"></span>
+                            </div>
+                            <!-- AVATAR (ONLINE) -->
+                            
+                            <!-- RECENT MASSAGE -->
+                            <div class="media-body overflow-hidden">
+                                <h5 class="text-truncate font-size-15 mb-1">{{friend.username}}</h5>
+                                {% comment %} <p class="chat-user-message text-truncate mb-0">Hey! there I'm available</p> {% endcomment %}
+                            </div>
+                            <!-- RECENT MASSAGE -->
 
-                        <!-- RECENT TIME -->
-                        {% comment %} <div class="font-size-11">05 min</div> {% endcomment %}
-                        <!-- RECENT TIME -->
+                            <!-- RECENT TIME -->
+                            {% comment %} <div class="font-size-11">05 min</div> {% endcomment %}
+                            <!-- RECENT TIME -->
 
-                    </div></a></li>
+                        </div>
+                    </a></li>
                     <!-- CONNON EXAMPLE (TXT) (ONLINE) -->
                 {% endfor %}
             </ul>
