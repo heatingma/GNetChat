@@ -24,7 +24,7 @@
                         <!-- PERSONAL SIGNATURE -->
                         <div class="form-group mb-4">
                             <label for="edit-personal-signature">Personal Signature</label>
-                            <textarea class="form-control" id="edit-personal-signature" name="about_me" 
+                            <textarea class="form-control" id="edit-personal-signature" name="about_me"
                                 rows="3" placeholder="Enter Personal Signature"></textarea>
                         </div>
                         <!-- PERSONAL SIGNATURE -->
@@ -42,7 +42,7 @@
                             <input type="text" class="form-control" id="change-location" name="location" placeholder="Enter Location">
                         </div>
                         <!-- CHANGE LOCATION -->
-                    
+
                     </div>
                 </div>
                 <!-- FORM BODY -->
@@ -66,7 +66,7 @@
 
     <!-- SETTINGS AVATAR -->
     <div class="text-center border-bottom p-4">
-        
+
         <!-- AVATAR -->
         <div class="mb-4 profile-user">
             <img src="{{ profile.image_url }}" class="rounded-circle avatar-lg img-thumbnail" alt="">
@@ -110,7 +110,7 @@
             <div class="card shadow-none border mb-2">
 
                 <!-- CARD TITLE -->
-                <a href="#profile-setting-personalinfocollapse" class="text-dark" data-toggle="collapse" aria-expanded="true" aria-controls="profile-setting-personalinfocollapse">
+                <a href="#profile-setting-personalinfocollapse" class="text-dark collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="profile-setting-personalinfocollapse">
                     <div class="card-header" id="profile-setting-personalinfoheading">
                         <h5 class="font-size-14 m-0">
                             Personal Info
@@ -121,7 +121,7 @@
                 <!-- CARD TITLE -->
 
                 <!-- CARD BODY -->
-                <div id="profile-setting-personalinfocollapse" class="collapse show" aria-labelledby="profile-setting-personalinfoheading" data-parent="#profile-setting-accordion">
+                <div id="profile-setting-personalinfocollapse" class="collapse" aria-labelledby="profile-setting-personalinfoheading" data-parent="#profile-setting-accordion">
                     <div class="card-body">
                         <div><p class="text-muted mb-1">Name</p><h5 class="font-size-14">{{ profile.user.username }}</h5></div>
                         <div class="mt-4"><p class="text-muted mb-1">Email</p><h5 class="font-size-14">{{ profile.user.email }}</h5></div>
@@ -135,7 +135,7 @@
 
             <!-- PERIVACY -->
             <div class="card shadow-none border mb-2">
-                
+
                 <!-- CARD TITLE -->
                 <a href="#profile-setting-privacycollapse" class="text-dark collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="profile-setting-privacycollapse">
                     <div class="card-header" id="profile-setting-privacyheading">
@@ -255,7 +255,7 @@
             <div class="card shadow-none border mb-2">
 
                 <!-- CARD TITLE -->
-                <a href="#profile-setting-securitynoticollapse" class="text-dark collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="profile-setting-securitynoticollapse">
+                <a href="#profile-setting-securitynoticollapse" class="text-dark" data-toggle="collapse" aria-expanded="true" aria-controls="profile-setting-securitynoticollapse">
                     <div class="card-header" id="profile-setting-securitynotiheading">
                         <h5 class="font-size-14 m-0">
                             Security
@@ -266,7 +266,7 @@
                 <!-- CARD TITLE -->
 
                 <!-- CARD BODY -->
-                <div id="profile-setting-securitynoticollapse" class="collapse" aria-labelledby="profile-setting-securitynotiheading" data-parent="#profile-setting-accordion">
+                <div id="profile-setting-securitynoticollapse" class="collapse show" aria-labelledby="profile-setting-securitynotiheading" data-parent="#profile-setting-accordion">
                     <div class="card-body">
                         <div class="media align-items-center">
 
@@ -382,7 +382,7 @@
                             <input type="password" class="form-control" id="new-password-invitemessage-input" placeholder="Enter New password">
                         </div>
                         <!-- NEW-PSW -->
-                    
+
                     </form>
                 </div>
                 <!-- FORM BODY -->
