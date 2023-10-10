@@ -339,7 +339,7 @@
     <!-- CHANGE FORM FOR SETTINGS BODY'S SECURITY-->
     <div class="modal fade" id="changepsw-exampleModal" tabindex="-1" role="dialog" aria-labelledby="changepsw-exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <form class="modal-content" method="post" action="{%url 'chat:change_password'%}?dark={{dark}}">
+            <form class="modal-content" method="post" action="">
                 {% csrf_token %}
 
                 <!-- FORM HEAD -->
@@ -386,3 +386,16 @@
     <!-- CHANGE FORM FOR STTINGS BODY'S SECURITY-->
 
 </div>
+
+{% if wrong_message != "" %}
+<div class="error-box" style="width:250px; height:160px">
+    <div class="error-body">
+        <p>{{ wrong_message }}</p>
+    </div>
+    <div class="error-close">
+        <button class="close-button" id="close">
+            close
+        </button>
+    </div>
+</div>
+{% endif %}

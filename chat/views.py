@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.http import HttpRequest
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
@@ -398,16 +399,17 @@ def settings(request: HttpRequest, dark=False):
         dark = request.GET['dark']
         dark = False if dark == 'False' else True
         
-    # deal with get method
-    if request.method == "GET":
-        username = request.user.username
-        user = get_object_or_404(User, username=username)
-        profile = get_object_or_404(Profile, user=user)
-        profile_form = EditProfileForm(request.user.username)
-    # deal with post method
-    elif request.method == "POST":
+    username = request.user.username
+    user = get_object_or_404(User, username=username)
+    profile = get_object_or_404(Profile, user=user)
+    wrong_message = ""
+    
+    # deal with POST method
+    if request.method == "POST":
         profile_form = EditProfileForm(request.user.username, request.POST, request.FILES)
-        # check the profile form
+        psw_change_form = PasswordChangeForm(request.POST)
+        
+        # deal with profile changing
         if profile_form.is_valid():
             about_me = profile_form.cleaned_data["about_me"]
             image = profile_form.cleaned_data["image"]
@@ -421,20 +423,35 @@ def settings(request: HttpRequest, dark=False):
             if location != "":
                 profile.location = location
             profile.save()
-        else:
-            username = request.user.username
-            user = get_object_or_404(User, username=username)
-            profile = get_object_or_404(Profile, user=user)
-            profile_form = EditProfileForm(request.user.username)
+        
+        # deal with password changing
+        if psw_change_form.is_valid():
+            user = request.user
+            old_password = psw_change_form.cleaned_data['old_password']
+            new_password = psw_change_form.cleaned_data['new_password']
+            confirm_password = psw_change_form.cleaned_data['confirm_password']
+
+            if not user.check_password(old_password):
+                wrong_message = "Wrong Password!"
+            elif new_password != confirm_password:
+                wrong_message = "The two password inputs are inconsistent!"
+            else:
+                user.set_password(new_password)
+                user.save()
+                # Update user's login status and maintain session
+                # It is necessary to update the session authentication hash
+                # update_session_auth_hash(request, user)
+                log_url = reverse('users:log')
+                return redirect(log_url)        
             
     return render(
         request=request,
         template_name='chat/settings.html', 
         context={
             'profile': profile,
-            'profile_form': profile_form,
             'dark': dark,
             'light': not dark,
+            'wrong_message': wrong_message,
         }
     )
     
@@ -552,42 +569,3 @@ def contracts(request: HttpRequest, dark=False):
             "friends": user.friends.all()
         }
     )
-    
-    
-@login_required
-def change_password(request: HttpRequest, dark=False):
-     if request.GET:
-         dark = request.GET['dark']
-         dark = False if dark == 'False' else True
-
-     username = request.user.username
-     user = get_object_or_404(User, username=username)
-     profile = get_object_or_404(Profile, user=user)
-     if request.method == 'POST':
-         form = PasswordChangeForm(request.POST)
-         if form.is_valid():
-             user = request.user
-             old_password = form.cleaned_data['old_password']
-             new_password = form.cleaned_data['new_password']
-             confirm_password = form.cleaned_data['confirm_password']
-
-             if user.check_password(old_password) and new_password == confirm_password:
-                 user.set_password(new_password)
-                 user.save()
-                 # 更新用户的登录状态，保持会话
-                 # 这里的hash是有必要的。当用户密码发生变化时，为了确保会话的安全性，需要更新会话认证哈希
-                 update_session_auth_hash(request, user)
-                 return redirect(request.get_full_path())  # 重定向到密码修改成功页面
-     else:
-         form = PasswordChangeForm()
-
-     return render(
-             request=request,
-             template_name='chat/settings.html',
-             context={
-                 'profile': profile,
-                 'dark': dark,
-                 'light': not dark,
-                 'form': form
-             }
-         )

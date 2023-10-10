@@ -11,5 +11,4 @@ urlpatterns = [
     path('chatroom/<str:room_name>/<str:post_name>/', views.innerroom, name='innerroom'),
     path('contracts/', views.contracts, name='contracts'),
     path('settings/', views.settings, name='settings'),
-    path('change-password/', views.change_password, name='change_password'),
 ]
