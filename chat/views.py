@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpRequest
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import update_session_auth_hash
 from .forms import EditProfileForm, RoomForm, PostForm, AttachmentForm, \
     ChangeRoomForm, ConfirmDeletePostForm, ConfirmDeleteChatroomForm, \
-    EditPostForm, SendInvitationForm
+    EditPostForm, SendInvitationForm , PasswordChangeForm
 from .models import Profile, Room, RoomMessage, Post, Tag, Friend_Request, \
     FMMessage, FriendRoom
 from users.models import User
@@ -553,3 +554,40 @@ def contracts(request: HttpRequest, dark=False):
     )
     
     
+@login_required
+def change_password(request: HttpRequest, dark=False):
+     if request.GET:
+         dark = request.GET['dark']
+         dark = False if dark == 'False' else True
+
+     username = request.user.username
+     user = get_object_or_404(User, username=username)
+     profile = get_object_or_404(Profile, user=user)
+     if request.method == 'POST':
+         form = PasswordChangeForm(request.POST)
+         if form.is_valid():
+             user = request.user
+             old_password = form.cleaned_data['old_password']
+             new_password = form.cleaned_data['new_password']
+             confirm_password = form.cleaned_data['confirm_password']
+
+             if user.check_password(old_password) and new_password == confirm_password:
+                 user.set_password(new_password)
+                 user.save()
+                 # 更新用户的登录状态，保持会话
+                 # 这里的hash是有必要的。当用户密码发生变化时，为了确保会话的安全性，需要更新会话认证哈希
+                 update_session_auth_hash(request, user)
+                 return redirect(request.get_full_path())  # 重定向到密码修改成功页面
+     else:
+         form = PasswordChangeForm()
+
+     return render(
+             request=request,
+             template_name='chat/settings.html',
+             context={
+                 'profile': profile,
+                 'dark': dark,
+                 'light': not dark,
+                 'form': form
+             }
+         )

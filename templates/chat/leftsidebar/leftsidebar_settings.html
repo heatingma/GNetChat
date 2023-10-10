@@ -287,11 +287,11 @@
                             <!-- CHANGE BUTTON -->
 
 
+
                         </div>
                     </div>
                 </div>
                 <!-- CARD BODY -->
-
             </div>
             <!-- SECURITY -->
 
@@ -339,7 +339,8 @@
     <!-- CHANGE FORM FOR SETTINGS BODY'S SECURITY-->
     <div class="modal fade" id="changepsw-exampleModal" tabindex="-1" role="dialog" aria-labelledby="changepsw-exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
+            <form class="modal-content" method="post"  action="{% url 'chat:change_password' %}">
+                {% csrf_token %}
 
                 <!-- FORM HEAD -->
                 <div class="modal-header">
@@ -352,34 +353,34 @@
 
                 <!-- FORM BODY -->
                 <div class="modal-body p-4">
-                    <form>
-
-                        <!-- ORI-PSW -->
+                    <div>
                         <div class="form-group mb-4">
-                            <label for="origin-password-input">Origin Password</label>
-                            <input type="password" class="form-control" id="origin-password-input" placeholder="Enter Origin password">
+                            <label for="old-password-input">Old Password</label>
+                            <input type="password" class="form-control" id="old-password-input" name="old_password" placeholder="Enter Old Password">
                         </div>
-                        <!-- ORI-PSW -->
 
-                        <!-- NEW-PSW -->
-                        <div class="form-group">
-                            <label for="new-password-invitemessage-input">Invatation Message</label>
-                            <input type="password" class="form-control" id="new-password-invitemessage-input" placeholder="Enter New password">
+                        <div class="form-group mb-4">
+                            <label for="new-password-input">New Password</label>
+                            <input type="password" class="form-control" id="new-password-input" name="new_password" placeholder="Enter New Password">
                         </div>
-                        <!-- NEW-PSW -->
-                    
-                    </form>
+
+                        <div class="form-group mb-4">
+                            <label for="confirm-password-input">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirm-password-input" name="confirm_password" placeholder="Confirm Password">
+                        </div>
+                    </div>
+
                 </div>
                 <!-- FORM BODY -->
 
                 <!-- FORM BUTTON -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
                 <!-- FORM BUTTON -->
 
-            </div>
+            </form>
         </div>
     </div>
     <!-- CHANGE FORM FOR STTINGS BODY'S SECURITY-->
