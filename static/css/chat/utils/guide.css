@@ -1,0 +1,78 @@
+div[role="main-inner-wrapper"] figure[role="guide-content"] h1 > a{
+	display: block;
+	float: left
+}
+div[role="main-inner-wrapper"] article[role="guide-content"] header {
+	padding-top: 0px;
+	padding-bottom: 10px
+}
+div[role="main-inner-wrapper"] article[role="guide-content"] header h2 {
+	font-size: 30px;
+	line-height: 53px;
+	color: #404040;
+	font-weight: 800;
+	text-align: center
+}
+div[role="main-inner-wrapper"] article[role="guide-content"] header h2 span {
+	display: block;
+	font-size: 60px;
+	color: #fb5353;
+	padding-bottom: 25px;
+	text-align: center
+}
+div[role="main-inner-wrapper"] figure{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(247,247,247,0.5);
+}
+div[role="main-inner-wrapper"] figure[role="guide-content"] h1 > a{
+	background-color: rgba(247,247,247,0.5);
+	display: block;
+	float: left;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+div[role="main-inner-wrapper"] figure[role="guide-content"] h1 > p{
+	background-color: rgba(247,247,247,0.5);
+	font-size: small;
+	color: #404040;
+	text-align: center;
+}
+div[role="main-inner-wrapper"] figure[role="guide-content"] h1 > a .guide-img{
+	width: 70px; 
+	height: 70px; 
+	margin-left: 10px; 
+	margin-right: 10px;
+	padding: 5px;
+	border: 2px solid rgb(221, 233, 237);
+	background-color: rgb(240, 245, 248);
+	border-radius: 30%;
+}
+
+.container{
+    padding-right:15px;
+    padding-left:15px;
+    margin-right:auto;
+    margin-left:auto;
+    margin-bottom: 200px;
+    max-width:100%;
+}
+
+.container:after,.container:before{
+    display:table;content:" "
+}
+
+.container:after{
+    clear:both
+}
+
+.row{
+    margin-right:-15px;
+    margin-left:-15px;
+}
+
+.row:after,.row:before{display:table;content:" "}
+
+.row:after{clear:both}
