@@ -8,7 +8,7 @@
     {{cur_post.title}}
 </div>
 
-<div class="w-100">
+<div class="w-100" style="max-width: 100%;">
 
     <!-- HEAD -->
     <div class="p-3 p-lg-4 border-bottom row align-items-center">
@@ -72,22 +72,22 @@
     <!-- HEAD -->
 
     <!-- CONTENT -->
-    <div class="chat-conversation p-3 p-lg-4" id="chatLog-container" style="overflow: auto;">
-        <ul class="list-unstyled mb-0"i id="chatLog">
+    <div class="chat-conversation p-3 p-lg-4" id="chatLog-container" style="overflow: auto; max-width: 100%;">
+        <ul class="list-unstyled mb-0"i id="chatLog" style="max-width: 100%;">
             {% for rm in room_messages %}
                 {% if rm.user.username != profile.user.username %}
                 
                 <!-- ONE CONTENT TEMPLATE -->
-                <li><div class="conversation-list">
+                <li><div class="conversation-list" style="max-width: 40%;">
                     <!-- HIS OR HER AVATAR -->
                     <div class="chat-avatar"><img src={{rm.image_url}} alt=""></div>
                     <!-- HIS OR HER AVATAR -->
                     <!-- CONTENT MAIN -->
-                    <div class="user-chat-content">
+                    <div class="user-chat-content" style="max-width: 100%;">
                         <div class="ctext-wrap">
                             <!-- CONTENT & TIME -->
-                            <div class="ctext-wrap-content">
-                                <p class="mb-0">{{rm.content}}</p>
+                            <div class="ctext-wrap-content" style="max-width: 100%;">
+                                <p class="mb-0" style="word-break:break-all;">{{rm.content}}</p>
                                 
                                 {% if rm.attachment_name is not None %}
                                     {% if rm.attachment_type == "image" %}
@@ -134,16 +134,18 @@
                 {% else %}
 
                 <!-- MY CONTENT TEMPLATE -->
-                <li class="right"><div class="conversation-list">
+                <li class="right" style-"display: block;"><div class="conversation-list" style="max-width: 40%;">
                     <!-- MY AVATAR -->
                     <div class="chat-avatar"><img src="{{ profile.image_url }}" alt=""></div>
                     <!-- MY AVATAR -->
                     <!-- CONTENT MAIN -->
-                    <div class="user-chat-content">
+                    <div class="user-chat-content" style="max-width: 100%;">
                         <div class="ctext-wrap">
                             <!-- CONTENT & TIME -->
-                            <div class="ctext-wrap-content">
-                                <p class="mb-0">{{rm.content}}</p>
+                            <div class="ctext-wrap-content" style="max-width: 100%;">
+                                <p class="mb-0" style="text-align: left; word-break:break-all; ">
+                                    {{rm.content}}
+                                </p>
                                 {% if rm.attachment_name is not None %}
                                     {% if rm.attachment_type == "image" %}
                                         <ul class="list-inline message-img  mb-0">
@@ -240,7 +242,7 @@
         <div class="modal fade" id="attach-buttonModal" tabindex="-1" role="dialog" aria-labelledby="attach-buttonModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <form class="modal-content" method="post" enctype="multipart/form-data"
-                action="{% url 'chat:innerroom' room_name=cur_room.name post_name=cur_post.title %}">
+                action="{% url 'chat:innerroom' room_name=cur_room.name post_name=cur_post.title %}?dark={{dark}}">
                     {% csrf_token %}
                     <!-- CREATE HEAD -->
                     <div class="modal-header">

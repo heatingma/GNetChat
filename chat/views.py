@@ -7,6 +7,7 @@ from .forms import EditProfileForm, RoomForm, PostForm, AttachmentForm, \
 from .models import Profile, Room, RoomMessage, Post, Tag, Friend_Request, \
     FMMessage, FriendRoom
 from users.models import User
+from chat.utils import is_chinese
 import json
 import os
 import shutil
@@ -31,15 +32,20 @@ def chatroom(request: HttpRequest, dark=False):
         # create a new chatroom
         if roomform.is_valid():
             name = roomform.cleaned_data["name"]
-            about_room = roomform.cleaned_data["about_room"]
-            image = roomform.cleaned_data["image"]
-            room = Room(name=name, owner_name=user.username, about_room=about_room)
-            if image:
-                room.image = image
-            try:
-                room.save()
-            except:
-                wrong_message = "The name of this chatroom already exists"
+            if not is_chinese(name):
+                name: str
+                name = name.replace(' ', '_')
+                about_room = roomform.cleaned_data["about_room"]
+                image = roomform.cleaned_data["image"]
+                room = Room(name=name, owner_name=user.username, about_room=about_room)
+                if image:
+                    room.image = image
+                try:
+                    room.save()
+                except:
+                    wrong_message = "The name of this chatroom already exists"
+            else:
+                wrong_message = "Input of Chinese names is currently not supported"
                 
         # edit an exited chatroom
         if changeroomform.is_valid():
@@ -77,7 +83,9 @@ def chatroom(request: HttpRequest, dark=False):
             hidden_chatroom_name = confirm_delete_chatroom_form.cleaned_data["hidden_chatroom_name"]
             hidden_user_name = confirm_delete_chatroom_form.cleaned_data["hidden_user_name"]
             confirm_chatroom_name = confirm_delete_chatroom_form.cleaned_data["confirm_chatroom_name"]
-            confirm_user_name = confirm_delete_chatroom_form.cleaned_data["confirm_user_name"] 
+            confirm_user_name = confirm_delete_chatroom_form.cleaned_data["confirm_user_name"]
+            hidden_chatroom_name = hidden_chatroom_name.replace(' ', '_')
+            confirm_chatroom_name = confirm_chatroom_name.replace(' ', '_') 
             # check
             if hidden_chatroom_name != confirm_chatroom_name:
                 wrong_message = "Incorrect confirmation information."
@@ -139,36 +147,41 @@ def innerroom(request: HttpRequest, room_name, post_name, dark=False):
         # deal with creating a new post
         if postform.is_valid():
             title = postform.cleaned_data["title"]
-            about_post = postform.cleaned_data["about_post"]
-            image = postform.cleaned_data["image"]
-            new_tag = postform.cleaned_data["new_tag"]
-            selected_tag = request.POST.getlist('select_tags')
-            all_tags = list()
-            if selected_tag:
-                for tag in selected_tag:
-                    all_tags.append(tag)
-            if new_tag:
-                all_tags.append(new_tag) 
-            post = Post(
-                title=title, 
-                author=user, 
-                author_profile =profile,
-                about_post=about_post, 
-                belong_room=chat_room
-            )
-            if image:
-                post.image = image             
-            if Post.objects.filter(title=post.title, belong_room=post.belong_room).exists():
-                wrong_message = "A post with the same title already exists in this room."
+            if not is_chinese(title):
+                title: str
+                title.replace(' ', '_')
+                about_post = postform.cleaned_data["about_post"]
+                image = postform.cleaned_data["image"]
+                new_tag = postform.cleaned_data["new_tag"]
+                selected_tag = request.POST.getlist('select_tags')
+                all_tags = list()
+                if selected_tag:
+                    for tag in selected_tag:
+                        all_tags.append(tag)
+                if new_tag:
+                    all_tags.append(new_tag) 
+                post = Post(
+                    title=title, 
+                    author=user, 
+                    author_profile =profile,
+                    about_post=about_post, 
+                    belong_room=chat_room
+                )
+                if image:
+                    post.image = image             
+                if Post.objects.filter(title=post.title, belong_room=post.belong_room).exists():
+                    wrong_message = "A post with the same title already exists in this room."
+                else:
+                    post.save()
+                    if all_tags:
+                        for tag in all_tags:
+                            try:
+                                cur_tag = Tag.objects.get(name=tag)
+                            except:
+                                cur_tag = Tag.objects.create(name=tag)
+                            post.tags.add(cur_tag)
             else:
-                post.save()
-            if all_tags:
-                for tag in all_tags:
-                    try:
-                        cur_tag = Tag.objects.get(name=tag)
-                    except:
-                        cur_tag = Tag.objects.create(name=tag)
-                    post.tags.add(cur_tag)
+                wrong_message = "Input of Chinese names is currently not supported"
                 
         # deal with attachment
         if attachmentform.is_valid():
@@ -191,7 +204,9 @@ def innerroom(request: HttpRequest, room_name, post_name, dark=False):
             hidden_post_name = confirm_delete_post_form.cleaned_data["hidden_post_name"]
             hidden_user_name = confirm_delete_post_form.cleaned_data["hidden_user_name"]
             confirm_post_name = confirm_delete_post_form.cleaned_data["confirm_post_name"]
-            confirm_user_name = confirm_delete_post_form.cleaned_data["confirm_user_name"] 
+            confirm_user_name = confirm_delete_post_form.cleaned_data["confirm_user_name"]
+            hidden_post_name = hidden_post_name.replace(' ', '_')
+            confirm_post_name = confirm_post_name.replace(' ', '_')
             # check
             if hidden_post_name != confirm_post_name:
                 wrong_message = "Incorrect confirmation information."
@@ -511,9 +526,14 @@ def contracts(request: HttpRequest, dark=False):
             invite_message = send_invitation_form.cleaned_data["invite_message"]
             try:
                 target = User.objects.get(email=invite_email)
-                Friend_Request.objects.create(from_user=user, to_user=target, invite_message=invite_message)
+                Friend_Request.objects.get(from_user=user, to_user=target)
+                wrong_message = "The invitation have sent!"
             except:
-                wrong_message = "The user doesn't exist!"            
+                try:
+                    target = User.objects.get(email=invite_email)
+                    Friend_Request.objects.create(from_user=user, to_user=target, invite_message=invite_message)
+                except:
+                    wrong_message = "The user doesn't exist!"            
     
     new_friends = Friend_Request.objects.filter(to_user=user)
     have_sent = Friend_Request.objects.filter(from_user=user)

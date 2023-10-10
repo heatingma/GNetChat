@@ -24,16 +24,16 @@ function add_message(user, message){
         flag = 1;
     }
     if (user != cur_user){
-        chatLog.innerHTML += `<li><div class="conversation-list">
+        chatLog.innerHTML += `<li><div class="conversation-list" style="max-width: 40%;>
         <!-- HIS OR HER AVATAR -->
         <div class="chat-avatar"><img src=${img_url} alt=""></div>
         <!-- HIS OR HER AVATAR -->
         <!-- CONTENT MAIN -->
-        <div class="user-chat-content">
+        <div class="user-chat-content" style="max-width: 100%;">
             <div class="ctext-wrap">
                 <!-- CONTENT & TIME -->
-                <div class="ctext-wrap-content">
-                    <p class="mb-0">${message}</p>
+                <div class="ctext-wrap-content" style="max-width: 100%;">
+                    <p class="mb-0" style="word-break:break-all;">${message}</p>
                 </div>
                 <!-- CONTENT & TIME -->
             </div>
@@ -43,16 +43,16 @@ function add_message(user, message){
         <!-- CONTENT -->
     </div></li>`}
     else{        
-        chatLog.innerHTML += `<li class="right"><div class="conversation-list">
+        chatLog.innerHTML += `<li class="right"><div class="conversation-list" style="max-width: 40%;">
         <!-- HIS OR HER AVATAR -->
         <div class="chat-avatar"><img src=${img_url} alt=""></div>
         <!-- HIS OR HER AVATAR -->
         <!-- CONTENT MAIN -->
-        <div class="user-chat-content">
+        <div class="user-chat-content" style="max-width: 100%;">
             <div class="ctext-wrap">
                 <!-- CONTENT & TIME -->
-                <div class="ctext-wrap-content">
-                    <p class="mb-0">${message}</p>
+                <div class="ctext-wrap-content" style="max-width: 100%;">
+                    <p class="mb-0" style="word-break:break-all; text-align: left;">${message}</p>
                 </div>
                 <!-- CONTENT & TIME -->
             </div>

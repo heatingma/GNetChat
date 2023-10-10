@@ -21,7 +21,7 @@
         <!-- CREATE CHATROOM -->
         <div class="modal fade" id="addchatroom-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addchatroom-exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <form class="modal-content" method="post" enctype="multipart/form-data" action="{% url 'chat:chatroom' %}">
+                <form class="modal-content" method="post" enctype="multipart/form-data" action="{% url 'chat:chatroom' %}?dark={{dark}}">
                     {% csrf_token %}
                     <!-- CREATE HEAD -->
                     <div class="modal-header">

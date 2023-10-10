@@ -22,7 +22,7 @@
         <div class="modal fade" id="addpost-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addpost-exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <form class="modal-content" method="post" enctype="multipart/form-data"
-                action="{% url 'chat:innerroom' room_name=cur_room.name post_name=cur_post.title %}">
+                action="{% url 'chat:innerroom' room_name=cur_room.name post_name=cur_post.title %}?dark={{dark}}">
                     {% csrf_token %}
                     <!-- CREATE HEAD -->
                     <div class="modal-header">

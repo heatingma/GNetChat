@@ -121,8 +121,9 @@ def get_room_image_upload_path(instance, filename):
     room_name = instance.room.name
     upload_path = os.path.join('room_files', room_name)
     file_path = os.path.join(upload_path, filename)
-    if not os.path.exists(upload_path):
-        os.makedirs(upload_path)
+    media_upload_path = os.path.join('media', upload_path)
+    if not os.path.exists(media_upload_path):
+        os.makedirs(media_upload_path)
     return file_path
 
 
@@ -130,8 +131,9 @@ def get_friend_files_path(instance, filename):
     uid = instance.belong_fm.uid
     upload_path = os.path.join('friends_files', str(uid))
     file_path = os.path.join(upload_path, filename)
-    if not os.path.exists(upload_path):
-        os.makedirs(upload_path)
+    media_upload_path = os.path.join('media', upload_path)
+    if not os.path.exists(media_upload_path):
+        os.makedirs(media_upload_path)
     return file_path
 
 

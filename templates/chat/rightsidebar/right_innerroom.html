@@ -36,7 +36,7 @@
     {% if cur_room.owner_name == profile.user.username %}
     <div class="modal fade" id="delete-chatroomModal" tabindex="-1" role="dialog" aria-labelledby="delete-chatroomModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <form class="modal-content" method="post" enctype="multipart/form-data" action="{% url 'chat:chatroom' %}">
+            <form class="modal-content" method="post" enctype="multipart/form-data" action="{% url 'chat:chatroom' %}?dark={{dark}}">
                 {% csrf_token %}
                 <!-- FORM HEAD -->
                 <div class="modal-header">
@@ -90,7 +90,7 @@
     {% if cur_room.owner_name == profile.user.username %}
         <div class="modal fade" id="edit-chatroomModal" tabindex="-1" role="dialog" aria-labelledby="edit-chatroomModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <form class="modal-content" method="post" enctype="multipart/form-data" action="{% url 'chat:chatroom' %}">
+                <form class="modal-content" method="post" enctype="multipart/form-data" action="{% url 'chat:chatroom' %}?dark={{dark}}">
                     {% csrf_token %}
                     <!-- FORM HEAD -->
                     <div class="modal-header">
