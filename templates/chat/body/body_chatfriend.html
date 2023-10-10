@@ -50,16 +50,16 @@
                 {% if rm.user.username != profile.user.username %}
                 
                 <!-- ONE CONTENT TEMPLATE -->
-                <li><div class="conversation-list">
+                <li><div class="conversation-list" style="max-width: 50%;">
                     <!-- HIS OR HER AVATAR -->
                     <div class="chat-avatar"><img src={{rm.image_url}} alt=""></div>
                     <!-- HIS OR HER AVATAR -->
                     <!-- CONTENT MAIN -->
-                    <div class="user-chat-content">
+                    <div class="user-chat-content" style="max-width: 100%;">
                         <div class="ctext-wrap">
                             <!-- CONTENT & TIME -->
-                            <div class="ctext-wrap-content">
-                                <p class="mb-0">{{rm.content}}</p>
+                            <div class="ctext-wrap-content" style="max-width: 100%;">
+                                <p class="mb-0" style="word-break:break-all;">{{rm.content}}</p>
                                 
                                 {% if rm.attachment_name is not None %}
                                     {% if rm.attachment_type == "image" %}
@@ -106,16 +106,16 @@
                 {% else %}
 
                 <!-- MY CONTENT TEMPLATE -->
-                <li class="right"><div class="conversation-list">
+                <li class="right"><div class="conversation-list" style="max-width: 50%;">
                     <!-- MY AVATAR -->
                     <div class="chat-avatar"><img src="{{ profile.image_url }}" alt=""></div>
                     <!-- MY AVATAR -->
                     <!-- CONTENT MAIN -->
-                    <div class="user-chat-content">
+                    <div class="user-chat-content" style="max-width: 100%;">
                         <div class="ctext-wrap">
                             <!-- CONTENT & TIME -->
-                            <div class="ctext-wrap-content">
-                                <p class="mb-0">{{rm.content}}</p>
+                            <div class="ctext-wrap-content" style="max-width: 100%;">
+                                <p class="mb-0" style="word-break:break-all; text-align: left;">{{rm.content}}</p>
                                 {% if rm.attachment_name is not None %}
                                     {% if rm.attachment_type == "image" %}
                                         <ul class="list-inline message-img  mb-0">
@@ -212,8 +212,7 @@
         <!-- ATTACH -->
         <div class="modal fade" id="attach-buttonModal" tabindex="-1" role="dialog" aria-labelledby="attach-buttonModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <form class="modal-content" method="post" enctype="multipart/form-data"
-                action="">
+                <form class="modal-content" method="post" enctype="multipart/form-data" action="">
                     {% csrf_token %}
                     <!-- CREATE HEAD -->
                     <div class="modal-header">

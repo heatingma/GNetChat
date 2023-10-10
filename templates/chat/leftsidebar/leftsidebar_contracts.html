@@ -112,7 +112,7 @@
                                 </a>
                             </div></li>
                         {% endfor %}
-                        <form id="deleteFriend" style="display: none;" action="{% url 'chat:contracts' %}" method="post">
+                        <form id="deleteFriend" style="display: none;" action="{% url 'chat:contracts' %}?dark={{dark}}" method="post">
                             {% csrf_token %}
                             <input type="hidden" name="delete_friend_name" id="delete-friend-name">
                             <button type="submit" id="submit-delete-friend" class="btn btn-primary">submit</button>
@@ -196,7 +196,7 @@
                                 </a>
                             </div></li>
                         {% endfor %}
-                        <form id="deleteForm" style="display: none;" action="{% url 'chat:contracts' %}" method="post">
+                        <form id="deleteForm" style="display: none;" action="{% url 'chat:contracts' %}?dark={{dark}}" method="post">
                             {% csrf_token %}
                             <input type="hidden" name="fr_uid" id="fr-uid-input">
                             <button type="submit" id="submit-fr-uid" class="btn btn-primary">submit</button>

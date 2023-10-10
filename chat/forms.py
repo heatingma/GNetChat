@@ -86,3 +86,10 @@ class linkform(forms.Form):
 
 class Deletelinkform(forms.Form):
     delete_name = forms.CharField(required=True)
+    invite_message = forms.CharField(widget=forms.Textarea(), required=False)
+
+
+class PasswordChangeForm(forms.Form):
+     old_password = forms.CharField(widget=forms.PasswordInput)
+     new_password = forms.CharField(widget=forms.PasswordInput)
+     confirm_password = forms.CharField(widget=forms.PasswordInput)

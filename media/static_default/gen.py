@@ -12,7 +12,7 @@ font = ImageFont.truetype(font_path, font_size)
 
 draw = ImageDraw.Draw(image)
 
-letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+letters = '1234567890'
 for i, letter in enumerate(letters):
     image.paste(background_color, (0, 0, image_width, image_height))
     letter_width, letter_height = draw.textsize(letter, font=font)

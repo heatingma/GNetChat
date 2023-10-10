@@ -20,7 +20,8 @@ class Roommers(WebsocketConsumer):
     def connect(self):
         # read info from self.scope
         self.room_name = self.scope['url_route']['kwargs']['room_name']
-        self.room_group_name = f'chat_chatroom_{self.room_name}'
+        self.post_name = self.scope['url_route']['kwargs']['post_name']
+        self.room_group_name = f'chat_chatroom_{self.room_name}_{self.post_name}'
         self.room = Room.objects.get(name=self.room_name)
         self.user = self.scope['user']
         self.user_inbox = f'inbox_{self.user.username}'
