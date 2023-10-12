@@ -39,6 +39,7 @@
         <li class="nav-item" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="Contacts">
             <a href="{% url 'chat:contracts'%}?{{'dark'}}={{dark}}" class="nav-link" id="pills-contacts-tab" role="tab">
             <i class="ri-contacts-line"></i>
+            {% if new_friends %} <div class="new-friend-remind"></div> {% endif %}
         </a></li>
         <li class="nav-item" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="Settings">
             <a href="{% url 'chat:settings'%}?{{'dark'}}={{dark}}" class="nav-link" id="pills-setting-tab"  role="tab">
