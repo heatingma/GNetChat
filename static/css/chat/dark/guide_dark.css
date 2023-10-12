@@ -1,0 +1,144 @@
+.personal-container{
+	font-family: "comicbd";
+}
+
+.personal-container-header h2 {
+	font-family: "comicbd";
+	font-size: 30px;
+	line-height: 53px;
+	color: #7a72a5;
+	font-weight: 800;
+	text-align: center
+}
+
+.personal-container-header span {
+	display: block;
+	font-size: 60px;
+	color: #8276c2;
+	padding-bottom: 25px;
+	text-align: center;
+}
+
+.header-container{
+	width: 100%;
+	display: flex;
+	float: left;
+	margin-left: 50px;
+}
+
+.header-container .header {
+	margin-left: 5%;
+	font-size: 3em;
+	color: #7a72a5;
+	padding-bottom: 15px;
+	text-align: left
+}
+
+
+.guide-content{
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	background-color: #262e35;
+	flex-wrap: wrap; 
+}
+
+.guide-example-container{
+	width: 140px;
+	height: 120px;
+	margin: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.guide-example{
+	justify-content: center;
+	background-color: #262e35;
+	width: 140px;
+	height: 120px;
+	text-align: center;
+	align-items: center;
+	position: relative;
+}
+
+.guide-example a {
+	width: 140px;
+	height: 120px;
+	background-color: #262e35;
+	display: block;
+	justify-content: center;
+	align-items: center;
+	padding-top: 5px;
+}
+
+
+.delete-link{
+	height: 30px;
+	right: 10px;
+	width: auto;
+	position: absolute;
+	z-index: 999;
+	width: 30px !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10%;
+	display: none;
+}
+
+.guide-example :hover {
+	background-color: #36404a;
+	border-radius: 5%;
+}
+  
+.guide-example p {
+	font-family: "xinwei";
+	font-size: 18px;
+	color: #a0a0a0;
+	text-align: center;
+	margin: 0;
+	margin-top: 10px;
+}
+  
+.guide-example .guide-imag-container {
+	width: 60px;
+	height: 60px;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 2px solid rgb(28, 28, 28);
+	background-color: #36404a;
+	box-shadow: 0 1px 2px rgba(140, 140, 140, 0.2);
+	border-radius: 30%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.guide-example .guide-imag-container-add {
+	width: 60px;
+	height: 60px;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 20px;
+	background-color: #36404a;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.guide-example .guide-imag-container .guide-img{
+	width: 40px; 
+	height: 40px; 
+}
+
+.guide-example .guide-imag-container-add .guide-img{
+	width: 60px; 
+	height: 60px; 
+}
+

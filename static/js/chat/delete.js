@@ -40,3 +40,15 @@ function confirmDelete4(event) {
     }
     location.reload();
 }
+
+
+function confirmDelete5(event) {
+    let delete_link_url_input = document.querySelector("#delete-link-url");
+    let delete_link_button = document.querySelector("#submit-delete-link");
+    event.preventDefault();
+    var link_url = event.currentTarget.getAttribute('link-url');
+    if (confirm("Really want to delete this link?")) {
+        delete_link_url_input.value = link_url;
+        delete_link_button.click();
+    };
+}

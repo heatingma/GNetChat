@@ -5,7 +5,8 @@ from users.models import User
 from django.contrib.auth import get_user_model
 import mimetypes
 from django.core.exceptions import ValidationError
-from django.utils.translation import gettext_lazy
+import pypinyin
+from chat.utils import download_favicon
 
 
 class Profile(models.Model):
@@ -288,3 +289,34 @@ class FMMessage(models.Model):
             return convert_size(size)
         except:
             return 'Unknown Size'
+
+  
+def get_first_pinyin_letter(chinese):
+    pinyin = pypinyin.pinyin(chinese[0], style=pypinyin.STYLE_NORMAL)[0][0]
+    return pinyin[0].upper()
+
+
+class LINK(models.Model):
+    url = models.URLField(max_length=100)
+    name = models.CharField(max_length=100)
+    user = models.ForeignKey(to=get_user_model(), on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.url
+
+    @property
+    def initial(self):
+        if pypinyin.pinyin(self.name[0]):
+            return get_first_pinyin_letter(self.name[0]).upper()
+        return self.name[0].upper()
+
+    @property
+    def image_url(self):
+        file_path = str(self.url).replace("https://", "").replace("http://", "").replace("www", "").replace('/', '_').replace('\\', '_').replace('?', '_').replace('.','_')
+        file_path = "media/link_image/{}.png".format(file_path)
+        if os.path.exists(file_path):
+            return "/"+file_path
+        if download_favicon(str(self.url), file_path):
+            return "/"+file_path
+        else:
+            return "/media/static_default/{}.png".format(self.initial)

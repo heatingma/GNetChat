@@ -5,9 +5,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from .forms import EditProfileForm, RoomForm, PostForm, AttachmentForm, \
     ChangeRoomForm, ConfirmDeletePostForm, ConfirmDeleteChatroomForm, \
-    EditPostForm, SendInvitationForm , PasswordChangeForm
+    EditPostForm, SendInvitationForm, PasswordChangeForm,\
+    linkform, Deletelinkform
 from .models import Profile, Room, RoomMessage, Post, Tag, Friend_Request, \
-    FMMessage, FriendRoom
+    FMMessage, FriendRoom,\
+    LINK
 from users.models import User
 from chat.utils import is_chinese
 import json
@@ -472,6 +474,31 @@ def my(request: HttpRequest, dark=False):
     username = request.user.username
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=user)
+    wrong_message = ""
+    
+    # deal with POST method
+    if request.method == "POST":
+        link_form = linkform(request.POST)
+        
+        # deal with link adding
+        if link_form.is_valid():
+            link_url = link_form.cleaned_data["add_link"]
+            link_name = link_form.cleaned_data["add_name"]
+            link = LINK.objects.filter(url=link_url, user=user)
+            if link:
+                link = link[0]
+                link:LINK
+                link.name = link_name
+                link.save()
+            else:
+                link = LINK.objects.create(url=link_url, name = link_name, user=user)
+            
+        # deal with link removing
+        if "delete_link_url" in request.POST:
+            delete_link_url = request.POST["delete_link_url"]
+            link = LINK.objects.get(url=delete_link_url, user=user)
+            link.delete()
+            
     return render(
         request=request, 
         template_name='chat/my.html', 
@@ -479,7 +506,9 @@ def my(request: HttpRequest, dark=False):
             'profile': profile,
             'dark': dark,
             'light': not dark,
+            "links": LINK.objects.filter(user=request.user),
             "new_friends": Friend_Request.objects.filter(to_user=user),
+            "wrong_message": wrong_message,
         }
     )
 

@@ -1,0 +1,145 @@
+.personal-container{
+	font-family: "comicbd";
+}
+
+.personal-container-header h2 {
+	font-family: "comicbd";
+	font-size: 30px;
+	line-height: 53px;
+	color: #9f94d8;
+	font-weight: 800;
+	text-align: center
+}
+
+.personal-container-header span {
+	display: block;
+	font-size: 60px;
+	color: #a798fa;
+	padding-bottom: 25px;
+	text-align: center;
+}
+
+.header-container{
+	width: 100%;
+	display: flex;
+	float: left;
+	margin-left: 50px;
+}
+
+.header-container .header {
+	margin-left: 5%;
+	font-size: 3em;
+	color: #a798fa;
+	padding-bottom: 15px;
+	text-align: left
+}
+
+
+.guide-content{
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	background-color: #FFFFFF;
+	flex-wrap: wrap; 
+}
+
+.guide-example-container{
+	width: 140px;
+	height: 120px;
+	margin: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.guide-example{
+	justify-content: center;
+	background-color: #FFFFFF;
+	width: 140px;
+	height: 120px;
+	text-align: center;
+	align-items: center;
+	position: relative;
+}
+
+.guide-example a {
+	width: 140px;
+	height: 120px;
+	background-color: #FFFFFF;
+	display: block;
+	justify-content: center;
+	align-items: center;
+	padding-top: 5px;
+}
+
+
+.delete-link{
+	height: 30px;
+	right: 10px;
+	width: auto;
+	position: absolute;
+	z-index: 999;
+	width: 30px !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10%;
+	display: none;
+}
+
+.guide-example :hover {
+	background-color: #f5f5f5;
+	border-radius: 5%;
+}
+  
+.guide-example p {
+	font-family: "xinwei";
+	font-size: 18px;
+	font-weight: bold;
+	color: #404040;
+	text-align: center;
+	margin: 0;
+	margin-top: 10px;
+}
+  
+.guide-example .guide-imag-container {
+	width: 60px;
+	height: 60px;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 2px solid rgb(230, 245, 251);
+	background-color: rgb(240, 245, 248);
+	box-shadow: 0 4px 6px rgba(27, 62, 104, 0.2);
+	border-radius: 30%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.guide-example .guide-imag-container-add {
+	width: 60px;
+	height: 60px;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 20px;
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.guide-example .guide-imag-container .guide-img{
+	width: 40px; 
+	height: 40px; 
+}
+
+.guide-example .guide-imag-container-add .guide-img{
+	width: 60px; 
+	height: 60px; 
+}
+
