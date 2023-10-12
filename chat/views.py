@@ -5,11 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from .forms import EditProfileForm, RoomForm, PostForm, AttachmentForm, \
     ChangeRoomForm, ConfirmDeletePostForm, ConfirmDeleteChatroomForm, \
-    EditPostForm, SendInvitationForm, PasswordChangeForm,\
-    linkform, Deletelinkform
+    EditPostForm, SendInvitationForm , PasswordChangeForm
 from .models import Profile, Room, RoomMessage, Post, Tag, Friend_Request, \
-    FMMessage, FriendRoom,\
-    LINK
+    FMMessage, FriendRoom
 from users.models import User
 from chat.utils import is_chinese
 import json
@@ -474,37 +472,6 @@ def my(request: HttpRequest, dark=False):
     username = request.user.username
     user = get_object_or_404(User, username=username)
     profile = get_object_or_404(Profile, user=user)
-    wrong_message = ""
-    if request.method == "POST":
-        link_form = linkform(request.POST)
-        deletelinkform = Deletelinkform(request.POST, request.FILES)
-        if link_form.is_valid():
-            link_url = link_form.cleaned_data["add_link"]
-            link_name = link_form.cleaned_data["add_name"]
-            if not link_url.startswith("https://"):
-                link_url = "https://" + link_url
-            my_link = LINK.objects.filter(url=link_url)
-            if my_link:
-                try:
-                    my_link[0].user.add(request.user)
-                except:
-                    wrong_message = "The name of this link already exists"
-            else:
-                my_link = LINK.objects.create(url=link_url, name=link_name)
-                my_link.user.add(request.user)
-                my_link.save()
-        if deletelinkform.is_valid():
-            link_name = deletelinkform.cleaned_data["delete_name"]
-            my_link = LINK.objects.filter(name=link_name)
-            if my_link:
-                for i in range(len(my_link)):
-                    my_link[i].user.remove(request.user)
-                    if not my_link[i].user.exists():
-                        if my_link[i].image:
-                            my_link[i].image.delete(save=False)
-                        my_link[i].delete()
-            else:
-                wrong_message = "The name of this link doen't exist"
     return render(
         request=request, 
         template_name='chat/my.html', 
@@ -512,7 +479,6 @@ def my(request: HttpRequest, dark=False):
             'profile': profile,
             'dark': dark,
             'light': not dark,
-            "links": LINK.objects.filter(user=request.user),
             "new_friends": Friend_Request.objects.filter(to_user=user),
         }
     )

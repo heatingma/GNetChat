@@ -1,6 +1,5 @@
 from django import forms
 from users.models import User
-from .models import LINK
 
 ###############################################
 #                   Profile                   #
@@ -78,14 +77,7 @@ class ConfirmDeleteChatroomForm(forms.Form):
     
 class SendInvitationForm(forms.Form):
     invite_email = forms.CharField(required=True)
-    invite_message = forms.CharField(widget=forms.Textarea(), required=False) 
-
-class linkform(forms.Form):
-    add_name = forms.CharField(required=True)
-    add_link = forms.CharField(required=True)
-
-class Deletelinkform(forms.Form):
-    delete_name = forms.CharField(required=True)
+    invite_message = forms.CharField(widget=forms.Textarea(), required=False)
 
 
 class PasswordChangeForm(forms.Form):
