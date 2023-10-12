@@ -54,6 +54,9 @@ def log(request: HttpRequest):
             username_errors = register_form.errors.get('username')
             email_errors = register_form.errors.get('email')
             password_errors = register_form.errors.get('password2')
+            print(username_errors)
+            print(email_errors)
+            print(password_errors)
             context = {
                 "register_form": register_form,
                 "login_form": login_form,

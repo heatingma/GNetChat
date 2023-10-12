@@ -2,143 +2,96 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-
-    <title>login</title>
-    <link rel="stylesheet" href={% static "css/fonts/fonts.css" %}>
-    <link rel="stylesheet" href={% static "css/fonts/icons-selected.min.css" %}>
-    <link rel="stylesheet" href={% static "css/users/log.css" %}>
-    
+    <title>Your Web Page</title>
+    <link rel="stylesheet"  href={% static "css/users/log.css" %}>
 </head>
-
 <body>
-    <div class="container">
-        <div class="form-box">
-            <!-- register -->
-            <form class="register-box hidden" method="post">
-                {% csrf_token %}
-                <h1>register</h1>
-                <div class="input-box">
-                    <input name="username" type="text" placeholder="设置用户名"
+	<div class="container" id="container">
+		<div class="form-container sign-up-container">
+			<form class="register-box hidden" method="post">
+				 {% csrf_token %}
+				<h1>Create Account</h1>
+				<div class="input-box">
+                    <input name="username" type="text" placeholder="Input Username"
                     value='{{ register_form.usename.value|default:"" }}'>
                     <span class="msg"></span>
                 </div>
-                <div class="input-box">
-                    <input name="email" type="text" placeholder="输入合法的邮箱"
+				<div class="input-box">
+                    <input name="email" type="text" placeholder="Input Email"
                     value='{{ register_form.email.value|default:"" }}'>
                     <span class="msg"></span>
                     <div class="invalid-feedback">{{ form.email.errors }}</div>
                 </div>
                 <div class="input-box-code">
-                    <input name="email_code" type="text" placeholder="邮箱验证码"
+                    <input name="email_code" type="text" placeholder="Verification Code"
                     value='{{ register_form.email_code.value|default:"" }}'>
-                    <a class="code" href="javascript:;">发送验证码</a>
+<!--                    <a class="code" href="javascript:;">Send Email</a>-->
                     <span name="email_code-msg" class="msg"></span>
                 </div>
                 <div class="input-box">
-                    <input name="password1" type="password" placeholder="输入密码"
+                    <input name="password1" type="password" placeholder="Input Password"
                     value='{{ register_form.password1.value|default:"" }}'>
                     <span class="msg"></span>
-                </div>  
+                </div>
                 <div class="input-box">
-                    <input name="password2" type="password" placeholder="确认密码"
+                    <input name="password2" type="password" placeholder="Confirm Password"
                     value='{{ register_form.password2.value|default:"" }}'>
                     <span class="msg"></span>
                 </div>
-                <button name="submit-register">REGISTER</button>
-            </form>
-            <!-- login -->
-            <form class="login-box" method="post">
+				<button name="submit-register">REGISTER</button>
+			</form>
+		</div>
+		<div class="form-container sign-in-container">
+			<form class="login-box" method="post">
                 {% csrf_token %}
-                <h1>login</h1>
+                <h1>Login</h1>
                 <div class="input-box">
-                    <input name="login_email" type="text" placeholder="输入邮箱"
+                    <input name="login_email" type="text" placeholder="Input Email"
                     value='{{ login_form.login_email.value|default:"" }}'>
                     <span class="msg"></span>
                 </div>
                 <div class="input-box">
-                    <input name="login_password" type="password" placeholder="输入密码"
+                    <input name="login_password" type="password" placeholder="Input Password"
                     value='{{ login_form.login_password.value|default:"" }}'>
                     <span class="msg"></span>
-                </div>  
+                </div>
                 <button name="submit-login" style="margin-top: 40px;">LOGIN</button>
                 <button name="return">RETURN</button>
             </form>
-        </div>
-        <div class="con-box left">
-            <h2><span>Welcome</span></h2>
-            <p style="font-weight: bold;">to chatting room</p>
-            <img src={% static "images/users/cat.jpg" %} alt="cat">
-            <p>Have Account</p>
-            <button id="login">Login</button>
-        </div>
-        <div class="con-box right">
-            <h2><span>Welcome</span></h2>
-            <p style="font-weight: bold;">to chatting room</p>
-            <img src={% static "images/users/deer.png" %} alt="deer">
-            <p>No Account?</p>
-            <button id="register">REGISTER</button>
-        </div>
-    </div>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Welcome Back!</h1>
+					<p>To keep connected with GNet, please login with your personal info</p>
+					<button class="ghost" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Hello, GNFriend!</h1>
+					<p>Enter your personal details and start journey with GNet</p>
+					<button class="ghost" id="signUp">Sign Up</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    {% if username_errors %}
-    <div class="error-box" style="width:250px; height:120px">
-        <div class="error-body">
-            {% for error in username_errors %}
-                <p>{{ error }}</p>
-            {% endfor %}
-        </div>
-        <div class="error-close">
-            <button id="close">
-                <i class="ri-close-fill"></i>
-            </button>
-        </div>
-    </div>
-    {% elif email_errors %}
-        <div class="error-box" style="width:250px; height:120px">
-            <div class="error-body">
-                {% for error in email_errors %}
-                    <p>{{ error }}</p>
-                {% endfor %}
-            </div>
-            <div class="error-close">
-                <button id="close">
-                    <i class="ri-close-fill"></i>
-                </button>
-            </div>
-        </div>
-    {% elif password_errors %}
-        <div class="error-box">
-            <div class="error-body">
-                {% for error in password_errors %}
-                    <p>{{ error }}</p>
-                {% endfor %}
-            </div>
-            <div class="error-close">
-                <button id="close">
-                    <i class="ri-close-fill"></i>
-                </button>
-            </div>
-        </div>
-    {% elif login_error %}
-        <div class="error-box" style="width:200px; height:120px">
-            <div class="error-body">
-                <p>{{ login_error }}</p>
-            </div>
-            <div class="error-close">
-                <button id="close">
-                    <i class="ri-close-fill"></i>
-                </button>
-            </div>
-        </div>
-    {% endif %}
-</body>
+	<script>
+		const signUpButton = document.getElementById('signUp');
+		const signInButton = document.getElementById('signIn');
+		const container = document.getElementById('container');
 
+		signUpButton.addEventListener('click', () => {
+			container.classList.add("right-panel-active");
+		});
+
+		signInButton.addEventListener('click', () => {
+			container.classList.remove("right-panel-active");
+		});
+
+	</script>
 <script>
-// register & login box  
+// register & login box
     let login=document.getElementById('login');
     let register=document.getElementById('register');
     let form_box=document.getElementsByClassName('form-box')[0];
@@ -310,7 +263,7 @@
 </script>
 
 <script>
-    // Return Home 
+    // Return Home
     const return_home = document.querySelector('[name=return]')
     return_home.addEventListener('click', function(){
             window.location.href = 'index.html';
@@ -328,4 +281,5 @@
     });
 </script>
 
+</body>
 </html>
