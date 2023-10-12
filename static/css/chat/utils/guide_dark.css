@@ -1,0 +1,94 @@
+div[role="main-inner-wrapper"] figure[role="guide-content"] h1 > a{
+	display: block;
+	float: left
+}
+div[role="main-inner-wrapper"] article[role="guide-content"] header {
+	padding-top: 0px;
+	padding-bottom: 10px
+}
+div[role="main-inner-wrapper"] article[role="guide-content"] header h2 {
+	font-size: 30px;
+	line-height: 53px;
+	color: #404040;
+	font-weight: 800;
+	text-align: center
+}
+div[role="main-inner-wrapper"] article[role="guide-content"] header h2 span {
+	display: block;
+	font-size: 60px;
+	color: #fb5353;
+	padding-bottom: 25px;
+	text-align: center
+}
+div[role="main-inner-wrapper"] figure{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #262E35;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	border: 0;
+	outline: 0;
+}
+div[role="main-inner-wrapper"] figure[role="guide-content"] h1 > a{
+	background-color: #262E35;
+	display: block;
+	float: left;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+div[role="main-inner-wrapper"] figure[role="guide-content"] h1 > p{
+	background-color: #262E35;
+	font-size: small;
+	color: #E1E9F1;
+	text-align: center;
+}
+div[role="main-inner-wrapper"] figure[role="guide-content"] h1 > a .guide-img{
+	width: 70px; 
+	height: 70px; 
+	margin-left: 10px; 
+	margin-right: 10px;
+	padding: 5px;
+	border: 2px solid #2c333b;
+	background-color: #36404A;
+	border-radius: 30%;
+}
+
+.container{
+	display: flex;
+    justify-content: center;
+    padding-right:15px;
+    padding-left:15px;
+    margin-right:auto;
+    margin-left:auto;
+    max-width:100%;
+}
+
+.container:after,.container:before{
+    display:table;content:" "
+}
+
+.container:after{
+    clear:both
+}
+
+.row{
+	display: flex;
+    justify-content: center;
+    margin-right:-15px;
+    margin-left:-15px;
+	margin-top:200px;
+}
+
+.clearfix:after,.clearfix:before,.row:after,.row:before{
+	display:table;
+	content:" "
+}
+
+.clearfix:after,.row:after{clear:both}
+
