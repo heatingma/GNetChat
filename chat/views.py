@@ -113,6 +113,7 @@ def chatroom(request: HttpRequest, dark=False):
             'wrong_message': wrong_message,
             'dark': dark,
             'light': not dark,
+            "new_friends": Friend_Request.objects.filter(to_user=user)
         }
     )
     
@@ -272,6 +273,7 @@ def innerroom(request: HttpRequest, room_name, post_name, dark=False):
             'dark': dark,
             'light': not dark,
             'tags': Tag.objects.all(),
+            "new_friends": Friend_Request.objects.filter(to_user=user),
         }
     )
     
@@ -311,7 +313,8 @@ def chat(request: HttpRequest, dark=False):
             'dark': dark,
             'light': not dark,
             'friends': user.friends.all(),
-            "top_friends": user.top_friends.all()
+            "top_friends": user.top_friends.all(),
+            "new_friends": Friend_Request.objects.filter(to_user=user),
         }
     )
     
@@ -366,7 +369,8 @@ def chatfriend(request: HttpRequest, friend_name, dark=False):
             "friend":friend,
             "friend_profile": Profile.objects.get(user=friend),
             "friend_messages":friend_messages,
-            "wrong_message": wrong_message
+            "wrong_message": wrong_message,
+            "new_friends": Friend_Request.objects.filter(to_user=user),
         }
     )
     
@@ -388,6 +392,7 @@ def groups(request: HttpRequest, dark=False):
             'profile': profile,
             'dark': dark,
             'light': not dark,
+            "new_friends": Friend_Request.objects.filter(to_user=user),
         }
     )
 
@@ -452,6 +457,7 @@ def settings(request: HttpRequest, dark=False):
             'dark': dark,
             'light': not dark,
             'wrong_message': wrong_message,
+            "new_friends": Friend_Request.objects.filter(to_user=user),
         }
     )
     
@@ -473,6 +479,7 @@ def my(request: HttpRequest, dark=False):
             'profile': profile,
             'dark': dark,
             'light': not dark,
+            "new_friends": Friend_Request.objects.filter(to_user=user),
         }
     )
 
