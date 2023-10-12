@@ -24,7 +24,7 @@ div[role="main-inner-wrapper"] figure{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #FFFFFF;
+	background-color: #262E35;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -35,7 +35,7 @@ div[role="main-inner-wrapper"] figure{
 	outline: 0;
 }
 div[role="main-inner-wrapper"] figure[role="guide-content"] h1 > a{
-	background-color: #FFFFFF;
+	background-color: #262E35;
 	display: block;
 	float: left;
 	justify-content: center;
@@ -43,9 +43,9 @@ div[role="main-inner-wrapper"] figure[role="guide-content"] h1 > a{
 	margin-bottom: 10px;
 }
 div[role="main-inner-wrapper"] figure[role="guide-content"] h1 > p{
-	background-color: #FFFFFF;
+	background-color: #262E35;
 	font-size: small;
-	color: #404040;
+	color: #E1E9F1;
 	text-align: center;
 }
 div[role="main-inner-wrapper"] figure[role="guide-content"] h1 > a .guide-img{
@@ -54,8 +54,8 @@ div[role="main-inner-wrapper"] figure[role="guide-content"] h1 > a .guide-img{
 	margin-left: 10px; 
 	margin-right: 10px;
 	padding: 5px;
-	border: 2px solid rgb(221, 233, 237);
-	background-color: rgb(240, 245, 248);
+	border: 2px solid #2c333b;
+	background-color: #36404A;
 	border-radius: 30%;
 }
 

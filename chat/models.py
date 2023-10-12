@@ -329,7 +329,7 @@ class LINK(models.Model):
                 )
             }  # 伪装请求头
             try:
-                response = requests.get(self.url, headers=headers, timeout=0.5)
+                response = requests.get(self.url, headers=headers, timeout=1)
             except:
                 return "/media/static_default/{}.png".format(self.initial)
             soup = BeautifulSoup(response.text, "html.parser")
