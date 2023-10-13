@@ -1,69 +1,54 @@
 import re
-from bs4 import BeautifulSoup
-import requests
-import favicon
-import threading
 import time
-import func_timeout
-from func_timeout import func_set_timeout
+import subprocess
+import threading
 
 
 def is_chinese(text):
+    """
+    check if the input text contains chinese
+    """
     pattern = re.compile(r'[\u4e00-\u9fa5]+')
     match = pattern.search(text)
     return match is not None
 
 
+###################################################
+#                  Command Class                  #
+###################################################
 
+class cmds:
+    """
+    command class
+    """
+    def __init__(self):
+        self.procs = dict()
+        self.pids = dict()
 
-@func_set_timeout(0.5) # 设置函数最大执行时间
-def _download_favicon(url, save_path):
-    # if download_url_img(url, save_path) == False:
-    try:
-        icons = favicon.get(url)
-        icon = icons[0]
-        response = requests.get(icon.url, stream=True)
-        with open(save_path, 'wb') as image:
-            for chunk in response.iter_content(1024):
-                image.write(chunk)
-    except:
-        return False
- 
- 
-def download_favicon(url, save_path):
-    try:
-        if _download_favicon(url, save_path):
-            return True
-        return False
-    except:
-        return False
+    def run_command(self, command, command_name, timeout=5):
+        proc = subprocess.Popen(command, stdin=subprocess.PIPE, universal_newlines=True)
+        self.pids[command_name] = proc.pid
+        self.procs[command_name] = proc
 
+        def wait_for_completion():
+            # Wait for the process to complete or timeout
+            start_time = time.time()
+            while timeout is None or (time.time() - start_time) < timeout:
+                if proc.poll() is not None:
+                    break
+                time.sleep(0.1)
 
-def download_url_img(url:str, save_path):
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 6.2; WOW64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/30.0.1599.17 Safari/537.36"
-        )
-    }
-    try:
-        response = requests.get(url, headers=headers, timeout=1)
-    except:
-        return False
-    soup = BeautifulSoup(response.text, "html.parser")
-    favicon = soup.find(
-        "link", href=True,  rel=lambda x: x and "icon" in x
-    )
-    if favicon:
-        favicon = favicon["href"]
-    else:
-        return False
-    if favicon.startswith("//"):
-        favicon = "https:" + favicon
-    elif favicon.startswith("/"):
-        favicon = url + favicon
-    if favicon:
-        favicon_resp = requests.get(favicon, headers=headers)
-        with open(save_path, "wb") as f:
-            f.write(favicon_resp.content)
+            # If the process is still running, terminate it
+            if proc.poll() is None:
+                print("The subprocess (pid={}) is terminated".format(proc.pid))
+                proc.terminate()
+
+            # Wait for the process to terminate and get the return code
+            proc.wait()
+
+        thread = threading.Thread(target=wait_for_completion)
+        thread.start()
+
+    def add_download_subprocess(self, url, save_path):
+        command = ['python', 'chat/download_facvion.py', '--url', url, '--save_path', save_path]
+        self.run_command(command, 'download_{}'.format(url), timeout=5)

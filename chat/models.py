@@ -6,7 +6,10 @@ from django.contrib.auth import get_user_model
 import mimetypes
 from django.core.exceptions import ValidationError
 import pypinyin
-from chat.utils import download_favicon
+from chat.utils import cmds
+
+
+commands = cmds()
 
 
 class Profile(models.Model):
@@ -316,7 +319,6 @@ class LINK(models.Model):
         file_path = "media/link_image/{}.png".format(file_path)
         if os.path.exists(file_path):
             return "/"+file_path
-        if download_favicon(str(self.url), file_path):
-            return "/"+file_path
         else:
+            commands.add_download_subprocess(str(self.url), file_path)
             return "/media/static_default/{}.png".format(self.initial)
