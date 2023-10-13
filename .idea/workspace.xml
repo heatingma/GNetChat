@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37ca5e24-6544-4543-b019-75c9dbe72416" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/users/log.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/users/log.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/log.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/log.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="37ca5e24-6544-4543-b019-75c9dbe72416" name="变更" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
