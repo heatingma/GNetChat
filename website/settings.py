@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+CSRF_TRUSTED_ORIGINS = ['gnetchat.cn', 'https://gnetchat.cn', 'http://gnetchat.cn', 'https://heatingma.cn']
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -28,8 +31,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 AUTH_USER_MODEL = 'users.User'
+
+
 
 # Application definition
 
