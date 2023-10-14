@@ -12,13 +12,17 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
-CSRF_TRUSTED_ORIGINS = ['gnetchat.cn', 'https://gnetchat.cn', 'http://gnetchat.cn', 'https://heatingma.cn']
+CSRF_TRUSTED_ORIGINS = [
+    "https://gnetchat.cn",
+    "http://gnetchat.cn",
+    "https://heatingma.cn",
+]
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -29,10 +33,9 @@ SECRET_KEY = "django-insecure-dwa!f+=t#-%qnu%n%epoxz5gdk1h-xprp0gz$kvzfesm*$8mxp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
-AUTH_USER_MODEL = 'users.User'
-
+AUTH_USER_MODEL = "users.User"
 
 
 # Application definition
@@ -44,9 +47,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'users',
-    'chat',
-    'channels'
+    "users",
+    "chat",
+    "channels",
 ]
 
 MIDDLEWARE = [
@@ -64,7 +67,7 @@ ROOT_URLCONF = "website.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        'DIRS': ['./templates'],
+        "DIRS": ["./templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -78,7 +81,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "website.wsgi.application"
-ASGI_APPLICATION = 'website.asgi.application'
+ASGI_APPLICATION = "website.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -128,11 +131,11 @@ import os
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'static/css'),
-    os.path.join(BASE_DIR, 'static/js'),
+    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static/css"),
+    os.path.join(BASE_DIR, "static/js"),
 ]
-STATIC_ROOT = 'full_static/'
+STATIC_ROOT = "full_static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -140,12 +143,18 @@ STATIC_ROOT = 'full_static/'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('localhost', 6379)],
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
         },
     },
 }
 
-
+EMAIL_HOST = "smtp.qq.com"  # 服务器
+EMAIL_PORT = 25  # 一般情况下都为25
+EMAIL_HOST_USER = "1712471374@qq.com"  # 账号
+EMAIL_HOST_PASSWORD = "zktxnzeshgotecgf"  # 授权码
+EMAIL_USE_TLS = False  # 一般都为False
+EMAIL_FROM = "1712471374@qq.com"  # 邮箱来自
+email_title = "邮箱激活"
