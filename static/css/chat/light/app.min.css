@@ -681,6 +681,18 @@ body{
     margin: 0px;
 }
 
+.new-friend-remind {
+    width: 14px ;
+    height: 14px ;
+    background-color: #e77272 ;
+    border-radius: 50% ;
+    border: 2px solid #ef4343 ;
+    position: absolute;
+    right: -8%;
+    top: -8%;
+    margin: 1px;
+    z-index: 999 !important;
+}
 
 @media (max-width: 991.98px) {
     .side-menu {
@@ -691,6 +703,19 @@ body{
         min-height: auto;
         display: block;
         border-top: 1px solid #f0eff5;
+    }
+
+    .new-friend-remind {
+        width: 10px ;
+        height: 10px ;
+        background-color: #e77272 ;
+        border-radius: 50% ;
+        border: 2px solid #ef4343 ;
+        position: absolute;
+        right: 20%;
+        top: 8%;
+        margin: 1px;
+        z-index: 999 !important;
     }
 }
 
@@ -722,6 +747,7 @@ body{
 
 .side-menu-nav .nav-item {
     margin: 7px 0;
+    position: relative;
 }
 
 @media (max-width: 991.98px) {
@@ -1353,3 +1379,4 @@ body{
     font-family: "comicbd";
     font-size: 16px;
 }
+

@@ -1,3 +1,4 @@
+{% load static %}
 <div id="hidden-container" style="display: none;">
     {{users_img_urls_json}}
 </div>
@@ -6,6 +7,145 @@
 </div>
 
 <div class="w-100">
+
+    <div class="personal-container">
+
+        <div class="personal-container-header p-4 mt-5">
+            <h2><span>Personalization</span> Personal Designed pages</h2>
+        </div>
+
+        <div class="header-container p-4">
+            <div class="header"> Guide </div>
+        </div>
+
+        <div class="guide-content">
+
+            {% for link in links %}
+            <div class="guide-example-container">
+                <div class="guide-example" id="guide-example-{{link.name}}">
+                    <div class="delete-link" link-url={{link.url}} onclick="confirmDelete5(event)">
+                        <i class="mdi mdi-close"></i>
+                    </div>
+                    <a href= {{link.url}}  target="_blank" title={{link.name}}>
+                        <div class="guide-imag-container">
+                            <img src={{link.image_url}} class="guide-img" title={{link.name}} alt={{link.name}}>  
+                        </div> 
+                        <p>{{ link.name }}</p>                      
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            
+            <!-- add -->
+            <div class="guide-example-container">
+                <div class="guide-example">
+                    <a data-toggle="modal" data-target="#addweb-Modal"> 
+                        <div class="guide-imag-container-add">
+                            <img src="{% static "images/chat/add-symbol.png" %}" alt="add" class="guide-img">
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+
+            <form id="delete-link-form" style="display: none;" action="{% url 'chat:my' %}?dark={{dark}}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="delete_link_url" id="delete-link-url">
+                <button type="submit" id="submit-delete-link" class="btn btn-primary">submit</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- ADD WEB LINK -->
+    <div class="modal fade" id="addweb-Modal" tabindex="-1" role="dialog" aria-labelledby="addweb-Modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <form class="modal-content" method="post" action="{% url 'chat:my' %}?dark={{dark}}">
+                {% csrf_token %}
+                <!-- ADD HEAD -->
+                <div class="modal-header">
+                    <h5 class="modal-title font-size-16" id="addweb-Modal">Add New Website</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- ADD HEAD -->
+
+                <!-- ADD BODY -->
+                <div class="modal-body p-4">
+                    <div>
+
+                        <!-- NAME -->
+                        <div class="form-chatroom mb-4">
+                            <label for="addwebname-input">Name</label>
+                            <input type="text" class="form-control" id="addwebname-input" name="add_name" placeholder="Enter name of the website">
+                        </div>
+                        <!-- NAME -->
+
+                        <!-- LINK -->
+                        <div class="form-chatroom mb-4">
+                            <label for="addweblink-input">Link</label>
+                            <input type="text" class="form-control" id="addweblink-input" name="add_link" placeholder="Enter link of the website">
+                        </div>
+                        <!-- LINK -->
+
+                    </div>
+                </div>
+                <!-- ADD BODY -->
+
+                <!-- ADD BUTTON -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add Website</button>
+                </div>
+                <!-- ADD BUTTON -->
+
+            </form>
+        </div>
+    </div>
+    <!-- ADD WEB LINK -->
+
+    <!-- DELETE WEB LINK -->
+    <div class="modal fade" id="deleteweb-Modal" tabindex="-1" role="dialog" aria-labelledby="deleteweb-Modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <form class="modal-content" method="post" action="{% url 'chat:my' %}?dark={{dark}}">
+                {% csrf_token %}
+                <!-- HEAD -->
+                <div class="modal-header">
+                    <h5 class="modal-title font-size-16" id="addweb-Modal">Delete Website</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- HEAD -->
+
+                <!-- BODY -->
+                <div class="modal-body p-4">
+                    <div>
+
+                        <!-- NAME -->
+                        <div class="form-chatroom mb-4">
+                            <label for="deletewebname-input">Name</label>
+                            <input type="text" class="form-control" id="deletewebname-input" name="delete_name" placeholder="Enter name of the website">
+                        </div>
+                        <!-- NAME -->
+
+                    </div>
+                </div>
+                <!-- BODY -->
+
+                <!-- BUTTON -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Delete Website</button>
+                </div>
+                <!-- BUTTON -->
+
+            </form>
+        </div>
+    </div>
+    <!-- DELETE WEB LINK -->
 
 </div>
 
