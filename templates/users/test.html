@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>login</title>
+    <link rel="stylesheet" href={% static "css/fonts/fonts.css" %}>
+    <link rel="stylesheet" href={% static "css/fonts/icons-selected.min.css" %}>
+    <link rel="stylesheet" href={% static "css/users/log.css" %}>
+    <script src={% static "js/heatingma/jquery.min.js" %}></script>
+
+</head>
+<body>
+
+<form method="post">
+{% csrf_token %}
+<input type="text" id="num1">+<input type="text" id="num2">=<input type="text" id="sum">
+<button id="submit">计算</button>
+</form>
+</body>
+<script>
+    var csrfToken = $('[name=csrfmiddlewaretoken]').val()
+    const last_code = document.querySelector('[id=sum]')
+    $("#submit").click(function () {
+            $.ajax({
+                url: '/sendemail',
+                type: 'post',
+                data: {
+                    n1: $("#num1").val(),
+                    n2: $("#num2").val(),
+                },
+                headers: {
+                    'X-CSRFToken': csrfToken
+                },
+                success: function (data) {
+                    console.log(data)
+                    $("#sum").val(data.status)
+                    console.log(last_code.val)
+                     if (data.success) {
+                        // 请求成功后的处理逻辑
+                        console.log('Email code sent successfully');
+                    } else {
+                        // 处理请求失败的情况
+                        console.error('Failed to send email code:');
+                    }
+                },
+            })
+        })
+</script>
+
+</html>

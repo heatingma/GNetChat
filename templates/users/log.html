@@ -11,6 +11,7 @@
     <link rel="stylesheet" href={% static "css/fonts/fonts.css" %}>
     <link rel="stylesheet" href={% static "css/fonts/icons-selected.min.css" %}>
     <link rel="stylesheet" href={% static "css/users/log.css" %}>
+    <script src={% static "js/heatingma/jquery.min.js" %}></script>
     
 </head>
 
@@ -35,9 +36,10 @@
                 <div class="input-box-code">
                     <input name="email_code" type="text" placeholder="邮箱验证码"
                     value='{{ register_form.email_code.value|default:"" }}'>
-                    <a class="code" href="javascript:;">发送验证码</a>
+                    <button class="code" type="button">发送验证码</button>
                     <span name="email_code-msg" class="msg"></span>
                 </div>
+                <input name = "last_email_code" type = "hidden" id = "test_code" >
                 <div class="input-box">
                     <input name="password1" type="password" placeholder="输入密码"
                     value='{{ register_form.password1.value|default:"" }}'>
@@ -48,7 +50,7 @@
                     value='{{ register_form.password2.value|default:"" }}'>
                     <span class="msg"></span>
                 </div>
-                <button name="submit-register">REGISTER</button>
+                <button name="submit-register" type="submit">REGISTER</button>
             </form>
             <!-- login -->
             <form class="login-box" method="post">
@@ -159,11 +161,41 @@
 <script>
     // send code
     const send_code = document.querySelector('.code')
+    const test_last_code = document.querySelector('[name=last_email_code]')
     let send_flag = false
-    send_code.addEventListener('click', function() {
-        email_code_msg.innerHTML = '功能未完全开发, 请随机输入6位数字'
+    send_code.addEventListener('click', function(event) {
+        event.preventDefault(); // 阻止表单的默认提交行为
+        var inputField = document.getElementsByName("email")[0];
+        var inputValue = inputField.value;
+        var csrfToken = $('[name=csrfmiddlewaretoken]').val()
+        $.ajax({
+            type: 'POST',
+            url: '/sendemail/',
+            data: {
+                'to_email':inputValue
+            },
+            headers: {
+                'X-CSRFToken': csrfToken
+            },
+            success: function (response) {
+                if (response.success) {
+                    // 请求成功后的处理逻辑
+                    console.log('Email code sent successfully');
+                    $("#test_code").val(response.sms_code)
+                } else {
+                    // 处理请求失败的情况
+                    console.error('Failed to send email code:', response.errors);
+                }
+            },
+            error: function (xhr, status, error) {
+                // 处理请求错误的情况
+                console.error('Ajax request failed:', error);
+            }
+        });
+        email_code_msg.innerHTML = '验证码已发送,请输入验证码'
         if (send_flag == false){
             send_flag = true
+            // send_code.disabled = true
             let left_seconds = 60
             send_code.innerHTML = `${left_seconds}秒后重新发送`
             let timerId = setInterval(function() {
@@ -171,6 +203,7 @@
                 send_code.innerHTML = `${left_seconds}秒后重新发送`
                 if (left_seconds === 0){
                     send_flag = false
+                    send_code.disabled = false
                     clearInterval(timerId)
                     send_code.innerHTML = "重新获取"
                 }
@@ -233,31 +266,30 @@
     }
 </script>
 
-<script>
+<!-- <script>
 // verifyCode
     const code = document.querySelector('[name=email_code]')
-    const email_code_msg = document.querySelector('[name=email_code-msg]')
     code.addEventListener('change', verifyCode)
     function verifyCode(){
         const reg = /^\d{6}$/
         if (!reg.test(code.value)){
-            email_code_msg.innerHTML = '功能未完全开发, 请随机输入6位数字'
+            email_code_msg.innerHTML = '请输入6位数字'
             return false
         }
         email_code_msg.innerHTML = ''
         return true
     }
-</script>
+</script> -->
 
 <script>
 // verifyPassword
     const psd = document.querySelector('[name=password1]')
     psd.addEventListener('change', verifyPassword)
     function verifyPassword(){
-        const reg = /^[a-zA-Z0-9-_]{6,20}$/
+        const reg = /^[a-zA-Z0-9-_]{8,20}$/
         const msg = psd.nextElementSibling
         if (!reg.test(psd.value)){
-            msg.innerHTML = '输入不合法, 请输入6~20位'
+            msg.innerHTML = '输入不合法, 请输入8~20位'
             return false
         }
         msg.innerHTML = ''
@@ -282,16 +314,23 @@
 
 <script>
     // Submit Register
+    const code = document.querySelector('[name=email_code]')
+    const last_code = document.querySelector('[name=last_email_code]')
+    const email_code_msg = document.querySelector('[name=email_code-msg]')
     const submit_register = document.querySelector('[name=submit-register]')
     let register_flag = true
+
     submit_register.addEventListener('click', function(e){
         register_flag = true
+        if (code.value != last_code.value || !last_code.value) {
+            email_code_msg.innerHTML = '验证码错误'
+            register_flag = false
+        }
         if (!verifyName()) register_flag = false
         if (!verifyMail()) register_flag = false
-        if (!verifyCode()) register_flag = false
         if (!verifyPassword()) register_flag = false
         if (!CheckPassword()) register_flag = false
-        if (register_flag == false)
+        if (register_flag == false) 
             e.preventDefault()
     })
 </script>

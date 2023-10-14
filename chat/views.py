@@ -569,3 +569,4 @@ def contracts(request: HttpRequest, dark=False):
             "friends": user.friends.all()
         }
     )
+
