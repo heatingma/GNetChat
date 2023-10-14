@@ -19,11 +19,4 @@ class LoginForm(forms.Form):
     login_email = forms.CharField()
     login_password = forms.CharField()
 
-# class Email_Code_Form(forms.Form):
-#     email = forms.CharField()
-
-class Test_Form(forms.Form):
-    n1 = forms.CharField()
-    n2 = forms.CharField()
-
 
