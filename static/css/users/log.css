@@ -45,7 +45,7 @@ a {
 }
 
 button {
-    margin: 10px 0 5px;
+    margin: 0px 0 5px;
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
 	background-color: #FF4B2B;
@@ -306,4 +306,47 @@ footer a {
 
 .input-box-code .code-msg {
     margin: 0;
+}
+
+.error-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999 !important;
+    border: 2px solid rgb(246, 196, 245);
+    background-color: #FFFDFD;
+    /* border-radius: 15px; */
+}
+
+.error-body {
+    justify-content: center;
+    flex-direction: column; /* Updated */
+    margin: 5px;
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+}
+
+.error-body p {
+    width: 95%;
+    flex-direction: row;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.error-close {
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.error-close {
+    display: flex;
+    justify-content: flex-end; /* Updated */
+    margin: 10px;
 }
