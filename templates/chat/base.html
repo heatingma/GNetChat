@@ -11,23 +11,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Chatting Room" name="description">
         <meta content="Themesbrand" name="author">
+        
         <!-- dark & light -->
         {% if dark %}
             <link href="{% static "css/chat/dark/bootstrap-dark.min.css" %}" id="bootstrap-style" rel="stylesheet" type="text/css">
             <link href="{% static "css/chat/dark/app-dark.min.css" %}" rel="stylesheet" type="text/css">
+            <link href="{% static "css/chat/dark/guide_dark.css" %}" rel="stylesheet" type="text/css">
         {% else %}
             <link href="{% static "css/chat/light/bootstrap.min.css" %}" id="bootstrap-style" rel="stylesheet" type="text/css">
             <link href="{% static "css/chat/light/app.min.css" %}" rel="stylesheet" type="text/css">
+            <link href="{% static "css/chat/light/guide.css" %}" rel="stylesheet" type="text/css">
         {% endif %}
+        
+        <!-- guide -->
+        <link href="{% static "css/chat/guide/guide.css" %}" rel="stylesheet" >
+
         <!-- fonts -->
         <link href="{% static "css/fonts/fonts.css" %}" rel="stylesheet" type="text/css">
         <link href="{% static "css/fonts/icons-selected.min.css" %}" rel="stylesheet" type="text/css">
         <link href="{% static "css/fonts/icons.min.css" %}" rel="stylesheet" type="text/css">
+        
         <!-- others -->
         <link href="{% static "css/chat/utils/magnific-popup.css" %}" rel="stylesheet" type="text/css">
         <link href="{% static "css/chat/utils/owl.carousel.min.css" %}" rel="stylesheet">
         <link href="{% static "css/chat/utils/owl.theme.default.min.css" %}" rel="stylesheet" >
-        <link href="{% static "css/chat/utils/wrong_message.css" %}" rel="stylesheet" >
+        <link href="{% static "css/chat/utils/wrong_message.css" %}" rel="stylesheet">
+        
     </head>
 
     <body>
@@ -82,5 +91,6 @@
     <script src={% static "js/chat/close.js" %}></script>
     <script src={% static "js/chat/delete.js" %}></script>
     <script src={% static "js/chat/ban_resubmit.js" %}></script>
+    <script src={% static "js/chat/guide.js" %}></script>
 
 </html>

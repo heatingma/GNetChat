@@ -10,8 +10,8 @@ import random
 
 def index(request: HttpRequest):
     return render(
-        request=request, 
-        template_name='users/index.html', 
+        request=request,
+        template_name="users/index.html",
     )
 
 
@@ -102,6 +102,7 @@ def log(request: HttpRequest):
         template_name='users/log.html', 
         context = context
     )
+
 
 
 def sendemail(request: HttpRequest):

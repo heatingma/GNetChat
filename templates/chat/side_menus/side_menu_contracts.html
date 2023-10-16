@@ -39,23 +39,12 @@
         <li class="nav-item" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="Contacts">
             <a href="{% url 'chat:contracts'%}?{{'dark'}}={{dark}}" class="nav-link active" id="pills-contacts-tab" role="tab">
             <i class="ri-contacts-line"></i>
+            {% if new_friends %} <div class="new-friend-remind"></div> {% endif %}
         </a></li>
         <li class="nav-item" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="Settings">
             <a href="{% url 'chat:settings'%}?{{'dark'}}={{dark}}" class="nav-link" id="pills-setting-tab"  role="tab">
             <i class="ri-settings-2-line"></i>
         </a></li>
-
-        <li class="nav-item dropdown profile-user-dropdown d-inline-block d-lg-none">
-            <a class="nav-link dropdown-toggle" href="javascript: void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="static/picture/avatar-1.jpg" alt="" class="profile-user rounded-circle">
-            </a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Profile <i class="ri-profile-line float-right text-muted"></i></a>
-                <a class="dropdown-item" href="#">Setting <i class="ri-settings-3-line float-right text-muted"></i></a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Log out <i class="ri-logout-circle-r-line float-right text-muted"></i></a>
-            </div>
-        </li>
     </ul>
 </div>
 <!-- SIDE BAR TOOLS  -->

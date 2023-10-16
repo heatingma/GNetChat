@@ -679,6 +679,18 @@ background-color: rgba(6, 214, 160, .4);
     border: 0px;
     margin: 0px;
 }
+.new-friend-remind {
+    width: 14px ;
+    height: 14px ;
+    background-color: #aa3636 ;
+    border-radius: 50% ;
+    border: 2px solid #662020 ;
+    position: absolute;
+    right: -8%;
+    top: -8%;
+    margin: 1px;
+    z-index: 999 !important;
+}
 
 @media (max-width: 991.98px) {
     .side-menu {
@@ -689,6 +701,18 @@ background-color: rgba(6, 214, 160, .4);
         min-height: auto;
         display: block;
         border-top: 1px solid #36404a;
+    }
+    .new-friend-remind {
+        width: 10px ;
+        height: 10px ;
+        background-color: #aa3636 ;
+        border-radius: 50% ;
+        border: 2px solid #662020 ;
+        position: absolute;
+        right: 20%;
+        top: 8%;
+        margin: 1px;
+        z-index: 999 !important;
     }
 }
 
@@ -720,6 +744,7 @@ background-color: rgba(6, 214, 160, .4);
 
 .side-menu-nav .nav-item {
     margin: 7px 0;
+    position: relative;
 }
 
 @media (max-width: 991.98px) {
