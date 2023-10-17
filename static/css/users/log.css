@@ -14,11 +14,14 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
 	margin: -20px 0 50px;
+	font-family: "arlrdbd";
+	font-weight: bolder;
 }
 
 h1 {
-	font-weight: bold;
-	margin-bottom: 20px;
+	font-size: 2rem;
+	font-weight: bolder;
+	margin: 20px;
 }
 
 h2 {
@@ -45,7 +48,9 @@ a {
 }
 
 button {
-    margin: 0px 0 5px;
+	width: 120px;
+	height: 40px;
+    margin: 10px;
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
 	background-color: #FF4B2B;
@@ -56,7 +61,18 @@ button {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer !important;
+	font-family: "comicbd";
+	font-weight: bolder !important;
 }
+
+button:hover{
+	background-color: #ff6d6d !important;
+}
+
 
 button:active {
 	transform: scale(0.95);
@@ -97,9 +113,9 @@ input {
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
-	width: 768px;
+	width: 900px;
 	max-width: 100%;
-	min-height: 530px;
+	height: 600px;
 }
 
 .form-container {
@@ -193,6 +209,7 @@ input {
 	width: 50%;
 	transform: translateX(0);
 	transition: transform 0.6s ease-in-out;
+	font-family: "comicbd";
 }
 
 .overlay-left {
@@ -252,16 +269,22 @@ footer a {
     text-decoration: none;
 }
 
+.input-box input{
+	border-radius: 5px;
+	font-family: "comicbd";
+}
+
 .input-box, .input-box-code{
-    width: 300px;
-    height: 60px;
+    width: 260px;
+    height: 70px;
     margin-top: 1px;
     margin-bottom: 1px;
-    font-family:'Montserrat', sans-serif;
+    font-family: "comicbd";
     font-size: medium;
 }
+
 .input-box input, .input-box-code input {
-    width: 300px;
+    width: 260px;
     padding: 0%;
     height: 40px;
     margin-top: 0px;
@@ -270,13 +293,23 @@ footer a {
     display: flex;
     float: left;
     border-bottom: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "comicbd";
     font-size: medium;
     text-indent: 10px;
 }
+
 .input-box-code input {
     width: 150px;
 }
+
+.input-box-code button{
+	margin: 0px;
+	padding: 0px;
+	width: 100px;
+	display: inline;
+	margin-left: 10px;
+}
+
 .input-box span, .input-box-code span{
     width: 300px;
     padding: 0%;
@@ -288,10 +321,11 @@ footer a {
     align-content: center;
     float: left;
     border-bottom: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: small;
+    font-size: medium;
+	font-family: "xinwei";
     color: red;
 }
+
 .input-box-code a {
     display: flex;
     float: right;
@@ -318,8 +352,10 @@ footer a {
     display: flex;
     flex-direction: column;
     z-index: 9999 !important;
-    border: 2px solid rgb(246, 196, 245);
+	border: 2px solid rgb(240, 86, 207);
+	border-radius: 10px;
     background-color: #FFFDFD;
+	font-family: "comicbd";
     /* border-radius: 15px; */
 }
 
@@ -343,10 +379,16 @@ footer a {
     margin-bottom: 20px;
     position: relative;
     text-align: center;
-}
-
-.error-close {
     display: flex;
     justify-content: flex-end; /* Updated */
     margin: 10px;
+}
+
+.error-close button{
+	margin-top: 0px;
+	max-width: 0px;
+	width: 20px !important;
+	padding: 12px 12px;
+	border-radius: 2px;
+	height: 20px;
 }

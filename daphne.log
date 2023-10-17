@@ -44,3 +44,8 @@
 127.0.0.1:55822 - - [17/Oct/2023:14:33:24] "WSCONNECT /ws/chat/chat/adminsjtu/" - -
 127.0.0.1:48988 - - [17/Oct/2023:14:33:28] "WSDISCONNECT /ws/chat/chat/faiimea/" - -
 127.0.0.1:55822 - - [17/Oct/2023:14:33:28] "WSDISCONNECT /ws/chat/chat/adminsjtu/" - -
+2023-10-17 17:17:31,059 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-17 17:17:31,059 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-17 17:17:31,060 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-17 17:17:31,060 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-17 17:28:28,948 INFO     Killed 0 pending application instances

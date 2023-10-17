@@ -20,7 +20,7 @@
 		<div class="form-container sign-up-container">
 			<form class="register-box hidden" method="post">
 				 {% csrf_token %}
-				<h1>Create Account</h1>
+				<h1 style="margin-bottom: 40px;">Create Account</h1>
 				<div class="input-box">
                     <input name="username" type="text" placeholder="Input Username"
                     value='{{ register_form.usename.value|default:"" }}'>
@@ -50,13 +50,13 @@
                     value='{{ register_form.password2.value|default:"" }}'>
                     <span class="msg"></span>
                 </div>
-				<button name="submit-register" type="submit">REGISTER</button>
+				<button class="register-button" name="submit-register" type="submit">REGISTER</button>
 			</form>
 		</div>
 		<div class="form-container sign-in-container">
 			<form class="login-box" method="post">
                 {% csrf_token %}
-                <h1>Login</h1>
+                <h1 style="margin-bottom: 50px; font-size:40px">Login</h1>
                 <div class="input-box">
                     <input name="login_email" type="text" placeholder="Input Email"
                     value='{{ login_form.login_email.value|default:"" }}'>
@@ -67,28 +67,31 @@
                     value='{{ login_form.login_password.value|default:"" }}'>
                     <span class="msg"></span>
                 </div>
-                <button name="submit-login" style="margin-top: 40px;">LOGIN</button>
-                <button name="return">RETURN</button>
+                <button type="submit" class="register-button" name="submit-login" style="margin-top: 40px;">LOGIN</button>
+                <button type="button" > <a href="{% url 'users:index' %}" style="color: white;"> HOME </a> </button>
             </form>
 		</div>
 		<div class="overlay-container">
 			<div class="overlay">
 				<div class="overlay-panel overlay-left">
 					<h1>Welcome Back!</h1>
-					<p>To keep connected with GNet, please login with your personal info</p>
-					<button class="ghost" id="signIn">Sign In</button>
+					<!-- <p>To keep connected with GNet, please login with your personal info</p> -->
+                    <p style="margin-bottom: 2px;">To keep connected with GNet, </p>
+                    <p style="margin-top: 2px;">please login with your personal info</p>
+                    <button class="ghost" id="signIn" style="width: 160px;" >Sign In</button>
 				</div>
 				<div class="overlay-panel overlay-right">
 					<h1>Hello, GNFriend!</h1>
-					<p>Enter your personal details and start journey with GNet</p>
-					<button class="ghost" id="signUp">Sign Up</button>
+					<p style="margin-bottom: 2px;">Enter your personal details</p>
+                    <p style="margin-top: 2px;">and start journey with GNet</p>
+					<button class="ghost" id="signUp" style="width: 160px;">Sign Up</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
     {% if username_errors %}
-     <div class="error-box" style="width:250px; height:120px">
+     <div class="error-box" style="width:250px; height:165px">
          <div class="error-body">
              {% for error in username_errors %}
                  <p>{{ error }}</p>
@@ -101,7 +104,7 @@
          </div>
      </div>
      {% elif email_errors %}
-         <div class="error-box" style="width:250px; height:120px">
+         <div class="error-box" style="width:250px; height:165px">
              <div class="error-body">
                  {% for error in email_errors %}
                      <p>{{ error }}</p>
@@ -127,7 +130,7 @@
              </div>
          </div>
      {% elif login_error %}
-         <div class="error-box" style="width:200px; height:120px">
+         <div class="error-box" style="width:260px; height:150px">
              <div class="error-body">
                  <p>{{ login_error }}</p>
              </div>
@@ -139,249 +142,8 @@
          </div>
      {% endif %}
 
-	<script>
-		const signUpButton = document.getElementById('signUp');
-		const signInButton = document.getElementById('signIn');
-		const container = document.getElementById('container');
-
-		signUpButton.addEventListener('click', () => {
-			container.classList.add("right-panel-active");
-		});
-
-		signInButton.addEventListener('click', () => {
-			container.classList.remove("right-panel-active");
-		});
-
-
-	</script>
-<script>
-// register & login box
-    let login=document.getElementById('login');
-    let register=document.getElementById('register');
-    let form_box=document.getElementsByClassName('form-box')[0];
-    let register_box=document.getElementsByClassName('register-box')[0];
-    let login_box=document.getElementsByClassName('login-box')[0];
-    register.addEventListener('click',()=>{
-        form_box.style.transform='translateX(80%)';
-        login_box.classList.add('hidden');
-        register_box.classList.remove('hidden');
-    })
-    login.addEventListener('click', () => {
-        form_box.style.transform = 'translateX(0%)';
-        register_box.classList.add('hidden');
-        login_box.classList.remove('hidden');
-    })
-</script>
-
-<script>
-    // send code
-    const send_code = document.querySelector('.code')
-    const test_last_code = document.querySelector('[name=last_email_code]')
-    let send_flag = false
-    send_code.addEventListener('click', function (event) {
-        event.preventDefault(); // 阻止表单的默认提交行为
-        var inputField = document.getElementsByName("email")[0];
-        var inputValue = inputField.value;
-        var csrfToken = $('[name=csrfmiddlewaretoken]').val()
-        $.ajax({
-            type: 'POST',
-            url: '/sendemail/',
-            data: {
-                'to_email': inputValue
-            },
-            headers: {
-                'X-CSRFToken': csrfToken
-            },
-            success: function (response) {
-                if (response.success) {
-                    // 请求成功后的处理逻辑
-                    console.log('Email code sent successfully');
-                    $("#test_code").val(response.sms_code)
-                } else {
-                    // 处理请求失败的情况
-                    console.error('Failed to send email code:', response.errors);
-                }
-            },
-            error: function (xhr, status, error) {
-                // 处理请求错误的情况
-                console.error('Ajax request failed:', error);
-            }
-        });
-<!--        email_code_msg.innerHTML = 'Have Sent'-->
-        if (send_flag == false) {
-            send_flag = true
-            // send_code.disabled = true
-            let left_seconds = 60
-            send_code.innerHTML = `${left_seconds} `
-            let timerId = setInterval(function () {
-                left_seconds--
-                send_code.innerHTML = `${left_seconds}`
-                if (left_seconds === 0) {
-                    send_flag = false
-                    send_code.disabled = false
-                    clearInterval(timerId)
-                    send_code.innerHTML = "Send"
-                }
-            }, 1000)
-        }
-    })
-</script>
-
-<script>
-    // LOGIN-Name
-    const login_email = document.querySelector('[name=login_email]')
-    login_email.addEventListener('change', CheckLoginEmail)
-    function CheckLoginEmail() {
-        const msg = login_email.nextElementSibling
-        msg.innerHTML = ''
-        return true
-    }
-</script>
-
-<script>
-    // LOGIN-PSD
-    const login_psd = document.querySelector('[name=login_password]')
-    login_psd.addEventListener('change', CheckLoginPsd)
-    function CheckLoginPsd() {
-        const msg = login_psd.nextElementSibling
-        msg.innerHTML = ''
-        return true
-    }
-</script>
-
-<script>
-    // verifyName
-    const username = document.querySelector('[name=username]')
-    username.addEventListener('change', verifyName)
-    function verifyName() {
-        const reg = /^[a-zA-Z0-9-_]{6,20}$/
-        const msg = username.nextElementSibling
-        if (!reg.test(username.value)) {
-            msg.innerHTML = '输入不合法, 请输入6~20位'
-            return false
-        }
-        msg.innerHTML = ''
-        return true
-    }
-</script>
-
-<script>
-    // verifyMail
-    const email = document.querySelector('[name=email]')
-    email.addEventListener('change', verifyMail)
-    function verifyMail() {
-        const reg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-        const msg = email.nextElementSibling
-        if (!reg.test(email.value)) {
-            msg.innerHTML = '邮箱不合法, 请输入正确的邮箱'
-            return false
-        }
-        msg.innerHTML = ''
-        return true
-    }
-</script>
-
-<!--<script>-->
-<!--// verifyCode-->
-<!--    const code = document.querySelector('[name=email_code]')-->
-<!--    const email_code_msg = document.querySelector('[name=email_code-msg]')-->
-<!--    code.addEventListener('change', verifyCode)-->
-<!--    function verifyCode(){-->
-<!--        const reg = /^\d{6}$/-->
-<!--        if (!reg.test(code.value)){-->
-<!--            email_code_msg.innerHTML = '功能未完全开发, 请随机输入6位数字'-->
-<!--            return false-->
-<!--        }-->
-<!--        email_code_msg.innerHTML = ''-->
-<!--        return true-->
-<!--    }-->
-<!--</script>-->
-
-<script>
-    // verifyPassword
-    const psd = document.querySelector('[name=password1]')
-    psd.addEventListener('change', verifyPassword)
-    function verifyPassword() {
-        const reg = /^[a-zA-Z0-9-_]{8,20}$/
-        const msg = psd.nextElementSibling
-        if (!reg.test(psd.value)) {
-            msg.innerHTML = '输入不合法, 请输入8~20位'
-            return false
-        }
-        msg.innerHTML = ''
-        return true
-    }
-</script>
-
-<script>
-    // CheckPassword
-    const check_psd = document.querySelector('[name=password2]')
-    check_psd.addEventListener('change', CheckPassword)
-    function CheckPassword() {
-        const msg = check_psd.nextElementSibling
-        if (psd.value === check_psd.value) {
-            msg.innerHTML = ''
-            return true
-        }
-        msg.innerHTML = '两次密码输入不一致'
-        return false
-    }
-</script>
-
-<script>
-    // Submit Register
-    const code = document.querySelector('[name=email_code]')
-    const last_code = document.querySelector('[name=last_email_code]')
-    const email_code_msg = document.querySelector('[name=email_code-msg]')
-    const submit_register = document.querySelector('[name=submit-register]')
-    let register_flag = true
-
-    submit_register.addEventListener('click', function (e) {
-        register_flag = true
-        if (code.value != last_code.value || !last_code.value) {
-            email_code_msg.innerHTML = '验证码错误'
-            register_flag = false
-        }
-        if (!verifyName()) register_flag = false
-        if (!verifyMail()) register_flag = false
-        if (!verifyPassword()) register_flag = false
-        if (!CheckPassword()) register_flag = false
-        if (register_flag == false)
-            e.preventDefault()
-    })
-</script>
-
-<script>
-    // Submit Login
-    const submit_login = document.querySelector('[name=submit-login]')
-    let login_flag = true
-    submit_login.addEventListener('click', function (e) {
-        login_flag = true
-        if (!CheckLoginEmail()) login_flag = false
-        if (!CheckLoginPsd()) login_flag = false
-        if (login_flag == false)
-            e.preventDefault()
-    })
-</script>
-
-<script>
-    // Return Home
-    const return_home = document.querySelector('[name=return]')
-    return_home.addEventListener('click', function () {
-        window.location.href = 'index.html';
-    })
-</script>
-
-<script>
-    // close the error box
-    var closeButton = document.getElementById('close');
-    closeButton.addEventListener('click', function () {
-        var errorBox = this.closest('.error-box');
-        if (errorBox) {
-            errorBox.style.display = 'none';
-        }
-    });
-</script>
-
 </body>
+
+<script src={% static "js/users/log.js" %}></script>
+
 </html>

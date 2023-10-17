@@ -12,12 +12,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
-CSRF_TRUSTED_ORIGINS = [
-    # "https://gnetchat.cn",
-    "http://gnetchat.cn",
-    # "https://heatingma.cn",
-    "gnetchat.cn",
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     # "https://gnetchat.cn",
+#     "http://gnetchat.cn",
+#     # "https://heatingma.cn",
+#     "gnetchat.cn",
+# ]
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,7 +32,7 @@ MEDIA_URL = "/media/"
 SECRET_KEY = "django-insecure-dwa!f+=t#-%qnu%n%epoxz5gdk1h-xprp0gz$kvzfesm*$8mxp"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
