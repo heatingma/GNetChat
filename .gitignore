@@ -4,3 +4,15 @@
 
 # Ignore .sqlite3 files
 *.sqlite3
+
+idea/
+
+chat/__pycache__/*
+
+users/__pycache__/*
+
+*/__pycache__/*
+
+*.DS_Store
+
+*/*.DS_Store
