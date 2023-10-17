@@ -4,7 +4,7 @@
 uwsgi --stop uwsgi.pid
 
 # 停止 daphne 进程
-pkill -f "daphne website.asgi:application"
+supervisorctl stop daphne
 
 # 停止 Redis 服务器
 redis-cli shutdown

@@ -1,0 +1,46 @@
+2023-10-17 14:15:47,985 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-17 14:15:47,986 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-17 14:15:47,986 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-17 14:15:47,986 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-17 14:16:27,315 INFO     Killed 0 pending application instances
+2023-10-17 14:25:09,457 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-17 14:25:09,457 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-17 14:25:09,458 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-17 14:25:09,458 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-17 14:33:28,864 INFO     Killed 2 pending application instances
+127.0.0.1:35490 - - [17/Oct/2023:14:25:34] "WSCONNECTING /ws/chat/chatroom/Test2/chatting_Test2/" - -
+127.0.0.1:35490 - - [17/Oct/2023:14:25:35] "WSCONNECT /ws/chat/chatroom/Test2/chatting_Test2/" - -
+127.0.0.1:35490 - - [17/Oct/2023:14:27:18] "WSDISCONNECT /ws/chat/chatroom/Test2/chatting_Test2/" - -
+127.0.0.1:40854 - - [17/Oct/2023:14:27:27] "WSCONNECTING /ws/chat/chatroom/Hello/chatting_Hello/" - -
+127.0.0.1:40854 - - [17/Oct/2023:14:27:27] "WSCONNECT /ws/chat/chatroom/Hello/chatting_Hello/" - -
+127.0.0.1:40854 - - [17/Oct/2023:14:27:34] "WSDISCONNECT /ws/chat/chatroom/Hello/chatting_Hello/" - -
+127.0.0.1:47514 - - [17/Oct/2023:14:29:10] "WSCONNECTING /ws/chat/chat/faiimea/" - -
+127.0.0.1:47514 - - [17/Oct/2023:14:29:10] "WSCONNECT /ws/chat/chat/faiimea/" - -
+127.0.0.1:47526 - - [17/Oct/2023:14:29:14] "WSCONNECTING /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:47526 - - [17/Oct/2023:14:29:14] "WSCONNECT /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:47526 - - [17/Oct/2023:14:29:16] "WSDISCONNECT /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:45146 - - [17/Oct/2023:14:29:25] "WSCONNECTING /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:45146 - - [17/Oct/2023:14:29:25] "WSCONNECT /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:47514 - - [17/Oct/2023:14:29:33] "WSDISCONNECT /ws/chat/chat/faiimea/" - -
+127.0.0.1:52112 - - [17/Oct/2023:14:29:33] "WSCONNECTING /ws/chat/chat/faiimea/" - -
+127.0.0.1:52112 - - [17/Oct/2023:14:29:33] "WSCONNECT /ws/chat/chat/faiimea/" - -
+127.0.0.1:52112 - - [17/Oct/2023:14:29:37] "WSDISCONNECT /ws/chat/chat/faiimea/" - -
+127.0.0.1:45146 - - [17/Oct/2023:14:30:41] "WSDISCONNECT /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:59150 - - [17/Oct/2023:14:30:42] "WSCONNECTING /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:59150 - - [17/Oct/2023:14:30:42] "WSCONNECT /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:48988 - - [17/Oct/2023:14:30:48] "WSCONNECTING /ws/chat/chat/faiimea/" - -
+127.0.0.1:48988 - - [17/Oct/2023:14:30:48] "WSCONNECT /ws/chat/chat/faiimea/" - -
+127.0.0.1:59150 - - [17/Oct/2023:14:31:49] "WSDISCONNECT /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:38890 - - [17/Oct/2023:14:31:52] "WSCONNECTING /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:38890 - - [17/Oct/2023:14:31:52] "WSCONNECT /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:38890 - - [17/Oct/2023:14:32:06] "WSDISCONNECT /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:34152 - - [17/Oct/2023:14:32:30] "WSCONNECTING /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:34152 - - [17/Oct/2023:14:32:30] "WSCONNECT /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:34152 - - [17/Oct/2023:14:32:32] "WSDISCONNECT /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:55820 - - [17/Oct/2023:14:33:18] "WSCONNECTING /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:55820 - - [17/Oct/2023:14:33:18] "WSCONNECT /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:55820 - - [17/Oct/2023:14:33:21] "WSDISCONNECT /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:55822 - - [17/Oct/2023:14:33:24] "WSCONNECTING /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:55822 - - [17/Oct/2023:14:33:24] "WSCONNECT /ws/chat/chat/adminsjtu/" - -
+127.0.0.1:48988 - - [17/Oct/2023:14:33:28] "WSDISCONNECT /ws/chat/chat/faiimea/" - -
+127.0.0.1:55822 - - [17/Oct/2023:14:33:28] "WSDISCONNECT /ws/chat/chat/adminsjtu/" - -

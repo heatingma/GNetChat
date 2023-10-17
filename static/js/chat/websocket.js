@@ -24,7 +24,7 @@ function add_message(user, message){
         flag = 1;
     }
     if (user != cur_user){
-        chatLog.innerHTML += `<li><div class="conversation-list" style="max-width: 40%;>
+        chatLog.innerHTML += `<li><div class="conversation-list" style="max-width: 40%";>
         <!-- HIS OR HER AVATAR -->
         <div class="chat-avatar"><img src=${img_url} alt=""></div>
         <!-- HIS OR HER AVATAR -->
@@ -41,7 +41,8 @@ function add_message(user, message){
             <div class="conversation-name">${user}</div>
         </div>
         <!-- CONTENT -->
-    </div></li>`}
+    </div></li>`
+    }
     else{        
         chatLog.innerHTML += `<li class="right"><div class="conversation-list" style="max-width: 40%;">
         <!-- HIS OR HER AVATAR -->
@@ -84,7 +85,7 @@ function onlineUsersSelectorRemove(user) {
 
 // connect
 function connect() {
-    chatSocket = new WebSocket("ws://" + window.location.host + "/ws/chat/chatroom/" + room_name +"/" + cur_post);
+    chatSocket = new WebSocket("wss://gnetchat.cn/ws/chat/chatroom/" + room_name + "/" + cur_post + "/");
     // connect the WebSocket
     chatSocket.onopen = function(e) {
         console.log("Successfully connected to the WebSocket.");

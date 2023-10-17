@@ -13,9 +13,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://gnetchat.cn",
+    # "https://gnetchat.cn",
     "http://gnetchat.cn",
-    "https://heatingma.cn",
+    # "https://heatingma.cn",
+    "gnetchat.cn",
 ]
 
 
@@ -31,7 +32,7 @@ MEDIA_URL = "/media/"
 SECRET_KEY = "django-insecure-dwa!f+=t#-%qnu%n%epoxz5gdk1h-xprp0gz$kvzfesm*$8mxp"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 

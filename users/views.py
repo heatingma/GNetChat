@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.http import JsonResponse
 import random
+from django.views.decorators.csrf import csrf_exempt
 
 
 def index(request: HttpRequest):
@@ -14,7 +15,7 @@ def index(request: HttpRequest):
         template_name="users/index.html",
     )
 
-
+@csrf_exempt
 def log(request: HttpRequest):
     # action when request method is GET
     if request.method == "GET":

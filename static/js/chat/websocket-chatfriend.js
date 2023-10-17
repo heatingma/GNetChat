@@ -64,7 +64,7 @@ function add_message(user, message){
 
 // connect
 function connect() {
-    chatSocket2 = new WebSocket("ws://" + window.location.host + "/ws/chat/chat/" + friend_name);
+    chatSocket2 = new WebSocket("wss://gnetchat.cn/ws/chat/chat/" + friend_name + "/");
     // connect the WebSocket
     chatSocket2.onopen = function(e) {
         console.log("Successfully connected to the WebSocket.");

@@ -567,7 +567,7 @@ def contracts(request: HttpRequest, dark=False):
                 flag = True
             except:
                 try:
-                    fm = FriendRoom.objects.get(user_1=user, user_2=friend) 
+                    fm = FriendRoom.objects.get(user_1=friend, user_2=user) 
                     flag = True 
                 except:
                     flag = False
