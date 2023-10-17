@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest,HttpResponse
 from .forms import LoginForm, RegisterForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
+from django.forms.utils import ErrorList
 from django.core.mail import send_mail
 from django.http import JsonResponse
 import random
 from django.views.decorators.csrf import csrf_exempt
-
 
 def index(request: HttpRequest):
     return render(
@@ -72,22 +72,40 @@ def log(request: HttpRequest):
                     "login_form": login_form,
                     "email_code_errors": email_code_errors,
                 }
-
         # collect errors
         else:
             # return errors for user
             username_errors = register_form.errors.get("username")
             email_errors = register_form.errors.get("email")
             password_errors = register_form.errors.get("password2")
+            username_errors_show = None
+            email_errors_show = None
+            password_errors_show = None
+            if(username_errors):
+                username_errors_show = ErrorList()
+                username_errors_show.append(username_errors[0])
+            if(email_errors):
+                email_errors_show = ErrorList()
+                email_errors_show.append(email_errors[0])
+            if(password_errors):
+                password_errors_show = ErrorList()
+                password_errors_show.append(password_errors[0])
             context = {
                 "register_form": register_form,
                 "login_form": login_form,
-                "username_errors": username_errors,
-                "email_errors": email_errors,
-                "password_errors": password_errors,
-            }
+                "username_errors": username_errors_show,
+                "email_errors": email_errors_show,
+                "password_errors":  password_errors_show,
+            }            
 
-    return render(request=request, template_name="users/log.html", context=context)
+    return render(
+        request=request, 
+        template_name='users/log.html', 
+        context = context
+    )
+
+
+
 def sendemail(request: HttpRequest):
     if request.headers.get("x-requested-with") == "XMLHttpRequest":
         to_email = request.POST.get("to_email")
