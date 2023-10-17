@@ -1,1 +1,6 @@
-.pyc
+Copy
+# Ignore .pyc files
+*.pyc
+
+# Ignore .sqlite3 files
+*.sqlite3
