@@ -74,9 +74,9 @@ def log(request: HttpRequest):
         # collect errors
         else:
             # return errors for user
-            username_errors = register_form.errors.get('username')
-            email_errors = register_form.errors.get('email')
-            password_errors = register_form.errors.get('password2')
+            username_errors = register_form.errors.get("username")
+            email_errors = register_form.errors.get("email")
+            password_errors = register_form.errors.get("password2")
             username_errors_show = None
             email_errors_show = None
             password_errors_show = None
