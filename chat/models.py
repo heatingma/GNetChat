@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 import mimetypes
 from django.core.exceptions import ValidationError
 import pypinyin
-from chat.utils import cmds
+from chat.utils import cmds, format_link
 
 
 commands = cmds()
@@ -315,7 +315,7 @@ class LINK(models.Model):
 
     @property
     def image_url(self):
-        file_path = str(self.url).replace("https://", "").replace("http://", "").replace("www", "").replace('/', '_').replace('\\', '_').replace('?', '_').replace('.','_')
+        file_path = format_link(str(self.url))
         file_path = "media/link_image/{}.png".format(file_path)
         if os.path.exists(file_path):
             return "/"+file_path

@@ -11,7 +11,7 @@ from .models import Profile, Room, RoomMessage, Post, Tag, Friend_Request, \
     FMMessage, FriendRoom,\
     LINK
 from users.models import User
-from chat.utils import is_chinese
+from chat.utils import is_chinese, https_link
 import json
 import os
 import shutil
@@ -357,6 +357,20 @@ def chatfriend(request: HttpRequest, friend_name, dark=False):
                 rm.save()
             except:
                 wrong_message = "File size cannot exceed 5MB."
+        # add top friends
+        if "select_top_friends" in request.POST:
+            select_top_friends = request.POST.getlist("select_top_friends")
+            for friend_name in select_top_friends:
+                friend = User.objects.get(username=friend_name)
+                if friend not in user.top_friends.all():
+                    user.top_friends.add(friend)
+        # delete top friends           
+        if "delete_top_friends" in request.POST:
+            delete_top_friends = request.POST.getlist("delete_top_friends")
+            for friend_name in delete_top_friends:
+                friend = User.objects.get(username=friend_name)
+                if friend in user.top_friends.all():
+                    user.top_friends.remove(friend)
                 
     return render(
         request=request, 
@@ -483,6 +497,7 @@ def my(request: HttpRequest, dark=False):
         # deal with link adding
         if link_form.is_valid():
             link_url = link_form.cleaned_data["add_link"]
+            link_url = https_link(link_url)  
             link_name = link_form.cleaned_data["add_name"]
             link = LINK.objects.filter(url=link_url, user=user)
             if link:

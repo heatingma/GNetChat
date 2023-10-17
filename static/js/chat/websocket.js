@@ -1,5 +1,7 @@
 // variable
 let chatMessageInput = document.querySelector("#chatMessageInput");
+chatMessageInput.focus();
+
 let chatMessageSend = document.querySelector("#chatMessageSend");
 let onlineUsersSelector = document.querySelector("#onlineUsersSelector");
 let a_cur_room = document.querySelector("#cur_room_name");
@@ -85,7 +87,9 @@ function onlineUsersSelectorRemove(user) {
 
 // connect
 function connect() {
-    chatSocket = new WebSocket("wss://gnetchat.cn/ws/chat/chatroom/" + room_name + "/" + cur_post + "/");
+    var hostname = window.location.host;
+    var protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+    chatSocket = new WebSocket(protocol + hostname + "/ws/chat/chatroom/" + room_name + "/" + cur_post + "/");
     // connect the WebSocket
     chatSocket.onopen = function(e) {
         console.log("Successfully connected to the WebSocket.");
@@ -149,7 +153,7 @@ chatMessageSend.addEventListener('click', function(event){
 // connect and actions
 connect();
 chatLog_container.scrollTop = chatLog.scrollHeight;
-chatMessageInput.focus();
+
 // submit if the user presses the enter key
 chatMessageInput.onkeyup = function(e) {
     if (e.keyCode === 13) {  // enter key

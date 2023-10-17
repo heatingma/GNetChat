@@ -1,5 +1,7 @@
 // variable
 let chatMessageInput = document.querySelector("#chatMessageInput");
+chatMessageInput.focus();
+
 let chatMessageSend = document.querySelector("#chatMessageSend");
 let chatLog = document.querySelector("#chatLog");
 let chatLog_container = document.getElementById('chatLog-container');
@@ -64,7 +66,9 @@ function add_message(user, message){
 
 // connect
 function connect() {
-    chatSocket2 = new WebSocket("wss://gnetchat.cn/ws/chat/chat/" + friend_name + "/");
+    var hostname = window.location.host;
+    var protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+    chatSocket2 = new WebSocket(protocol + hostname + "/ws/chat/chat/" + friend_name + "/");
     // connect the WebSocket
     chatSocket2.onopen = function(e) {
         console.log("Successfully connected to the WebSocket.");
@@ -114,7 +118,7 @@ chatMessageSend.addEventListener('click', function(event){
 // connect and actions
 connect();
 chatLog_container.scrollTop = chatLog.scrollHeight;
-chatMessageInput.focus();
+
 // submit if the user presses the enter key
 chatMessageInput.onkeyup = function(e) {
     if (e.keyCode === 13) {  // enter key

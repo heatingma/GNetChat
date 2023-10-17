@@ -1,14 +1,25 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from users.models import User
-from .models import Profile, RoomMessage, Room, Post, Tag
+from .models import Profile, RoomMessage, Room, Post, Tag, LINK
 from django.shortcuts import get_object_or_404
+
+
+DEFAULT_LINKS = [("https://i.sjtu.edu.cn/xtgl/login_slogin.html", "isjtu"),
+                 ("https://mail.sjtu.edu.cn/zimbra", "jmail"), 
+                 ("https://jbox.sjtu.edu.cn", "jbox"),
+                 ("https://cnmooc.org/", "CNMOOC")]
 
 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)
+        user = instance
+        user: User
+        Profile.objects.create(user=user)
+        for link in DEFAULT_LINKS:
+            LINK.objects.create(url=link[0], name = link[1], user=user)
+        
         
         
 @receiver(post_save, sender=Room)

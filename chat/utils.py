@@ -13,9 +13,19 @@ def is_chinese(text):
     return match is not None
 
 
-###################################################
-#                  Command Class                  #
-###################################################
+def format_link(link:str):
+    link = link.replace("https://", "").replace("http://", "").replace("www.", "").replace('/', '_').replace('\\', '_').replace('?', '_').replace('.','_')
+    if not link.endswith("_"):
+        link += "_"
+    return link
+
+
+
+def https_link(link:str):
+    link = link.replace("https://", "").replace("http://", "").replace("www.", "")
+    link = "https://" + link
+    return link
+
 
 class cmds:
     """
