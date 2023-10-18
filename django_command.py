@@ -19,8 +19,8 @@ os.system("python manage.py runserver")
 #           create superuser           #
 ########################################
 # email: heatingma@sjtu.edu.cn
-# username: adminsjtu
-# password: nis-3368
+# username: heatingma
+# password: see in the super_psw.docx
 # os.system("python manage.py createsuperuser")
 
 

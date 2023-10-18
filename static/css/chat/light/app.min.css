@@ -843,7 +843,7 @@ body::-webkit-scrollbar{
 }
 
 .chat-message-list {
-    height: calc(80vh - 280px);
+    height: calc(80vh - 180px);
 }
 
 @media (max-width: 991.98px) {

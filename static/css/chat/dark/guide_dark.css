@@ -31,12 +31,15 @@
 	font-size: 3em;
 	color: #7a72a5;
 	padding-bottom: 15px;
-	text-align: left
+	text-align: left;
+	display: flex;
 }
 
 
 .guide-content{
 	width: 80%;
+	height: 130px;
+	overflow-y: scroll;
 	margin-left: 10%;
 	margin-right: 10%;
 	display: flex;
@@ -45,6 +48,18 @@
 	background-color: #262e35;
 	flex-wrap: wrap; 
 }
+
+
+.guide-content::-webkit-scrollbar {
+	background-color: #656161;
+	border-radius: 5px;
+}
+
+.guide-content::-webkit-scrollbar-thumb {
+	background-color: #423c3c;
+}
+
+
 
 .guide-example-container{
 	width: 140px;
@@ -142,3 +157,27 @@
 	height: 60px; 
 }
 
+.guide-hidden-show{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: smaller;
+	margin: 2px;
+	margin-right: 5px;
+	border: none;
+	background-color: transparent;
+	color: #a798fa; 
+}
+
+.guide-content {
+	opacity: 1;
+	transition: opacity 1s ease;
+	visibility: visible;
+}
+  
+.guide-content-display-hidden {
+	opacity: 0;
+	transition: opacity 1s ease;
+	visibility: hidden;
+}

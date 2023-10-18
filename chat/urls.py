@@ -1,14 +1,16 @@
 
 from django.urls import path
-from chat import views
+from chat.views import chat, chatfriend, chatroom, contracts, \
+    groups, innerroom, my, settings
 
+  
 urlpatterns = [
-    path('my/', views.my, name='my'),
-    path('chat/', views.chat, name='chat'),
-    path('chat/<str:friend_name>/', views.chatfriend, name='chatfriend'),
-    path('groups/', views.groups, name='groups'),
-    path('chatroom/', views.chatroom, name='chatroom'),
-    path('chatroom/<str:room_name>/<str:post_name>/', views.innerroom, name='innerroom'),
-    path('contracts/', views.contracts, name='contracts'),
-    path('settings/', views.settings, name='settings'),
+    path('my/', my, name='my'),
+    path('chat/', chat, name='chat'),
+    path('chat/<str:friend_name>/', chatfriend, name='chatfriend'),
+    path('groups/', groups, name='groups'),
+    path('chatroom/', chatroom, name='chatroom'),
+    path('chatroom/<str:room_name>/<str:post_name>/', innerroom, name='innerroom'),
+    path('contracts/', contracts, name='contracts'),
+    path('settings/', settings, name='settings'),
 ]

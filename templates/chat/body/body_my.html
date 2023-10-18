@@ -15,10 +15,16 @@
         </div>
 
         <div class="header-container p-4">
-            <div class="header"> Guide </div>
+
+            <div class="header"> 
+                <button class="guide-hidden-show" id="guide-hidden-show">
+                    <i class="mdi mdi-chevron-down" id="guide-down-right"></i> 
+                </button>
+                Guide 
+            </div>
         </div>
 
-        <div class="guide-content">
+        <div class="guide-content" id="guide-content">
 
             {% for link in links %}
             <div class="guide-example-container">

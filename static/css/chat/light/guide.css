@@ -27,16 +27,18 @@
 }
 
 .header-container .header {
-	margin-left: 5%;
 	font-size: 3em;
 	color: #a798fa;
 	padding-bottom: 15px;
-	text-align: left
+	text-align: left;
+	display: flex;
 }
 
 
 .guide-content{
 	width: 80%;
+	height: 130px;
+	overflow-y: scroll;
 	margin-left: 10%;
 	margin-right: 10%;
 	display: flex;
@@ -141,5 +143,30 @@
 .guide-example .guide-imag-container-add .guide-img{
 	width: 60px; 
 	height: 60px; 
+}
+
+.guide-hidden-show{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: smaller;
+	margin: 2px;
+	margin-right: 5px;
+	border: none;
+	background-color: transparent;
+	color: #a798fa; 
+}
+
+.guide-content {
+	opacity: 1;
+	transition: opacity 1s ease;
+	visibility: visible;
+}
+  
+.guide-content-display-hidden {
+	opacity: 0;
+	transition: opacity 1s ease;
+	visibility: hidden;
 }
 

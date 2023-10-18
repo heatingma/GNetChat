@@ -2,6 +2,8 @@ import re
 import time
 import subprocess
 import threading
+import pypinyin
+from django.core.exceptions import ValidationError
 
 
 def is_chinese(text):
@@ -20,11 +22,36 @@ def format_link(link:str):
     return link
 
 
-
 def https_link(link:str):
     link = link.replace("https://", "").replace("http://", "").replace("www.", "")
     link = "https://" + link
     return link
+
+
+def get_first_pinyin_letter(chinese):
+    pinyin = pypinyin.pinyin(chinese[0], style=pypinyin.STYLE_NORMAL)[0][0]
+    return pinyin[0].upper()
+
+
+def convert_size(size):
+    KB = 1024
+    MB = KB ** 2
+    GB = KB ** 3
+
+    if size < KB:
+        return f"{size} B"
+    elif size < MB:
+        return f"{size / KB:.2f} KB"
+    elif size < GB:
+        return f"{size / MB:.2f} MB"
+    else:
+        return f"{size / GB:.2f} GB"
+    
+
+def validate_file_size(value):
+    max_size = 5 * 1024 * 1024
+    if value.size > max_size:
+        raise ValidationError("File size cannot exceed 5MB.")
 
 
 class cmds:
@@ -62,3 +89,5 @@ class cmds:
     def add_download_subprocess(self, url, save_path):
         command = ['python', 'chat/download_facvion.py', '--url', url, '--save_path', save_path]
         self.run_command(command, 'download_{}'.format(url), timeout=5)
+        
+        

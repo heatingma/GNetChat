@@ -1,23 +1,36 @@
 import os
 import uuid
+import mimetypes
+import pypinyin
 from django.db import models
 from users.models import User
 from django.contrib.auth import get_user_model
-import mimetypes
-from django.core.exceptions import ValidationError
-import pypinyin
-from chat.utils import cmds, format_link
+from chat.utils import cmds, format_link, get_first_pinyin_letter, \
+    validate_file_size, convert_size
 
 
 commands = cmds()
 
+
+#################################################################
+#                            PROFILE                            #
+#################################################################
+
+def profile_media_path(instance, filename):
+    user_name = instance.user.username
+    upload_path = os.path.join('users', user_name)
+    file_path = os.path.join(upload_path, filename)
+    media_upload_path = os.path.join('media', upload_path)
+    if not os.path.exists(media_upload_path):
+        os.makedirs(media_upload_path)
+    return file_path
 
 class Profile(models.Model):
     """
     Personal Profile
     """
     about_me = models.TextField(default='There is no Personal Signature here yet. You can add it through settings')
-    image = models.ImageField(upload_to='profile_image', null=True, blank=True)
+    image = models.ImageField(upload_to=profile_media_path, null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     location = models.CharField(max_length=50, default="Unkown")
     
@@ -35,7 +48,21 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
     
-    
+
+
+#################################################################
+#                         CHATROOM                              #
+#################################################################
+
+def room_media_path(instance, filename):
+    room_name = instance.name
+    upload_path = os.path.join('chatrooms', room_name)
+    file_path = os.path.join(upload_path, filename)
+    media_upload_path = os.path.join('media', upload_path)
+    if not os.path.exists(media_upload_path):
+        os.makedirs(media_upload_path)
+    return file_path
+ 
 class Room(models.Model):
     """
     A flexible and freely accessible space
@@ -44,7 +71,7 @@ class Room(models.Model):
     owner_name = models.CharField(max_length=128)
     about_room = models.CharField(max_length=128, default="welcome to my chatroom")
     online = models.ManyToManyField(to=get_user_model(), blank=True)
-    image = models.ImageField(upload_to='room_image', null=True, blank=True)
+    image = models.ImageField(upload_to=room_media_path, null=True, blank=True)
     
     def get_online_count(self):
         return self.online.count()
@@ -72,12 +99,30 @@ class Room(models.Model):
         return f'{self.name} ({self.get_online_count()})'
 
 
+#################################################################
+#                             TAG                               #
+#################################################################
+
 class Tag(models.Model):
     name = models.CharField(max_length=40, unique=True)
 
     def __str__(self):
         return self.name
   
+
+#################################################################
+#                             POST                              #
+#################################################################
+
+def post_media_path(instance, filename):
+    room_name = instance.belong_room.name
+    post_name = instance.title
+    upload_path = os.path.join('chatrooms', room_name, 'posts', post_name)
+    file_path = os.path.join(upload_path, filename)
+    media_upload_path = os.path.join('media', upload_path)
+    if not os.path.exists(media_upload_path):
+        os.makedirs(media_upload_path)
+    return file_path
 
 class Post(models.Model):
     """
@@ -87,7 +132,7 @@ class Post(models.Model):
     author = models.ForeignKey(to=User, on_delete=models.CASCADE)
     author_profile = models.ForeignKey(to=Profile, on_delete=models.CASCADE)
     about_post = models.CharField(max_length=1000, default="The author did not set an introduction to the topic")
-    image = models.ImageField(upload_to='post_image', null=True, blank=True)
+    image = models.ImageField(upload_to=post_media_path, null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now= True)
     belong_room = models.ForeignKey(to=Room, on_delete=models.CASCADE)
@@ -120,48 +165,21 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         
- 
-def get_room_image_upload_path(instance, filename):
+
+#################################################################
+#                       CHATROOM MESSAGE                        #
+#################################################################
+
+def room_message_media_path(instance, filename):
     room_name = instance.room.name
-    upload_path = os.path.join('room_files', room_name)
+    post_name = instance.belong_post.title
+    upload_path = os.path.join('chatrooms', room_name, 'posts', post_name)
     file_path = os.path.join(upload_path, filename)
     media_upload_path = os.path.join('media', upload_path)
     if not os.path.exists(media_upload_path):
         os.makedirs(media_upload_path)
     return file_path
 
-
-def get_friend_files_path(instance, filename):
-    uid = instance.belong_fm.uid
-    upload_path = os.path.join('friends_files', str(uid))
-    file_path = os.path.join(upload_path, filename)
-    media_upload_path = os.path.join('media', upload_path)
-    if not os.path.exists(media_upload_path):
-        os.makedirs(media_upload_path)
-    return file_path
-
-
-def convert_size(size):
-    KB = 1024
-    MB = KB ** 2
-    GB = KB ** 3
-
-    if size < KB:
-        return f"{size} B"
-    elif size < MB:
-        return f"{size / KB:.2f} KB"
-    elif size < GB:
-        return f"{size / MB:.2f} MB"
-    else:
-        return f"{size / GB:.2f} GB"
-    
-
-def validate_file_size(value):
-    max_size = 5 * 1024 * 1024
-    if value.size > max_size:
-        raise ValidationError("File size cannot exceed 5MB.")
- 
- 
 class RoomMessage(models.Model):
     """
     Message for Room
@@ -172,7 +190,7 @@ class RoomMessage(models.Model):
     belong_post = models.ForeignKey(to=Post, on_delete=models.CASCADE)
     content = models.CharField(max_length=512)
     timestamp = models.DateTimeField(auto_now_add=True)
-    attachment = models.FileField(upload_to=get_room_image_upload_path, null=True, blank=True)
+    attachment = models.FileField(upload_to=room_message_media_path, null=True, blank=True)
 
     def __str__(self):
         return f'{self.user.username}: {self.content} [{self.timestamp}]'
@@ -215,6 +233,10 @@ class RoomMessage(models.Model):
             return 'Unknown Size'
         
 
+#################################################################
+#                         FRIEND REQUEST                        #
+#################################################################
+
 class Friend_Request(models.Model):
     uid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     from_user = models.ForeignKey(User, related_name='from_user', on_delete=models.CASCADE)
@@ -230,6 +252,10 @@ class Friend_Request(models.Model):
         return Profile.objects.get(user=self.to_user)
     
 
+#################################################################
+#                         FRIEND ROOM                           #
+#################################################################
+
 class FriendRoom(models.Model):
     """
     A flexible and freely accessible space
@@ -242,6 +268,19 @@ class FriendRoom(models.Model):
         return f'FR({self.user_1.username}, {self.user_2.username})'
     
 
+#################################################################
+#                        FRIEND MESSAGE                         #
+#################################################################
+
+def friend_message_media_path(instance, filename):
+    uid = instance.belong_fm.uid
+    upload_path = os.path.join('chatfriends', str(uid))
+    file_path = os.path.join(upload_path, filename)
+    media_upload_path = os.path.join('media', upload_path)
+    if not os.path.exists(media_upload_path):
+        os.makedirs(media_upload_path)
+    return file_path
+
 class FMMessage(models.Model):
     """
     Message for FriendRoom
@@ -251,7 +290,7 @@ class FMMessage(models.Model):
     belong_fm = models.ForeignKey(to=FriendRoom, on_delete=models.CASCADE)
     content = models.CharField(max_length=512)
     timestamp = models.DateTimeField(auto_now_add=True)
-    attachment = models.FileField(upload_to=get_friend_files_path, null=True, blank=True)
+    attachment = models.FileField(upload_to=friend_message_media_path, null=True, blank=True)
 
     def __str__(self):
         return f'{self.user.username}: {self.content} [{self.timestamp}]'
@@ -293,10 +332,10 @@ class FMMessage(models.Model):
         except:
             return 'Unknown Size'
 
-  
-def get_first_pinyin_letter(chinese):
-    pinyin = pypinyin.pinyin(chinese[0], style=pypinyin.STYLE_NORMAL)[0][0]
-    return pinyin[0].upper()
+
+#################################################################
+#                            LINK                               #
+#################################################################
 
 
 class LINK(models.Model):

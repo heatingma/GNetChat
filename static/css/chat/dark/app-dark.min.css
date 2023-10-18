@@ -840,7 +840,7 @@ background-color: rgba(6, 214, 160, .4);
 }
 
 .chat-message-list {
-    height: calc(100vh - 280px);
+    height: calc(80vh - 180px);
 }
 
 @media (max-width: 991.98px) {
