@@ -8,6 +8,8 @@ from django.core.mail import send_mail
 from django.http import JsonResponse
 import random
 from django.views.decorators.csrf import csrf_exempt
+from users.check_invatation import check_invatation_code, delete_invatation_code
+
 
 def index(request: HttpRequest):
     return render(
@@ -46,18 +48,40 @@ def log(request: HttpRequest):
                     "login_form": login_form,
                     "login_error": "Error email or Error password!",
                 }
-        # check whether regist success
-        elif register_form.is_valid():
-            user = register_form.save()
-            email_code = register_form.cleaned_data.get("email_code")
-            last_email_code = register_form.cleaned_data.get("last_email_code")
-            if email_code:
-                if email_code == last_email_code:
-                    login(request, user)
-                    messages.success(
-                        request, "Congratulations, you are now a registered user!"
-                    )
-                    return redirect("chat:my")
+        else:
+            invitation_code = request.POST["hidden_invitation_code"]
+            if not check_invatation_code(invitation_code):
+                context = {
+                    "register_form": register_form,
+                    "login_form": login_form,
+                    "invatation_errors": "Wrong Invatation Code!",
+                }            
+                return render(
+                    request=request, 
+                    template_name='users/log.html', 
+                    context = context
+                )  
+                
+            # check whether regist success
+            elif register_form.is_valid():
+                email_code = register_form.cleaned_data.get("email_code")
+                last_email_code = register_form.cleaned_data.get("last_email_code")          
+                if email_code:
+                    if email_code == last_email_code:
+                        user = register_form.save()
+                        delete_invatation_code(invitation_code)
+                        login(request, user)
+                        messages.success(
+                            request, "Congratulations, you are now a registered user!"
+                        )
+                        return redirect("chat:my")
+                    else:
+                        email_code_errors = register_form.errors.get("email_code")
+                        context = {
+                            "register_form": register_form,
+                            "login_form": login_form,
+                            "email_code_errors": email_code_errors,
+                        }
                 else:
                     email_code_errors = register_form.errors.get("email_code")
                     context = {
@@ -65,38 +89,31 @@ def log(request: HttpRequest):
                         "login_form": login_form,
                         "email_code_errors": email_code_errors,
                     }
+            # collect errors
             else:
-                email_code_errors = register_form.errors.get("email_code")
+                # return errors for user
+                username_errors = register_form.errors.get("username")
+                email_errors = register_form.errors.get("email")
+                password_errors = register_form.errors.get("password2")
+                username_errors_show = None
+                email_errors_show = None
+                password_errors_show = None
+                if(username_errors):
+                    username_errors_show = ErrorList()
+                    username_errors_show.append(username_errors[0])
+                if(email_errors):
+                    email_errors_show = ErrorList()
+                    email_errors_show.append(email_errors[0])
+                if(password_errors):
+                    password_errors_show = ErrorList()
+                    password_errors_show.append(password_errors[0])
                 context = {
                     "register_form": register_form,
                     "login_form": login_form,
-                    "email_code_errors": email_code_errors,
-                }
-        # collect errors
-        else:
-            # return errors for user
-            username_errors = register_form.errors.get("username")
-            email_errors = register_form.errors.get("email")
-            password_errors = register_form.errors.get("password2")
-            username_errors_show = None
-            email_errors_show = None
-            password_errors_show = None
-            if(username_errors):
-                username_errors_show = ErrorList()
-                username_errors_show.append(username_errors[0])
-            if(email_errors):
-                email_errors_show = ErrorList()
-                email_errors_show.append(email_errors[0])
-            if(password_errors):
-                password_errors_show = ErrorList()
-                password_errors_show.append(password_errors[0])
-            context = {
-                "register_form": register_form,
-                "login_form": login_form,
-                "username_errors": username_errors_show,
-                "email_errors": email_errors_show,
-                "password_errors":  password_errors_show,
-            }            
+                    "username_errors": username_errors_show,
+                    "email_errors": email_errors_show,
+                    "password_errors":  password_errors_show,
+                }            
 
     return render(
         request=request, 

@@ -166,13 +166,17 @@ function CheckPassword() {
 }
 
 
-
 // Submit Register
 const code = document.querySelector('[name=email_code]')
 const last_code = document.querySelector('[name=last_email_code]')
 const email_code_msg = document.querySelector('[name=email_code-msg]')
 const submit_register = document.querySelector('[name=submit-register]')
 let register_flag = true
+var invatation_box = document.querySelector("#invatation-box");
+var hidden_invitation_code = document.querySelector("#hidden-invitation-code");
+var invatation_code_input = document.querySelector('#invatation-code-input');
+var invatation_submit = document.querySelector('#invatation-box-submit')
+var register_box_form = document.querySelector('#register-box-form')
 
 submit_register.addEventListener('click', function (e) {
     register_flag = true
@@ -184,8 +188,19 @@ submit_register.addEventListener('click', function (e) {
     if (!verifyMail()) register_flag = false
     if (!verifyPassword()) register_flag = false
     if (!CheckPassword()) register_flag = false
-    if (register_flag == false)
-        e.preventDefault()
+    if (register_flag == false){
+        e.preventDefault();
+        return;
+    }
+    e.preventDefault();
+    invatation_box.classList.toggle("invatation-box-hidden");
+    invatation_submit.addEventListener('click', function (e) {
+        console.log(invatation_code_input.value);
+        hidden_invitation_code.value = invatation_code_input.value;
+        console.log(hidden_invitation_code.value);
+        invatation_box.classList.toggle("invatation-box-hidden");
+        register_box_form.submit();
+    });
 })
 
 

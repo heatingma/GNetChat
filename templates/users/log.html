@@ -18,8 +18,9 @@
 <body>
 	<div class="container" id="container">
 		<div class="form-container sign-up-container">
-			<form class="register-box hidden" method="post">
-				 {% csrf_token %}
+			<form class="register-box hidden" method="post" id="register-box-form">
+				{% csrf_token %}
+                <input type="hidden" id="hidden-invitation-code" name="hidden_invitation_code" value="">
 				<h1 style="margin-bottom: 40px;">Create Account</h1>
 				<div class="input-box">
                     <input name="username" type="text" placeholder="Input Username"
@@ -90,7 +91,29 @@
 		</div>
 	</div>
 
-    {% if username_errors %}
+    <div class="invatation-box invatation-box-hidden" id="invatation-box">
+        <div class="invatation-container">
+            <h1>Invatation Code</h1>
+            <textarea class="invatation-input" id="invatation-code-input" rows="4" placeholder="Input Invatation Code"></textarea>
+        </div>
+        <div class="invatation-submit">
+            <button id="invatation-box-submit">ok</button>
+        </div>
+    </div>
+
+
+    {% if invatation_errors %}
+    <div class="error-box" style="width:250px; height:165px">
+        <div class="error-body">
+            <p>{{ invatation_errors }}</p>
+        </div>
+        <div class="error-close">
+            <button id="close">
+                <i class="ri-close-fill"></i>
+            </button>
+        </div>
+    </div>
+    {% elif username_errors %}
      <div class="error-box" style="width:250px; height:165px">
          <div class="error-body">
              {% for error in username_errors %}
