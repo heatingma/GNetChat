@@ -63,7 +63,7 @@ send_code.addEventListener('click', function (event) {
 
     if (send_flag == false) {
         send_flag = true
-        // send_code.disabled = true
+        send_code.disabled = true
         let left_seconds = 60
         send_code.innerHTML = `${left_seconds} `
         let timerId = setInterval(function () {
