@@ -41,6 +41,7 @@ class Room(models.Model):
     A flexible and freely accessible space
     """
     name = models.CharField(max_length=128, unique=True)
+    show_name = models.CharField(max_length=100, default="Showname")
     owner_name = models.CharField(max_length=128)
     about_room = models.CharField(max_length=128, default="welcome to my chatroom")
     online = models.ManyToManyField(to=get_user_model(), blank=True)
@@ -83,6 +84,7 @@ class Post(models.Model):
     """
     A flexible and freely accessible space
     """
+    show_name = models.CharField(max_length=128,default="Post_Showname")
     title = models.CharField(max_length=128)
     author = models.ForeignKey(to=User, on_delete=models.CASCADE)
     author_profile = models.ForeignKey(to=Profile, on_delete=models.CASCADE)

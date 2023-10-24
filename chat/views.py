@@ -10,12 +10,24 @@ from .forms import EditProfileForm, RoomForm, PostForm, AttachmentForm, \
 from .models import Profile, Room, RoomMessage, Post, Tag, Friend_Request, \
     FMMessage, FriendRoom,\
     LINK
+from pypinyin import pinyin, Style
 from users.models import User
 from chat.utils import is_chinese
 import json
 import os
 import shutil
 
+
+def chinese_to_pinyin(input_text):
+    pinyin_list = []
+    for char in input_text:
+        if '\u4e00' <= char <= '\u9fff':
+            pinyin_list.extend(pinyin(char, style=Style.NORMAL))
+        elif char.isalpha():
+            pinyin_list.append([char])
+
+    pinyin_str = ''.join([item[0] for item in pinyin_list])
+    return pinyin_str
 
 @login_required
 def chatroom(request: HttpRequest, dark=False):
@@ -35,21 +47,21 @@ def chatroom(request: HttpRequest, dark=False):
         
         # create a new chatroom
         if roomform.is_valid():
-            name = roomform.cleaned_data["name"]
-            if not is_chinese(name):
-                name: str
-                name = name.replace(' ', '_')
-                about_room = roomform.cleaned_data["about_room"]
-                image = roomform.cleaned_data["image"]
-                room = Room(name=name, owner_name=user.username, about_room=about_room)
-                if image:
-                    room.image = image
-                try:
-                    room.save()
-                except:
-                    wrong_message = "The name of this chatroom already exists"
-            else:
-                wrong_message = "Input of Chinese names is currently not supported"
+            show_name = roomform.cleaned_data["name"]
+            name = show_name
+            if is_chinese(show_name):
+                name = chinese_to_pinyin(show_name)
+            name: str
+            name = name.replace(' ', '_')
+            about_room = roomform.cleaned_data["about_room"]
+            image = roomform.cleaned_data["image"]
+            room = Room(name=name, show_name=show_name, owner_name=user.username, about_room=about_room)
+            if image:
+                room.image = image
+            try:
+                room.save()
+            except:
+                wrong_message = "The name of this chatroom already exists"
                 
         # edit an exited chatroom
         if changeroomform.is_valid():
@@ -80,6 +92,7 @@ def chatroom(request: HttpRequest, dark=False):
                     # update all the default chatting post name
                     target_post = Post.objects.get(title="chatting_"+ori_name, belong_room=chat_room)
                     target_post.title = "chatting_"+new_name
+                    target_post.show_name = new_name+"聊天室"
                     target_post.save()
                     
         # deal with the chatroom-deleting
@@ -151,43 +164,44 @@ def innerroom(request: HttpRequest, room_name, post_name, dark=False):
         
         # deal with creating a new post
         if postform.is_valid():
-            title = postform.cleaned_data["title"]
-            if not is_chinese(title):
-                title: str
-                title.replace(' ', '_')
-                about_post = postform.cleaned_data["about_post"]
-                image = postform.cleaned_data["image"]
-                new_tag = postform.cleaned_data["new_tag"]
-                selected_tag = request.POST.getlist('select_tags')
-                all_tags = list()
-                if selected_tag:
-                    for tag in selected_tag:
-                        all_tags.append(tag)
-                if new_tag:
-                    all_tags.append(new_tag) 
-                post = Post(
-                    title=title, 
-                    author=user, 
-                    author_profile =profile,
-                    about_post=about_post, 
-                    belong_room=chat_room
-                )
-                if image:
-                    post.image = image             
-                if Post.objects.filter(title=post.title, belong_room=post.belong_room).exists():
-                    wrong_message = "A post with the same title already exists in this room."
-                else:
-                    post.save()
-                    if all_tags:
-                        for tag in all_tags:
-                            try:
-                                cur_tag = Tag.objects.get(name=tag)
-                            except:
-                                cur_tag = Tag.objects.create(name=tag)
-                            post.tags.add(cur_tag)
+            show_name = postform.cleaned_data["title"]
+            title = show_name
+            if is_chinese(title):
+                title = chinese_to_pinyin(title)
+            title: str
+            title.replace(' ', '_')
+            about_post = postform.cleaned_data["about_post"]
+            image = postform.cleaned_data["image"]
+            new_tag = postform.cleaned_data["new_tag"]
+            selected_tag = request.POST.getlist('select_tags')
+            all_tags = list()
+            if selected_tag:
+                for tag in selected_tag:
+                    all_tags.append(tag)
+            if new_tag:
+                all_tags.append(new_tag)
+            post = Post(
+                title=title,
+                show_name=show_name,
+                author=user,
+                author_profile =profile,
+                about_post=about_post,
+                belong_room=chat_room
+            )
+            if image:
+                post.image = image
+            if Post.objects.filter(title=post.title, belong_room=post.belong_room).exists():
+                wrong_message = "A post with the same title already exists in this room."
             else:
-                wrong_message = "Input of Chinese names is currently not supported"
-                
+                post.save()
+                if all_tags:
+                    for tag in all_tags:
+                        try:
+                            cur_tag = Tag.objects.get(name=tag)
+                        except:
+                            cur_tag = Tag.objects.create(name=tag)
+                        post.tags.add(cur_tag)
+
         # deal with attachment
         if attachmentform.is_valid():
             attachment = attachmentform.cleaned_data["attachment"]
