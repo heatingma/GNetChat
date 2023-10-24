@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from chat.forms import PostForm, AttachmentForm, ConfirmDeletePostForm, EditPostForm
 from chat.models import Profile, Room, Post, Friend_Request, RoomMessage, Tag
-from chat.utils import is_chinese
+from chat.utils import is_chinese,chinese_to_pinyin
 from users.models import User
 
 
@@ -41,42 +41,43 @@ def innerroom(request: HttpRequest, room_name, post_name, dark=False):
         
         # deal with creating a new post
         if postform.is_valid():
-            title = postform.cleaned_data["title"]
-            if not is_chinese(title):
-                title: str
-                title.replace(' ', '_')
-                about_post = postform.cleaned_data["about_post"]
-                image = postform.cleaned_data["image"]
-                new_tag = postform.cleaned_data["new_tag"]
-                selected_tag = request.POST.getlist('select_tags')
-                all_tags = list()
-                if selected_tag:
-                    for tag in selected_tag:
-                        all_tags.append(tag)
-                if new_tag:
-                    all_tags.append(new_tag) 
-                post = Post(
-                    title=title, 
-                    author=user, 
-                    author_profile =profile,
-                    about_post=about_post, 
-                    belong_room=chat_room
-                )
-                if image:
-                    post.image = image             
-                if Post.objects.filter(title=post.title, belong_room=post.belong_room).exists():
-                    wrong_message = "A post with the same title already exists in this room."
-                else:
-                    post.save()
-                    if all_tags:
-                        for tag in all_tags:
-                            try:
-                                cur_tag = Tag.objects.get(name=tag)
-                            except:
-                                cur_tag = Tag.objects.create(name=tag)
-                            post.tags.add(cur_tag)
+            show_name = postform.cleaned_data["title"]
+            title = show_name
+            if is_chinese(title):
+                title = chinese_to_pinyin(title)
+            title: str
+            title.replace(' ', '_')
+            about_post = postform.cleaned_data["about_post"]
+            image = postform.cleaned_data["image"]
+            new_tag = postform.cleaned_data["new_tag"]
+            selected_tag = request.POST.getlist('select_tags')
+            all_tags = list()
+            if selected_tag:
+                for tag in selected_tag:
+                    all_tags.append(tag)
+            if new_tag:
+                all_tags.append(new_tag) 
+            post = Post(
+                title=title, 
+                show_name=show_name,
+                author=user, 
+                author_profile =profile,
+                about_post=about_post, 
+                belong_room=chat_room
+            )
+            if image:
+                post.image = image             
+            if Post.objects.filter(title=post.title, belong_room=post.belong_room).exists():
+                wrong_message = "A post with the same title already exists in this room."
             else:
-                wrong_message = "Input of Chinese names is currently not supported"
+                post.save()
+                if all_tags:
+                    for tag in all_tags:
+                        try:
+                            cur_tag = Tag.objects.get(name=tag)
+                        except:
+                            cur_tag = Tag.objects.create(name=tag)
+                        post.tags.add(cur_tag)
                 
         # deal with attachment
         if attachmentform.is_valid():

@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from chat.models import Profile, Friend_Request, Groups
 from users.models import User
 from chat.forms import GroupForm, ConfirmDeleteGroupForm
-from chat.utils import is_chinese
+from chat.utils import is_chinese,chinese_to_pinyin
 
 
 @login_required
@@ -27,29 +27,29 @@ def groups(request: HttpRequest, dark=False):
         confirm_delete_group_form = ConfirmDeleteGroupForm(request.POST)
         # deal with creating a new Groups
         if groupform.is_valid():
-            group_name = groupform.cleaned_data["group_name"]
+            show_name = groupform.cleaned_data["group_name"]
+            group_name = show_name
             about_group = groupform.cleaned_data["about_group"]
             image = groupform.cleaned_data["image"]
             selected_friends = request.POST.getlist('select_friends')
-            if not is_chinese(group_name):
-                group_name: str
-                group_name.replace(' ', '_')
-                if Groups.objects.filter(owner=user, name=group_name):
-                    wrong_message = "You have already created a group chat with the same name"
-                else:
-                    if selected_friends:
-                        new_group = Groups(name=group_name, about_group=about_group, owner=user)
-                        if image:
-                            new_group.image = image
-                        new_group.save()
-                        for friend in selected_friends:
-                            friend = get_object_or_404(User, username=friend)
-                            new_group.members.add(friend)
-                        new_group.members.add(user)
-                    else:
-                        wrong_message = "Group chat requires at least 2 people"
+            if is_chinese(group_name):
+                group_name=chinese_to_pinyin(group_name)
+            group_name: str
+            group_name.replace(' ', '_')
+            if Groups.objects.filter(owner=user, name=group_name):
+                wrong_message = "You have already created a group chat with the same name"
             else:
-                wrong_message = "Input of Chinese names is currently not supported"
+                if selected_friends:
+                    new_group = Groups(name=group_name, show_name=show_name, about_group=about_group, owner=user)
+                    if image:
+                        new_group.image = image
+                    new_group.save()
+                    for friend in selected_friends:
+                        friend = get_object_or_404(User, username=friend)
+                        new_group.members.add(friend)
+                    new_group.members.add(user)
+                else:
+                    wrong_message = "Group chat requires at least 2 people"
         
         if "exit_group_uid" in request.POST:
             exit_group_uid = request.POST["exit_group_uid"]

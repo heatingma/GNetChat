@@ -7,6 +7,9 @@
 <div id="hidden-container3" style="display: none;">
     {{cur_post.title}}
 </div>
+<div id="hidden-container4" style="display: none;">
+    {{cur_room.name}}
+</div>
 
 <div class="w-100" style="max-width: 100%;">
 
@@ -27,7 +30,7 @@
                 <div class="media-body overflow-hidden">
                     <h5 class="font-size-16 mb-0 text-truncate">
                         <a href="#" class="text-reset user-profile-show" id="cur_room_name">
-                            {{cur_room.name}}
+                            {{cur_room.show_name}}
                         </a> 
                         <i class="ri-record-circle-fill font-size-10 text-success d-inline-block ml-1"></i>
                     </h5>
@@ -216,7 +219,7 @@
             </div>
             <div class="post-head">
                 <div class="post-title">
-                    {{cur_post.title}}
+                    {{cur_post.show_name}}
                 </div> 
                 <h3> {{cur_post.author.username}} created on {{cur_post.created_on}} <h3>
                 <div class="tags">

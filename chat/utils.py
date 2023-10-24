@@ -3,6 +3,7 @@ import time
 import subprocess
 import threading
 import pypinyin
+from pypinyin import pinyin, Style
 from django.core.exceptions import ValidationError
 
 
@@ -91,3 +92,13 @@ class cmds:
         self.run_command(command, 'download_{}'.format(url), timeout=5)
         
         
+def chinese_to_pinyin(input_text):
+     pinyin_list = []
+     for char in input_text:
+         if '\u4e00' <= char <= '\u9fff':
+             pinyin_list.extend(pinyin(char, style=Style.NORMAL))
+         elif char.isalnum():
+             pinyin_list.append([char])
+
+     pinyin_str = ''.join([item[0] for item in pinyin_list])
+     return pinyin_str

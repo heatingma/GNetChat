@@ -39,7 +39,7 @@
             </button>
             {% endif %}
         </div>
-        <h5 class="font-size-16 mb-1 text-truncate">{{cur_room.name}}</h5>
+        <h5 class="font-size-16 mb-1 text-truncate">{{cur_room.show_name}}</h5>
         <p class="text-muted text-truncate mb-1"><i class="ri-record-circle-fill font-size-10 text-success mr-1"></i> Active</p>
     </div>
     <!-- BASIC INFO -->
@@ -207,7 +207,7 @@
                 <!-- INFOMATION -->
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#profile-user-accordion">
                     <div class="card-body">
-                        <div><p class="text-muted mb-1">Name</p><h5 class="font-size-14">{{cur_group.name}}</h5></div>
+                        <div><p class="text-muted mb-1">Name</p><h5 class="font-size-14">{{cur_group.show_name}}</h5></div>
                         <div class="mt-4"><p class="text-muted mb-1">Owner</p><h5 class="font-size-14">{{cur_group.owner_name}}</h5></div>
                     </div>
                 </div>
