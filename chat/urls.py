@@ -1,7 +1,7 @@
 
 from django.urls import path
 from chat.views import chat, chatfriend, chatroom, contracts, \
-    groups, innerroom, my, settings
+    groups, innerroom, my, settings, innergroup
 
   
 urlpatterns = [
@@ -13,4 +13,5 @@ urlpatterns = [
     path('chatroom/<str:room_name>/<str:post_name>/', innerroom, name='innerroom'),
     path('contracts/', contracts, name='contracts'),
     path('settings/', settings, name='settings'),
+    path('groups/<str:group_uid>/', innergroup, name='innergroup'),
 ]

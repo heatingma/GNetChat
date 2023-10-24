@@ -1,0 +1,252 @@
+<div class="user-profile-sidebar">
+
+    {% if cur_group.owner_name == profile.user.username %}
+    <div class="float-left" style="margin:10px; margin-top:20px; margin-left:25px;">
+        <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#delete-groupModal">
+            <i class="ri-delete-bin-line mr-1 align-middle"></i> Delete 
+        </button>
+    </div>
+    {% else  %}
+    <div class="float-left" style="margin:10px; margin-top:20px; margin-left:25px;">
+        <button type="button" class="btn btn-light btn-sm" exit-group-uid="{{cur_group.uid}}" onclick="confirmDelete7(event)">
+            Exit 
+        </button>
+    </div>
+    <form id="exit-group" style="display: none;" action="{% url 'chat:groups' %}?dark={{dark}}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="exit_group_uid" id="exit-group-uid">
+        <button type="submit" id="submit-exit-group" class="btn btn-primary">submit</button>
+    </form>
+    {% endif %}
+
+    <!-- CLOSE VIEW -->
+    <div class="px-3 px-lg-4 pt-3 pt-lg-4">
+        <div class="user-chat-nav text-right">
+            <button type="button" class="btn nav-btn" id="user-profile-hide">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+    </div>
+    <!-- CLOSE VIEW -->
+
+    <!-- BASIC INFO -->
+    <div class="text-center p-4 border-bottom">
+        <div class="mb-4 profile-user">
+            <img src={{cur_group.image_url}} class="rounded-circle avatar-lg img-thumbnail" alt="">
+            {% if cur_group.owner_name == profile.user.username %}
+            <button type="button" class="btn bg-light avatar-xs p-0 rounded-circle profile-photo-edit" data-toggle="modal" data-target="#edit-groupModal">
+                <i class="ri-pencil-fill"></i>
+            </button>
+            {% endif %}
+        </div>
+        <h5 class="font-size-16 mb-1 text-truncate">{{cur_room.name}}</h5>
+        <p class="text-muted text-truncate mb-1"><i class="ri-record-circle-fill font-size-10 text-success mr-1"></i> Active</p>
+    </div>
+    <!-- BASIC INFO -->
+
+    
+    {% if cur_group.owner_name == profile.user.username %}
+    <!-- CONFIRM DELETE ROOM -->
+    <div class="modal fade" id="delete-groupModal" tabindex="-1" role="dialog" aria-labelledby="delete-groupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <form class="modal-content" method="post" enctype="multipart/form-data" action="{% url 'chat:groups' %}?dark={{dark}}">
+                {% csrf_token %}
+                <!-- FORM HEAD -->
+                <div class="modal-header">
+                    <h5 class="modal-title font-size-16" id="delete-groupModalLabel">Delete Group</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- FORM HEAD -->
+
+                <!-- FORM BODY -->
+                <div class="modal-body p-4">
+                    <div>
+                        <p> Enter the group name and your name to confirm the deletion operation </p>
+                        
+                        <input type="hidden" name="hidden_group_name" value="{{cur_group.name}}">
+                        <input type="hidden" name="hidden_user_name" value="{{profile.user.username}}">
+
+                        <!-- CONFIRM GROUP NAME -->
+                        <div class="form-group">
+                            <label for="confirm-group-name">Group Name</label>
+                            <input type="text" class="form-control" id="confirm-group-name" name="confirm_group_name" placeholder="Confirm group Name">
+                        </div>
+                        <!-- CONFIRM group NAME -->
+
+                        <!-- CONFIRM NAME -->
+                        <div class="form-group">
+                            <label for="confirm-user-name">Your Name</label>
+                            <input type="text" class="form-control" id="confirm-user-name" name="confirm_user_name" placeholder="Input Your Name">
+                        </div>
+                        <!-- CONFIRM NAME -->
+
+                    </div>
+                </div>
+                <!-- FORM BODY -->
+
+                <!-- FORM BUTTON -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <!-- FORM BUTTON -->
+
+            </form>
+        </div>
+    </div>
+    <!-- CONFIRM DELETE ROOM -->
+    {% endif %}
+
+    <!-- EDIT FORM -->
+    {% if cur_group.owner_name == profile.user.username %}
+        <div class="modal fade" id="edit-groupModal" tabindex="-1" role="dialog" aria-labelledby="edit-groupModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <form class="modal-content" method="post" enctype="multipart/form-data" action="{% url 'chat:innergroup' group_uid=cur_group.uid %}?dark={{dark}}">
+                    {% csrf_token %}
+                    <!-- FORM HEAD -->
+                    <div class="modal-header">
+                        <h5 class="modal-title font-size-16" id="edit-groupModalLabel">Edit Group</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- FORM HEAD -->
+
+                    <!-- FORM BODY -->
+                    <div class="modal-body p-4">
+                        <div>
+
+                            <input type="hidden" name="group_ori_name" value="{{cur_room.name}}">
+                            <input type="hidden" name="group_owner" value="{{cur_room.owner_name}}">
+
+                            <!-- CHANGE NAME -->
+                            <div class="form-group">
+                                <label for="change-group-name">Change Name</label>
+                                <input type="text" class="form-control" id="change-group-name" name="change_group_name" placeholder="Enter a New Name">
+                            </div>
+                            <!-- CHANGE NAME -->
+                            
+                            <!-- CHANEG ABOUT -->
+                            <div class="form-group mb-4">
+                                <label for="edit-personal-signature">Change About</label>
+                                <textarea class="form-control" id="edit-personal-signature" name="change_about_group" 
+                                    rows="3" placeholder="Enter a New About"></textarea>
+                            </div>
+                            <!-- CHANEG ABOUT -->
+
+                            <!-- IMAGE -->
+                            <div class="form-group">
+                                <label for="upload_image">Upload group Image(Do not exceed 5M)</label>
+                                <input type="file" class="form-control upload-button" id="upload_image" name="change_image" accept="image/*">
+                            </div>
+                            <!-- IMAGE -->
+
+                            <!-- INVITE FRIEND -->
+                            <div class="form-group mb-4">
+                                <label for="invite-person">Invite Person(Optional)</label>
+                                <input type="text" class="form-control" id="invite-person" name="invite_person_email" placeholder="Enter the Person's Email">
+                            </div>
+                            <!-- INVITE FRIEND -->
+
+                            <!-- SELECT FRIENDS -->
+                            <div class="form-group">
+                                <label for="select-friends">Select Friends(Optional)</label>
+                                <select class="custom-select w-100" name="select_friends" id="select-friends" multiple style="font-family: comicbd">
+                                    {% for friend in friends %}
+                                        <option value="{{ friend.username }}">{{ friend.username }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <!-- SELECT FRIENDS -->
+
+                        </div>
+                    </div>
+                    <!-- FORM BODY -->
+
+                    <!-- FORM BUTTON -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <!-- FORM BUTTON -->
+
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    <!-- EDIT FORM -->
+    
+    <!-- DETAIl INFO -->
+    <div class="p-4 user-profile-desc" data-simplebar="">
+
+        <!-- PERSONAL SIGNATURE -->
+        <div class="text-muted">
+            <p class="mb-4">{{cur_room.about_room}}</p>
+        </div>
+        <!-- PERSONAL SIGNATURE -->
+
+        <!-- PERSONAL INFO -->
+        <div id="profile-user-accordion" class="custom-accordion">
+            
+            <!-- ABOUT CARD -->
+            <div class="card shadow-none border mb-2">
+
+                <!-- ABOUT DROPDOWN -->
+                <a href="#collapseOne" class="text-dark" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="font-size-14 m-0">
+                            <i class="ri-group-2-line mr-2 align-middle d-inline-block"></i> About
+                            <i class="mdi mdi-chevron-up float-right accor-plus-icon"></i>
+                        </h5>
+                    </div>
+                </a>
+                <!-- ABOUT DROPDOWN -->
+
+                <!-- INFOMATION -->
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#profile-user-accordion">
+                    <div class="card-body">
+                        <div><p class="text-muted mb-1">Name</p><h5 class="font-size-14">{{cur_group.name}}</h5></div>
+                        <div class="mt-4"><p class="text-muted mb-1">Owner</p><h5 class="font-size-14">{{cur_group.owner_name}}</h5></div>
+                    </div>
+                </div>
+                <!-- INFOMATION -->
+
+            </div>
+            <!-- ABOUT CARD -->
+            
+            <!-- ATTACHED CARD -->
+            <div class="card mb-1 shadow-none border">
+
+                <!-- ATTACHED DROPDOWN -->
+                <a href="#collapseTwo" class="text-dark collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="font-size-14 m-0">
+                            <i class="ri-group-line mr-2 align-middle d-inline-block"></i> Members
+                            <i class="mdi mdi-chevron-up float-right accor-plus-icon"></i>
+                        </h5>
+                    </div>
+                </a>
+                <!-- ATTACHED DROPDOWN -->
+
+                <!-- ATTACHED CONTENT -->
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#profile-user-accordion"><div class="card-body">
+                    {% for member in cur_group_members %}
+                        <p>{{ member.username }}</p>
+                    {% endfor %}
+                </div>
+                <!-- ATTACHED CONTENT -->
+
+            </div>
+            <!-- ATTACHED CARD -->
+
+        </div>
+        <!-- PERSONAL INFO -->
+
+    </div>
+    <!-- DETAIl INFO -->
+    {% load static %}
+    <script src={% static "js/chat/websocket-groups.js" %}></script>
+</div>
+

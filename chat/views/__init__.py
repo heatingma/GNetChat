@@ -6,3 +6,4 @@ from .groups import groups
 from .innerroom import innerroom
 from .my import my
 from .settings import settings
+from .innergroup import innergroup

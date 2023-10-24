@@ -1,7 +1,7 @@
 import json
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
-from .models import Room, RoomMessage, Post, FriendRoom, FMMessage
+from .models import Room, RoomMessage, Post, FriendRoom, FMMessage, GroupMessage, Groups
 from users.models import User
 
 
@@ -186,6 +186,104 @@ class FRRoommers(WebsocketConsumer):
             FMMessage.objects.create(
                 user=self.user, 
                 belong_fm = self.room,
+                content=message
+            )
+
+
+    def chat_message(self, event):
+        self.send(text_data=json.dumps(event))
+
+    def user_join(self, event):
+        self.send(text_data=json.dumps(event))
+
+    def user_leave(self, event):
+        self.send(text_data=json.dumps(event))
+
+    def private_message(self, event):
+        self.send(text_data=json.dumps(event))
+
+    def private_message_delivered(self, event):
+        self.send(text_data=json.dumps(event))
+
+
+class GroupRoommers(WebsocketConsumer):
+    """
+    The member of the FRRoom
+    """
+    def __init__(self, *args, **kwargs):
+        super().__init__(args, kwargs)
+        self.group_uid = None
+        self.room_group_name = None
+        self.room = None
+        self.user = None
+        self.user_inbox = None
+
+    def connect(self):
+        # read info from self.scope
+        self.group_uid = self.scope['url_route']['kwargs']['group_uid']
+        self.room_group_name = f'chat_groups_{self.group_uid}'
+        self.group = Groups.objects.get(uid=self.group_uid)
+        self.user = self.scope['user']
+        self.user_inbox = f'inbox_{self.user.username}'
+        self.accept()
+        async_to_sync(self.channel_layer.group_add)(
+            self.room_group_name,
+            self.channel_name,
+        )
+
+        # check if the user is valid
+        async_to_sync(self.channel_layer.group_add)(
+            self.room_group_name,
+            self.channel_name,
+        )
+        # check if the user is valid
+        if self.user.is_authenticated:
+            # create a user inbox for private messages
+            async_to_sync(self.channel_layer.group_add)(
+                self.user_inbox,
+                self.channel_name,
+            )
+
+    def disconnect(self, close_code):
+        # disconnect the group
+        async_to_sync(self.channel_layer.group_discard)(
+            self.room_group_name,
+            self.channel_name,
+        )
+
+        # send the leave event to the room
+        if self.user.is_authenticated:
+            async_to_sync(self.channel_layer.group_discard)(
+                self.user_inbox,
+                self.channel_name,
+            )
+
+    def receive(self, text_data=None, bytes_data=None):
+        
+        text_data_json = json.loads(text_data)
+        if "uid" in text_data_json:
+            uid = text_data_json['uid']
+            rm = GroupMessage.objects.get(uid = uid)
+            rm.delete()
+        else:
+            message = text_data_json['message']
+            
+            # check if the user is valid
+            if not self.user.is_authenticated:
+                return
+
+            async_to_sync(self.channel_layer.group_send)(
+                self.room_group_name,
+                {
+                    'type': 'chat_message',
+                    'message': message,
+                    'user': self.user.username,
+                }
+            )
+            
+            GroupMessage.objects.create(
+                user=self.user, 
+                belong_group = self.group,
                 content=message
             )
 

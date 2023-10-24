@@ -1,19 +1,20 @@
 <div id="hidden-container" style="display: none;">
-    {{users_img_urls_json}}
+    {{cur_group.uid}}
 </div>
-<div id="hidden-container2" style="display: none;">
+<div id="hidden-container1" style="display: none;">
     {{profile.user.username}}
 </div>
+<div id="hidden-container2" style="display: none;">
+    {{profile.image_url}}
+</div>
 <div id="hidden-container3" style="display: none;">
-    {{cur_post.title}}
+    {{users_img_urls_json}}
 </div>
 
-<div class="w-100" style="max-width: 100%;">
+<div class="w-100">
 
     <!-- HEAD -->
     <div class="p-3 p-lg-4 border-bottom row align-items-center">
-
-        <!-- ROOM -->
         <div class="col-sm-4 col-8">
             <div class="media align-items-center">
                 <div class="d-block d-lg-none mr-2">
@@ -22,59 +23,30 @@
                     </a>
                 </div>
                 <div class="mr-3">
-                    <img src="{{cur_room.image_url}}" class="rounded-circle avatar-xs" alt="">
+                    <img src="{{cur_group.image_url}}" class="rounded-circle avatar-xs" alt="">
                 </div>
                 <div class="media-body overflow-hidden">
                     <h5 class="font-size-16 mb-0 text-truncate">
                         <a href="#" class="text-reset user-profile-show" id="cur_room_name">
-                            {{cur_room.name}}
+                            {{cur_group.name}}
                         </a> 
                         <i class="ri-record-circle-fill font-size-10 text-success d-inline-block ml-1"></i>
                     </h5>
                 </div>
             </div>
         </div>
-        <!-- ROOM -->
-
-        <!-- GUIDE -->
-        <div class="col-sm-8 col-4">
-            <ul class="list-inline user-chat-nav text-right mb-0"> 
-                <!-- SEARCH -->
-                <li class="list-inline-item">
-                    <div class="dropdown">
-                        <button class="btn nav-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="ri-search-line"></i>
-                        </button>
-                        <div class="dropdown-menu p-0 dropdown-menu-right dropdown-menu-md">
-                            <div class="search-box p-2">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Search..">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <!-- SEARCH -->
-                <!-- PERSON -->
-                <li class="list-inline-item d-none d-lg-inline-block">
-                    <button type="button" class="btn nav-btn user-profile-show">
-                        <i class="ri-user-3-line"></i>
-                    </button>
-                </li>
-                <!-- PERSON -->
-            </ul>
-        </div>
-        <!-- GUIDE -->
-
     </div>
     <!-- HEAD -->
 
     <!-- CONTENT -->
-    <div class="chat-conversation p-3 p-lg-4" id="chatLog-container" style="overflow: auto; max-width: 100%;">
-        <ul class="list-unstyled mb-0"i id="chatLog" style="max-width: 100%;">
-            {% for rm in room_messages %}
+    <div class="chat-conversation p-3 p-lg-4" id="chatLog-container" style="overflow: auto;">
+
+        <ul class="list-unstyled mb-0"i id="chatLog">
+            {% for rm in group_messages %}
                 {% if rm.user.username != profile.user.username %}
                 
                 <!-- ONE CONTENT TEMPLATE -->
-                <li><div class="conversation-list" style="max-width: 40%;">
+                <li><div class="conversation-list" style="max-width: 50%;">
                     <!-- HIS OR HER AVATAR -->
                     <div class="chat-avatar"><img src={{rm.image_url}} alt=""></div>
                     <!-- HIS OR HER AVATAR -->
@@ -130,7 +102,7 @@
                 {% else %}
 
                 <!-- MY CONTENT TEMPLATE -->
-                <li class="right" style-"display: block;"><div class="conversation-list" style="max-width: 40%;">
+                <li class="right"><div class="conversation-list" style="max-width: 50%;">
                     <!-- MY AVATAR -->
                     <div class="chat-avatar"><img src="{{ profile.image_url }}" alt=""></div>
                     <!-- MY AVATAR -->
@@ -139,9 +111,7 @@
                         <div class="ctext-wrap">
                             <!-- CONTENT & TIME -->
                             <div class="ctext-wrap-content" style="max-width: 100%;">
-                                <p class="mb-0" style="text-align: left; word-break:break-all; ">
-                                    {{rm.content}}
-                                </p>
+                                <p class="mb-0" style="word-break:break-all; text-align: left;">{{rm.content}}</p>
                                 {% if rm.attachment_name is not None %}
                                     {% if rm.attachment_type == "image" %}
                                         <ul class="list-inline message-img  mb-0">
@@ -185,7 +155,7 @@
                                     <a class="dropdown-item" href="#">Copy <i class="ri-file-copy-line float-right text-muted"></i></a>
                                     <a class="dropdown-item" href="#">Save <i class="ri-save-line float-right text-muted"></i></a>
                                     <a class="dropdown-item" href="#">Forward <i class="ri-chat-forward-line float-right text-muted"></i></a>
-                                    <a class="dropdown-item" href="#" data-uid="{{rm.uid}}" onclick="confirmDelete(event)"> Delete <i class="ri-delete-bin-line float-right text-muted"></i></a>
+                                    <a class="dropdown-item" href="#" group-message-uid="{{rm.uid}}" onclick="confirmDelete6(event)"> Delete <i class="ri-delete-bin-line float-right text-muted"></i></a>
                                 </div>
                             </div>
                             <!-- MESSAGE TOOLS -->
@@ -201,6 +171,7 @@
 
             {% endfor %}
         </ul>
+        
     </div>
     <!-- CONTENT -->
 
@@ -237,8 +208,7 @@
         <!-- ATTACH -->
         <div class="modal fade" id="attach-buttonModal" tabindex="-1" role="dialog" aria-labelledby="attach-buttonModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <form class="modal-content" method="post" enctype="multipart/form-data"
-                action="{% url 'chat:innerroom' room_name=cur_room.name post_name=cur_post.title %}?dark={{dark}}">
+                <form class="modal-content" method="post" enctype="multipart/form-data" action="">
                     {% csrf_token %}
                     <!-- CREATE HEAD -->
                     <div class="modal-header">
@@ -287,8 +257,3 @@
     <!-- INPUT & SEND -->
 
 </div>
-
-
-
-
-

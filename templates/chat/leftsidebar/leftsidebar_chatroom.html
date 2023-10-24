@@ -97,10 +97,8 @@
         <li><a href="{% url 'chat:innerroom' room_name=room.name post_name='chatting_'|add:room.name%}?{{'dark'}}={{dark}}"><div class="media align-items-center">
 
             <!-- SYMBOL IMG -->
-            <div class="chat-user-img mr-3 avatar-xs">
-                <span class="avatar-title rounded-circle bg-soft-primary text-primary">
-                    {{ room.initial }}
-                </span>
+            <div class="mr-3">
+                <img src="{{room.image_url}}" class="rounded-circle avatar-xs" alt="">
             </div>
             <!-- SYMBOL IMG -->
                 

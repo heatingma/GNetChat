@@ -96,8 +96,7 @@ def chatroom(request: HttpRequest, dark=False):
                         shutil.rmtree(media_path)
                 else:
                     wrong_message = "Incorrect confirmation information."
-                    
-                                  
+                                                 
     return render(
         request=request, 
         template_name='chat/chatroom.html', 
@@ -107,7 +106,7 @@ def chatroom(request: HttpRequest, dark=False):
             'wrong_message': wrong_message,
             'dark': dark,
             'light': not dark,
-            "new_friends": Friend_Request.objects.filter(to_user=user)
+            "new_friends": Friend_Request.objects.filter(to_user=user),
         }
     )
     

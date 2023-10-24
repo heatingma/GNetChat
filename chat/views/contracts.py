@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest
 from django.contrib.auth.decorators import login_required
 from chat.forms import SendInvitationForm
-from chat.models import Profile, Friend_Request, FMMessage, FriendRoom
+from chat.models import Profile, Friend_Request, FMMessage, FriendRoom, Groups, GroupMessage
 from users.models import User
 
 
@@ -37,8 +37,18 @@ def contracts(request: HttpRequest, dark=False):
             user_2 = fr.to_user
             user_1.friends.add(user_2)
             user_2.friends.add(user_1)
+            groups_name = fr.groups_name
+            if groups_name != "NONE":
+                group = get_object_or_404(Groups, owner=fr.from_user, name=groups_name)
+                group.members.add(fr.to_user)
+                GroupMessage.objects.create(
+                    user=fr.from_user,
+                    content="Welcome {} to join us!".format(fr.to_user.username),
+                    belong_group=group,
+                )
             fr.delete()
             fm = FriendRoom.objects.create(user_1=user_1, user_2=user_2)
+
             FMMessage.objects.create(
                 user=user,
                 belong_fm = fm,
@@ -102,6 +112,6 @@ def contracts(request: HttpRequest, dark=False):
             'wrong_message': wrong_message,
             "new_friends": new_friends,
             "have_sent": have_sent,
-            "friends": user.friends.all()
+            "friends": user.friends.all(),
         }
     )

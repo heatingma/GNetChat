@@ -242,6 +242,7 @@ class Friend_Request(models.Model):
     from_user = models.ForeignKey(User, related_name='from_user', on_delete=models.CASCADE)
     to_user = models.ForeignKey(User, related_name='to_user', on_delete=models.CASCADE)
     invite_message = models.CharField(max_length=50)
+    groups_name = models.CharField(max_length=50, default="NONE")
     
     @property
     def from_user_profile(self):
@@ -337,7 +338,6 @@ class FMMessage(models.Model):
 #                            LINK                               #
 #################################################################
 
-
 class LINK(models.Model):
     url = models.URLField(max_length=100)
     name = models.CharField(max_length=100)
@@ -361,3 +361,117 @@ class LINK(models.Model):
         else:
             commands.add_download_subprocess(str(self.url), file_path)
             return "/media/static_default/{}.png".format(self.initial)
+        
+
+#################################################################
+#                            GROUPS                             #
+#################################################################
+
+def groups_media_path(instance, filename):
+    group_uid = instance.uid
+    upload_path = os.path.join('groups', str(group_uid))
+    file_path = os.path.join(upload_path, filename)
+    media_upload_path = os.path.join('media', upload_path)
+    if not os.path.exists(media_upload_path):
+        os.makedirs(media_upload_path)
+    return file_path
+
+class Groups(models.Model):
+    """
+    A flexible and freely accessible space
+    """
+    uid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    name = models.CharField(max_length=128)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='owner')
+    about_group = models.CharField(max_length=128, default="welcome")
+    members = models.ManyToManyField(to=User, blank=True, related_name='members')
+    image = models.ImageField(upload_to=groups_media_path, null=True, blank=True)
+
+    @property
+    def initial(self):
+        return self.name[0].upper()
+
+    @property
+    def owner_name(self):
+        return self.owner.username  
+
+    @property
+    def image_url(self):
+        if self.image == "":
+            return "/media/static_default/{}.png".format(self.initial)
+        else:
+            return self.image.url
+        
+    def exist(self, user:User):
+        if user in self.members.all():
+            return True
+        else:
+            return False
+        
+    def __str__(self):
+        return f'{self.name}'
+    
+
+#################################################################
+#                        FRIEND MESSAGE                         #
+#################################################################
+
+def groups_message_media_path(instance, filename):
+    uid = instance.belong_group.uid
+    upload_path = os.path.join('groups', str(uid))
+    file_path = os.path.join(upload_path, filename)
+    media_upload_path = os.path.join('media', upload_path)
+    if not os.path.exists(media_upload_path):
+        os.makedirs(media_upload_path)
+    return file_path
+
+class GroupMessage(models.Model):
+    """
+    Message for FriendRoom
+    """
+    uid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    user = models.ForeignKey(to=get_user_model(), on_delete=models.CASCADE)
+    belong_group = models.ForeignKey(to=Groups, on_delete=models.CASCADE)
+    content = models.CharField(max_length=512)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    attachment = models.FileField(upload_to=groups_message_media_path, null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.user.username}: {self.content} [{self.timestamp}]'
+    
+    def save(self, *args, **kwargs):
+        if self.attachment.name:
+            validate_file_size(self.attachment)
+        super().save(*args, **kwargs)
+       
+    @property
+    def image_url(self):
+        profile = Profile.objects.get(user=self.user)
+        return profile.image_url
+
+    @property
+    def attachment_url(self):
+        if self.attachment.name == "" or self.attachment.name is None:
+            return ""
+        return self.attachment.url
+    
+    @property
+    def attachment_type(self):
+        file_type, _ = mimetypes.guess_type(self.attachment.name)
+        if file_type.startswith("image"):
+            file_type = "image"
+        return file_type
+    
+    @property
+    def attachment_name(self):
+        if self.attachment.name == "" or self.attachment.name is None:
+            return None
+        return os.path.basename(self.attachment.name)
+        
+    @property
+    def attachment_size(self):
+        try:
+            size = os.path.getsize(self.attachment.path)
+            return convert_size(size)
+        except:
+            return 'Unknown Size'

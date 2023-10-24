@@ -21,8 +21,8 @@
         <!-- CREATE GROUPS -->
         <div class="modal fade" id="addgroup-exampleModal" tabindex="-1" role="dialog" aria-labelledby="addgroup-exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-
+                <form class="modal-content" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <!-- CREATE HEAD -->
                     <div class="modal-header">
                         <h5 class="modal-title font-size-16" id="addgroup-exampleModalLabel">Create New Group</h5>
@@ -34,98 +34,52 @@
 
                     <!-- CREATE BODY -->
                     <div class="modal-body p-4">
-                        <form>
+                        <div>
 
                             <!-- GROUP NAME -->
                             <div class="form-group mb-4">
                                 <label for="addgroupname-input">Group Name</label>
-                                <input type="text" class="form-control" id="addgroupname-input" placeholder="Enter Group Name">
+                                <input type="text" class="form-control" id="addgroupname-input" name="group_name" placeholder="Enter Group Name">
                             </div>
                             <!-- GROUP NAME -->
-                            
-                            <!-- GROUP MEMBERS-->
-                            <div class="form-group mb-4">
 
-                                <!-- MEMBERS TITLE -->
-                                <label>Group Members</label>
-                                <!-- MEMBERS TITLE -->
-
-                                <!-- SELECT BUTTON -->
-                                <div class="mb-3">
-                                    <button class="btn btn-light btn-sm" type="button" data-toggle="collapse" data-target="#groupmembercollapse" aria-expanded="false" aria-controls="groupmembercollapse">
-                                        Select Members
-                                    </button>
-                                </div>
-                                <!-- SELECT BUTTON -->
-
-                                <!-- SELECT PERSONS -->
-                                <div class="collapse" id="groupmembercollapse">
-                                    <div class="card border">
-
-                                        <!-- CARD HEADER -->
-                                        <div class="card-header">
-                                            <h5 class="font-size-15 mb-0">Contacts</h5>
-                                        </div>
-                                        <!-- CARD HEADER -->
-
-                                        <!-- PERSONS -->
-                                        <div class="card-body p-2">
-                                            <div data-simplebar="" style="max-height: 150px;">
-                                            
-                                            <!-- ONE EXAMPLE -->
-                                            <div>
-                                                <div class="p-3 font-weight-bold text-primary">
-                                                    A
-                                                </div>
-
-                                                <ul class="list-unstyled contact-list">
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="memberCheck3" checked="">
-                                                            <label class="custom-control-label" for="memberCheck3">Albert Rodarte</label>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="memberCheck4">
-                                                            <label class="custom-control-label" for="memberCheck4">Allison Etter</label>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- ONE EXAMPLE -->
-                                            
-                                            </div>
-                                        </div>
-                                        <!-- PERSONS -->
-                
-                                    </div>
-                                </div>
-                                <!-- SELECT PERSONS -->
-
+                            <!-- SELECT FRIENDS -->
+                            <div class="form-group">
+                                <label for="select-friends">Select Friends </label>
+                                <select class="custom-select w-100" name="select_friends" id="select-friends" multiple style="font-family: comicbd">
+                                    {% for friend in friends %}
+                                        <option value="{{ friend.username }}">{{ friend.username }}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
-                            <!-- GROUP MEMBERS-->
+                            <!-- SELECT FRIENDS -->
+
+                            <!-- AVATAR -->
+                            <div class="form-group">
+                                <label for="add-image">Add Group Image (Option)</label>
+                                <input type="file" class="form-control upload-button" id="add-image" name="image" accept="image/*">
+                            </div>
+                            <!-- AVATAR -->
 
                             <!-- GROUP DESCRIPTION-->
                             <div class="form-group">
                                 <label for="addgroupdescription-input">Description</label>
-                                <textarea class="form-control" id="addgroupdescription-input" rows="3" placeholder="Enter Description"></textarea>
+                                <textarea class="form-control" id="addgroupdescription-input" name="about_group" rows="3" placeholder="Enter Description"></textarea>
                             </div>
                             <!-- GROUP DESCRIPTION-->
 
-                        </form>
+                        </div>
                     </div>
                     <!-- CREATE BODY -->
 
                     <!-- CREATE BUTTON -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Create Groups</button>
+                        <button type="submit" class="btn btn-primary">Create Groups</button>
                     </div>
                     <!-- CREATE BUTTON -->
 
-                </div>
+                </form>
             </div>
         </div>
         <!-- CREATE GROUPS -->
@@ -146,33 +100,77 @@
     </div>
     <!-- GROUPS HEAD -->
         
-    <!-- GROUPS INFO -->
-    <div class="p-4 chat-message-list chat-group-list" data-simplebar="">
-    <ul class="list-unstyled chat-list">
+    <!-- GROUP INFO -->
+    <div class="p-4 chat-message-list chat-chatroom-list" data-simplebar="">
 
-        <!-- ONE EXAMPLE -->
-        <li><a href="#"><div class="media align-items-center">
+        <!-- TITLE -->
+        <h5 class="mb-3 px-3 font-size-16">Own Groups</h5>
+        <!-- TITLE -->
 
-            <!-- SYMBOL IMG -->
-            <div class="chat-user-img mr-3 avatar-xs">
-                <span class="avatar-title rounded-circle bg-soft-primary text-primary">
-                    G
-                </span>
-            </div>
-            <!-- SYMBOL IMG -->
-            
-            <!-- BODY -->
-            <div class="media-body overflow-hidden">
-                <h5 class="text-truncate font-size-14 mb-0">#General</h5>
-            </div>
-            <!-- BODY -->
+        <ul class="list-unstyled chat-list">
+            {% for group in own_groups %}
+            <!-- ONE EXAMPLE -->
+            <li><a href="{% url 'chat:innergroup' group_uid=group.uid %}?{{'dark'}}={{dark}}"><div class="media align-items-center">
+    
+                <!-- SYMBOL IMG -->
+                <div class="mr-3">
+                    <img src="{{group.image_url}}" class="rounded-circle avatar-xs" alt="">
+                </div>
+                <!-- SYMBOL IMG -->
+                    
+                <!-- BODY -->
+                <div class="media-body overflow-hidden">
+                    <h5 class="text-truncate font-size-14 mb-0">{{ group.name }}</h5>
+                </div>
+                <!-- BODY -->
+    
+            </div></a></li>
+            <!-- ONE EXAMPLE -->
+            {% endfor %}
+        </ul>
+    
+        <!-- TITLE -->
+        <h5 class="mb-3 px-3 font-size-16" style="margin-top:20px">All Groups</h5>
+        <!-- TITLE -->
 
-        </div></a></li>
-        <!-- ONE EXAMPLE -->
-            
-    </ul></div>
-    <!-- GROUPS INFO -->
+        <ul class="list-unstyled chat-list">
+            {% for group in in_groups %}
+            <!-- ONE EXAMPLE -->
+            <li><a href="{% url 'chat:innergroup' group_uid=group.uid %}?{{'dark'}}={{dark}}"><div class="media align-items-center">
+    
+                <!-- SYMBOL IMG -->
+                <div class="mr-3">
+                    <img src="{{group.image_url}}" class="rounded-circle avatar-xs" alt="">
+                </div>
+                <!-- SYMBOL IMG -->
+                    
+                <!-- BODY -->
+                <div class="media-body overflow-hidden">
+                    <h5 class="text-truncate font-size-14 mb-0">{{ group.name }}</h5>
+                </div>
+                <!-- BODY -->
+    
+            </div></a></li>
+            <!-- ONE EXAMPLE -->
+            {% endfor %}
+        </ul>
+
+    </div>
+    <!-- GROUP INFO -->
 
    
 </div>
 
+
+{% if wrong_message != "" %}
+<div class="error-box" style="width:250px; height:160px">
+    <div class="error-body">
+        <p>{{ wrong_message }}</p>
+    </div>
+    <div class="error-close">
+        <button class="close-button" id="close">
+            close
+        </button>
+    </div>
+</div>
+{% endif %}

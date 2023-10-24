@@ -1,10 +1,6 @@
 from django import forms
 from users.models import User
-from .models import LINK
 
-###############################################
-#                   Profile                   #
-###############################################   
 
 class EditProfileForm(forms.Form):
     about_me = forms.CharField(widget=forms.Textarea(), required=False)
@@ -80,15 +76,37 @@ class SendInvitationForm(forms.Form):
     invite_email = forms.CharField(required=True)
     invite_message = forms.CharField(widget=forms.Textarea(), required=False) 
 
+
 class linkform(forms.Form):
     add_name = forms.CharField(required=True)
     add_link = forms.CharField(required=True)
+
 
 class Deletelinkform(forms.Form):
     delete_name = forms.CharField(required=True)
 
 
 class PasswordChangeForm(forms.Form):
-     old_password = forms.CharField(widget=forms.PasswordInput)
-     new_password = forms.CharField(widget=forms.PasswordInput)
-     confirm_password = forms.CharField(widget=forms.PasswordInput)
+    old_password = forms.CharField(widget=forms.PasswordInput)
+    new_password = forms.CharField(widget=forms.PasswordInput)
+    confirm_password = forms.CharField(widget=forms.PasswordInput)
+     
+
+class GroupForm(forms.Form):
+    group_name = forms.CharField(required=True)
+    about_group = forms.CharField(widget=forms.Textarea(), required=False)
+    image = forms.ImageField(required=False)
+    
+
+class EditGroupForm(forms.Form):
+    change_group_name = forms.CharField(required=False)
+    invite_person_email = forms.CharField(required=False)
+    change_about_group = forms.CharField(widget=forms.Textarea(), required=False)
+    change_image = forms.ImageField(required=False)
+    
+
+class ConfirmDeleteGroupForm(forms.Form):
+    hidden_group_name = forms.CharField(required=True)
+    hidden_user_name = forms.CharField(required=True) 
+    confirm_group_name = forms.CharField(required=True)
+    confirm_user_name = forms.CharField(required=True)

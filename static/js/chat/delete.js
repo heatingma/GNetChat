@@ -52,3 +52,25 @@ function confirmDelete5(event) {
         delete_link_button.click();
     };
 }
+
+
+function confirmDelete6(event) {
+    event.preventDefault();
+    var uid = event.currentTarget.getAttribute('group-message-uid');
+    if (confirm("Really want to delete this message?")) {
+        chatSocket3.send(JSON.stringify({"uid": uid}));  
+    }
+    location.reload();
+}
+
+
+function confirmDelete7(event) {
+    let exit_group_uid_input = document.querySelector("#exit-group-uid");
+    let submit_exit_group = document.querySelector("#submit-exit-group");
+    event.preventDefault();
+    var uid = event.currentTarget.getAttribute('exit-group-uid');
+    if (confirm("Really want to exit this group?")) {
+        exit_group_uid_input.value = uid;
+        submit_exit_group.click();
+    }
+}
