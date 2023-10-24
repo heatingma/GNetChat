@@ -30,6 +30,7 @@ def create_rm_cp(sender, instance, created, **kwargs):
         profile = get_object_or_404(Profile, user=author)
         post = Post.objects.create(
             title =  "chatting_" + instance.name,
+            show_name = instance.show_name + "聊天室",
             author = author, 
             author_profile = profile,
             about_post = "The special and default post for chatting",

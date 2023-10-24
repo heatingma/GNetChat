@@ -4,17 +4,17 @@ chatMessageInput.focus();
 
 let chatMessageSend = document.querySelector("#chatMessageSend");
 let onlineUsersSelector = document.querySelector("#onlineUsersSelector");
-let a_cur_room = document.querySelector("#cur_room_name");
 let chatLog = document.querySelector("#chatLog");
 let chatLog_container = document.getElementById('chatLog-container');
 let hidden_container = document.querySelector("#hidden-container");
 let hidden_container2 = document.querySelector("#hidden-container2");
 let hidden_container3 = document.querySelector("#hidden-container3");
+let hidden_container4 = document.querySelector("#hidden-container4");
 let chatSocket = null;
-var room_name = a_cur_room.textContent.trim().toString();
 var user_img_urls = JSON.parse(hidden_container.innerHTML);
 var cur_user = hidden_container2.innerHTML.trim().toString();
 var cur_post = hidden_container3.innerHTML.trim().toString();
+var room_name = hidden_container4.innerHTML.trim().toString();
 
 
 // add message
@@ -145,8 +145,10 @@ function connect() {
 chatMessageSend.addEventListener('click', function(event){
     event.preventDefault();
     var content = chatMessageInput.value;
+    if (content.trim() !== ""){
     chatMessageInput.value = "";
     chatSocket.send(JSON.stringify({"message": content, "post_name": cur_post}));  
+    }
 })
 
 

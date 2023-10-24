@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from chat.forms import RoomForm, ChangeRoomForm, ConfirmDeleteChatroomForm
 from chat.models import Profile, Room, Post, Friend_Request
-from chat.utils import is_chinese
+from chat.utils import is_chinese,chinese_to_pinyin
 from users.models import User
 
 
@@ -27,21 +27,21 @@ def chatroom(request: HttpRequest, dark=False):
         
         # create a new chatroom
         if roomform.is_valid():
-            name = roomform.cleaned_data["name"]
-            if not is_chinese(name):
-                name: str
-                name = name.replace(' ', '_')
-                about_room = roomform.cleaned_data["about_room"]
-                image = roomform.cleaned_data["image"]
-                room = Room(name=name, owner_name=user.username, about_room=about_room)
-                if image:
-                    room.image = image
-                try:
-                    room.save()
-                except:
-                    wrong_message = "The name of this chatroom already exists"
-            else:
-                wrong_message = "Input of Chinese names is currently not supported"
+            show_name = roomform.cleaned_data["name"]
+            name = show_name
+            if is_chinese(show_name):
+                name = chinese_to_pinyin(show_name)
+            name: str
+            name = name.replace(' ', '_')
+            about_room = roomform.cleaned_data["about_room"]
+            image = roomform.cleaned_data["image"]
+            room = Room(name=name, show_name=show_name, owner_name=user.username, about_room=about_room)
+            if image:
+                room.image = image
+            try:
+                room.save()
+            except:
+                wrong_message = "The name of this chatroom already exists"
                 
         # edit an exited chatroom
         if changeroomform.is_valid():
@@ -72,6 +72,7 @@ def chatroom(request: HttpRequest, dark=False):
                     # update all the default chatting post name
                     target_post = Post.objects.get(title="chatting_"+ori_name, belong_room=chat_room)
                     target_post.title = "chatting_"+new_name
+                    target_post.show_name = new_name+"聊天室"
                     target_post.save()
                     
         # deal with the chatroom-deleting

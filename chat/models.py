@@ -68,6 +68,7 @@ class Room(models.Model):
     A flexible and freely accessible space
     """
     name = models.CharField(max_length=128, unique=True)
+    show_name = models.CharField(max_length=100, default="Showname")
     owner_name = models.CharField(max_length=128)
     about_room = models.CharField(max_length=128, default="welcome to my chatroom")
     online = models.ManyToManyField(to=get_user_model(), blank=True)
@@ -129,6 +130,7 @@ class Post(models.Model):
     A flexible and freely accessible space
     """
     title = models.CharField(max_length=128)
+    show_name = models.CharField(max_length=128,default="Post_Showname")
     author = models.ForeignKey(to=User, on_delete=models.CASCADE)
     author_profile = models.ForeignKey(to=Profile, on_delete=models.CASCADE)
     about_post = models.CharField(max_length=1000, default="The author did not set an introduction to the topic")
@@ -384,6 +386,7 @@ class Groups(models.Model):
     """
     uid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     name = models.CharField(max_length=128)
+    show_name = models.CharField(max_length=128,default="Group_Showname")
     owner = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='owner')
     about_group = models.CharField(max_length=128, default="welcome")
     members = models.ManyToManyField(to=User, blank=True, related_name='members')
