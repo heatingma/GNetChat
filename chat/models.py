@@ -354,10 +354,12 @@ class LINK(models.Model):
 
     @property
     def image_url(self):
+        if str(self.url).startswith("https://github.com"):
+            return "/media/link_image/github_com_.png"
         file_path = format_link(str(self.url))
         file_path = "media/link_image/{}.png".format(file_path)
         if os.path.exists(file_path):
-            return "/"+file_path
+            return "/" + file_path
         else:
             commands.add_download_subprocess(str(self.url), file_path)
             return "/media/static_default/{}.png".format(self.initial)
