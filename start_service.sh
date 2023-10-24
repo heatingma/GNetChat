@@ -10,14 +10,14 @@
 uwsgi --ini uwsgi.ini &
 
 # 执行 daphne 命令
-supervisord -c /etc/supervisord.conf &
+# supervisord -c /etc/supervisord.conf &
 supervisorctl start daphne &
+
+# 重启 Nginx
+service nginx restart
 
 # redis设置
 sudo sysctl vm.overcommit_memory=1 &
 
 # 启动 Redis 服务器
 redis-server 
-
-# 重启 Nginx
-service nginx restart
