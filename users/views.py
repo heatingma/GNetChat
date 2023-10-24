@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest,HttpResponse
 from .forms import LoginForm, RegisterForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
@@ -7,7 +7,6 @@ from django.forms.utils import ErrorList
 from django.core.mail import send_mail
 from django.http import JsonResponse
 import random
-
 
 def index(request: HttpRequest):
     return render(
@@ -72,7 +71,6 @@ def log(request: HttpRequest):
                     "login_form": login_form,
                     "email_code_errors": email_code_errors,
                 }
-
         # collect errors
         else:
             # return errors for user
@@ -94,12 +92,19 @@ def log(request: HttpRequest):
             context = {
                 "register_form": register_form,
                 "login_form": login_form,
-                "username_errors": username_errors,
-                "email_errors": email_errors,
-                "password_errors": password_errors,
-            }
+                "username_errors": username_errors_show,
+                "email_errors": email_errors_show,
+                "password_errors":  password_errors_show,
+            }            
 
-    return render(request=request, template_name="users/log.html", context=context)
+    return render(
+        request=request, 
+        template_name='users/log.html', 
+        context = context
+    )
+
+
+
 def sendemail(request: HttpRequest):
     if request.headers.get("x-requested-with") == "XMLHttpRequest":
         to_email = request.POST.get("to_email")
