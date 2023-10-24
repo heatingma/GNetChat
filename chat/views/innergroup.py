@@ -4,7 +4,7 @@ import json
 from django.http import HttpRequest
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
-from chat.forms import GroupForm, EditGroupForm
+from chat.forms import GroupForm, EditGroupForm, AttachmentForm
 from chat.models import Profile, Friend_Request, Groups, GroupMessage
 from chat.utils import is_chinese
 from users.models import User
@@ -31,6 +31,7 @@ def innergroup(request: HttpRequest, group_uid, dark=False):
     if request.method == "POST":
         groupform = GroupForm(request.POST, request.FILES)
         editgroupform = EditGroupForm(request.POST, request.FILES)
+        attachmentform = AttachmentForm(request.POST, request.FILES)
         
         # deal with creating a new Groups
         if groupform.is_valid():
@@ -65,15 +66,21 @@ def innergroup(request: HttpRequest, group_uid, dark=False):
             image = editgroupform.cleaned_data["change_image"]
             invite_person_email = editgroupform.cleaned_data["invite_person_email"]
             if invite_person_email != "" and invite_person_email is not None:
-                to_user = User.objects.filter(email=invite_person_email)[0]
-                all_members = cur_group.members.all()
-                if not to_user in all_members:
-                    Friend_Request.objects.create(
-                        from_user=user,
-                        to_user=to_user,
-                        invite_message="Hello, I am {}. I am inviting you to join the Groups {}".format(user.username, cur_group.name),
-                        groups_name=cur_group.name
-                    )
+                flag = False
+                try:
+                    to_user = User.objects.filter(email=invite_person_email)[0]
+                    flag = True
+                except:
+                    wrong_message = "User does not exist!"
+                if flag:
+                    all_members = cur_group.members.all()
+                    if not to_user in all_members:
+                        Friend_Request.objects.create(
+                            from_user=user,
+                            to_user=to_user,
+                            invite_message="Hello, I am {}. I am inviting you to join the Groups {}".format(user.username, cur_group.name),
+                            groups_name=cur_group.name
+                        )
             if group_name != "" and group_name is not None:
                 cur_group.name = group_name
             if image:
@@ -82,8 +89,6 @@ def innergroup(request: HttpRequest, group_uid, dark=False):
                 cur_group.about_group = about_group
             selected_friends = request.POST.getlist('select_friends')
             cur_group_members = cur_group.members.all()
-            import pdb
-            pdb.set_trace()
             if selected_friends:
                 for friend in selected_friends:
                     friend = get_object_or_404(User, username=friend)
@@ -91,6 +96,20 @@ def innergroup(request: HttpRequest, group_uid, dark=False):
                         cur_group.members.add(friend)
             cur_group.save()
             
+        # deal with attachment
+        if attachmentform.is_valid():
+            attachment = attachmentform.cleaned_data["attachment"]
+            content = attachmentform.cleaned_data["content"]
+            rm = GroupMessage(
+                user = user,
+                belong_group = cur_group,
+                content = content,
+                attachment = attachment
+            )
+            try:
+                rm.save()
+            except:
+                wrong_message = "File size cannot exceed 5MB."        
         
     all_groups = Groups.objects.all()
     own_groups = Groups.objects.filter(owner=user)
