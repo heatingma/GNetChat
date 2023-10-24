@@ -8647,3 +8647,37 @@ redis.exceptions.ConnectionError: Error connecting to localhost:6379. Multiple e
 127.0.0.1:51636 - - [24/Oct/2023:16:59:41] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
 127.0.0.1:51636 - - [24/Oct/2023:16:59:41] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
 127.0.0.1:51636 - - [24/Oct/2023:16:59:42] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+2023-10-24 17:00:10,997 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-24 17:00:10,998 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-24 17:00:10,998 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-24 17:00:10,998 INFO     Listening on TCP address 0.0.0.0:8002
+127.0.0.1:35438 - - [24/Oct/2023:17:00:11] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:35438 - - [24/Oct/2023:17:00:11] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:35438 - - [24/Oct/2023:17:07:51] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:54590 - - [24/Oct/2023:18:08:28] "WSCONNECTING /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:54590 - - [24/Oct/2023:18:08:28] "WSCONNECT /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:54590 - - [24/Oct/2023:18:08:31] "WSDISCONNECT /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:52688 - - [24/Oct/2023:18:08:32] "WSCONNECTING /ws/chat/chatroom/NIS3360/chatting_NIS3360/" - -
+127.0.0.1:52688 - - [24/Oct/2023:18:08:32] "WSCONNECT /ws/chat/chatroom/NIS3360/chatting_NIS3360/" - -
+127.0.0.1:52688 - - [24/Oct/2023:18:08:34] "WSDISCONNECT /ws/chat/chatroom/NIS3360/chatting_NIS3360/" - -
+127.0.0.1:59516 - - [24/Oct/2023:18:09:02] "WSCONNECTING /ws/chat/chatroom/NIS3360/chatting_NIS3360/" - -
+127.0.0.1:59516 - - [24/Oct/2023:18:09:02] "WSCONNECT /ws/chat/chatroom/NIS3360/chatting_NIS3360/" - -
+127.0.0.1:59516 - - [24/Oct/2023:18:09:04] "WSDISCONNECT /ws/chat/chatroom/NIS3360/chatting_NIS3360/" - -
+127.0.0.1:59528 - - [24/Oct/2023:18:09:05] "WSCONNECTING /ws/chat/chatroom/NIS3368/chatting_NIS3368/" - -
+127.0.0.1:59528 - - [24/Oct/2023:18:09:05] "WSCONNECT /ws/chat/chatroom/NIS3368/chatting_NIS3368/" - -
+127.0.0.1:59528 - - [24/Oct/2023:18:09:06] "WSDISCONNECT /ws/chat/chatroom/NIS3368/chatting_NIS3368/" - -
+127.0.0.1:59532 - - [24/Oct/2023:18:09:08] "WSCONNECTING /ws/chat/chatroom/NIS3351/chatting_NIS3351/" - -
+127.0.0.1:59532 - - [24/Oct/2023:18:09:08] "WSCONNECT /ws/chat/chatroom/NIS3351/chatting_NIS3351/" - -
+127.0.0.1:59532 - - [24/Oct/2023:18:09:09] "WSDISCONNECT /ws/chat/chatroom/NIS3351/chatting_NIS3351/" - -
+127.0.0.1:57608 - - [24/Oct/2023:18:09:10] "WSCONNECTING /ws/chat/chatroom/NIS3364/chatting_NIS3364/" - -
+127.0.0.1:57608 - - [24/Oct/2023:18:09:10] "WSCONNECT /ws/chat/chatroom/NIS3364/chatting_NIS3364/" - -
+127.0.0.1:57608 - - [24/Oct/2023:18:09:11] "WSDISCONNECT /ws/chat/chatroom/NIS3364/chatting_NIS3364/" - -
+127.0.0.1:57618 - - [24/Oct/2023:18:09:11] "WSCONNECTING /ws/chat/chatroom/NIS3364/chatting_NIS3364/" - -
+127.0.0.1:57618 - - [24/Oct/2023:18:09:11] "WSCONNECT /ws/chat/chatroom/NIS3364/chatting_NIS3364/" - -
+127.0.0.1:57618 - - [24/Oct/2023:18:09:12] "WSDISCONNECT /ws/chat/chatroom/NIS3364/chatting_NIS3364/" - -
+127.0.0.1:56808 - - [24/Oct/2023:18:10:00] "WSCONNECTING /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:56808 - - [24/Oct/2023:18:10:00] "WSCONNECT /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:56808 - - [24/Oct/2023:18:10:13] "WSDISCONNECT /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:42356 - - [24/Oct/2023:18:10:15] "WSCONNECTING /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:42356 - - [24/Oct/2023:18:10:15] "WSCONNECT /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:42356 - - [24/Oct/2023:18:10:19] "WSDISCONNECT /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
