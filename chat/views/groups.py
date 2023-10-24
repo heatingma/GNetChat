@@ -22,9 +22,9 @@ def groups(request: HttpRequest, dark=False):
     wrong_message = ""
     
     if request.method == "POST":
-        print(request.POST)
         groupform = GroupForm(request.POST, request.FILES)
         confirm_delete_group_form = ConfirmDeleteGroupForm(request.POST)
+        
         # deal with creating a new Groups
         if groupform.is_valid():
             show_name = groupform.cleaned_data["group_name"]
@@ -33,7 +33,7 @@ def groups(request: HttpRequest, dark=False):
             image = groupform.cleaned_data["image"]
             selected_friends = request.POST.getlist('select_friends')
             if is_chinese(group_name):
-                group_name=chinese_to_pinyin(group_name)
+                group_name = chinese_to_pinyin(group_name)
             group_name: str
             group_name.replace(' ', '_')
             if Groups.objects.filter(owner=user, name=group_name):
@@ -62,6 +62,10 @@ def groups(request: HttpRequest, dark=False):
             hidden_user_name = confirm_delete_group_form.cleaned_data["hidden_user_name"]
             confirm_group_name = confirm_delete_group_form.cleaned_data["confirm_group_name"]
             confirm_user_name = confirm_delete_group_form.cleaned_data["confirm_user_name"]
+            if is_chinese(hidden_group_name):
+                hidden_group_name = chinese_to_pinyin(hidden_group_name)
+            if is_chinese(confirm_group_name):
+                confirm_group_name = chinese_to_pinyin(confirm_group_name)
             hidden_group_name = hidden_group_name.replace(' ', '_')
             confirm_group_name = confirm_group_name.replace(' ', '_')
             owner = User.objects.filter(username=confirm_user_name)[0] 

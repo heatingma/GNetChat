@@ -47,7 +47,7 @@ def create_rm_cp(sender, instance, created, **kwargs):
         
         # create the defult success message for the chatting_post
         content = "Congratulations to {} for creating a new chatroom \
-            named {}".format(instance.owner_name, instance.name)   
+            named {}".format(instance.owner_name, instance.show_name + "聊天室")   
         RoomMessage.objects.create(
             user=author, 
             belong_post = post,

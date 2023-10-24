@@ -83,6 +83,10 @@ def chatroom(request: HttpRequest, dark=False):
             confirm_user_name = confirm_delete_chatroom_form.cleaned_data["confirm_user_name"]
             hidden_chatroom_name = hidden_chatroom_name.replace(' ', '_')
             confirm_chatroom_name = confirm_chatroom_name.replace(' ', '_') 
+            if is_chinese(hidden_chatroom_name):
+                hidden_chatroom_name = chinese_to_pinyin(hidden_chatroom_name)
+            if is_chinese(confirm_chatroom_name):
+                confirm_chatroom_name = chinese_to_pinyin(confirm_chatroom_name)
             # check
             if hidden_chatroom_name != confirm_chatroom_name:
                 wrong_message = "Incorrect confirmation information."

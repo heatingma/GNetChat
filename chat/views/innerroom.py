@@ -102,16 +102,21 @@ def innerroom(request: HttpRequest, room_name, post_name, dark=False):
             confirm_post_name = confirm_delete_post_form.cleaned_data["confirm_post_name"]
             confirm_user_name = confirm_delete_post_form.cleaned_data["confirm_user_name"]
             hidden_post_name: str
-            confirm_post_name: str
+            confirm_post_name: str  
             hidden_post_name = hidden_post_name.replace(' ', '_')
             confirm_post_name = confirm_post_name.replace(' ', '_')
-            # check
             
+            if is_chinese(hidden_post_name):
+                hidden_post_name = chinese_to_pinyin(hidden_post_name)
+            if is_chinese(confirm_post_name):
+                confirm_post_name = chinese_to_pinyin(confirm_post_name)
+            
+            # check
             if hidden_post_name != confirm_post_name:
                 wrong_message = "Incorrect confirmation information."
             elif hidden_user_name != confirm_user_name:
                 wrong_message = "Incorrect confirmation information."
-            elif not confirm_post_name.startswith('chatting_'):
+            elif confirm_post_name.startswith('chatting_'):
                 wrong_message = "cannot delete the default chatting post."
             else:
                 if confirm_user_name == cur_post.author.username or confirm_user_name == chat_room.owner_name:

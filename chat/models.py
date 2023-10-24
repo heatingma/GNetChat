@@ -149,6 +149,8 @@ class Post(models.Model):
         
     @property
     def image_url(self):
+        if self.title.startswith('chatting_'):
+            return self.belong_room.image_url
         if self.image == "" or self.image is None:
             return "/media/static_default/{}.png".format(self.initial)
         else:
@@ -386,7 +388,7 @@ class Groups(models.Model):
     """
     uid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     name = models.CharField(max_length=128)
-    show_name = models.CharField(max_length=128,default="Group_Showname")
+    show_name = models.CharField(max_length=128, default="Group_Showname")
     owner = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='owner')
     about_group = models.CharField(max_length=128, default="welcome")
     members = models.ManyToManyField(to=User, blank=True, related_name='members')

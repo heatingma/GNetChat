@@ -61,7 +61,10 @@ def innergroup(request: HttpRequest, group_uid, dark=False):
         
         # deal with Group-editing   
         if editgroupform.is_valid():
-            group_name = editgroupform.cleaned_data["change_group_name"]
+            show_name = editgroupform.cleaned_data["change_group_name"]
+            group_name = show_name
+            if is_chinese(group_name):
+                group_name = chinese_to_pinyin(group_name)
             about_group = editgroupform.cleaned_data["change_about_group"]
             image = editgroupform.cleaned_data["change_image"]
             invite_person_email = editgroupform.cleaned_data["invite_person_email"]
@@ -83,6 +86,7 @@ def innergroup(request: HttpRequest, group_uid, dark=False):
                         )
             if group_name != "" and group_name is not None:
                 cur_group.name = group_name
+                cur_group.show_name = show_name
             if image:
                 cur_group.image = image
             if about_group != "" and about_group is not None:

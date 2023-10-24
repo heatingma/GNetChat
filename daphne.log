@@ -8681,3 +8681,986 @@ redis.exceptions.ConnectionError: Error connecting to localhost:6379. Multiple e
 127.0.0.1:42356 - - [24/Oct/2023:18:10:15] "WSCONNECTING /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
 127.0.0.1:42356 - - [24/Oct/2023:18:10:15] "WSCONNECT /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
 127.0.0.1:42356 - - [24/Oct/2023:18:10:19] "WSDISCONNECT /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+2023-10-24 18:19:58,977 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-24 18:19:58,977 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-24 18:19:58,978 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-24 18:19:58,978 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-25 00:18:06,082 INFO     Killed 0 pending application instances
+127.0.0.1:36828 - - [24/Oct/2023:18:22:23] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:36828 - - [24/Oct/2023:18:22:23] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:36828 - - [24/Oct/2023:18:22:24] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:53722 - - [24/Oct/2023:18:22:40] "WSCONNECTING /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:53722 - - [24/Oct/2023:18:22:40] "WSCONNECT /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:53722 - - [24/Oct/2023:18:22:41] "WSDISCONNECT /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:45838 - - [24/Oct/2023:18:23:08] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:45838 - - [24/Oct/2023:18:23:08] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:45838 - - [24/Oct/2023:18:26:16] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+45.79.168.172:54905 - - [24/Oct/2023:19:17:24] "GET /" 200 5286
+45.79.172.21:25408 - - [24/Oct/2023:19:17:46] "GET /" 200 5286
+127.0.0.1:51278 - - [24/Oct/2023:20:59:04] "WSCONNECTING /ws/chat/chat/heatingma/" - -
+127.0.0.1:51278 - - [24/Oct/2023:20:59:04] "WSCONNECT /ws/chat/chat/heatingma/" - -
+127.0.0.1:51278 - - [24/Oct/2023:20:59:10] "WSDISCONNECT /ws/chat/chat/heatingma/" - -
+127.0.0.1:42380 - - [24/Oct/2023:20:59:10] "WSCONNECTING /ws/chat/chat/phoenix/" - -
+127.0.0.1:42380 - - [24/Oct/2023:20:59:10] "WSCONNECT /ws/chat/chat/phoenix/" - -
+127.0.0.1:42380 - - [24/Oct/2023:20:59:18] "WSDISCONNECT /ws/chat/chat/phoenix/" - -
+127.0.0.1:42392 - - [24/Oct/2023:20:59:19] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:42392 - - [24/Oct/2023:20:59:19] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:42392 - - [24/Oct/2023:20:59:22] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:60504 - - [24/Oct/2023:20:59:24] "WSCONNECTING /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:60504 - - [24/Oct/2023:20:59:24] "WSCONNECT /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:60504 - - [24/Oct/2023:20:59:28] "WSDISCONNECT /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:60520 - - [24/Oct/2023:20:59:28] "WSCONNECTING /ws/chat/chatroom/Welcome/Sharing/" - -
+127.0.0.1:60520 - - [24/Oct/2023:20:59:28] "WSCONNECT /ws/chat/chatroom/Welcome/Sharing/" - -
+127.0.0.1:60520 - - [24/Oct/2023:20:59:29] "WSDISCONNECT /ws/chat/chatroom/Welcome/Sharing/" - -
+127.0.0.1:47518 - - [24/Oct/2023:20:59:30] "WSCONNECTING /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:47518 - - [24/Oct/2023:20:59:30] "WSCONNECT /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:47518 - - [24/Oct/2023:20:59:31] "WSDISCONNECT /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:47522 - - [24/Oct/2023:20:59:32] "WSCONNECTING /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:47522 - - [24/Oct/2023:20:59:32] "WSCONNECT /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:47522 - - [24/Oct/2023:20:59:33] "WSDISCONNECT /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:47536 - - [24/Oct/2023:20:59:33] "WSCONNECTING /ws/chat/chatroom/Issues/Hi_Faii/" - -
+127.0.0.1:47536 - - [24/Oct/2023:20:59:33] "WSCONNECT /ws/chat/chatroom/Issues/Hi_Faii/" - -
+127.0.0.1:47536 - - [24/Oct/2023:20:59:34] "WSDISCONNECT /ws/chat/chatroom/Issues/Hi_Faii/" - -
+127.0.0.1:47548 - - [24/Oct/2023:20:59:34] "WSCONNECTING /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:47548 - - [24/Oct/2023:20:59:34] "WSCONNECT /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:47548 - - [24/Oct/2023:20:59:35] "WSDISCONNECT /ws/chat/chatroom/Issues/chatting_Issues/" - -
+127.0.0.1:47556 - - [24/Oct/2023:20:59:39] "WSCONNECTING /ws/chat/chat/heatingma/" - -
+127.0.0.1:47556 - - [24/Oct/2023:20:59:39] "WSCONNECT /ws/chat/chat/heatingma/" - -
+127.0.0.1:47556 - - [24/Oct/2023:20:59:42] "WSDISCONNECT /ws/chat/chat/heatingma/" - -
+127.0.0.1:47172 - - [24/Oct/2023:20:59:42] "WSCONNECTING /ws/chat/chat/phoenix/" - -
+127.0.0.1:47172 - - [24/Oct/2023:20:59:42] "WSCONNECT /ws/chat/chat/phoenix/" - -
+127.0.0.1:47172 - - [24/Oct/2023:20:59:47] "WSDISCONNECT /ws/chat/chat/phoenix/" - -
+2023-10-25 00:27:46,130 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-25 00:27:46,131 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-25 00:27:46,131 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-25 00:27:46,131 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-25 00:29:09,195 ERROR    Exception inside application: Room matching query does not exist.
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 72, in __call__
+    return await application(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/middleware.py", line 26, in __call__
+    return await self.inner(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 151, in __call__
+    return await application(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 51, in await_many_dispatch
+    await dispatch(result)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/root/miniconda3/envs/django/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/db.py", line 13, in thread_handler
+    return super().thread_handler(loop, *args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 125, in dispatch
+    handler(message)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/generic/websocket.py", line 38, in websocket_connect
+    self.connect()
+  File "/home/heatingma/github/NIS3368-website/./chat/roomers.py", line 25, in connect
+    self.room = Room.objects.get(name=self.room_name)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+chat.models.Room.DoesNotExist: Room matching query does not exist.
+2023-10-25 00:29:13,202 ERROR    Exception inside application: Room matching query does not exist.
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 72, in __call__
+    return await application(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/middleware.py", line 26, in __call__
+    return await self.inner(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 151, in __call__
+    return await application(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 51, in await_many_dispatch
+    await dispatch(result)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/root/miniconda3/envs/django/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/db.py", line 13, in thread_handler
+    return super().thread_handler(loop, *args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 125, in dispatch
+    handler(message)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/generic/websocket.py", line 38, in websocket_connect
+    self.connect()
+  File "/home/heatingma/github/NIS3368-website/./chat/roomers.py", line 25, in connect
+    self.room = Room.objects.get(name=self.room_name)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+chat.models.Room.DoesNotExist: Room matching query does not exist.
+2023-10-25 00:29:16,205 ERROR    Exception inside application: Room matching query does not exist.
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 72, in __call__
+    return await application(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/middleware.py", line 26, in __call__
+    return await self.inner(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 151, in __call__
+    return await application(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 51, in await_many_dispatch
+    await dispatch(result)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/root/miniconda3/envs/django/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/db.py", line 13, in thread_handler
+    return super().thread_handler(loop, *args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 125, in dispatch
+    handler(message)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/generic/websocket.py", line 38, in websocket_connect
+    self.connect()
+  File "/home/heatingma/github/NIS3368-website/./chat/roomers.py", line 25, in connect
+    self.room = Room.objects.get(name=self.room_name)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+chat.models.Room.DoesNotExist: Room matching query does not exist.
+127.0.0.1:44478 - - [25/Oct/2023:00:28:39] "WSCONNECTING /ws/chat/groups/662807f7-bae9-4cdf-b2b2-4bad395354ef/" - -
+127.0.0.1:44478 - - [25/Oct/2023:00:28:39] "WSCONNECT /ws/chat/groups/662807f7-bae9-4cdf-b2b2-4bad395354ef/" - -
+127.0.0.1:44478 - - [25/Oct/2023:00:28:41] "WSDISCONNECT /ws/chat/groups/662807f7-bae9-4cdf-b2b2-4bad395354ef/" - -
+127.0.0.1:54014 - - [25/Oct/2023:00:28:41] "WSCONNECTING /ws/chat/groups/8ad5e56a-235a-42b7-acc2-a87eb4b77b9c/" - -
+127.0.0.1:54014 - - [25/Oct/2023:00:28:42] "WSCONNECT /ws/chat/groups/8ad5e56a-235a-42b7-acc2-a87eb4b77b9c/" - -
+127.0.0.1:54014 - - [25/Oct/2023:00:28:42] "WSDISCONNECT /ws/chat/groups/8ad5e56a-235a-42b7-acc2-a87eb4b77b9c/" - -
+127.0.0.1:54026 - - [25/Oct/2023:00:28:42] "WSCONNECTING /ws/chat/groups/662807f7-bae9-4cdf-b2b2-4bad395354ef/" - -
+127.0.0.1:54026 - - [25/Oct/2023:00:28:42] "WSCONNECT /ws/chat/groups/662807f7-bae9-4cdf-b2b2-4bad395354ef/" - -
+127.0.0.1:54026 - - [25/Oct/2023:00:28:43] "WSDISCONNECT /ws/chat/groups/662807f7-bae9-4cdf-b2b2-4bad395354ef/" - -
+127.0.0.1:54032 - - [25/Oct/2023:00:28:43] "WSCONNECTING /ws/chat/groups/8ad5e56a-235a-42b7-acc2-a87eb4b77b9c/" - -
+127.0.0.1:54032 - - [25/Oct/2023:00:28:43] "WSCONNECT /ws/chat/groups/8ad5e56a-235a-42b7-acc2-a87eb4b77b9c/" - -
+127.0.0.1:54032 - - [25/Oct/2023:00:28:44] "WSDISCONNECT /ws/chat/groups/8ad5e56a-235a-42b7-acc2-a87eb4b77b9c/" - -
+127.0.0.1:54048 - - [25/Oct/2023:00:28:44] "WSCONNECTING /ws/chat/groups/662807f7-bae9-4cdf-b2b2-4bad395354ef/" - -
+127.0.0.1:54048 - - [25/Oct/2023:00:28:44] "WSCONNECT /ws/chat/groups/662807f7-bae9-4cdf-b2b2-4bad395354ef/" - -
+127.0.0.1:54048 - - [25/Oct/2023:00:28:45] "WSDISCONNECT /ws/chat/groups/662807f7-bae9-4cdf-b2b2-4bad395354ef/" - -
+127.0.0.1:55722 - - [25/Oct/2023:00:29:08] "WSCONNECTING /ws/chat/chatroom/Showname/chatting_zhongwenceshi/" - -
+127.0.0.1:55722 - - [25/Oct/2023:00:29:09] "WSDISCONNECT /ws/chat/chatroom/Showname/chatting_zhongwenceshi/" - -
+127.0.0.1:47440 - - [25/Oct/2023:00:29:12] "WSCONNECTING /ws/chat/chatroom/Showname/chatting_Welcome/" - -
+127.0.0.1:47440 - - [25/Oct/2023:00:29:13] "WSDISCONNECT /ws/chat/chatroom/Showname/chatting_Welcome/" - -
+127.0.0.1:47456 - - [25/Oct/2023:00:29:16] "WSCONNECTING /ws/chat/chatroom/Showname/chatting_Welcome/" - -
+127.0.0.1:47456 - - [25/Oct/2023:00:29:16] "WSDISCONNECT /ws/chat/chatroom/Showname/chatting_Welcome/" - -
+127.0.0.1:37934 - - [25/Oct/2023:00:30:27] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:37934 - - [25/Oct/2023:00:30:27] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:37934 - - [25/Oct/2023:00:30:37] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:42930 - - [25/Oct/2023:00:30:38] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:42930 - - [25/Oct/2023:00:30:38] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:42930 - - [25/Oct/2023:00:30:47] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:54830 - - [25/Oct/2023:00:30:47] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:54830 - - [25/Oct/2023:00:30:47] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:54830 - - [25/Oct/2023:00:30:48] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:54834 - - [25/Oct/2023:00:30:48] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:54834 - - [25/Oct/2023:00:30:48] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:54834 - - [25/Oct/2023:00:30:49] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:54842 - - [25/Oct/2023:00:30:49] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:54842 - - [25/Oct/2023:00:30:49] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:54842 - - [25/Oct/2023:00:30:56] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:44314 - - [25/Oct/2023:00:30:56] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:44314 - - [25/Oct/2023:00:30:56] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:44314 - - [25/Oct/2023:00:31:00] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:48490 - - [25/Oct/2023:00:31:00] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:48490 - - [25/Oct/2023:00:31:00] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:48490 - - [25/Oct/2023:00:31:01] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:48494 - - [25/Oct/2023:00:31:01] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:48494 - - [25/Oct/2023:00:31:01] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:48494 - - [25/Oct/2023:00:31:03] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:48496 - - [25/Oct/2023:00:31:03] "WSCONNECTING /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:48496 - - [25/Oct/2023:00:31:03] "WSCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:48496 - - [25/Oct/2023:00:31:35] "WSDISCONNECT /ws/chat/groups/27f47d11-5f90-4a8e-a0d9-6efd965b51ce/" - -
+127.0.0.1:43684 - - [25/Oct/2023:00:31:42] "WSCONNECTING /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:43684 - - [25/Oct/2023:00:31:42] "WSCONNECT /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:43684 - - [25/Oct/2023:00:31:44] "WSDISCONNECT /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:57280 - - [25/Oct/2023:00:32:53] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:57280 - - [25/Oct/2023:00:32:53] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:57280 - - [25/Oct/2023:00:33:10] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37182 - - [25/Oct/2023:00:33:10] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37182 - - [25/Oct/2023:00:33:10] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37182 - - [25/Oct/2023:00:33:11] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37194 - - [25/Oct/2023:00:33:11] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37194 - - [25/Oct/2023:00:33:11] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37194 - - [25/Oct/2023:00:33:12] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37198 - - [25/Oct/2023:00:33:12] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37198 - - [25/Oct/2023:00:33:12] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37198 - - [25/Oct/2023:00:33:13] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37204 - - [25/Oct/2023:00:33:13] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37204 - - [25/Oct/2023:00:33:13] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37204 - - [25/Oct/2023:00:33:14] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37216 - - [25/Oct/2023:00:33:14] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37216 - - [25/Oct/2023:00:33:14] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37216 - - [25/Oct/2023:00:33:17] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37222 - - [25/Oct/2023:00:33:17] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37222 - - [25/Oct/2023:00:33:17] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+2023-10-25 00:41:53,832 ERROR    Exception inside application: Connection closed by server.
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 72, in __call__
+    return await application(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/middleware.py", line 26, in __call__
+    return await self.inner(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 151, in __call__
+    return await application(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 58, in await_many_dispatch
+    await task
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    result = task.result()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 347, in receive
+    message_channel, message = await self.receive_single(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 402, in receive_single
+    content = await self._brpop_with_clean(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 240, in _brpop_with_clean
+    result = await connection.bzpopmin(channel, timeout=timeout)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 606, in execute_command
+    return await conn.retry.call_with_retry(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 62, in call_with_retry
+    await fail(error)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 593, in _disconnect_raise
+    raise error
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 580, in _send_command_parse_response
+    return await self.parse_response(conn, command_name, **options)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 627, in parse_response
+    response = await connection.read_response()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 510, in read_response
+    response = await self._parser.read_response(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 90, in _read_response
+    raw = await self._readline()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/base.py", line 221, in _readline
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+2023-10-25 00:41:56,836 ERROR    Exception inside application: Error connecting to localhost:6379. Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379), [Errno 111] Connect call failed ('127.0.1.1', 6379).
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 243, in connect
+    await self.retry.call_with_retry(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 650, in _connect
+    reader, writer = await asyncio.open_connection(
+  File "/root/miniconda3/envs/django/lib/python3.9/asyncio/streams.py", line 52, in open_connection
+    transport, _ = await loop.create_connection(
+  File "/root/miniconda3/envs/django/lib/python3.9/asyncio/base_events.py", line 1073, in create_connection
+    raise OSError('Multiple exceptions: {}'.format(
+OSError: Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379), [Errno 111] Connect call failed ('127.0.1.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 51, in await_many_dispatch
+    await dispatch(result)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/root/miniconda3/envs/django/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/db.py", line 13, in thread_handler
+    return super().thread_handler(loop, *args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 125, in dispatch
+    handler(message)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/generic/websocket.py", line 38, in websocket_connect
+    self.connect()
+  File "/home/heatingma/github/NIS3368-website/./chat/roomers.py", line 229, in connect
+    async_to_sync(self.channel_layer.group_add)(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 277, in __call__
+    return call_result.result()
+  File "/root/miniconda3/envs/django/lib/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/root/miniconda3/envs/django/lib/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 353, in main_wrap
+    result = await self.awaitable(*args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 498, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 601, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 1040, in get_connection
+    await self.ensure_connection(connection)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 1062, in ensure_connection
+    await connection.connect()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 251, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error connecting to localhost:6379. Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379), [Errno 111] Connect call failed ('127.0.1.1', 6379).
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 72, in __call__
+    return await application(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/middleware.py", line 26, in __call__
+    return await self.inner(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 151, in __call__
+    return await application(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 58, in await_many_dispatch
+    await task
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 347, in receive
+    message_channel, message = await self.receive_single(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 402, in receive_single
+    content = await self._brpop_with_clean(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 238, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 601, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 1040, in get_connection
+    await self.ensure_connection(connection)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 1062, in ensure_connection
+    await connection.connect()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 251, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error connecting to localhost:6379. Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379), [Errno 111] Connect call failed ('127.0.1.1', 6379).
+2023-10-25 00:41:59,841 ERROR    Exception inside application: Error connecting to localhost:6379. Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379), [Errno 111] Connect call failed ('127.0.1.1', 6379).
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 243, in connect
+    await self.retry.call_with_retry(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 650, in _connect
+    reader, writer = await asyncio.open_connection(
+  File "/root/miniconda3/envs/django/lib/python3.9/asyncio/streams.py", line 52, in open_connection
+    transport, _ = await loop.create_connection(
+  File "/root/miniconda3/envs/django/lib/python3.9/asyncio/base_events.py", line 1073, in create_connection
+    raise OSError('Multiple exceptions: {}'.format(
+OSError: Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379), [Errno 111] Connect call failed ('127.0.1.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 51, in await_many_dispatch
+    await dispatch(result)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/root/miniconda3/envs/django/lib/python3.9/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/db.py", line 13, in thread_handler
+    return super().thread_handler(loop, *args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 125, in dispatch
+    handler(message)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/generic/websocket.py", line 38, in websocket_connect
+    self.connect()
+  File "/home/heatingma/github/NIS3368-website/./chat/roomers.py", line 229, in connect
+    async_to_sync(self.channel_layer.group_add)(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 277, in __call__
+    return call_result.result()
+  File "/root/miniconda3/envs/django/lib/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/root/miniconda3/envs/django/lib/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/asgiref/sync.py", line 353, in main_wrap
+    result = await self.awaitable(*args, **kwargs)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 498, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 601, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 1040, in get_connection
+    await self.ensure_connection(connection)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 1062, in ensure_connection
+    await connection.connect()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 251, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error connecting to localhost:6379. Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379), [Errno 111] Connect call failed ('127.0.1.1', 6379).
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 72, in __call__
+    return await application(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/middleware.py", line 26, in __call__
+    return await self.inner(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 151, in __call__
+    return await application(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 58, in await_many_dispatch
+    await task
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 347, in receive
+    message_channel, message = await self.receive_single(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 402, in receive_single
+    content = await self._brpop_with_clean(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 238, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 601, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 1040, in get_connection
+    await self.ensure_connection(connection)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 1062, in ensure_connection
+    await connection.connect()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 251, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error connecting to localhost:6379. Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379), [Errno 111] Connect call failed ('127.0.1.1', 6379).
+127.0.0.1:37222 - - [25/Oct/2023:00:33:18] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37238 - - [25/Oct/2023:00:33:18] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37238 - - [25/Oct/2023:00:33:18] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:37238 - - [25/Oct/2023:00:33:37] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:35672 - - [25/Oct/2023:00:33:37] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:35672 - - [25/Oct/2023:00:33:37] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:35672 - - [25/Oct/2023:00:33:39] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:35682 - - [25/Oct/2023:00:33:39] "WSCONNECTING /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:35682 - - [25/Oct/2023:00:33:39] "WSCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:35682 - - [25/Oct/2023:00:33:59] "WSDISCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:33270 - - [25/Oct/2023:00:33:59] "WSCONNECTING /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:33270 - - [25/Oct/2023:00:33:59] "WSCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:33270 - - [25/Oct/2023:00:34:02] "WSDISCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:42654 - - [25/Oct/2023:00:34:03] "WSCONNECTING /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:42654 - - [25/Oct/2023:00:34:03] "WSCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:42654 - - [25/Oct/2023:00:41:53] "WSDISCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:42976 - - [25/Oct/2023:00:41:55] "WSCONNECTING /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:42976 - - [25/Oct/2023:00:41:55] "WSCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:42976 - - [25/Oct/2023:00:41:56] "WSDISCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:42982 - - [25/Oct/2023:00:41:58] "WSCONNECTING /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:42982 - - [25/Oct/2023:00:41:58] "WSCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:42982 - - [25/Oct/2023:00:41:59] "WSDISCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+2023-10-25 00:42:05,631 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-25 00:42:05,632 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-25 00:42:05,632 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-25 00:42:05,633 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-25 00:49:35,011 ERROR    Exception inside application: Connection closed by server.
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 72, in __call__
+    return await application(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/middleware.py", line 26, in __call__
+    return await self.inner(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 151, in __call__
+    return await application(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 58, in await_many_dispatch
+    await task
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    result = task.result()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 347, in receive
+    message_channel, message = await self.receive_single(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 402, in receive_single
+    content = await self._brpop_with_clean(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 240, in _brpop_with_clean
+    result = await connection.bzpopmin(channel, timeout=timeout)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 606, in execute_command
+    return await conn.retry.call_with_retry(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 62, in call_with_retry
+    await fail(error)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 593, in _disconnect_raise
+    raise error
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 580, in _send_command_parse_response
+    return await self.parse_response(conn, command_name, **options)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 627, in parse_response
+    response = await connection.read_response()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 510, in read_response
+    response = await self._parser.read_response(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 90, in _read_response
+    raw = await self._readline()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/base.py", line 221, in _readline
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+127.0.0.1:39520 - - [25/Oct/2023:00:42:05] "WSCONNECTING /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:39520 - - [25/Oct/2023:00:42:06] "WSCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:39520 - - [25/Oct/2023:00:42:09] "WSDISCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:39524 - - [25/Oct/2023:00:42:09] "WSCONNECTING /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:39524 - - [25/Oct/2023:00:42:09] "WSCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:39524 - - [25/Oct/2023:00:42:22] "WSDISCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:53690 - - [25/Oct/2023:00:42:22] "WSCONNECTING /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:53690 - - [25/Oct/2023:00:42:22] "WSCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:53690 - - [25/Oct/2023:00:42:24] "WSDISCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:53702 - - [25/Oct/2023:00:42:24] "WSCONNECTING /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:53702 - - [25/Oct/2023:00:42:24] "WSCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:53702 - - [25/Oct/2023:00:42:39] "WSDISCONNECT /ws/chat/groups/326a62b2-be3d-4528-b04e-a6415549b54d/" - -
+127.0.0.1:35234 - - [25/Oct/2023:00:42:40] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:35234 - - [25/Oct/2023:00:42:40] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:35234 - - [25/Oct/2023:00:42:54] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:38210 - - [25/Oct/2023:00:42:54] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:38210 - - [25/Oct/2023:00:42:54] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:38210 - - [25/Oct/2023:00:43:25] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:42732 - - [25/Oct/2023:00:43:25] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:42732 - - [25/Oct/2023:00:43:25] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:42732 - - [25/Oct/2023:00:43:33] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:48318 - - [25/Oct/2023:00:43:34] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:48318 - - [25/Oct/2023:00:43:34] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:48318 - - [25/Oct/2023:00:43:36] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:49546 - - [25/Oct/2023:00:43:42] "WSCONNECTING /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:49546 - - [25/Oct/2023:00:43:42] "WSCONNECT /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:49546 - - [25/Oct/2023:00:43:55] "WSDISCONNECT /ws/chat/chatroom/Welcome/chatting_Welcome/" - -
+127.0.0.1:47766 - - [25/Oct/2023:00:45:39] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:47766 - - [25/Oct/2023:00:45:39] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:47766 - - [25/Oct/2023:00:45:42] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:36216 - - [25/Oct/2023:00:45:42] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:36216 - - [25/Oct/2023:00:45:42] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:36216 - - [25/Oct/2023:00:45:46] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:36220 - - [25/Oct/2023:00:45:46] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:36220 - - [25/Oct/2023:00:45:46] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:36220 - - [25/Oct/2023:00:49:35] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+2023-10-25 00:49:38,406 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-25 00:49:38,407 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-25 00:49:38,407 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-25 00:49:38,407 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-25 00:50:53,474 ERROR    Exception inside application: Connection closed by server.
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 72, in __call__
+    return await application(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/middleware.py", line 26, in __call__
+    return await self.inner(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 151, in __call__
+    return await application(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 58, in await_many_dispatch
+    await task
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    result = task.result()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 347, in receive
+    message_channel, message = await self.receive_single(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 402, in receive_single
+    content = await self._brpop_with_clean(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 240, in _brpop_with_clean
+    result = await connection.bzpopmin(channel, timeout=timeout)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 606, in execute_command
+    return await conn.retry.call_with_retry(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 62, in call_with_retry
+    await fail(error)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 593, in _disconnect_raise
+    raise error
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 580, in _send_command_parse_response
+    return await self.parse_response(conn, command_name, **options)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 627, in parse_response
+    response = await connection.read_response()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 510, in read_response
+    response = await self._parser.read_response(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 90, in _read_response
+    raw = await self._readline()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/base.py", line 221, in _readline
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+127.0.0.1:50038 - - [25/Oct/2023:00:49:39] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:50038 - - [25/Oct/2023:00:49:39] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:50038 - - [25/Oct/2023:00:49:41] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:48302 - - [25/Oct/2023:00:49:41] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:48302 - - [25/Oct/2023:00:49:41] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:48302 - - [25/Oct/2023:00:49:43] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:48312 - - [25/Oct/2023:00:49:43] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:48312 - - [25/Oct/2023:00:49:43] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:48312 - - [25/Oct/2023:00:50:53] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:57948 - - [25/Oct/2023:00:50:55] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:57948 - - [25/Oct/2023:00:50:55] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:57948 - - [25/Oct/2023:00:50:56] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+2023-10-25 00:50:58,444 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-25 00:50:58,444 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-25 00:50:58,445 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-25 00:50:58,445 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-25 00:51:36,184 INFO     Killed 0 pending application instances
+127.0.0.1:41906 - - [25/Oct/2023:00:51:00] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:41906 - - [25/Oct/2023:00:51:00] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:41906 - - [25/Oct/2023:00:51:28] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+2023-10-25 00:51:38,631 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-25 00:51:38,631 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-25 00:51:38,632 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-25 00:51:38,632 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-25 00:52:10,666 ERROR    Exception inside application: Connection closed by server.
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 72, in __call__
+    return await application(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/middleware.py", line 26, in __call__
+    return await self.inner(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 151, in __call__
+    return await application(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 58, in await_many_dispatch
+    await task
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    result = task.result()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 347, in receive
+    message_channel, message = await self.receive_single(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 402, in receive_single
+    content = await self._brpop_with_clean(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 240, in _brpop_with_clean
+    result = await connection.bzpopmin(channel, timeout=timeout)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 606, in execute_command
+    return await conn.retry.call_with_retry(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 62, in call_with_retry
+    await fail(error)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 593, in _disconnect_raise
+    raise error
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 580, in _send_command_parse_response
+    return await self.parse_response(conn, command_name, **options)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 627, in parse_response
+    response = await connection.read_response()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 510, in read_response
+    response = await self._parser.read_response(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 90, in _read_response
+    raw = await self._readline()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/base.py", line 221, in _readline
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+127.0.0.1:43022 - - [25/Oct/2023:00:51:51] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:43022 - - [25/Oct/2023:00:51:51] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:43022 - - [25/Oct/2023:00:52:10] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+2023-10-25 00:56:06,058 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-25 00:56:06,058 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-25 00:56:06,058 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-25 00:56:06,059 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-25 01:13:32,946 ERROR    Exception inside application: Connection closed by server.
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 72, in __call__
+    return await application(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/middleware.py", line 26, in __call__
+    return await self.inner(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 151, in __call__
+    return await application(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 58, in await_many_dispatch
+    await task
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    result = task.result()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 347, in receive
+    message_channel, message = await self.receive_single(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 402, in receive_single
+    content = await self._brpop_with_clean(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 240, in _brpop_with_clean
+    result = await connection.bzpopmin(channel, timeout=timeout)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 606, in execute_command
+    return await conn.retry.call_with_retry(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 62, in call_with_retry
+    await fail(error)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 593, in _disconnect_raise
+    raise error
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 580, in _send_command_parse_response
+    return await self.parse_response(conn, command_name, **options)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 627, in parse_response
+    response = await connection.read_response()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 510, in read_response
+    response = await self._parser.read_response(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 90, in _read_response
+    raw = await self._readline()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/base.py", line 221, in _readline
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+127.0.0.1:40998 - - [25/Oct/2023:00:56:08] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:40998 - - [25/Oct/2023:00:56:08] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:56268 - - [25/Oct/2023:00:56:17] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:56268 - - [25/Oct/2023:00:56:17] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:56268 - - [25/Oct/2023:00:57:32] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:34492 - - [25/Oct/2023:00:57:32] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:34492 - - [25/Oct/2023:00:57:32] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:34492 - - [25/Oct/2023:00:57:33] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:34500 - - [25/Oct/2023:00:57:33] "WSCONNECTING /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:34500 - - [25/Oct/2023:00:57:33] "WSCONNECT /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:34500 - - [25/Oct/2023:00:57:43] "WSDISCONNECT /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:54598 - - [25/Oct/2023:00:57:44] "WSCONNECTING /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:54598 - - [25/Oct/2023:00:57:44] "WSCONNECT /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:54598 - - [25/Oct/2023:00:58:01] "WSDISCONNECT /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:40998 - - [25/Oct/2023:01:13:32] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:47732 - - [25/Oct/2023:01:13:35] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:47732 - - [25/Oct/2023:01:13:35] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:47732 - - [25/Oct/2023:01:13:35] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+2023-10-25 01:18:18,609 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-25 01:18:18,609 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-25 01:18:18,609 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-25 01:18:18,610 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-25 01:24:05,913 ERROR    Exception inside application: Connection closed by server.
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 72, in __call__
+    return await application(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/middleware.py", line 26, in __call__
+    return await self.inner(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 151, in __call__
+    return await application(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 58, in await_many_dispatch
+    await task
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    result = task.result()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 347, in receive
+    message_channel, message = await self.receive_single(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 402, in receive_single
+    content = await self._brpop_with_clean(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 240, in _brpop_with_clean
+    result = await connection.bzpopmin(channel, timeout=timeout)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 606, in execute_command
+    return await conn.retry.call_with_retry(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 62, in call_with_retry
+    await fail(error)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 593, in _disconnect_raise
+    raise error
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 580, in _send_command_parse_response
+    return await self.parse_response(conn, command_name, **options)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 627, in parse_response
+    response = await connection.read_response()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 510, in read_response
+    response = await self._parser.read_response(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 90, in _read_response
+    raw = await self._readline()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/base.py", line 221, in _readline
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+2023-10-25 01:24:07,714 INFO     Killed 0 pending application instances
+127.0.0.1:47874 - - [25/Oct/2023:01:18:20] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:47874 - - [25/Oct/2023:01:18:20] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:47874 - - [25/Oct/2023:01:19:18] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:42852 - - [25/Oct/2023:01:19:35] "WSCONNECTING /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:42852 - - [25/Oct/2023:01:19:35] "WSCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:42852 - - [25/Oct/2023:01:19:43] "WSDISCONNECT /ws/chat/groups/3b78a8b6-bce4-4d55-9baa-a68701867b89/" - -
+127.0.0.1:41580 - - [25/Oct/2023:01:19:45] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:41580 - - [25/Oct/2023:01:19:45] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:41580 - - [25/Oct/2023:01:19:52] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:59026 - - [25/Oct/2023:01:19:52] "WSCONNECTING /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:59026 - - [25/Oct/2023:01:19:53] "WSCONNECT /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:59026 - - [25/Oct/2023:01:20:48] "WSDISCONNECT /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:44050 - - [25/Oct/2023:01:20:48] "WSCONNECTING /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:44050 - - [25/Oct/2023:01:20:48] "WSCONNECT /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:44050 - - [25/Oct/2023:01:20:50] "WSDISCONNECT /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:53186 - - [25/Oct/2023:01:20:50] "WSCONNECTING /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:53186 - - [25/Oct/2023:01:20:50] "WSCONNECT /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:53186 - - [25/Oct/2023:01:21:36] "WSDISCONNECT /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:49162 - - [25/Oct/2023:01:21:36] "WSCONNECTING /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:49162 - - [25/Oct/2023:01:21:36] "WSCONNECT /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:49162 - - [25/Oct/2023:01:21:39] "WSDISCONNECT /ws/chat/chatroom/GNetChat/Issues/" - -
+127.0.0.1:49174 - - [25/Oct/2023:01:21:39] "WSCONNECTING /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:49174 - - [25/Oct/2023:01:21:39] "WSCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:49174 - - [25/Oct/2023:01:22:16] "WSDISCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:35052 - - [25/Oct/2023:01:22:16] "WSCONNECTING /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:35052 - - [25/Oct/2023:01:22:16] "WSCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:35052 - - [25/Oct/2023:01:22:21] "WSDISCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:48704 - - [25/Oct/2023:01:22:21] "WSCONNECTING /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:48704 - - [25/Oct/2023:01:22:21] "WSCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:48704 - - [25/Oct/2023:01:22:24] "WSDISCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:48720 - - [25/Oct/2023:01:22:24] "WSCONNECTING /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:48720 - - [25/Oct/2023:01:22:24] "WSCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:48720 - - [25/Oct/2023:01:22:45] "WSDISCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:33752 - - [25/Oct/2023:01:22:45] "WSCONNECTING /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:33752 - - [25/Oct/2023:01:22:45] "WSCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:33752 - - [25/Oct/2023:01:24:05] "WSDISCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+2023-10-25 01:24:10,231 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-25 01:24:10,231 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-25 01:24:10,231 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-25 01:24:10,232 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-25 01:24:17,888 INFO     Killed 0 pending application instances
+127.0.0.1:59478 - - [25/Oct/2023:01:24:12] "WSCONNECTING /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:59478 - - [25/Oct/2023:01:24:12] "WSCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:59478 - - [25/Oct/2023:01:24:12] "WSDISCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+2023-10-25 01:24:19,785 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-25 01:24:19,786 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-25 01:24:19,786 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-25 01:24:19,786 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-25 01:26:12,883 ERROR    Exception inside application: Connection closed by server.
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 72, in __call__
+    return await application(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/middleware.py", line 26, in __call__
+    return await self.inner(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/routing.py", line 151, in __call__
+    return await application(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 58, in await_many_dispatch
+    await task
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    result = task.result()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 347, in receive
+    message_channel, message = await self.receive_single(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 402, in receive_single
+    content = await self._brpop_with_clean(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/channels_redis/core.py", line 240, in _brpop_with_clean
+    result = await connection.bzpopmin(channel, timeout=timeout)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 606, in execute_command
+    return await conn.retry.call_with_retry(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 62, in call_with_retry
+    await fail(error)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 593, in _disconnect_raise
+    raise error
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 580, in _send_command_parse_response
+    return await self.parse_response(conn, command_name, **options)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/client.py", line 627, in parse_response
+    response = await connection.read_response()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/asyncio/connection.py", line 510, in read_response
+    response = await self._parser.read_response(
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/resp2.py", line 90, in _read_response
+    raw = await self._readline()
+  File "/root/miniconda3/envs/django/lib/python3.9/site-packages/redis/_parsers/base.py", line 221, in _readline
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+127.0.0.1:56052 - - [25/Oct/2023:01:24:22] "WSCONNECTING /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:56052 - - [25/Oct/2023:01:24:22] "WSCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:56052 - - [25/Oct/2023:01:24:47] "WSDISCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:48634 - - [25/Oct/2023:01:24:47] "WSCONNECTING /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:48634 - - [25/Oct/2023:01:24:47] "WSCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:48634 - - [25/Oct/2023:01:24:55] "WSDISCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:45070 - - [25/Oct/2023:01:24:55] "WSCONNECTING /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:45070 - - [25/Oct/2023:01:24:55] "WSCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:45070 - - [25/Oct/2023:01:25:04] "WSDISCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:47444 - - [25/Oct/2023:01:25:07] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:47444 - - [25/Oct/2023:01:25:07] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:47444 - - [25/Oct/2023:01:25:08] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:34246 - - [25/Oct/2023:01:25:13] "WSCONNECTING /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:34246 - - [25/Oct/2023:01:25:13] "WSCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:34246 - - [25/Oct/2023:01:26:12] "WSDISCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:58440 - - [25/Oct/2023:01:26:14] "WSCONNECTING /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:58440 - - [25/Oct/2023:01:26:14] "WSCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:58440 - - [25/Oct/2023:01:26:15] "WSDISCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+2023-10-25 01:26:18,004 INFO     Starting server at tcp:port=8002:interface=0.0.0.0
+2023-10-25 01:26:18,004 INFO     HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2023-10-25 01:26:18,004 INFO     Configuring endpoint tcp:port=8002:interface=0.0.0.0
+2023-10-25 01:26:18,005 INFO     Listening on TCP address 0.0.0.0:8002
+2023-10-25 01:30:22,108 INFO     Killed 0 pending application instances
+127.0.0.1:58448 - - [25/Oct/2023:01:26:19] "WSCONNECTING /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:58448 - - [25/Oct/2023:01:26:19] "WSCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:58448 - - [25/Oct/2023:01:26:22] "WSDISCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:53040 - - [25/Oct/2023:01:26:22] "WSCONNECTING /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:53040 - - [25/Oct/2023:01:26:22] "WSCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:53040 - - [25/Oct/2023:01:26:35] "WSDISCONNECT /ws/chat/chatroom/GNetChat/anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:38928 - - [25/Oct/2023:01:26:35] "WSCONNECTING /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:38928 - - [25/Oct/2023:01:26:35] "WSCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:38928 - - [25/Oct/2023:01:26:37] "WSDISCONNECT /ws/chat/chatroom/GNetChat/chatting_GNetChat/" - -
+127.0.0.1:53348 - - [25/Oct/2023:01:27:26] "WSCONNECTING /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:53348 - - [25/Oct/2023:01:27:26] "WSCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:53348 - - [25/Oct/2023:01:28:09] "WSDISCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:56430 - - [25/Oct/2023:01:28:09] "WSCONNECTING /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:56430 - - [25/Oct/2023:01:28:09] "WSCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:56430 - - [25/Oct/2023:01:28:12] "WSDISCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:46914 - - [25/Oct/2023:01:28:12] "WSCONNECTING /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:46914 - - [25/Oct/2023:01:28:12] "WSCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:46914 - - [25/Oct/2023:01:28:15] "WSDISCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:46916 - - [25/Oct/2023:01:28:15] "WSCONNECTING /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:46916 - - [25/Oct/2023:01:28:15] "WSCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:46916 - - [25/Oct/2023:01:28:45] "WSDISCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:57504 - - [25/Oct/2023:01:28:45] "WSCONNECTING /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:57504 - - [25/Oct/2023:01:28:45] "WSCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:57504 - - [25/Oct/2023:01:28:46] "WSDISCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/chatting_anquankaifamoxingjianquanbiancheng/" - -
+127.0.0.1:57508 - - [25/Oct/2023:01:28:46] "WSCONNECTING /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/Django/" - -
+127.0.0.1:57508 - - [25/Oct/2023:01:28:46] "WSCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/Django/" - -
+127.0.0.1:57508 - - [25/Oct/2023:01:29:18] "WSDISCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/Django/" - -
+127.0.0.1:57506 - - [25/Oct/2023:01:29:19] "WSCONNECTING /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/Django/" - -
+127.0.0.1:57506 - - [25/Oct/2023:01:29:19] "WSCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/Django/" - -
+127.0.0.1:57506 - - [25/Oct/2023:01:29:31] "WSDISCONNECT /ws/chat/chatroom/anquankaifamoxingjianquanbiancheng/Django/" - -
