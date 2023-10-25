@@ -125,8 +125,8 @@ def innergroup(request: HttpRequest, group_uid, dark=False):
 
     users_img_urls = dict()
     for rm in group_messages:
-        user = rm.user
-        user_profile = get_object_or_404(Profile, user=user)
+        rm_user = rm.user
+        user_profile = get_object_or_404(Profile, user=rm_user)
         users_img_urls[user_profile.user.username] = user_profile.image_url
 
     # return the tpl
