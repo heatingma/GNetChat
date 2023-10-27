@@ -32,7 +32,7 @@ function add_message(user, message){
             <div class="ctext-wrap">
                 <!-- CONTENT & TIME -->
                 <div class="ctext-wrap-content" style="max-width: 100%;">
-                    <p class="mb-0" style="word-break:break-all;">${message}</p>
+                    <p class="mb-0" style="word-break:break-all; line-break:anywhere;">${message}</p>
                 </div>
                 <!-- CONTENT & TIME -->
             </div>
@@ -51,7 +51,7 @@ function add_message(user, message){
             <div class="ctext-wrap">
                 <!-- CONTENT & TIME -->
                 <div class="ctext-wrap-content" style="max-width: 100%;">
-                    <p class="mb-0" style="word-break:break-all; text-align: left;">${message}</p>
+                    <p class="mb-0" style="word-break:break-all; line-break:anywhere; text-align: left;">${message}</p>
                 </div>
                 <!-- CONTENT & TIME -->
             </div>

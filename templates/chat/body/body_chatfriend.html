@@ -59,7 +59,7 @@
                         <div class="ctext-wrap">
                             <!-- CONTENT & TIME -->
                             <div class="ctext-wrap-content" style="max-width: 100%;">
-                                <p class="mb-0" style="word-break:break-all;">{{rm.content}}</p>
+                                <p class="mb-0" style="word-break:break-all; line-break:anywhere;">{{rm.content}}</p>
                                 
                                 {% if rm.attachment_name is not None %}
                                     {% if rm.attachment_type == "image" %}
@@ -115,7 +115,7 @@
                         <div class="ctext-wrap">
                             <!-- CONTENT & TIME -->
                             <div class="ctext-wrap-content" style="max-width: 100%;">
-                                <p class="mb-0" style="word-break:break-all; text-align: left;">{{rm.content}}</p>
+                                <p class="mb-0" style="word-break:break-all; line-break:anywhere; text-align: left;">{{rm.content}}</p>
                                 {% if rm.attachment_name is not None %}
                                     {% if rm.attachment_type == "image" %}
                                         <ul class="list-inline message-img  mb-0">
