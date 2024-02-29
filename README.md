@@ -18,6 +18,8 @@
 |  Settings | modify profile | ✔ | modify password | ✔ | -- | -- | -- | -- |
 |  Others | light/dark mode | ✔ | log out | ✔ | -- | -- | -- | -- |
 
+**Tutorial:** To help beginners quickly get started with website construction based on the Django framework, we provide a tutorial on website construction. [Click to view](https://github.com/heatingma/Chat-Website-Tutorial)
+
 ## Preview
 
 #### post
