@@ -127,7 +127,7 @@ def sendemail(request: HttpRequest):
     if request.headers.get("x-requested-with") == "XMLHttpRequest":
         to_email = request.POST.get("to_email")
         sms_code = "%06d" % random.randint(0, 999999)
-        EMAIL_FROM = "1712471374@qq.com"  # 邮箱来自
+        EMAIL_FROM = "youremail"  # 邮箱来自
         email_title = "邮箱激活"
         email_body = "您的邮箱注册验证码为：{0}, 该验证码有效时间为两分钟，请及时进行验证。".format(sms_code)
         try:
