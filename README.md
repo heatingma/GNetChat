@@ -1,8 +1,6 @@
-<div align=center><img src="docs/gnetchat-logo.png" alt="logo" width="500"/></div>
+<div align=center><img src="docs/gnetchat.png" alt="logo" width="700"/></div>
 
-# <center>GNetChat</center>
-
-&emsp;&emsp;GNetChat, standing as an abbreviation for **General Networking Chat**, is an innovatively designed communication platform tailored specifically to bridge the educational gap between teachers and students. This dynamic website is dedicated to streamlining the exchange of course materials, assignments, and insightful academic discussions, thereby fostering a robust educational environment. It facilitates not only the direct communication and feedback loop between educators and learners but also encourages vibrant group collaborations and resource sharing among classmates. With GNetChat, students can easily form study groups, share essential resources, and collaborate on projects in real-time, making it an indispensable tool for modern education. Its intuitive interface and comprehensive features aim to enhance learning outcomes and promote a more engaged and interactive academic community.
+**GNetChat**, standing as an abbreviation for **General Networking Chat**, is an innovatively designed communication platform tailored specifically to bridge the educational gap between teachers and students. This dynamic website is dedicated to streamlining the exchange of course materials, assignments, and insightful academic discussions, thereby fostering a robust educational environment. It facilitates not only the direct communication and feedback loop between educators and learners but also encourages vibrant group collaborations and resource sharing among classmates. With GNetChat, students can easily form study groups, share essential resources, and collaborate on projects in real-time, making it an indispensable tool for modern education. Its intuitive interface and comprehensive features aim to enhance learning outcomes and promote a more engaged and interactive academic community.
 
 ## What does GNetChat support?
 
